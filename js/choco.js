@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 0);
 
     }, 1000);
-  }, 7000);
+  }, 5000);
 
 
 btn.addEventListener('click', () => {
