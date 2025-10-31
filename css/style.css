@@ -1,3 +1,9 @@
+:root {
+  --chocolate-brown: #4E342E; /* Brun chocolat intense */
+  --creamy-beige: #D7CCC8;    /* Beige doux et crémeux */
+  --golden-cocoa: #C9A86A;    /* Doré chaud comme le cacao */
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
