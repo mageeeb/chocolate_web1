@@ -1,3 +1,9 @@
+:root {
+  --chocolate-brown: #4E342E; /* Brun chocolat intense */
+  --creamy-beige: #D7CCC8;    /* Beige doux et crémeux */
+  --golden-cocoa: #C9A86A;    /* Doré chaud comme le cacao */
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon/icomoon.eot?srf3rx');
@@ -33,6 +39,43 @@ body {
     background: #000 url(../images/broken_noise.png) repeat;
   }
 }
+
+
+.choco-card {
+  background: #2c1b18;
+  color: #fff;
+  padding: 25px 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+.choco-card img {
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.choco-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+.choco-card .price {
+  display: block;
+  font-weight: bold;
+  color: #ffcc66;
+  font-size: 18px;
+}
+.choco-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+.choco-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
 
 #page {
   position: relative;
@@ -605,7 +648,7 @@ li {
 #fh5co-reservation-form .fh5co-item {
   float: left;
   width: 100%;
-  background: #fff;
+  
 }
 #fh5co-featured-menu .fh5co-item.margin_top,
 #fh5co-gallery .fh5co-item.margin_top,
@@ -710,7 +753,7 @@ li {
   line-height: 50px;
   font-style: italic;
   font-weight: 300;
-  color: #fff;
+  color: gold;
 }
 @media screen and (max-width: 992px) {
   #fh5co-featured-testimony blockquote p {
