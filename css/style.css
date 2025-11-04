@@ -1,6 +1,7 @@
 :root {
   --chocolate-brown: #4e342e; /* Brun chocolat intense */
   --creamy-beige: #d7ccc8; /* Beige doux et crémeux */
+  --gold: gold; /* Doré chaud comme le cacao */
   --golden-cocoa: #c9a86a; /* Doré chaud comme le cacao */
 }
 
@@ -18,9 +19,9 @@
 .titre-chocolat {
   font-family: "Amatic SC", sans-serif;
   font-size: 2.5rem;
-  color: #4b2e2e; 
+  color: #4b2e2e;
 }
-.titre-chocolat>li>a:hover{
+.titre-chocolat > li > a:hover {
   color: var(--golden-cocoa) !important;
 }
 /* =======================================================
@@ -328,7 +329,6 @@ li {
   #downBtn {
     display: none;
   }
-
 }
 
 #downBtn {
@@ -2035,3 +2035,88 @@ textarea {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* ABOUT start */
+.section__about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 0;
+}
+.section__about__title {
+  font-family: "Marck Script", cursive;
+  color: var(--gold);
+}
+.about__title__span {
+  color: white;
+}
+.section__about__para {
+  font-size: 2.5rem;
+}
+
+.section__features,
+.section__community {
+  padding: 4% 10%;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.section__features h2,
+.section__community h2 {
+  font-family: "Marck Script", cursive;
+  color: var(--gold);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.features__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  list-style: none;
+}
+
+.feature__card {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.feature__card:hover {
+  transform: translateY(-5px);
+}
+
+.feature__icon {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform .5s ease;
+  transform: rotate(0deg);
+}
+
+.feature__icon.rotate {
+  transform: rotate(360deg);
+}
+
+.feature__card p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.cta {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-top: 2rem;
+}
+
+/* ABOUT end */
