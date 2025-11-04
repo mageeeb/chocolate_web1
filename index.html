@@ -314,60 +314,439 @@
 			<div class="container">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<h2>Events</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, consequatur. Aliquam quaerat
-							pariatur repellendus veniam nemo, saepe, culpa eius aspernatur cumque suscipit quae nobis
-							illo tempora. Eum veniam necessitatibus, blanditiis facilis quidem dolore! Dolorem,
-							molestiae.</p>
+						<h2>Commentaires</h2>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/gallery_1.jpeg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">Feb. 15th 2016</span>
-								<h3><a href="#">Photoshoot On The Street</a></h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and
-									Consonantia, there live the blind texts.</p>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>1.2K</li>
-									<li><i class="icon-eye2"></i>2K</li>
-									<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
+					<div class="col-md-12">
+						<!-- Bootstrap 3 Carousel pour commentaires - Desktop -->
+						<div id="commentsCarousel" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
+							<!-- Indicateurs -->
+							<ol class="carousel-indicators">
+								<li data-target="#commentsCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#commentsCarousel" data-slide-to="1"></li>
+								<li data-target="#commentsCarousel" data-slide-to="2"></li>
+							</ol>
+							
+							<!-- Slides du carousel -->
+							<div class="carousel-inner" role="listbox">
+								<!-- Slide 1 - 3 cartes côte à côte -->
+								<div class="item active">
+									<div class="row">
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">15 Février 2024</span>
+															<h4>Excellente expérience</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Le chocolat était absolument délicieux ! La qualité et le goût sont exceptionnels. Je recommande vivement cette chocolaterie."</p>
+													<div class="comment-author">— Marie Dubois</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">22 Mars 2024</span>
+															<h4>Service impeccable</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"L'accueil était chaleureux et le personnel très professionnel. Les chocolats sont un vrai régal pour les papilles."</p>
+													<div class="comment-author">— Pierre Martin</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">5 Avril 2024</span>
+															<h4>Produits de qualité</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Une découverte fantastique ! Les chocolats sont artisanaux et d'une qualité rare. Un vrai plaisir gustatif."</p>
+													<div class="comment-author">— Sophie Leroy</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 2 - 3 autres cartes -->
+								<div class="item">
+									<div class="row">
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">18 Mai 2024</span>
+															<h4>Cadeau parfait</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"J'ai offert une boîte de chocolats et ce fut un succès total ! Présentation soignée et goût exceptionnel."</p>
+													<div class="comment-author">— Julie Bernard</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">30 Juin 2024</span>
+															<h4>Tradition et modernité</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Un parfait mélange entre savoir-faire traditionnel et innovation. Les saveurs sont uniques et mémorables."</p>
+													<div class="comment-author">— Thomas Rousseau</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">12 Juillet 2024</span>
+															<h4>Moment magique</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Chaque bouchée est un voyage. L'attention aux détails et la passion se ressentent dans chaque création."</p>
+													<div class="comment-author">— Émilie Moreau</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 3 - 3 dernières cartes -->
+								<div class="item">
+									<div class="row">
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">25 Août 2024</span>
+															<h4>Incontournable</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Impossible de résister ! Ces chocolats sont devenus ma nouvelle addiction. Qualité irréprochable à chaque visite."</p>
+													<div class="comment-author">— Alexandre Petit</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">10 Septembre 2024</span>
+															<h4>Expérience unique</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Plus qu'une simple dégustation, c'est une véritable expérience sensorielle. Bravo pour ce travail d'orfèvre !"</p>
+													<div class="comment-author">— Camille Durand</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-6 col-xs-12">
+											<div class="comment-card">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">28 Octobre 2024</span>
+															<h4>Pur délice</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Des créations qui réveillent les sens. Chaque chocolat raconte une histoire et procure un plaisir intense."</p>
+													<div class="comment-author">— Nicolas Girard</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
+							
+							<!-- Contrôles gauche et droite -->
+							<a class="left carousel-control" href="#commentsCarousel" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Précédent</span>
+							</a>
+							<a class="right carousel-control" href="#commentsCarousel" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Suivant</span>
+							</a>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/gallery_2.jpeg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">Feb. 15th 2016</span>
-								<h3><a href="#">Surfing at Philippines</a></h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and
-									Consonantia, there live the blind texts.</p>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>1.2K</li>
-									<li><i class="icon-eye2"></i>2K</li>
-									<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
+						
+						<!-- Bootstrap 3 Carousel pour commentaires - Mobile -->
+						<div id="commentsCarouselMobile" class="carousel slide visible-xs" data-ride="carousel" data-interval="3500">
+							<!-- Indicateurs -->
+							<ol class="carousel-indicators">
+								<li data-target="#commentsCarouselMobile" data-slide-to="0" class="active"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="1"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="2"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="3"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="4"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="5"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="6"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="7"></li>
+								<li data-target="#commentsCarouselMobile" data-slide-to="8"></li>
+							</ol>
+							
+							<!-- Slides du carousel mobile - une carte par slide -->
+							<div class="carousel-inner" role="listbox">
+								<!-- Slide 1 -->
+								<div class="item active">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">15 Février 2024</span>
+															<h4>Excellente expérience</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Le chocolat était absolument délicieux ! La qualité et le goût sont exceptionnels. Je recommande vivement cette chocolaterie."</p>
+													<div class="comment-author">— Marie Dubois</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 2 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">22 Mars 2024</span>
+															<h4>Service impeccable</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"L'accueil était chaleureux et le personnel très professionnel. Les chocolats sont un vrai régal pour les papilles."</p>
+													<div class="comment-author">— Pierre Martin</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 3 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">5 Avril 2024</span>
+															<h4>Produits de qualité</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Une découverte fantastique ! Les chocolats sont artisanaux et d'une qualité rare. Un vrai plaisir gustatif."</p>
+													<div class="comment-author">— Sophie Leroy</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 4 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">18 Mai 2024</span>
+															<h4>Cadeau parfait</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"J'ai offert une boîte de chocolats et ce fut un succès total ! Présentation soignée et goût exceptionnel."</p>
+													<div class="comment-author">— Julie Bernard</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 5 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">30 Juin 2024</span>
+															<h4>Tradition et modernité</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Un parfait mélange entre savoir-faire traditionnel et innovation. Les saveurs sont uniques et mémorables."</p>
+													<div class="comment-author">— Thomas Rousseau</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 6 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">12 Juillet 2024</span>
+															<h4>Moment magique</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Chaque bouchée est un voyage. L'attention aux détails et la passion se ressentent dans chaque création."</p>
+													<div class="comment-author">— Émilie Moreau</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 7 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">25 Août 2024</span>
+															<h4>Incontournable</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Impossible de résister ! Ces chocolats sont devenus ma nouvelle addiction. Qualité irréprochable à chaque visite."</p>
+													<div class="comment-author">— Alexandre Petit</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 8 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">10 Septembre 2024</span>
+															<h4>Expérience unique</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Plus qu'une simple dégustation, c'est une véritable expérience sensorielle. Bravo pour ce travail d'orfèvre !"</p>
+													<div class="comment-author">— Camille Durand</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Slide 9 -->
+								<div class="item">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="comment-card-mobile">
+												<div class="comment-content">
+													<div class="comment-header">
+														<div class="comment-text-section">
+															<span class="comment-date">28 Octobre 2024</span>
+															<h4>Pur délice</h4>
+														</div>
+														<div class="comment-photo">
+															<!-- Espace pour photo ronde -->
+														</div>
+													</div>
+													<p>"Des créations qui réveillent les sens. Chaque chocolat raconte une histoire et procure un plaisir intense."</p>
+													<div class="comment-author">— Nicolas Girard</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="fh5co-blog animate-box">
-							<a href="#" class="blog-bg" style="background-image: url(images/gallery_3.jpeg);"></a>
-							<div class="blog-text">
-								<span class="posted_on">Feb. 15th 2016</span>
-								<h3><a href="#">Focus On Uderwater</a></h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and
-									Consonantia, there live the blind texts.</p>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>1.2K</li>
-									<li><i class="icon-eye2"></i>2K</li>
-									<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-								</ul>
-							</div>
+							
+							<!-- Contrôles gauche et droite pour mobile -->
+							<a class="left carousel-control" href="#commentsCarouselMobile" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Précédent</span>
+							</a>
+							<a class="right carousel-control" href="#commentsCarouselMobile" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Suivant</span>
+							</a>
 						</div>
 					</div>
 				</div>
