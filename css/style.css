@@ -393,8 +393,9 @@ li {
 #fh5co-header {
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   position: relative;
+  /* max-height: 50vh; */
 }
 @media screen and (max-width: 768px) {
   #fh5co-header {
