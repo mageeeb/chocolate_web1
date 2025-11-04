@@ -54,6 +54,16 @@ btn.addEventListener('click', () => {
   });
 });
 
-
+  // Configuration du carousel Bootstrap pour les commentaires
+  if (typeof $ !== 'undefined' && $('#commentsCarousel').length) {
+    $('#commentsCarousel').carousel({
+      interval: 4000, // Défilement automatique toutes les 4 secondes
+      wrap: true,     // Boucle infinie
+      pause: 'hover'  // Pause au survol
+    });
+    
+    // Démarrer le carousel automatiquement
+    $('#commentsCarousel').carousel('cycle');
+  }
 
 });
