@@ -42,6 +42,42 @@ body {
   }
 }
 
+.choco-card {
+  background: #2c1b18;
+  color: #fff;
+  padding: 25px 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(118, 97, 97, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+.choco-card img {
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.choco-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+.choco-card .price {
+  display: block;
+  font-weight: bold;
+  color: #ffcc66;
+  font-size: 18px;
+}
+.choco-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+.choco-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+
 #page {
   position: relative;
   overflow-x: hidden;
@@ -621,7 +657,7 @@ li {
 #fh5co-reservation-form .fh5co-item {
   float: left;
   width: 100%;
-  background: #fff;
+  
 }
 #fh5co-featured-menu .fh5co-item.margin_top,
 #fh5co-gallery .fh5co-item.margin_top,
