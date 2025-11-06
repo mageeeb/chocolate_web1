@@ -78,6 +78,17 @@ body {
 }
 
 
+.logo{
+  width: 8em;
+
+}
+
+.logoContainer{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
