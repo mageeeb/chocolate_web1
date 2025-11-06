@@ -206,16 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const originalText = submitBtn.querySelector('.btn-text').textContent;
     const btnText = submitBtn.querySelector('.btn-text');
-    const btnIcon = submitBtn.querySelector('.btn-icon');
     
     // Animation au survol
-    submitBtn.addEventListener('mouseenter', () => {
-      btnIcon.style.transform = 'rotate(360deg) scale(1.2)';
-      createButtonParticles(submitBtn);
-    });
+    // submitBtn.addEventListener('mouseenter', () => {
+    //   createButtonParticles(submitBtn);
+    // });
     
     submitBtn.addEventListener('mouseleave', () => {
-      btnIcon.style.transform = 'rotate(0deg) scale(1)';
+      // Plus d'animation d'icône
     });
     
     // Animation au clic / soumission
@@ -236,38 +234,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   
-  const createButtonParticles = (button) => {
-    for (let i = 0; i < 8; i++) {
-      const particle = document.createElement('div');
-      particle.style.cssText = `
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: #fff;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 1000;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        animation: buttonParticle 1s ease-out forwards;
-      `;
+  // const createButtonParticles = (button) => {
+  //   for (let i = 0; i < 8; i++) {
+  //     const particle = document.createElement('div');
+  //     particle.style.cssText = `
+  //       position: absolute;
+  //       width: 4px;
+  //       height: 4px;
+  //       background: #fff;
+  //       border-radius: 50%;
+  //       pointer-events: none;
+  //       z-index: 1000;
+  //       left: ${Math.random() * 100}%;
+  //       top: ${Math.random() * 100}%;
+  //       animation: buttonParticle 1s ease-out forwards;
+  //     `;
       
-      button.appendChild(particle);
+  //     button.appendChild(particle);
       
-      setTimeout(() => {
-        if (particle.parentElement) {
-          particle.parentElement.removeChild(particle);
-        }
-      }, 1000);
-    }
-  };
+  //     setTimeout(() => {
+  //       if (particle.parentElement) {
+  //         particle.parentElement.removeChild(particle);
+  //       }
+  //     }, 1000);
+  //   }
+  // };
   
   const animateSubmissionSuccess = () => {
     const btnText = submitBtn.querySelector('.btn-text');
-    const btnIcon = submitBtn.querySelector('.btn-icon');
     
     btnText.textContent = 'Message envoyé !';
-    btnIcon.textContent = '✅';
     submitBtn.style.background = 'linear-gradient(45deg, #4CAF50, #66BB6A)';
     
     // Effet de confettis
@@ -276,7 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reset après 3 secondes
     setTimeout(() => {
       btnText.textContent = 'Envoyer le message';
-      btnIcon.textContent = '✨';
       submitBtn.style.background = 'linear-gradient(45deg, #ffd700, #ffaa00)';
     }, 3000);
   };
@@ -341,11 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
     style.textContent = `
       @keyframes ripple {
         to { transform: scale(4); opacity: 0; }
-      }
-      
-      @keyframes sparkleUp {
-        0% { opacity: 1; transform: translateY(-50%) scale(1); }
-        100% { opacity: 0; transform: translateY(-80%) scale(0.5); }
       }
       
       @keyframes shake {
