@@ -272,7 +272,7 @@ figure {
   top: 40px;
   left: 0;
   text-align: left;
-  background: #887200;
+  background: #35261a;
   padding: 20px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -306,7 +306,7 @@ figure {
   font-size: 20px;
   padding: 2px 0;
   display: block;
-  color: black;
+  color:#fff;
   line-height: 1.2;
   text-transform: none;
   letter-spacing: 0;
