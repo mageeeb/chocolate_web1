@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 0);
 
     }, 1000);
-  }, 7000);
+  }, 5000);
 
 
 btn.addEventListener('click', () => {
@@ -54,28 +54,6 @@ btn.addEventListener('click', () => {
   });
 });
 
-  // Configuration du carousel Bootstrap pour les commentaires - Desktop
-  if (typeof $ !== 'undefined' && $('#commentsCarousel').length) {
-    $('#commentsCarousel').carousel({
-      interval: 4000, // Défilement automatique toutes les 4 secondes
-      wrap: true,     // Boucle infinie
-      pause: 'hover'  // Pause au survol
-    });
-    
-    // Démarrer le carousel automatiquement
-    $('#commentsCarousel').carousel('cycle');
-  }
-  
-  // Configuration du carousel Bootstrap pour les commentaires - Mobile
-  if (typeof $ !== 'undefined' && $('#commentsCarouselMobile').length) {
-    $('#commentsCarouselMobile').carousel({
-      interval: 3500, // Défilement automatique toutes les 3.5 secondes (plus rapide pour mobile)
-      wrap: true,     // Boucle infinie
-      pause: 'hover'  // Pause au survol
-    });
-    
-    // Démarrer le carousel automatiquement
-    $('#commentsCarouselMobile').carousel('cycle');
-  }
+
 
 });

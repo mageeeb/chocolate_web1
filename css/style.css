@@ -370,6 +370,11 @@ li {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   max-width: 95%;
 }
+
+#chocoTitle>:first-child{
+  width: 13%;
+}
+
 @media (max-width: 1024px) {
   #chocoTitle,
   #downBtn {
@@ -2377,3 +2382,87 @@ textarea {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* ABOUT start */
+.section__about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0;
+}
+.section__about__title {
+  font-family: "Marck Script", cursive;
+  color: var(--gold);
+}
+
+.about__title__span {
+  color: gold;
+}
+
+.section__about__para {
+  font-size: 2.5rem;
+}
+
+.section__features,
+.section__community {
+  padding: 4% 10%;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.section__features h2,
+.section__community h2 {
+  font-family: "Marck Script", cursive;
+  color: gold;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.features__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  list-style: none;
+}
+
+.feature__card {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.feature__card:hover {
+  transform: translateY(-5px);
+}
+
+.feature__icon {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform .5s ease;
+  transform: rotate(0deg);
+}
+
+.feature__icon.rotate {
+  transform: rotate(360deg);
+}
+
+.feature__card p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.cta {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-top: 2rem;
+}
