@@ -18,9 +18,9 @@
 .titre-chocolat {
   font-family: "Amatic SC", sans-serif;
   font-size: 2.5rem;
-  color: #4b2e2e; 
+  color: #4b2e2e;
 }
-.titre-chocolat>li>a:hover{
+.titre-chocolat > li > a:hover {
   color: var(--golden-cocoa) !important;
 }
 /* =======================================================
@@ -48,7 +48,7 @@ body {
   padding: 25px 15px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(118, 97, 97, 0.3);
+
   transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 .choco-card img {
@@ -74,9 +74,18 @@ body {
 }
 .choco-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
+.logo {
+  width: 8em;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #page {
   position: relative;
@@ -359,12 +368,16 @@ li {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   max-width: 95%;
 }
+
+.chocotitleAbout > :first-child {
+  width: 13%;
+}
+
 @media (max-width: 1024px) {
   #chocoTitle,
   #downBtn {
     display: none;
   }
-
 }
 
 #downBtn {
@@ -659,7 +672,6 @@ li {
 #fh5co-reservation-form .fh5co-item {
   float: left;
   width: 100%;
-  
 }
 #fh5co-featured-menu .fh5co-item.margin_top,
 #fh5co-gallery .fh5co-item.margin_top,
@@ -780,6 +792,7 @@ li {
 }
 
 #fh5co-slider-wrwap {
+  border-radius: 50%;
   height: 500px !important;
   background: url(../images/loader.gif) no-repeat center center;
 }
@@ -925,7 +938,7 @@ li {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
   color: #ea272d;
   padding-left: 10px;
   padding-right: 10px;
@@ -1268,7 +1281,7 @@ li {
   display: inline-block;
   margin-bottom: 20px;
   font-size: 14px !important;
-  color: rgba(0, 0, 0, 0.3);
+  color: white;
 }
 .fh5co-blog .blog-text .stuff {
   margin: 0;
@@ -2523,7 +2536,7 @@ textarea {
 
 .comment-content h4 {
   color: #3e1f0d;
-  font-family: 'Satisfy', cursive;
+  font-family: "Satisfy", cursive;
   font-size: 20px;
   margin: 0;
   line-height: 1.2;
@@ -2547,7 +2560,7 @@ textarea {
   font-size: 13px;
   font-weight: 600;
   text-align: right;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   margin-top: auto;
 }
 
@@ -2599,29 +2612,29 @@ textarea {
     margin: 10px 5px;
     height: 200px;
   }
-  
+
   .comment-content {
     padding: 20px 15px;
   }
-  
+
   .comment-content h4 {
     font-size: 18px;
   }
-  
+
   .comment-content p {
     font-size: 13px;
     -webkit-line-clamp: 3;
   }
-  
+
   .comment-photo {
     width: 40px;
     height: 40px;
   }
-  
+
   .comment-photo::before {
     font-size: 16px;
   }
-  
+
   .comment-text-section {
     margin-right: 12px;
   }
@@ -2631,64 +2644,64 @@ textarea {
   #commentsCarousel .left.carousel-control {
     left: -15px;
   }
-  
+
   #commentsCarousel .right.carousel-control {
     right: -15px;
   }
-  
+
   .comment-content h4 {
     font-size: 16px;
   }
-  
+
   .comment-content p {
     font-size: 12px;
     -webkit-line-clamp: 3;
   }
-  
+
   .comment-card {
     height: 180px;
   }
-  
+
   .comment-content {
     padding: 15px 12px;
   }
-  
+
   .comment-photo {
     width: 35px;
     height: 35px;
   }
-  
+
   .comment-photo::before {
     font-size: 14px;
   }
-  
+
   .comment-text-section {
     margin-right: 10px;
   }
-  
+
   /* Styles spécifiques pour le carousel mobile */
   .comment-card-mobile {
     height: 200px;
     margin: 10px 15px;
   }
-  
+
   .comment-card-mobile .comment-content {
     padding: 18px 15px;
   }
-  
+
   .comment-card-mobile .comment-content h4 {
     font-size: 18px;
   }
-  
+
   .comment-card-mobile .comment-content p {
     font-size: 14px;
     -webkit-line-clamp: 4;
   }
-  
+
   #commentsCarouselMobile .carousel-indicators {
     bottom: -40px;
   }
-  
+
   #commentsCarouselMobile .carousel-indicators li {
     width: 8px;
     height: 8px;
@@ -2702,15 +2715,15 @@ textarea {
     height: 180px;
     margin: 10px 5px;
   }
-  
+
   .comment-card-mobile .comment-content {
     padding: 15px 12px;
   }
-  
+
   .comment-card-mobile .comment-content h4 {
     font-size: 16px;
   }
-  
+
   .comment-card-mobile .comment-content p {
     font-size: 13px;
     -webkit-line-clamp: 3;
@@ -2718,3 +2731,87 @@ textarea {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* ABOUT start */
+.section__about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0;
+}
+.section__about__title {
+  font-family: "Marck Script", cursive;
+  color: var(--gold);
+}
+
+.about__title__span {
+  color: gold;
+}
+
+.section__about__para {
+  font-size: 2.5rem;
+}
+
+.section__features,
+.section__community {
+  padding: 4% 10%;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.section__features h2,
+.section__community h2 {
+  font-family: "Marck Script", cursive;
+  color: gold;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.features__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  list-style: none;
+}
+
+.feature__card {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.feature__card:hover {
+  transform: translateY(-5px);
+}
+
+.feature__icon {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform 0.5s ease;
+  transform: rotate(0deg);
+}
+
+.feature__icon.rotate {
+  transform: rotate(360deg);
+}
+
+.feature__card p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.cta {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-top: 2rem;
+}
