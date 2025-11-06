@@ -2125,22 +2125,6 @@ li {
   transition: all 0.3s ease;
 }
 
-.btn-icon {
-  margin-left: 10px;
-  font-size: 20px;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.modern-submit-btn:hover .btn-icon {
-  animation: sparkle 0.6s ease;
-}
-
-@keyframes sparkle {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.2) rotate(180deg); }
-}
-
 /* Animation d'apparition pour le formulaire */
 .modern-form-container {
   opacity: 0;
