@@ -18,9 +18,9 @@
 .titre-chocolat {
   font-family: "Amatic SC", sans-serif;
   font-size: 2.5rem;
-  color: #4b2e2e; 
+  color: #4b2e2e;
 }
-.titre-chocolat>li>a:hover{
+.titre-chocolat > li > a:hover {
   color: var(--golden-cocoa) !important;
 }
 /* =======================================================
@@ -48,7 +48,7 @@ body {
   padding: 25px 15px;
   border-radius: 15px;
   text-align: center;
- 
+
   transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 .choco-card img {
@@ -74,19 +74,17 @@ body {
 }
 .choco-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-
-.logo{
+.logo {
   width: 8em;
-
 }
 
-.logoContainer{
+.logoContainer {
   display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 #page {
@@ -371,7 +369,7 @@ li {
   max-width: 95%;
 }
 
-.chocotitleAbout>:first-child{
+.chocotitleAbout > :first-child {
   width: 13%;
 }
 
@@ -380,7 +378,6 @@ li {
   #downBtn {
     display: none;
   }
-
 }
 
 #downBtn {
@@ -672,7 +669,6 @@ li {
 #fh5co-reservation-form .fh5co-item {
   float: left;
   width: 100%;
-  
 }
 #fh5co-featured-menu .fh5co-item.margin_top,
 #fh5co-gallery .fh5co-item.margin_top,
@@ -2188,7 +2184,7 @@ textarea {
 
 .comment-content h4 {
   color: #3e1f0d;
-  font-family: 'Satisfy', cursive;
+  font-family: "Satisfy", cursive;
   font-size: 20px;
   margin: 0;
   line-height: 1.2;
@@ -2212,7 +2208,7 @@ textarea {
   font-size: 13px;
   font-weight: 600;
   text-align: right;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   margin-top: auto;
 }
 
@@ -2264,29 +2260,29 @@ textarea {
     margin: 10px 5px;
     height: 200px;
   }
-  
+
   .comment-content {
     padding: 20px 15px;
   }
-  
+
   .comment-content h4 {
     font-size: 18px;
   }
-  
+
   .comment-content p {
     font-size: 13px;
     -webkit-line-clamp: 3;
   }
-  
+
   .comment-photo {
     width: 40px;
     height: 40px;
   }
-  
+
   .comment-photo::before {
     font-size: 16px;
   }
-  
+
   .comment-text-section {
     margin-right: 12px;
   }
@@ -2296,64 +2292,64 @@ textarea {
   #commentsCarousel .left.carousel-control {
     left: -15px;
   }
-  
+
   #commentsCarousel .right.carousel-control {
     right: -15px;
   }
-  
+
   .comment-content h4 {
     font-size: 16px;
   }
-  
+
   .comment-content p {
     font-size: 12px;
     -webkit-line-clamp: 3;
   }
-  
+
   .comment-card {
     height: 180px;
   }
-  
+
   .comment-content {
     padding: 15px 12px;
   }
-  
+
   .comment-photo {
     width: 35px;
     height: 35px;
   }
-  
+
   .comment-photo::before {
     font-size: 14px;
   }
-  
+
   .comment-text-section {
     margin-right: 10px;
   }
-  
+
   /* Styles spécifiques pour le carousel mobile */
   .comment-card-mobile {
     height: 200px;
     margin: 10px 15px;
   }
-  
+
   .comment-card-mobile .comment-content {
     padding: 18px 15px;
   }
-  
+
   .comment-card-mobile .comment-content h4 {
     font-size: 18px;
   }
-  
+
   .comment-card-mobile .comment-content p {
     font-size: 14px;
     -webkit-line-clamp: 4;
   }
-  
+
   #commentsCarouselMobile .carousel-indicators {
     bottom: -40px;
   }
-  
+
   #commentsCarouselMobile .carousel-indicators li {
     width: 8px;
     height: 8px;
@@ -2367,15 +2363,15 @@ textarea {
     height: 180px;
     margin: 10px 5px;
   }
-  
+
   .comment-card-mobile .comment-content {
     padding: 15px 12px;
   }
-  
+
   .comment-card-mobile .comment-content h4 {
     font-size: 16px;
   }
-  
+
   .comment-card-mobile .comment-content p {
     font-size: 13px;
     -webkit-line-clamp: 3;
@@ -2448,7 +2444,7 @@ textarea {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
   transform: rotate(0deg);
 }
 
