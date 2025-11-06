@@ -272,7 +272,7 @@ figure {
   top: 40px;
   left: 0;
   text-align: left;
-  background: #ea272d;
+  background: #887200;
   padding: 20px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -303,13 +303,15 @@ figure {
   margin-bottom: 0;
 }
 .fh5co-nav ul li.has-dropdown .dropdown li a {
-  font-size: 17px;
+  font-size: 20px;
   padding: 2px 0;
   display: block;
-  color: white;
+  color: black;
   line-height: 1.2;
   text-transform: none;
   letter-spacing: 0;
+  font-weight: 900;
+  font-family: 'Cormorant Garamond';
 }
 .fh5co-nav ul li.has-dropdown .dropdown li a:hover {
   color: #fff;
