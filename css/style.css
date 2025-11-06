@@ -371,7 +371,7 @@ li {
   max-width: 95%;
 }
 
-#chocoTitle>:first-child{
+.chocotitleAbout>:first-child{
   width: 13%;
 }
 
@@ -801,6 +801,7 @@ li {
 }
 
 #fh5co-slider-wrwap {
+  border-radius: 50%;
   height: 500px !important;
   background: url(../images/loader.gif) no-repeat center center;
 }
@@ -946,7 +947,7 @@ li {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
   color: #ea272d;
   padding-left: 10px;
   padding-right: 10px;
