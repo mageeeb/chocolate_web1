@@ -2807,6 +2807,45 @@ textarea {
 /* FOOTER end */
 #fh5co-footer{
     display: block;
-  background: linear-gradient(to bottom, #1B1B1B, #3e2925, #7b4b3a), url(../images/);
+  background: linear-gradient(to bottom, #1B1B1B, #31221f, #7b4b3a);
+}
+.fh5co-footer-links>*,.fh5co-footer-links>li>*, .fh5co-widget p{
+  color: rgb(255, 253, 253) !important;
+}
 
+.fh5co-footer-links>li>*:hover{
+  color: var(--golden-cocoa) !important;
+}
+
+.fh5co-widget h4{
+  color: gold !important;
+}
+
+.fh5co-widget small {
+  color: blue !important;
+}
+.copyright__small{
+  color: white ;
+}
+.copyright__small a {
+  color: gold;
+}
+
+#fh5co-footer img {
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+  animation: levit 3s ease-in-out infinite;
+}
+
+@keyframes levit {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
