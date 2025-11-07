@@ -2801,3 +2801,12 @@ textarea {
   color: var(--gold);
   margin-top: 2rem;
 }
+/* ABOUT end */
+
+/* FOOTER start */
+/* FOOTER end */
+#fh5co-footer{
+    display: block;
+  background: linear-gradient(to bottom, #1B1B1B, #3e2925, #7b4b3a), url(../images/);
+
+}
