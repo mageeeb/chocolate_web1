@@ -73,11 +73,10 @@
 }
 
 /* Ingredients Section */
-.ingredients-section {
-  background-color: #fff;
-  padding: 3rem 0;
+.d-flex {
+    display: flex !important;
+    align-items: center;
 }
-
 .ingredients-container,
 .description-container {
   background: #fff;
