@@ -32,7 +32,7 @@
 }
 
 .rating i {
-  color: #FFB800;
+  color: #ffb800;
 }
 
 /* Ingredients & Description */
@@ -57,6 +57,9 @@
 
 /* Steps */
 .step-number .badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--chocolate-dark);
   width: 28px;
   height: 28px;
@@ -108,7 +111,7 @@
   .hero-section img {
     height: 300px;
   }
-  
+
   .recipe-info h1 {
     font-size: 1.75rem;
   }
@@ -127,7 +130,7 @@
   .hero-section img {
     height: 250px;
   }
-  
+
   .recipe-info h1 {
     font-size: 1.5rem;
   }
