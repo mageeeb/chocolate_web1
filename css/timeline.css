@@ -46,6 +46,7 @@
   justify-content: center;
   color: white;
   z-index: 2;
+  font-size: large;
 }
 
 .timeline-step.left .step-number {

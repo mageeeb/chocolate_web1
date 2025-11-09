@@ -63,7 +63,8 @@
   background-color: var(--chocolate-dark);
   width: 28px;
   height: 28px;
-  font-weight: 500;
+  font-size: large;
+  font-weight: 600;
 }
 
 .step-content h3 {
