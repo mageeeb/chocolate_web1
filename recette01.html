@@ -41,32 +41,42 @@
               <h1 class="h2 mb-3">Čupavci – Gâteau traditionnel au chocolat et à la noix de coco</h1>
               <p class="text-muted mb-4">Découvrez cette délicieuse pâtisserie traditionnelle des Balkans. Ces petits cubes moelleux au chocolat, enrobés d'une ganache onctueuse et de noix de coco, sont parfaits pour accompagner votre café ou impressionner vos invités.</p>
               
-              <div class="d-flex align-items-center gap-4 mb-4">
-                <div class="recipe-meta">
-                  <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-clock text-brown"></i>
-                    <span>45 minutes</span>
+              <div class="recipe-meta-info mb-4">
+                <div class="d-flex flex-wrap gap-4">
+                  <div class="meta-item">
+                    <div class="meta-icon">
+                      <i class="bi bi-clock"></i>
+                    </div>
+                    <div class="meta-content">
+                      <div class="meta-label">Temps de préparation</div>
+                      <div class="meta-value">45 minutes</div>
+                    </div>
                   </div>
-                </div>
-                <div class="recipe-meta">
-                  <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-people text-brown"></i>
-                    <span>6 personnes</span>
+                  <div class="meta-item">
+                    <div class="meta-icon">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="meta-content">
+                      <div class="meta-label">Pour</div>
+                      <div class="meta-value">6 personnes</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="d-flex align-items-center gap-3">
-                <div class="author-info small text-muted">
-                  <span>Partagé par Amélie Dupont</span>
+              <div class="recipe-author d-flex align-items-center">
+                <div class="author-avatar">AD</div>
+                <div class="author-info">
+                  <div>Partagé par Amélie Dupont</div>
+                  <div class="text-muted small">12 mars 2024</div>
                 </div>
-                <div class="ms-auto">
-                  <div class="rating">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
+                <div class="rating-container ms-auto">
+                  <div class="rating" data-rating="0">
+                    <i class="bi bi-star" data-value="1"></i>
+                    <i class="bi bi-star" data-value="2"></i>
+                    <i class="bi bi-star" data-value="3"></i>
+                    <i class="bi bi-star" data-value="4"></i>
+                    <i class="bi bi-star" data-value="5"></i>
                   </div>
                 </div>
               </div>
@@ -251,10 +261,32 @@
       <section class="comments-section my-5">
         <div class="bg-white p-4 rounded-4 shadow-sm">
           <h2 class="h4 mb-4 text-brown">Commentaires</h2>
-          <div class="mb-4">
-            <input type="text" class="form-control mb-2" placeholder="Nom">
-            <textarea class="form-control mb-3" rows="3" placeholder="Votre commentaire"></textarea>
-            <button class="btn btn-brown">Partager votre expérience avec cette recette</button>
+          
+          <form id="comment-form" class="mb-5">
+            <div class="form-group mb-3">
+              <label for="name" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="name" placeholder="Votre nom">
+            </div>
+            <div class="form-group mb-3">
+              <label for="subject" class="form-label">Sujet</label>
+              <input type="text" class="form-control" id="subject" placeholder="Sujet de votre commentaire">
+            </div>
+            <div class="form-group mb-4">
+              <label for="comment" class="form-label">Commentaire</label>
+              <textarea class="form-control" id="comment" rows="4" placeholder="Partagez votre expérience avec cette recette..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-brown w-100">Envoyer</button>
+          </form>
+
+          <div class="comments-list">
+            <div class="comment-item mb-4">
+              <div class="comment-header d-flex align-items-center gap-2 mb-2">
+                <strong class="text-brown">Marie Laurent</strong>
+                <span class="text-muted small">15 mars 2024</span>
+              </div>
+              <h5 class="comment-title h6 mb-2">Délicieux !</h5>
+              <p class="comment-text mb-0">J'ai essayé cette recette ce week-end et c'était absolument délicieux ! Toute la famille a adoré.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -286,6 +318,73 @@
         if (window.innerWidth <= 768) {
           document.body.classList.add('is-mobile');
         }
+
+        // Rating functionality
+        const ratingContainer = document.querySelector('.rating');
+        const stars = ratingContainer.querySelectorAll('i');
+        let currentRating = 0;
+
+        stars.forEach(star => {
+          // Hover effect
+          star.addEventListener('mouseenter', () => {
+            const value = parseInt(star.dataset.value);
+            updateStars(value);
+          });
+
+          // Click handler
+          star.addEventListener('click', () => {
+            const value = parseInt(star.dataset.value);
+            currentRating = value;
+            ratingContainer.dataset.rating = value;
+            updateStars(value);
+          });
+        });
+
+        // Reset stars on mouse leave if no rating selected
+        ratingContainer.addEventListener('mouseleave', () => {
+          updateStars(currentRating);
+        });
+
+        function updateStars(value) {
+          stars.forEach(star => {
+            const starValue = parseInt(star.dataset.value);
+            if (starValue <= value) {
+              star.classList.remove('bi-star');
+              star.classList.add('bi-star-fill');
+            } else {
+              star.classList.remove('bi-star-fill');
+              star.classList.add('bi-star');
+            }
+          });
+        }
+
+        // Comment form handling
+        const commentForm = document.getElementById('comment-form');
+        const commentsList = document.querySelector('.comments-list');
+
+        commentForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const name = document.getElementById('name').value;
+          const subject = document.getElementById('subject').value;
+          const comment = document.getElementById('comment').value;
+          
+          if (name && comment) {
+            const commentHTML = `
+              <div class="comment-item mb-4">
+                <div class="comment-header d-flex align-items-center gap-2 mb-2">
+                  <strong class="text-brown">${name}</strong>
+                  <span class="text-muted small">${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                </div>
+                ${subject ? `<h5 class="comment-title h6 mb-2">${subject}</h5>` : ''}
+                <p class="comment-text mb-0">${comment}</p>
+              </div>
+            `;
+            
+            commentsList.insertAdjacentHTML('afterbegin', commentHTML);
+            commentForm.reset();
+          }
+        });
       });
 
       // Smooth scroll handling

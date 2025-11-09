@@ -87,18 +87,133 @@
   box-shadow: var(--shadow-hover);
 }
 
+/* Recipe meta info */
+.recipe-meta-info {
+  margin-top: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meta-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--chocolate-dark);
+}
+
+.meta-icon i {
+  font-size: 1.2rem;
+}
+
+.meta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.875rem;
+  color: var(--chocolate-medium);
+}
+
+.meta-value {
+  font-weight: 500;
+  color: var(--chocolate-dark);
+}
+
+/* Author and Rating */
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--chocolate-dark);
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.rating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.rating i {
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #ddd;
+  transition: var(--transition-smooth);
+}
+
+.rating i.bi-star-fill,
+.rating i:hover,
+.rating i:hover ~ i {
+  color: #FFB800;
+}
+
 /* Comments */
-.comments-section textarea {
-  resize: none;
+.comments-section {
+  margin-top: 3rem;
+}
+
+.form-label {
+  color: var(--chocolate-dark);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background-color: white;
+}
+
+.form-control:focus {
+  border-color: var(--chocolate-medium);
+  box-shadow: 0 0 0 2px rgba(var(--chocolate-dark), 0.1);
 }
 
 .btn-brown {
   background-color: var(--chocolate-dark);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem;
   border-radius: var(--radius);
+  font-weight: 500;
   transition: var(--transition-smooth);
+}
+
+.btn-brown:hover {
+  background-color: var(--chocolate-medium);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.comment-item {
+  padding: 1.5rem;
+  background-color: var(--cream);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.comment-title {
+  color: var(--chocolate-dark);
+  font-weight: 600;
+}
+
+.comment-text {
+  color: var(--foreground);
+  line-height: 1.6;
 }
 
 .btn-brown:hover {
