@@ -1,209 +1,319 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Čupavci – Gâteau traditionnel au chocolat et à la noix de coco</title>
+    <meta name="description" content="Découvrez la recette traditionnelle des Čupavci, un délicieux gâteau au chocolat et à la noix de coco des Balkans. Recette détaillée avec photos." />
+    <meta name="author" content="Recettes Chocolat" />
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>About</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-	<meta name="keywords"
-		content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="freehtml5.co" />
+    <meta property="og:title" content="Čupavci – Gâteau traditionnel au chocolat et à la noix de coco" />
+    <meta property="og:description" content="Découvrez la recette traditionnelle des Čupavci, un délicieux gâteau au chocolat et à la noix de coco des Balkans" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@RecettesChocolat" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/ingredients.css">
+    <link rel="stylesheet" href="css/recette.css">
+    <link rel="stylesheet" href="css/animate.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="recipe-container">
+        <div class="hero-section p-4 bg-white rounded-4 shadow-sm mb-5">
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <img src="images/cupavci-hero.jpg" alt="Čupavci" class="img-fluid rounded-4 shadow">
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="recipe-info">
+              <h1 class="h2 mb-3">Čupavci – Gâteau traditionnel au chocolat et à la noix de coco</h1>
+              <p class="text-muted mb-4">Découvrez cette délicieuse pâtisserie traditionnelle des Balkans. Ces petits cubes moelleux au chocolat, enrobés d'une ganache onctueuse et de noix de coco, sont parfaits pour accompagner votre café ou impressionner vos invités.</p>
+              
+              <div class="d-flex align-items-center gap-4 mb-4">
+                <div class="recipe-meta">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-clock text-brown"></i>
+                    <span>45 minutes</span>
+                  </div>
+                </div>
+                <div class="recipe-meta">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-people text-brown"></i>
+                    <span>6 personnes</span>
+                  </div>
+                </div>
+              </div>
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+              <div class="d-flex align-items-center gap-3">
+                <div class="author-info small text-muted">
+                  <span>Partagé par Amélie Dupont</span>
+                </div>
+                <div class="ms-auto">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-	//////////////////////////////////////////////////////
-	 -->
+      <section class="ingredients-section my-5">
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+              <h2 class="h4 mb-4 text-brown">Ingrédients</h2>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>4 œufs</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>200g de sucre</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>200g de farine</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>50g de cacao en poudre</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>1 sachet de levure chimique</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>100ml d'huile</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>100ml de lait</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>200g de chocolat noir</span>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>200ml de crème liquide</span>
+                </li>
+                <li class="d-flex align-items-center gap-2">
+                  <i class="bi bi-circle-fill text-brown" style="font-size: 6px;"></i>
+                  <span>200g de noix de coco râpée</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+          <div class="col-12 col-lg-6">
+            <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+              <h2 class="h4 mb-4 text-brown">Description du gâteau</h2>
+              <div class="text-muted">
+                <p>Les Čupavci, littéralement "les poilus" en serbo-croate, sont une pâtisserie emblématique des pays balkaniques. Ce dessert traditionnel tire son nom de son apparence distinctive, rappelant de petits cubes recouverts d'une "fourrure" de noix de coco.</p>
+                <p>Cette recette allie la richesse du chocolat à la douceur de la noix de coco, créant un contraste de textures irrésistible. Le moelleux du gâteau au chocolat contraste parfaitement avec le croquant léger de la noix de coco râpée.</p>
+                <p class="mb-0">Parfaits pour les occasions spéciales ou simplement pour se faire plaisir, ces petits gâteaux se conservent plusieurs jours au réfrigérateur et peuvent même être congelés.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
-		rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
+      <section class="preparation-section my-5">
+        <h2 class="h4 mb-4 text-brown">Préparation pas à pas</h2>
+        
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">1</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Préparer la pâte</h3>
+                  <p class="text-muted mb-0">Montez les œufs avec le sucre jusqu'à obtenir un mélange mousseux. Ajoutez l'huile et le lait, puis mélangez bien.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">2</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Ajouter les ingrédients secs</h3>
+                  <p class="text-muted mb-0">Tamisez la farine avec le cacao et la levure. Incorporez délicatement ce mélange à la pâte préparée.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">3</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Cuisson</h3>
+                  <p class="text-muted mb-0">Versez la pâte dans un moule beurré et fariné. Faites cuire à 180°C pendant 25-30 minutes. Laissez refroidir complètement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">4</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Préparer la ganache</h3>
+                  <p class="text-muted mb-0">Faites chauffer la crème liquide, puis la verser sur le chocolat concassé. Mélangez jusqu'à obtenir une ganache lisse.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</head>
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">5</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Découper et tremper</h3>
+                  <p class="text-muted mb-0">Découpez le gâteau refroidi en petits cubes. Trempez chaque cube dans la ganache de chocolat puis les enrober bien.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<body>
+          <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <div class="d-flex gap-3">
+                <div class="step-number">
+                  <span class="badge rounded-circle bg-brown d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">6</span>
+                </div>
+                <div class="step-content">
+                  <h3 class="h5 mb-2">Enrober de noix de coco</h3>
+                  <p class="text-muted mb-0">Roulez immédiatement chaque cube dans la noix de coco râpée. Placez au réfrigérateur pour figer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<div class="fh5co-loader">
-		<img src="images/loader.gif" alt="loader chocolat" />
-	</div>
+      <section class="similar-recipes-section my-5">
+        <h2 class="h4 mb-4 text-brown">Recettes similaires</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+              <img src="images/recipe-1.jpg" alt="Brownies au Chocolat" class="w-100" style="height: 200px; object-fit: cover;">
+              <div class="p-3">
+                <h3 class="h6 mb-0">Brownies au Chocolat</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+              <img src="images/recipe-2.jpg" alt="Mousse au Chocolat" class="w-100" style="height: 200px; object-fit: cover;">
+              <div class="p-3">
+                <h3 class="h6 mb-0">Mousse au Chocolat</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+              <img src="images/recipe-3.jpg" alt="Gâteau au Chocolat" class="w-100" style="height: 200px; object-fit: cover;">
+              <div class="p-3">
+                <h3 class="h6 mb-0">Gâteau au Chocolat</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<div id="page">
-		<nav class="fh5co-nav" role="navigation">
+      <section class="comments-section my-5">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <h2 class="h4 mb-4 text-brown">Commentaires</h2>
+          <div class="mb-4">
+            <input type="text" class="form-control mb-2" placeholder="Nom">
+            <textarea class="form-control mb-3" rows="3" placeholder="Votre commentaire"></textarea>
+            <button class="btn btn-brown">Partager votre expérience avec cette recette</button>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
 
-			<div class="top-menu">
-				<div class="container">
-					<div class="row logoContainer" >
-						<a href="index.html" class="logo">
-  	<img  class="logo" src="images/logoCokoladaGold (1).png" alt="Tasty Logo">
-		</a>
-						<div class="col-xs-12 text-center menu-1 menu-wrap">
-							<ul class="titre-chocolat">
-								<li class="active"><a href="index.html">Home</a></li>
-								<li class="has-dropdown">
-								<a href="gallery.html">Recettes</a>
-								<ul class="dropdown">
-									<li><a href="recete.html">Recette #1</a></li>
-									<li><a href="#">Recette #2</a></li>
-									<li><a href="#">Recette #3</a></li>
-									<li><a href="#">Recette #4</a></li>
-									<li><a href="#">Recette #5</a></li>
-									<li><a href="#">Recette #6</a></li>
-									<li><a href="#">Recette #7</a></li>
-									<li><a href="#">Recette #8</a></li>
-									<li><a href="#">Recette #9</a></li>
-									<li><a href="#">Recette #10</a></li>
-								</ul>
-							</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</div>
-					</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+      // Check if element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
 
-				</div>
-				</div>
-		</nav>
+      // Reveal steps when they come into view
+      function handleScroll() {
+        const steps = document.querySelectorAll('.recipe-step');
+        steps.forEach(step => {
+          if (isInViewport(step)) {
+            step.classList.add('visible');
+          }
+        });
+      }
 
+      // Run animations when page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initial check for visible elements
+        handleScroll();
+        
+        // Initialize mobile detection
+        const { isMobile } = useMobile();
+        if (isMobile) {
+          document.body.classList.add('is-mobile');
+        }
+        
+        // Example of toast usage
+        setTimeout(() => {
+          useToast.show('Bienvenue sur la recette des Čupavci! 🍫', 'success');
+        }, 1000);
+      });
 
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" data-stellar-background-ratio="0.5">
-
-			<div id="gifWrapper">
-				<img src="images/atelier_chocolat_usee.jpg" id="chocoGif" />
-			</div>
-			<h1 id="chocoTitle"  class="chocotitleAbout">Le recete de Cupavci</h1>
-
-			<span id="downBtn">🔻</span>
-		</header>
-
-
-
-
-		<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
-			<img src="images/chocolat_deluxe.png" alt="">
-			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-4 fh5co-widget">
-						<h4>Tasty</h4>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta
-							adipisci architecto culpa amet.</p>
-					</div>
-					<div class="col-md-2 col-md-push-1 fh5co-widget">
-						<h4>Links</h4>
-						<ul class="fh5co-footer-links">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Menu</a></li>
-							<li><a href="#">Gallery</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-2 col-md-push-1 fh5co-widget">
-						<h4>Categories</h4>
-						<ul class="fh5co-footer-links">
-							<li><a href="#">Landing Page</a></li>
-							<li><a href="#">Real Estate</a></li>
-							<li><a href="#">Personal</a></li>
-							<li><a href="#">Business</a></li>
-							<li><a href="#">e-Commerce</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4 col-md-push-1 fh5co-widget">
-						<h4>Contact Information</h4>
-						<ul class="fh5co-footer-links">
-							<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="http://https://freehtml5.co">freehtml5.co</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="row copyright">
-					<div class="col-md-12 text-center">
-						<p>
-							<small class="copyright__small block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-							<small class="copyright__small block">Designed by <a href="http://freehtml5.co/"
-									target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/"
-									target="_blank">Unsplash</a></small>
-						</p>
-						<p>
-
-						</p>
-					</div>
-				</div>
-
-			</div>
-		</footer>
-	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
-
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
-	<script src="js/otherHeadersPageAnims.js"></script>
-	<script src="js/hideHomeVideo.js"></script>
-	<script src="js/aboutAnims.js"></script>
-
-
-</body>
-
+      // Listen for scroll events
+      window.addEventListener('scroll', handleScroll);
+    </script>
+  </body>
 </html>

@@ -1,0 +1,145 @@
+/* Hero Section */
+.hero-section {
+  background-color: #fff;
+ 
+}
+
+.recipe-image-container {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.recipe-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #4A3427;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 2.5rem;
+}
+
+.recipe-header .lead {
+  color: #6B6B6B;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.meta-item {
+  color: #6B6B6B;
+}
+
+.meta-item i {
+  color: #4A3427;
+  font-size: 1.2rem;
+}
+
+.meta-value {
+  color: #4A3427;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.author-avatar {
+  width: 2rem;
+  height: 2rem;
+  background: #E8E8E8;
+  color: #4A3427;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.author-info {
+  font-size: 0.875rem;
+}
+
+.rating {
+  color: #E4A853;
+}
+
+.rating i {
+  font-size: 0.875rem;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.ingredients-container,
+.description-container {
+  background: #fff;
+  padding: 0;
+}
+
+.ingredients-container h2,
+.description-container h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #4A3427;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.ingredients-list {
+  margin: 0;
+  padding: 0;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: #4A3427;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ingredient-item i {
+  font-size: 1.5rem;
+  color: #4A3427;
+  margin-right: 0.75rem;
+  opacity: 0.5;
+}
+
+.description-text {
+  color: #6B6B6B;
+  line-height: 1.6;
+}
+
+.description-text p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.description-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .recipe-header h1 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .ingredients-container,
+  .description-container {
+    margin-bottom: 2rem;
+  }
+}

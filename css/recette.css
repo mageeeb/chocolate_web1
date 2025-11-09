@@ -1,0 +1,138 @@
+/* Recipe page specific styles */
+.recipe-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background);
+}
+
+.hero-section {
+  margin-bottom: 2rem;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.recipe-info h1 {
+  color: var(--chocolate-dark);
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.recipe-meta {
+  color: var(--chocolate-medium);
+}
+
+.recipe-meta i {
+  color: var(--chocolate-dark);
+}
+
+.rating i {
+  color: #FFB800;
+}
+
+/* Ingredients & Description */
+.ingredients-section h2,
+.preparation-section h2,
+.similar-recipes-section h2,
+.comments-section h2 {
+  color: var(--chocolate-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ingredient-item i {
+  color: var(--chocolate-dark);
+  font-size: 6px;
+}
+
+.description-text {
+  color: var(--foreground);
+  line-height: 1.8;
+}
+
+/* Steps */
+.step-number .badge {
+  background-color: var(--chocolate-dark);
+  width: 28px;
+  height: 28px;
+  font-weight: 500;
+}
+
+.step-content h3 {
+  color: var(--chocolate-dark);
+  font-size: 1.1rem;
+}
+
+.step-content p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+/* Similar Recipes */
+.similar-recipes-section .card {
+  transition: var(--transition-smooth);
+}
+
+.similar-recipes-section .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Comments */
+.comments-section textarea {
+  resize: none;
+}
+
+.btn-brown {
+  background-color: var(--chocolate-dark);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: var(--transition-smooth);
+}
+
+.btn-brown:hover {
+  background-color: var(--chocolate-medium);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section img {
+    height: 300px;
+  }
+  
+  .recipe-info h1 {
+    font-size: 1.75rem;
+  }
+
+  .recipe-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    margin-top: 1rem;
+  }
+
+  .hero-section img {
+    height: 250px;
+  }
+  
+  .recipe-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .step-content {
+    font-size: 0.9rem;
+  }
+}
