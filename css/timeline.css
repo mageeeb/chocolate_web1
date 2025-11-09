@@ -50,12 +50,14 @@
 
 .timeline-step.left .step-number {
   right: -20px;
-  top: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .timeline-step.right .step-number {
   left: -20px;
-  top: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Content positioning */
@@ -90,6 +92,8 @@
   .timeline-step .step-number {
     left: 20px !important;
     right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
   }
   
   .timeline-step.left,
