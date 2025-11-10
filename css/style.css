@@ -926,6 +926,8 @@ li {
 .fh5co-social-icons {
   margin: 0;
   padding: 0;
+  color: white;
+  list-style-type: none;
 }
 .fh5co-social-icons li {
   margin: 0;
