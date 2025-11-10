@@ -3707,3 +3707,28 @@ h2 {
   display: none;
 }
 }
+
+/* ==========================================
+   ESPACEMENT SPÉCIFIQUE AUX PAGES RECETTES
+   ========================================== */
+
+/* Augmente l'espacement entre les sections uniquement sur les pages recettes */
+body.recipe-page .fh5co-section {
+  padding: 3em 0;
+}
+
+body.recipe-page .recipe-header-section {
+  margin-bottom: 3em;
+}
+
+/* Responsive : espacement réduit sur mobile */
+@media screen and (max-width: 768px) {
+  body.recipe-page .fh5co-section {
+    padding: 3em 0;
+  }
+  
+  body.recipe-page .recipe-header-section {
+    margin-bottom: 2em;
+  }
+}
+
