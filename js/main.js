@@ -330,6 +330,31 @@
    		$(this).css('width', '100%');
    	});
 		// zoomFunc();
+
+		// Recipe Comment Form Handler
+		$('#recipeCommentForm').on('submit', function(e) {
+			e.preventDefault();
+			
+			var userName = $('#userName').val().trim();
+			var userSubject = $('#userSubject').val().trim();
+			var userComment = $('#userComment').val().trim();
+			
+			if (userName && userSubject && userComment) {
+				// Animation de succès
+				$('.recipe-submit-btn').html('<i class="icon-checkmark"></i> Commentaire envoyé !');
+				$('.recipe-submit-btn').css('background', 'linear-gradient(135deg, #4caf50, #388e3c)');
+				
+				// Reset après 2 secondes
+				setTimeout(function() {
+					$('#recipeCommentForm')[0].reset();
+					$('.recipe-submit-btn').html('<i class="icon-paper-plane"></i> Publier mon commentaire');
+					$('.recipe-submit-btn').css('background', '');
+					
+					// Message de remerciement
+					alert('Merci ' + userName + ' pour votre commentaire ! 🍫\n\nVotre avis est précieux pour nous et inspire d\'autres passionnés de chocolat.');
+				}, 2000);
+			}
+		});
 	});
 
 
