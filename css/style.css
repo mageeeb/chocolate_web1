@@ -3255,3 +3255,41 @@ h2 {
   display: none;
 }
 }
+
+/* recette2 */
+.form-label{
+  color: white;
+}
+
+/* Tous les éléments non cochés pulsants */
+.list-group-numbered .list-group-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover léger */
+.list-group-numbered .list-group-item:hover {
+  background-color: #ffd70033; /* doré léger */
+  transform: scale(1.05);
+}
+
+/* Animation pulsante pour attirer l’œil */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.list-group-numbered .list-group-item:not(.done) {
+  animation: pulse 2s infinite;
+}
+
+.card-img-top {
+  width: clamp(200px, 50%, 600px); /* min 200px, max 600px, s’adapte au viewport */
+  height: auto; /* conserve le ratio */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+
