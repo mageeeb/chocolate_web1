@@ -260,6 +260,14 @@ figure {
 .fh5co-nav ul li.has-dropdown {
   position: relative;
 }
+
+.dropdown>li>a{
+  transition: .5s ease !important;
+}
+
+.dropdown>li>a:hover{
+  color: gold !important;
+}
 .fh5co-nav ul li.has-dropdown .dropdown {
   width: 140px;
   -webkit-box-shadow: 0px 14px 16px -9px rgba(0, 0, 0, 0.75);
@@ -926,6 +934,8 @@ li {
 .fh5co-social-icons {
   margin: 0;
   padding: 0;
+  color: white;
+  list-style-type: none;
 }
 .fh5co-social-icons li {
   margin: 0;
@@ -3697,4 +3707,41 @@ body.recipe-page .recipe-header-section {
     margin-bottom: 2em;
   }
 }
+
+/* recette2 */
+.form-label{
+  color: white;
+}
+
+/* Tous les éléments non cochés pulsants */
+.list-group-numbered .list-group-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover léger */
+.list-group-numbered .list-group-item:hover {
+  background-color: #ffd70033; /* doré léger */
+  transform: scale(1.05);
+}
+
+/* Animation pulsante pour attirer l’œil */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.list-group-numbered .list-group-item:not(.done) {
+  animation: pulse 2s infinite;
+}
+
+.card-img-top {
+  width: clamp(200px, 50%, 600px); /* min 200px, max 600px, s’adapte au viewport */
+  height: auto; /* conserve le ratio */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
 
