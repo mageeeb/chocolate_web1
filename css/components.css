@@ -1,0 +1,147 @@
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.toast {
+  background: var(--card);
+  color: var(--card-foreground);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.toast.toast-success {
+  background: hsl(142, 76%, 36%);
+  color: white;
+}
+
+.toast.toast-error {
+  background: hsl(0, 84%, 60%);
+  color: white;
+}
+
+.toast.fade-out {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--chocolate-light);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.star:hover,
+.star.active {
+  color: var(--chocolate-dark);
+  transform: scale(1.1);
+}
+
+/* Recipe Step */
+.recipe-step {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--chocolate-dark);
+  color: var(--warm-white);
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.step-instruction {
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.comment {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: var(--muted-foreground);
+}
+
+.comment-body {
+  line-height: 1.6;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.comment-form input,
+.comment-form textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--background);
+  transition: var(--transition-smooth);
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--chocolate-medium);
+  box-shadow: 0 0 0 2px var(--chocolate-light);
+}
+
+.comment-form button {
+  padding: 0.75rem 1.5rem;
+  background: var(--chocolate-dark);
+  color: var(--warm-white);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.comment-form button:hover {
+  background: var(--chocolate-medium);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
