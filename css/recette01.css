@@ -4,7 +4,7 @@
   margin: 2rem auto;
   padding: 2rem;
   background-color: var(--background);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .hero-section {
@@ -19,7 +19,7 @@
 
 .recipe-info h1 {
   color: var(--chocolate-dark);
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -160,7 +160,7 @@
 .rating i.bi-star-fill,
 .rating i:hover,
 .rating i:hover ~ i {
-  color: #FFB800;
+  color: #ffb800;
 }
 
 /* Comments */
