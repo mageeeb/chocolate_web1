@@ -30,6 +30,10 @@
 	height: 100%;
 	object-fit: cover;
 	z-index: 1;
+	max-width: 420px;
+	border-radius: 1.2rem;
+	box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+	border: 3px solid #C8A97E;
 }
 
 .recipe-header-overlay {
@@ -605,4 +609,18 @@
 	.metadata-item {
 		border: 1px solid #ccc;
 	}
+}
+
+body {
+	background: #000 url(../images/broken_noise.png) repeat;
+	color: #f8f5f2;
+}
+
+.recipe-image-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #7B4F2A;
+	padding: 2rem 0 1.5rem 0;
+	border-bottom: 2px solid #C8A97E;
 }
