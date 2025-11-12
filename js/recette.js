@@ -1,16 +1,10 @@
-(function(){
-  const ingredients = [
-    "4 œufs",
-    "200g de sucre",
-    "200g de farine",
-    "50g de cacao en poudre",
-    "1 sachet de levure chimique",
-    "100ml d'huile",
-    "100ml de lait",
-    "200g de chocolat noir",
-    "200ml de crème liquide",
-    "200g de noix de coco râpée"
-  ];
+/**
+ * RECETTE.JS - Interactions et fonctionnalités pour les pages de recette
+ * Gère : affichage/masquage des avis, impression, soumission du formulaire
+ */
+
+(function() {
+	'use strict';
 
   const steps = [
     { title: "Étape 1 : Préparer la pâte", description: "Mélangez les œufs avec le sucre jusqu'à obtenir un mélange mousseux. Ajoutez l'huile et le lait, puis mélangez bien." },
