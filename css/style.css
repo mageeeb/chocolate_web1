@@ -224,7 +224,6 @@ figure {
 }
 .fh5co-nav ul {
   padding: 0;
-  margin: 5px 0 0 0;
 }
 .fh5co-nav ul li {
   padding: 0;
@@ -623,9 +622,6 @@ li {
   border: none;
 }
 
-.fh5co-section {
-  /* padding: 7em 0; */
-}
 @media screen and (max-width: 480px) {
   .fh5co-section {
     padding: 3em 0;
@@ -657,11 +653,7 @@ li {
   }
 }
 
-#fh5co-featured-menu .fh5co-heading,
-#fh5co-gallery .fh5co-heading,
-#fh5co-reservation-form .fh5co-heading {
-  margin-bottom: 170px;
-}
+
 @media screen and (max-width: 768px) {
   #fh5co-featured-menu .fh5co-heading,
   #fh5co-gallery .fh5co-heading,
@@ -747,9 +739,7 @@ li {
 #fh5co-featured-testimony {
   border: none !important;
 }
-#fh5co-featured-testimony .fh5co-heading {
-  margin-bottom: 170px;
-}
+
 @media screen and (max-width: 768px) {
   #fh5co-featured-testimony .fh5co-heading {
     margin-bottom: 50px;
@@ -910,7 +900,6 @@ li {
 #fh5co-content-section,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
   clear: both;
 }
 @media screen and (max-width: 768px) {
@@ -1227,10 +1216,7 @@ li {
   }
 }
 
-#fh5co-blog .fh5co-heading,
-#fh5co-contact .fh5co-heading {
-  margin-bottom: 170px;
-}
+
 @media screen and (max-width: 768px) {
   #fh5co-blog .fh5co-heading,
   #fh5co-contact .fh5co-heading {
