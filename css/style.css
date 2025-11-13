@@ -269,7 +269,7 @@ figure {
   color: gold !important;
 }
 .fh5co-nav ul li.has-dropdown .dropdown {
-  width: 140px;
+  width: 200px;
   -webkit-box-shadow: 0px 14px 16px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 14px 16px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 16px -9px rgba(0, 0, 0, 0.75);
@@ -349,6 +349,10 @@ figure {
   height: 2px;
   background: linear-gradient(to right, #d6b98c, #3e1f0d, #d6b98c);
   margin: 0 auto;
+}
+
+.fh5co-nav ul.dropdown li a {
+  background: none; /* pas de border */
 }
 
 li {
@@ -3319,7 +3323,6 @@ textarea {
 /* ABOUT end */
 
 /* FOOTER start */
-/* FOOTER end */
 #fh5co-footer {
   display: block;
   background: linear-gradient(to bottom, #1b1b1b, #31221f, #7b4b3a);
@@ -3745,3 +3748,23 @@ body.recipe-page .recipe-header-section {
 }
 
 
+/* Soulignement stylé uniquement pour les liens du premier niveau */
+.fh5co-nav > ul > li.active > a {
+  position: relative; /* nécessaire pour ancrer le :after */
+}
+
+.fh5co-nav > ul > li.active > a::after {
+  position: absolute;
+  bottom: -4px;       /* plus proche du texte, évite les chevauchements */
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, #d6b98c, #3e1f0d, #d6b98c);
+}
+
+/* Désactiver tout pseudo-élément sur les liens du dropdown */
+.fh5co-nav .dropdown a::after {
+  content: none !important;
+}
