@@ -1085,7 +1085,10 @@ li {
   color: rgba(255, 255, 255, 0.8);
   font-size: 20px;
 }
-
+.slider-text-inner .desc {
+    text-align: center;
+    margin: 0 auto;
+}
 .member {
   width: 100%;
   float: left;
