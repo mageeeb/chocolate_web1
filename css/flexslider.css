@@ -198,6 +198,9 @@ html[xmlns] .flexslider .slides {
   position: absolute;
   bottom: -40px;
   text-align: center;
+  /* modification Mageeeb */
+  display: none !important;
+  /* end modif */
 }
 .flex-control-nav li {
   margin: 0 6px;
