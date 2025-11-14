@@ -3754,3 +3754,14 @@ body.recipe-page .recipe-header-section {
 .fh5co-nav .dropdown a::after {
   content: none !important;
 }
+
+.stars span{
+  color:#f5c518 !important;
+  font-size:18px !important;
+  margin:0 4px !important;
+}
+
+.stars{
+  text-align: center !important;
+  line-height: 1 !important;
+}
