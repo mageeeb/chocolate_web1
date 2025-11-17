@@ -1,6 +1,3 @@
-/* =======================================================
- *  VARIABLES CSS - Variables globales réutilisables
- *  ======================================================= */
 :root {
   /* Couleurs */
   --chocolate-brown: #4e342e; /* Brun chocolat intense */
@@ -4008,17 +4005,6 @@ body.recipe-page .recipe-header-section {
   background-image: url(../images/recipes/dessert-creme-fruits.jpg);
 }
 
-.mainHome__slider__slide--chocolat-noir {
-  background-image: url(../images/gallery/img8.jpg);
-}
-
-.mainHome__slider__slide--brownie-fondant {
-  background-image: url(../images/gallery/img9.jpg);
-}
-
-.mainHome__slider__slide--mousse-chocolat {
-  background-image: url(../images/gallery/img10.jpg);
-}
 
 .mainContact__header--background {
   background-image: url(../images/backgrounds/fond-table-chocolats.jpg);
@@ -4100,44 +4086,111 @@ body.recipe-page .recipe-header-section {
   );
 }
 
-/* =======================================================
- *  DOCUMENTATION DU SYSTÈME D'ESPACEMENT
- *  =======================================================
- * 
- * Ce système garantit des espacements cohérents sur tout le site
- * pour toutes les tailles d'écran (mobile, tablette, desktop).
- * 
- * VARIABLES DISPONIBLES :
- * 
- * Spacing Scale (base) :
- *   --spacing-xs: 0.5rem (8px)
- *   --spacing-sm: 1rem (16px)
- *   --spacing-md: 1.5rem (24px)
- *   --spacing-lg: 2rem (32px)
- *   --spacing-xl: 3rem (48px)
- *   --spacing-2xl: 4rem (64px)
- *   --spacing-3xl: 6rem (96px)
- * 
- * Sections :
- *   --section-padding-y: 96px (desktop) / 64px (tablette) / 48px (mobile)
- * 
- * Containers :
- *   --container-padding-x: 32px (desktop) / 24px (mobile)
- * 
- * Éléments :
- *   --element-gap: 32px (desktop) / 24px (mobile)
- * 
- * Cards :
- *   --card-padding: 32px (desktop) / 24px (mobile)
- *   --card-gap: 32px (desktop) / 24px (mobile)
- * 
- * BREAKPOINTS :
- *   - Desktop: ≥992px (valeurs par défaut)
- *   - Tablette: 768px - 991px
- *   - Mobile: <768px
- * 
- * UTILISATION :
- *   Utilisez toujours les variables CSS plutôt que des valeurs fixes.
- *   Exemple: margin-bottom: var(--spacing-lg);
- * 
- * ======================================================= */
+/* homepage loader */
+
+
+.homeLoadPage__left{
+  background-color: rgba(0, 0, 0, 0.947);
+
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  z-index: 1002;
+
+}
+.homeLoadPage__right{
+  background-color: rgba(0, 0, 0, 0.947);
+
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  z-index: 1002;
+}
+
+.homeLoadPage__rond {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: white;
+  top: 50%;
+  left: 50%;
+  width: 3%;
+  z-index: 1003;
+  transition: transform 0.5s ease, width 0.8s ease, height 0.8s ease,
+    border-radius 0.8s ease;
+  cursor: pointer;
+}
+
+.homeLoadPage__rond--click {
+  animation: turn 0.5s ease forwards;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0);
+    display: none;
+  }
+}
+
+.homeLoadPage__rond img {
+  width: 100%;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+.homeLoadPage__rond img:hover {
+  transform: scale(1.1);
+}
+
+.homeLoadPage__rond--loader {
+  background: gold;
+  border-radius: 1rem;
+  width: 80vw;
+  height: 0.3rem;
+  transform: translate(-50%, -50%);
+}
+
+.homeLoadPage__rond--rotate {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.homeLoadPage__rond--move-left {
+  transition: 2s ease;
+  animation: disappearClip 2s forwards;
+}
+
+@keyframes disappearClip {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 100% 0 0);
+    display: none;
+
+  }
+}
+
+.homeLoadPage__rond--move-right {
+  transition: 2s ease;
+  animation: disappearClip2 2s forwards;
+}
+
+@keyframes disappearClip2 {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .homeLoadPage {
+    display: none;
+  }
+}
+
+/* homepage loader */
