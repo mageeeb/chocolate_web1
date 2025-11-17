@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 0);
   }
 
-  // Note: L'initialisation du carousel de commentaires est gérée dans js/core/main.js
-  // pour garantir que jQuery et Bootstrap sont chargés
+
 });
 
