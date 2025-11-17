@@ -1,6 +1,3 @@
-/* =======================================================
- *  VARIABLES CSS - Variables globales réutilisables
- *  ======================================================= */
 :root {
   /* Couleurs */
   --chocolate-brown: #4e342e; /* Brun chocolat intense */
@@ -4008,17 +4005,6 @@ body.recipe-page .recipe-header-section {
   background-image: url(../images/recipes/dessert-creme-fruits.jpg);
 }
 
-.mainHome__slider__slide--chocolat-noir {
-  background-image: url(../images/gallery/img8.jpg);
-}
-
-.mainHome__slider__slide--brownie-fondant {
-  background-image: url(../images/gallery/img9.jpg);
-}
-
-.mainHome__slider__slide--mousse-chocolat {
-  background-image: url(../images/gallery/img10.jpg);
-}
 
 .mainContact__header--background {
   background-image: url(../images/backgrounds/fond-table-chocolats.jpg);

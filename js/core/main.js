@@ -293,7 +293,7 @@
 
 	var parallax = function() {
 		if ( !isMobile.any() ) {
-			$(window).stellar();
+			// $(window).stellar();
 		}
 	};
 
