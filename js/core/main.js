@@ -119,13 +119,22 @@
 
 	var contentWayPoint = function() {
 		var i = 0;
+		
+		// Vérifier si jQuery Waypoints est disponible
+		if (typeof $.fn.waypoint === 'undefined') {
+			console.warn('jQuery Waypoints n\'est pas chargé. Les animations de scroll ne fonctionneront pas.');
+			return;
+		}
+		
 		$('.animate-box').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+			var $element = $(this.element);
+			
+			// Animer seulement si l'élément n'a pas déjà été animé
+			if( !$element.hasClass('animated-fast') ) {
 				
 				i++;
 
-				$(this.element).addClass('item-animate');
+				$element.addClass('item-animate');
 				setTimeout(function(){
 
 					$('body .animate-box.item-animate').each(function(k){
@@ -143,14 +152,17 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
+						},  k * 200 );
 					});
 					
 				}, 100);
 				
 			}
 
-		} , { offset: '85%' } );
+		} , { 
+			offset: '85%',
+			triggerOnce: false
+		} );
 	};
 
 
@@ -176,6 +188,29 @@
 	};
 
 
+	// Initialisation du carousel de commentaires
+	var initCommentsCarousel = function() {
+		// Configuration du carousel Desktop
+		if ($("#commentsCarousel").length) {
+			$("#commentsCarousel").carousel({
+				interval: 4000,
+				wrap: true,
+				pause: "hover"
+			});
+			$("#commentsCarousel").carousel("cycle");
+		}
+
+		// Configuration du carousel Mobile
+		if ($("#commentsCarouselMobile").length) {
+			$("#commentsCarouselMobile").carousel({
+				interval: 3500,
+				wrap: true,
+				pause: "hover"
+			});
+			$("#commentsCarouselMobile").carousel("cycle");
+		}
+	};
+
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
@@ -183,8 +218,8 @@
 			event.preventDefault();
 
 			$('html, body').animate({
-				scrollTop: $('html').offset().top
-			}, 500, 'easeInOutExpo');
+				scrollTop: 0
+			}, 500);
 			
 			return false;
 		});
@@ -258,7 +293,7 @@
 
 	var parallax = function() {
 		if ( !isMobile.any() ) {
-			$(window).stellar();
+			// $(window).stellar();
 		}
 	};
 
@@ -325,6 +360,9 @@
 		fullHeight();
 		parallax();
 		DateTimePickerFunc();
+		
+		// Initialisation du carousel de commentaires
+		initCommentsCarousel();
 
 		$('.fh5co-bg-img').each(function(){
    		$(this).css('width', '100%');
