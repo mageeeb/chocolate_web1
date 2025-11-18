@@ -1083,8 +1083,8 @@ li {
   font-size: 20px;
 }
 .slider-text-inner .desc {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 .member {
   width: 100%;
@@ -3502,7 +3502,6 @@ textarea {
   width: 17.5%;
 }
 
-
 .fh5co-footer-links > *,
 .fh5co-footer-links > li > *,
 .fh5co-widget p {
@@ -3645,10 +3644,9 @@ textarea {
   .mainRecette3__ingredients {
     grid-template-columns: 1fr;
   }
-  .fh5co-widget{
-  text-align: center !important;
-}
-
+  .fh5co-widget {
+    text-align: center !important;
+  }
 }
 
 /* recette3 */
@@ -3904,7 +3902,7 @@ body.recipe-page .recipe-header-section {
 
 /* Hover léger */
 .list-group-numbered .list-group-item:hover {
-  background-color: #ffd70033; /* doré léger */
+  background-color: #ffd70033;
   transform: scale(1.05);
 }
 
@@ -3926,15 +3924,64 @@ body.recipe-page .recipe-header-section {
 }
 
 .card-img-top {
-  width: clamp(
-    200px,
-    50%,
-    600px
-  ); /* min 200px, max 600px, s’adapte au viewport */
-  height: auto; /* conserve le ratio */
+  width: clamp(200px, 50%, 600px);
+  height: auto;
   object-fit: cover;
-  display: block;
-  margin: 0 auto;
+}
+
+.mainRecette2__card__preparation-image-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainRecette2__card__similary-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  padding: 7rem 5rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.mainRecette2__card__similary-recipe > * {
+  color: white;
+  font-size: clamp(20%, 20vw, 100%);
+}
+
+.mainRecette2__card__similary-recipe h3 {
+  color: gold;
+}
+.mainRecette2__card__similary-recipe h4 {
+  color: var(--golden-cocoa);
+}
+
+.mainRecette2__card__similary-recipe a {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: bolder;
+  transition: 0.3s ease;
+}
+
+.mainRecette2__card__similary-recipe a:hover {
+  color: white;
+  background-color: var(--golden-cocoa);
+  font-weight: bolder;
+}
+
+@media (max-width: 769px) {
+  .mainRecette2__card__preparation-image-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mainRecette2__card__similary-recipe {
+    width: 80%;
+  }
+  .card-img-top {
+    width: 80%;
+  }
 }
 
 /* Soulignement stylé uniquement pour les liens du premier niveau */
@@ -4005,7 +4052,6 @@ body.recipe-page .recipe-header-section {
   background-image: url(../images/recipes/dessert-creme-fruits.jpg);
 }
 
-
 .mainContact__header--background {
   background-image: url(../images/backgrounds/fond-table-chocolats.jpg);
 }
@@ -4033,8 +4079,16 @@ body.recipe-page .recipe-header-section {
   margin-top: 25rem;
 }
 
+.mainRecette2__card__preparation-list--spacing img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position:center;
+}
 .mainRecette2__card__ingredients-title--styled,
-.mainRecette2__card__preparation-title--styled {
+.mainRecette2__card__preparation-title--styled,
+.mainRecette2__card__similary-title
+{
   color: gold;
   margin: 10rem 0;
   font-size: 3rem;
@@ -4050,10 +4104,10 @@ body.recipe-page .recipe-header-section {
 }
 
 .mainRecette2__comments__card--styled {
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
-  border: 2px solid gold;
-  padding: 5rem 1rem;
+  border: 2px solid rgba(255, 217, 0, 0.292);
+  padding: 5rem 3rem;
   border-radius: 15px;
   background-color: black;
   margin: auto;
@@ -4088,17 +4142,15 @@ body.recipe-page .recipe-header-section {
 
 /* homepage loader */
 
-
-.homeLoadPage__left{
+.homeLoadPage__left {
   background-color: rgba(0, 0, 0, 0.947);
 
   height: 100%;
   width: 50%;
   position: absolute;
   z-index: 1002;
-
 }
-.homeLoadPage__right{
+.homeLoadPage__right {
   background-color: rgba(0, 0, 0, 0.947);
 
   height: 100%;
@@ -4168,7 +4220,6 @@ body.recipe-page .recipe-header-section {
   to {
     clip-path: inset(0 100% 0 0);
     display: none;
-
   }
 }
 
