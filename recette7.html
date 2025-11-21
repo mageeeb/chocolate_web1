@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cookies 3D Deluxe — Recette Animée</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Recette de cookies maison avec animations 3D interactives" />
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Marck+Script&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+	<style>
+		/* Variables CSS */
+		:root {
+			--primary-color: #8B4513;
+			--secondary-color: #D2691E;
+			--accent-color: #FFD700;
+			--text-dark: #2C1810;
+			--text-light: #5D4037;
+			--bg-light: #FFF8F0;
+		}
+
+		/* Reset et base */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, var(--bg-light) 0%, #FFFAF0 100%);
+			color: var(--text-dark);
+			overflow-x: hidden;
+		}
+
+		/* Animation 3D Container */
+		.recipe-3d-container {
+			perspective: 1000px;
+			height: 60vh;
+			position: relative;
+			background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+			overflow: hidden;
+		}
+
+		.recipe-3d-scene {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			transform-style: preserve-3d;
+			animation: rotateScene 20s infinite linear;
+		}
+
+		.recipe-3d-element {
+			position: absolute;
+			background-size: cover;
+			border-radius: 15px;
+			box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+			transition: transform 0.5s ease;
+		}
+
+		.recipe-3d-element:hover {
+			transform: translateZ(50px) scale(1.1);
+		}
+
+		.cookie-3d-1 {
+			width: 200px;
+			height: 200px;
+			background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3');
+			transform: translate3d(-300px, -50px, 100px) rotateY(45deg);
+		}
+
+		.cookie-3d-2 {
+			width: 180px;
+			height: 180px;
+			background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3');
+			transform: translate3d(300px, 100px, 200px) rotateY(-45deg);
+		}
+
+		.cookie-3d-3 {
+			width: 160px;
+			height: 160px;
+			background-image: url('https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3');
+			transform: translate3d(0px, -100px, 300px) rotateY(0deg);
+		}
+
+		.chocolate-chip {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background: var(--text-dark);
+			border-radius: 50%;
+			animation: floatChip 3s infinite ease-in-out;
+		}
+
+		.chip-1 { top: 20%; left: 30%; animation-delay: 0s; }
+		.chip-2 { top: 60%; left: 70%; animation-delay: 0.5s; }
+		.chip-3 { top: 40%; left: 50%; animation-delay: 1s; }
+		.chip-4 { top: 80%; left: 20%; animation-delay: 1.5s; }
+
+		/* Animations */
+		@keyframes rotateScene {
+			0% { transform: rotateY(0deg); }
+			100% { transform: rotateY(360deg); }
+		}
+
+		@keyframes floatChip {
+			0%, 100% { transform: translateY(0px) translateZ(0px); }
+			50% { transform: translateY(-20px) translateZ(30px); }
+		}
+
+		/* Header moderne */
+		.recipe-modern-header {
+			text-align: center;
+			padding: 4rem 2rem;
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+			position: relative;
+		}
+
+		.recipe-title-3d {
+			font-family: 'Cinzel', serif;
+			font-size: 4rem;
+			color: white;
+			text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+			margin-bottom: 1rem;
+			animation: titleGlow 2s ease-in-out infinite alternate;
+		}
+
+		@keyframes titleGlow {
+			from { text-shadow: 3px 3px 10px rgba(0,0,0,0.5); }
+			to { text-shadow: 3px 3px 20px var(--accent-color); }
+		}
+
+		/* Conteneur principal */
+		.recipe-modern-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		/* Cartes 3D interactives */
+		.recipe-card-3d {
+			background: white;
+			border-radius: 20px;
+			padding: 2rem;
+			margin: 2rem 0;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+			transform-style: preserve-3d;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.recipe-card-3d:hover {
+			transform: translateY(-10px) rotateX(5deg);
+			box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+		}
+
+		.recipe-card-3d::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+		}
+
+		/* Grille d'ingrédients animée */
+		.ingredients-grid-3d {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+			margin-top: 2rem;
+		}
+
+		.ingredient-item-3d {
+			background: var(--bg-light);
+			padding: 1.5rem;
+			border-radius: 15px;
+			text-align: center;
+			transform-style: preserve-3d;
+			transition: all 0.3s ease;
+			position: relative;
+		}
+
+		.ingredient-item-3d:hover {
+			transform: translateY(-5px) rotateY(10deg);
+			box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
+		}
+
+		.ingredient-icon {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			margin-bottom: 1rem;
+		}
+
+		/* Étapes de préparation */
+		.steps-container-3d {
+			counter-reset: step-counter;
+		}
+
+		.step-item-3d {
+			display: flex;
+			align-items: flex-start;
+			margin-bottom: 2rem;
+			padding: 1.5rem;
+			background: white;
+			border-radius: 15px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			transform-style: preserve-3d;
+			transition: transform 0.3s ease;
+		}
+
+		.step-item-3d:hover {
+			transform: translateX(10px) rotateY(5deg);
+		}
+
+		.step-number-3d {
+			font-size: 2rem;
+			font-weight: bold;
+			color: var(--primary-color);
+			margin-right: 1.5rem;
+			min-width: 60px;
+			height: 60px;
+			background: var(--accent-color);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transform: translateZ(20px);
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.recipe-title-3d {
+				font-size: 2.5rem;
+			}
+			
+			.recipe-3d-container {
+				height: 40vh;
+			}
+			
+			.ingredients-grid-3d {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Section 3D Animée -->
+	<div class="recipe-3d-container">
+		<div class="recipe-3d-scene">
+			<div class="recipe-3d-element cookie-3d-1"></div>
+			<div class="recipe-3d-element cookie-3d-2"></div>
+			<div class="recipe-3d-element cookie-3d-3"></div>
+			<div class="chocolate-chip chip-1"></div>
+			<div class="chocolate-chip chip-2"></div>
+			<div class="chocolate-chip chip-3"></div>
+			<div class="chocolate-chip chip-4"></div>
+		</div>
+	</div>
+
+	<!-- Header Moderne -->
+	<header class="recipe-modern-header">
+		<h1 class="recipe-title-3d">Cookies 3D Deluxe</h1>
+		<p style="color: white; font-size: 1.2rem; font-family: 'Marck Script', cursive;">
+			Une expérience culinaire en 3 dimensions
+		</p>
+	</header>
+
+	<!-- Conteneur Principal -->
+	<div class="recipe-modern-container">
+		<!-- Carte Informations -->
+		<div class="recipe-card-3d">
+			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+				<i class="fas fa-info-circle"></i> Informations Recette
+			</h2>
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+				<div style="text-align: center;">
+					<i class="fas fa-clock" style="color: var(--secondary-color); font-size: 2rem;"></i>
+					<h3>Préparation</h3>
+					<p>20 minutes</p>
+				</div>
+				<div style="text-align: center;">
+					<i class="fas fa-fire" style="color: var(--secondary-color); font-size: 2rem;"></i>
+					<h3>Cuisson</h3>
+					<p>12 minutes</p>
+				</div>
+				<div style="text-align: center;">
+					<i class="fas fa-users" style="color: var(--secondary-color); font-size: 2rem;"></i>
+					<h3>Portions</h3>
+					<p>24 cookies</p>
+				</div>
+				<div style="text-align: center;">
+					<i class="fas fa-star" style="color: var(--secondary-color); font-size: 2rem;"></i>
+					<h3>Difficulté</h3>
+					<p>Facile</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Carte Ingrédients -->
+		<div class="recipe-card-3d">
+			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+				<i class="fas fa-shopping-basket"></i> Ingrédients
+			</h2>
+			<div class="ingredients-grid-3d">
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🥖</div>
+					<h4>Farine</h4>
+					<p>280g</p>
+				</div>
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🧈</div>
+					<h4>Beurre</h4>
+					<p>200g</p>
+				</div>
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🍫</div>
+					<h4>Chocolat</h4>
+					<p>300g</p>
+				</div>
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🥚</div>
+					<h4>Œufs</h4>
+					<p>2 unités</p>
+				</div>
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🍚</div>
+					<h4>Sucres</h4>
+					<p>250g</p>
+				</div>
+				<div class="ingredient-item-3d">
+					<div class="ingredient-icon">🌿</div>
+					<h4>Vanille</h4>
+					<p>2 c.à.c</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Carte Préparation -->
+		<div class="recipe-card-3d">
+			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+				<i class="fas fa-utensils"></i> Préparation
+			</h2>
+			<div class="steps-container-3d">
+				<div class="step-item-3d">
+					<div class="step-number-3d">1</div>
+					<div>
+						<h3>Mélanger les bases</h3>
+						<p>Dans un grand bol, mélangez le beurre mou avec les sucres jusqu'à obtenir une texture crémeuse et aérée.</p>
+					</div>
+				</div>
+				<div class="step-item-3d">
+					<div class="step-number-3d">2</div>
+					<div>
+						<h3>Ajouter les œufs</h3>
+						<p>Incorporez les œufs un à un, puis ajoutez l'extrait de vanille. Mélangez jusqu'à homogénéité.</p>
+					</div>
+				</div>
+				<div class="step-item-3d">
+					<div class="step-number-3d">3</div>
+					<div>
+						<h3>Poudres sèches</h3>
+						<p>Tamisez la farine avec le bicarbonate et le sel. Incorporez progressivement au mélange humide.</p>
+					</div>
+				</div>
+				<div class="step-item-3d">
+					<div class="step-number-3d">4</div>
+					<div>
+						<h3>Finaliser la pâte</h3>
+						<p>Ajoutez les pépites de chocolat et mélangez délicatement. Réfrigérez 30 minutes avant cuisson.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Animation interactive
+		document.addEventListener('mousemove', (e) => {
+			const scene = document.querySelector('.recipe-3d-scene');
+			const x = (e.clientX / window.innerWidth - 0.5) * 20;
+			const y = (e.clientY / window.innerHeight - 0.5) * 20;
+			
+			scene.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+		});
+
+		// Effet de parallaxe
+		window.addEventListener('scroll', () => {
+			const scrolled = window.pageYOffset;
+			const parallax = document.querySelector('.recipe-3d-container');
+			parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+		});
+
+		// Animation des cartes au scroll
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = '1';
+					entry.target.style.transform = 'translateY(0)';
+				}
+			});
+		}, observerOptions);
+
+		// Observer tous les éléments à animer
+		document.querySelectorAll('.recipe-card-3d, .ingredient-item-3d, .step-item-3d').forEach(el => {
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(30px)';
+			el.style.transition = 'all 0.6s ease';
+			observer.observe(el);
+		});
+	</script>
+</body>
+</html>
