@@ -55,8 +55,12 @@
             font-family: 'Poppins', 'Cormorant Garamond', serif;
         }
 
+        .modern-recipe {
+            padding-top: 8.5rem;
+        }
+
         .hero-wrapper {
-            padding: 4rem 0 2rem;
+            padding: 2.5rem 0 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -71,7 +75,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit);
             gap: 2rem;
             background: var(--glass);
             border-radius: 28px;
@@ -227,6 +231,7 @@
         }
 
         .ingredient-column li {
+            color: #fff;
             display: flex;
             justify-content: space-between;
             padding: .75rem 1rem;
@@ -266,6 +271,7 @@
         }
 
         .step-item h3 {
+            color: #fff;
             margin: 0 0 .4rem;
             font-size: 1.1rem;
         }
@@ -441,19 +447,13 @@
 
                     <div class="recipe-info">
                         <div class="rating">
-                            <ul class="stars">
-                                <li><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></li>
-                            </ul>
-                        </div>
-                        <div class="comments">
-                            <a href="#"><i class="fa fa-comment"></i> 51 commentaires</a>
-                        </div>
+                      
                     </div>
                 </div>
 
                 <div class="hero-visual">
                     <div class="floating-card">
-                        <img src="images/loader.gif" alt="loader chocolat" />
+                        <img src="images/recipes/gateau-chocolat-fondant.jpg" alt="loader chocolat" />
                         <h3>Moment gourmand</h3>
                         <p>Faites fondre le chocolat pour révéler toute l’intensité du cacao.</p>
                     </div>
