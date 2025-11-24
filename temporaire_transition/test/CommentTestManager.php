@@ -6,6 +6,13 @@ declare(strict_types=1);
 // démarrage de la session
 session_start();
 
+spl_autoload_register(function ($class) {
+    $class = str_replace('\\', '/', $class);
+    require '../src/' .$class . '.php';
+});
+
+use model\manager\CommentManager;
+
 // chargement du config
 if(file_exists("../config.prod.php")){
     require_once "../config.prod.php";
@@ -29,23 +36,8 @@ try {
     die($e->getMessage());
 }
 
+$manageComment = new CommentManager($pdo);
 
+$recup = $manageComment->getAllComments();
 
-
-
-// Débogage
-echo '<div class="container"><hr><h3>Barre de débogage</h3><hr>';
-echo '<h4>session_id() ou SID</h4>';
-var_dump(session_id());
-echo '<h4>$_GET</h4>';
-var_dump($_GET);
-echo '<h4>$_SESSION</h4>';
-var_dump($_SESSION);
-echo '<h3>$_POST</h3>';
-var_dump($_POST);
-echo '</div>';
-
-
-
-// Bonne pratique
-$pdo = null;
+var_dump($recup);
