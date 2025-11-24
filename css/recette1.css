@@ -31,6 +31,8 @@ html {
   position: relative;
 }
 
+
+
 /* Recipe page specific styles */
 .recipe-container {
   max-width: 1000px;
@@ -49,6 +51,7 @@ li .ingredient-bullet,
 
 .hero-section {
   margin-bottom: 2rem;
+ 
 }
 
 .hero-section img {
