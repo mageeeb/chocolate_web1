@@ -1,767 +1,284 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cookies Maison — Recette du Chocolat</title>
+	<title>Glace au Chocolat Intense - Tasty</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Recette délicieuse de cookies maison au chocolat. Facile, rapide et gourmand !" />
-	<meta name="author" content="Cokolada" />
+	<meta name="description" content="Recette de glace au chocolat intense et crémeuse" />
+	<meta name="keywords" content="glace, chocolat, dessert, recette, glacée" />
+	<meta name="author" content="Tasty" />
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="Glace au Chocolat Intense" />
+	<meta property="og:image" content="images/glace-chocolat-finie.jpg" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="Tasty" />
+	<meta property="og:description" content="Découvrez notre recette de glace au chocolat intense et crémeuse" />
+	<meta name="twitter:title" content="Glace au Chocolat Intense" />
+	<meta name="twitter:image" content="images/glace-chocolat-finie.jpg" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="summary" />
+
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
+		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-    	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
 		rel="stylesheet">
+	<link rel="icon" href="/images/logos/noisette.png" type="image/png" sizes="64x64">
 
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts -->
+	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider -->
+	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Theme style -->
+	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
-	<!-- Recipe style -->
-	<link rel="stylesheet" href="css/recette.css">
-
-	  <!-- Icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-
-    <style>
-        :root {
-            --bg: #0b0b12;
-            --card: #141424;
-            --card-soft: rgba(255, 255, 255, 0.04);
-            --accent: #ffb347;
-            --accent-strong: #ff7043;
-            --text: #f5f6fb;
-            --muted: #a5acc7;
-            --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(15, 17, 34, 0.65);
-            --shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
-        }
-
-        body {
-            background: radial-gradient(circle at top, rgba(255, 176, 71, 0.15), transparent 55%), var(--bg);
-            color: var(--text);
-            font-family: 'Poppins', 'Cormorant Garamond', serif;
-        }
-
-        .modern-recipe {
-            padding-top: 8.5rem;
-        }
-
-        .hero-wrapper {
-            padding: 2.5rem 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(255, 176, 71, 0.12), transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit);
-            gap: 2rem;
-            background: var(--glass);
-            border-radius: 28px;
-            padding: 3rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(18px);
-        }
-
-        .hero-grid h1 {
-            font-size: clamp(2.4rem, 4vw, 3.3rem);
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .hero-grid p {
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        .badge-modern {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            padding: .45rem 1rem;
-            border-radius: 999px;
-            background: rgba(255, 176, 71, 0.15);
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: .15em;
-            font-size: .75rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .metric-card {
-            padding: 1.1rem;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.15);
-        }
-
-        .metric-card span {
-            display: block;
-            font-size: .8rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        .metric-card strong {
-            font-size: 1.5rem;
-            color: #fff;
-        }
-
-        .hero-visual {
-            position: relative;
-            border-radius: 24px;
-            padding: 2.5rem;
-            background: linear-gradient(140deg, rgba(255, 176, 71, 0.18), rgba(255, 112, 67, 0.35));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            min-height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-visual::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url("images/backgrounds/texture-bruit-2x.png");
-            opacity: 0.06;
-            mix-blend-mode: screen;
-        }
-
-        .hero-visual .floating-card {
-            position: relative;
-            padding: 1.5rem;
-            border-radius: 22px;
-            background: rgba(5, 6, 12, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-            animation: float 6s ease-in-out infinite;
-            backdrop-filter: blur(6px);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(-6px) rotate(-1deg); }
-            50% { transform: translateY(6px) rotate(1deg); }
-            100% { transform: translateY(-6px) rotate(-1deg); }
-        }
-
-        .hero-visual .floating-card img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .hero-visual h3 {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        .sections-shell {
-            padding: 1rem 0 3rem;
-        }
-
-        .panel-modern {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 26px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .panel-modern h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .ingredients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .ingredient-column h3 {
-            text-transform: uppercase;
-            font-size: .9rem;
-            letter-spacing: .2em;
-            color: var(--muted);
-            margin-bottom: .6rem;
-        }
-
-        .ingredient-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: .65rem;
-        }
-
-        .ingredient-column li {
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            padding: .75rem 1rem;
-            border-radius: 16px;
-            background: var(--card-soft);
-            border: 1px solid var(--border);
-            font-weight: 500;
-        }
-
-        .steps-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .step-item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.2rem;
-            align-items: flex-start;
-            padding: 1.2rem 1.4rem;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-        }
-
-        .step-number {
-            width: 46px;
-            height: 46px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--accent);
-            background: rgba(255, 176, 71, 0.12);
-        }
-
-        .step-item h3 {
-            color: #fff;
-            margin: 0 0 .4rem;
-            font-size: 1.1rem;
-        }
-
-        .step-item p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .timeline-card {
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px dashed rgba(255, 255, 255, 0.25);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .timeline-card strong {
-            display: block;
-            font-size: 1.4rem;
-            color: var(--accent-strong);
-        }
-
-        .reviews-section, .review-form {
-            background: rgba(5, 6, 12, 0.45);
-            border-radius: 22px;
-            border: 1px solid var(--border);
-            padding: 2rem;
-        }
-
-        .reviews-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .btn-toggle-reviews, .btn-submit, .btn-print {
-            border: none;
-            border-radius: 999px;
-            padding: .85rem 1.6rem;
-            text-transform: uppercase;
-            letter-spacing: .12em;
-            font-weight: 600;
-            cursor: pointer;
-            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-            color: #0b0b12;
-            box-shadow: 0 10px 30px rgba(255, 112, 67, 0.35);
-        }
-
-        .reviews-container {
-            margin-top: 1.5rem;
-            display: grid;
-            gap: 1.2rem;
-        }
-
-        .review {
-            padding: 1.5rem;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.25);
-        }
-
-        .comment-form-wrapper {
-            margin-top: 2rem;
-        }
-
-        .comment-form .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .comment-form .form-control,
-        .comment-form textarea,
-        .comment-form select {
-            width: 100%;
-            padding: .85rem 1rem;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(0, 0, 0, 0.2);
-            color: #fff;
-        }
-
-        .recipe-actions {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero-grid {
-                padding: 2rem;
-            }
-
-            .panel-modern {
-                padding: 1.8rem;
-            }
-        }
-    </style>
+	<script src="js/vendors/modernizr-2.6.2.min.js"></script>
 </head>
 
-
-
-
-<body>
-<div id="page">
-	<!-- NAV : réutilisée de index.html -->
-	<nav class="fh5co-nav" role="navigation">
-		<div class="top-menu">
-			<div class="container">
-				<div class="row logoContainer">
-					<a href="index.html" class="logo">
-						<img class="logo" src="images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
-					</a>
-					<div class="col-xs-12 text-center menu-1 menu-wrap">
-						<ul class="titre-chocolat">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li class="has-dropdown">
-								<a href="#">Recettes</a>
-								<ul class="dropdown">
+<body class="min-vh-100 recipe-page">
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row logoContainer">
+						<a href="index.html" class="logo">
+							<img class="logo" src="images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
+						</a>
+						<div class="col-xs-12 text-center menu-1 menu-wrap">
+							<ul class="titre-chocolat">
+								<li><a href="index.html">Home</a></li>
+								<li class="has-dropdown active">
+									<a href="#">Recettes</a>
+									<ul class="dropdown">
 										<li><a href="recette1.html">Cupavci</a></li>
 										<li><a href="recette2.html">Recette Agim</a></li>
 										<li><a href="recette3.html">Recette Agim</a></li>
-										<li><a href="recette4.html">Recette #4</a></li>
-										<li><a href="recette5.html">Recette Chair</a></li>
+										<li><a href="recette4.html">Recette Massine</a></li>
+										<li><a href="recette5.html">Recette #5</a></li>
 										<li><a href="recette6.html">Cupavci#2</a></li>
 										<li><a href="recette7.html">Recette #7</a></li>
-										<li><a href="recette8.html">Recette #8</a></li>
-										<li><a href="recette9.html">Recette #9</a></li>
-										<li><a href="recette05.html">Recette #10</a></li>
+										<li><a href="recette8.html">Recette Massine</a></li>
+										<li><a href="construct.html">Recette #9</a></li>
+										<li><a href="construct.html">Recette #10</a></li>
 									</ul>
-							</li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
+								</li>
+								<li><a href="about.html">About</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 
-	<main role="main" class="modern-recipe">
-        <section class="hero-wrapper">
-            <div class="container hero-grid">
-                <div>
-                    <span class="badge-modern"><i class="fa-solid fa-cookie-bite"></i> Signature chocolat</span>
-                    <h1>Cookies Maison au Chocolat</h1>
-                    <p>Une pâte généreuse, un cœur fondant et des éclats de chocolat noir pour un cookie parfaitement doré. Cette version maison mise sur l'équilibre entre croustillant extérieur et moelleux intérieur.</p>
-
-                    <div class="metrics-grid">
-                        <div class="metric-card">
-                            <span>Préparation</span>
-                            <strong>20 min</strong>
-                        </div>
-                        <div class="metric-card">
-                            <span>Cuisson</span>
-                            <strong>12 min</strong>
-                        </div>
-                        <div class="metric-card">
-                            <span>Repos</span>
-                            <strong>15 min</strong>
-                        </div>
-                        <div class="metric-card">
-                            <span>Portions</span>
-                            <strong>24 pcs</strong>
-                        </div>
-                    </div>
-
-                    <div class="recipe-info">
-                        <div class="rating">
-                      
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="floating-card">
-                        <img src="images/recipes/gateau-chocolat-fondant.jpg" alt="loader chocolat" />
-                        <h3>Moment gourmand</h3>
-                        <p>Faites fondre le chocolat pour révéler toute l’intensité du cacao.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sections-shell">
-            <div class="container">
-                <article class="panel-modern">
-                    <h2>Ingrédients essentiels</h2>
-                    <div class="ingredients-grid">
-                        <div class="ingredient-column">
-                            <h3>Base pâte</h3>
-                            <ul>
-                                <li><span>200 g</span><span>Beurre mou</span></li>
-                                <li><span>150 g</span><span>Sucre blanc</span></li>
-                                <li><span>100 g</span><span>Sucre roux</span></li>
-                                <li><span>2</span><span>Œufs</span></li>
-                                <li><span>2 c.à.c</span><span>Extrait de vanille</span></li>
-                            </ul>
-                        </div>
-                        <div class="ingredient-column">
-                            <h3>Poudres</h3>
-                            <ul>
-                                <li><span>280 g</span><span>Farine</span></li>
-                                <li><span>1 c.à.c</span><span>Bicarbonate</span></li>
-                                <li><span>1 pincée</span><span>Sel</span></li>
-                                <li><span>300 g</span><span>Pépites chocolat noir</span></li>
-                            </ul>
-                        </div>
-                        <div class="ingredient-column">
-                            <h3>Finitions</h3>
-                            <ul>
-                                <li><span>50 g</span><span>Noisettes torréfiées</span></li>
-                                <li><span>1 c.à.s</span><span>Cacao non sucré</span></li>
-                                <li><span>1</span><span>Sachet sucre vanillé</span></li>
-                                <li><span>QS</span><span>Fleur de sel</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="panel-modern">
-                    <h2>Étapes clés</h2>
-                    <div class="steps-flow">
-                        <div class="step-item">
-                            <div class="step-number">1</div>
-                            <div>
-                                <h3>Aérer le mélange</h3>
-                                <p>Crémez le beurre avec les sucres jusqu’à obtenir une texture claire et mousseuse. Ajoutez les œufs un à un puis la vanille.</p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-number">2</div>
-                            <div>
-                                <h3>Incorporer les poudres</h3>
-                                <p>Tamisez farine, bicarbonate, cacao et sel. Incorporez délicatement au mélange pour conserver la légèreté.</p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-number">3</div>
-                            <div>
-                                <h3>Ajouter les inclusions</h3>
-                                <p>Ajoutez pépites et noisettes torréfiées. Filmez la pâte et laissez reposer 15 minutes au frais pour fixer les arômes.</p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-number">4</div>
-                            <div>
-                                <h3>Cuisson précise</h3>
-                                <p>Formez des boules de 45 g, aplatissez légèrement et enfournez 12 minutes à 180 °C. Laissez figer sur grille.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline">
-                        <div class="timeline-card">
-                            <strong>+ Fleur de sel</strong>
-                            <p>Une pincée après cuisson relève les notes chocolatées.</p>
-                        </div>
-                        <div class="timeline-card">
-                            <strong>Repos pâte</strong>
-                            <p>Facultatif mais idéal pour un cookie encore plus gourmand.</p>
-                        </div>
-                        <div class="timeline-card">
-                            <strong>Astuce four</strong>
-                            <p>Cuire sur deux plaques superposées évite que le dessous ne brûle.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <section class="panel-modern reviews-section">
-                    <div class="reviews-header">
-                        <h2 class="section-title"><i class="icon-bubbles4"></i> Avis des utilisateurs</h2>
-                        <button id="toggleReviews" class="btn-toggle-reviews">Afficher les avis</button>
-                    </div>
-
-                    <div id="reviewsContainer" class="reviews-container" style="display: none;">
-                        <div class="review">
-                            <div class="review-header">
-                                <strong>Marie L.</strong>
-                                <span class="review-date">Il y a 5 jours</span>
-                            </div>
-                            <div class="review-stars">
-                                <span style="color:#f5c518;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Recette fantastique ! J'ai fait ces cookies hier et toute ma famille en a adoré. Moelleux et gourmands, exactement comme je l'imaginais. Je les refais ce week-end !</p>
-                        </div>
-
-                        <div class="review">
-                            <div class="review-header">
-                                <strong>Jean P.</strong>
-                                <span class="review-date">Il y a 2 semaines</span>
-                            </div>
-                            <div class="review-stars">
-                                <span style="color:#f5c518;">★★★★☆</span>
-                            </div>
-                            <p class="review-text">Bons cookies, j'ai juste ajouté un peu plus de chocolat à mon goût. Le temps de cuisson était parfait tel qu'indiqué. Merci pour cette recette !</p>
-                        </div>
-
-                        <div class="review">
-                            <div class="review-header">
-                                <strong>Sophie D.</strong>
-                                <span class="review-date">Il y a 1 mois</span>
-                            </div>
-                            <div class="review-stars">
-                                <span style="color:#f5c518;">★★★★★</span>
-                            </div>
-                            <p class="review-text">C'est devenue ma recette de cookies préférée ! Facile, rapide, et délicieuse. Je recommande vivement. Parfait pour les goûters en famille.</p>
-                        </div>
-                    </div>
-
-                    <div class="comment-form-wrapper">
-                        <h3>Laissez votre avis</h3>
-                        <form id="reviewForm" class="comment-form review-form">
-                            <div class="form-group">
-                                <label for="reviewName">Votre nom *</label>
-                                <input type="text" id="reviewName" class="form-control" placeholder="Votre nom" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="reviewRating">Note *</label>
-                                <select id="reviewRating" class="form-control" required>
-                                    <option value="">Sélectionnez une note</option>
-                                    <option value="5">★★★★★ Excellent</option>
-                                    <option value="4">★★★★☆ Bon</option>
-                                    <option value="3">★★★☆☆ Correct</option>
-                                    <option value="2">★★☆☆☆ À améliorer</option>
-                                    <option value="1">★☆☆☆☆ Mauvais</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="reviewText">Votre avis *</label>
-                                <textarea id="reviewText" class="form-control" rows="4" placeholder="Partagez votre expérience..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit">Publier mon avis</button>
-                        </form>
-                    </div>
-                </section>
-
-                <section class="panel-modern recipe-actions">
-                    <button id="printBtn" class="btn-print">
-                        <i class="icon-print"></i> Imprimer la recette
-                    </button>
-                </section>
-            </div>
-        </section>
-	</main>
-
-		    	<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
-				   <img src="images/logos/logo-chocolat-deluxe.png" alt="Image de tablette de chocolat">
-				<div class="container">
-					<div class="row row-pb-md">
-						<div class="col-md-4 fh5co-widget">
-							<h4>Chocolada</h4>
-							<p>Le chocolat artisanal sublime les sens. Chaque bouchée révèle un monde de saveurs. Créé
-								avec passion, il incarne l’élégance, la douceur et l’authenticité.</p>
-						</div>
-						<div class="col-md-2 col-md-push-1 fh5co-widget">
-							<h4>Liens</h4>
-							<ul class="fh5co-footer-links">
-								<li><a href="#">Home</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="about.html">Contact</a></li>
-							</ul>
-						</div>
-
-						<div class="col-md-2 col-md-push-1 fh5co-widget">
-							<h4>Categories</h4>
-							<ul class="fh5co-footer-links">
-								<li><a href="#">Chocolat blanc</a></li>
-								<li><a href="#">Chocolat noir</a></li>
-								<li><a href="#">Chocolat au lait</a></li>
-								<li><a href="#">Chocolat ruby</a></li>
-								<li><a href="#">Chocolat aromatisé</a></li>
-							</ul>
-						</div>
-
-						<div class="col-md-4 col-md-push-1 fh5co-widget">
-							<h4>Contact Information</h4>
-							<ul class="fh5co-footer-links">
-								<li>87-89 Avenue du Parc, <br> 1060 St-Gilles</li>
-								<li><a href="tel://025382083">02/538 20 83</a></li>
-								<li><a href="mailto:info@cf2m.com">info@cf2m.com</a></li>
-								<li><a href="https://www.cf2m.be" target="_blank">www.cf2m.be</a></li>
-							</ul>
-						</div>
-
-					</div>
-
-					<div class="row copyright">
-						<div class="col-md-12 text-center">
-
-							<li class="fh5co-social-icons">
-								© 2025 Agim, Nordin, Soulaiman, Vahag, Omer, Massine. Tous droits
-							</li>
+		<!-- Contenu principal de la recette -->
+		<header class="recipe-header-section">
+			<div class="container">
+				<div class="row recipe-header-row mt-5">
+					<div class="col-md-6 col-sm-6 recipe-header-item slide-from-left">
+						<div class="recipe-header-title">
+							<h1 class="recipe-main-title">Glace au chocolat intense</h1>
+							<p class="recipe-subtitle-text">La dolce vita rencontre la passion du cacao</p>
 						</div>
 					</div>
-
+					<div class="col-md-6 col-sm-6 recipe-header-item slide-from-right">
+						<div class="recipe-header-image">
+							<img src="images/chocolate-ice-cream.jpg" alt="tiramisu"
+								class="img-responsive" />
+						</div>
+					</div>
 				</div>
-			</footer>
-    </div>
+			</div>
+		</header>
 
+			<!-- Section description et images -->
+        <div class="container mt-5" style="margin-top: 100px !important;">
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <div class="recipe-card">
+                        <div class="recipe-card-header">
+                            <h3 class="recipe-card-title">Description</h3>
+                        </div>
+                        <div class="recipe-card-body">
+                            <p class="lead">
+                                Cette glace au chocolat est un véritable délice pour les papilles. Préparée avec du chocolat noir de qualité supérieure, 
+                                elle offre une texture incroyablement lisse et un goût intense qui persiste en bouche.
+                            </p>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <img src="images/ingredients_glace.png" alt="Ingrédients pour la glace au chocolat" 
+                                        class="recipe-image">
+                                    <p class="image-caption">Ingrédients sélectionnés</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="images/chocolate-ice-cream.jpg" alt="Glace au chocolat finie"     
+                                        class="recipe-image">
+                                    <p class="image-caption">Œuvre finale</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="recipe-card h-100">
+                        <div class="recipe-card-header">
+                            <h4 class="recipe-card-title">Informations</h4>
+                        </div>
+                        <div class="recipe-card-body text-center">
+                            <div class="info-badge d-inline-block">⏱️ 30 min préparation</div>
+                            <div class="info-badge d-inline-block">❄️ 4 heures repos</div>
+                            <div class="info-badge d-inline-block">👨‍👩‍👧‍👦 6 portions</div>
+                            <div class="info-badge d-inline-block">⭐ Facile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  </div>
+            <div class="recipe-divider"></div>
+
+            <!-- Section ingrédients et préparation -->
+            <div class="row mb-5">
+                <!-- Ingrédients -->
+                <div class="col-lg-4 mb-4">
+                    <div class="recipe-card h-100">
+                        <div class="recipe-card-header">
+                            <h3 class="recipe-card-title">Ingrédients</h3>
+                        </div>
+                        <div class="recipe-card-body">
+                            <ul class="ingredient-list">
+                                <li>500 ml de crème liquide entière</li>
+                                <li>200 g de chocolat noir 70%</li>
+                                <li>4 jaunes d'œufs</li>
+                                <li>100 g de sucre en poudre</li>
+                                <li>1 gousse de vanille</li>
+                                <li>1 pincée de sel</li>
+                                <li>50 g de noisettes concassées</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Préparation -->
+                <div class="col-lg-8">
+                    <div class="recipe-card">
+                        <div class="recipe-card-header">
+                            <h3 class="recipe-card-title">Préparation</h3>
+                        </div>
+                        <div class="recipe-card-body">
+                            <ol class="preparation-steps">
+                                <li>
+                                    <strong>Préparation de la base:</strong> Faites chauffer la crème liquide avec les grains de vanille dans une casserole. 
+                                    Arrêtez avant ébullition pour préserver les arômes.
+                                </li>
+                                <li>
+                                    <strong>Crème anglaise:</strong> Fouettez les jaunes d'œufs avec le sucre jusqu'à ce que le mélange blanchisse et devienne mousseux. 
+                                    Versez la crème chaude tout en fouettant continuellement.
+                                </li>
+                                <li>
+                                    <strong>Cuisson:</strong> Remettez le mélange sur feu doux et remuez avec une spatule jusqu'à ce qu'il nappe la cuillère. 
+                                    La température ne doit pas dépasser 85°C.
+                                </li>
+                                <li>
+                                    <strong>Chocolat:</strong> Hors du feu, ajoutez le chocolat finement haché et mélangez délicatement jusqu'à complète dissolution 
+                                    et obtention d'une texture veloutée.
+                                </li>
+                                <li>
+                                    <strong>Refroidissement:</strong> Laissez refroidir complètement à température ambiante, puis filmez au contact 
+                                    et réservez au réfrigérateur pendant 2 heures minimum.
+                                </li>
+                                <li>
+                                    <strong>Glacage:</strong> Versez la préparation dans la sorbetière et faites prendre selon les instructions du fabricant 
+                                    jusqu'à obtenir une texture crémeuse.
+                                </li>
+                                <li>
+                                    <strong>Service:</strong> Transvasez dans un contenant hermétique, parsemer de noisettes concassées et placez au congélateur 
+                                    2 heures supplémentaires avant de servir.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-divider"></div>
+
+            <!-- Section commentaires -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="recipe-card">
+                        <div class="recipe-card-header">
+                            <h3 class="recipe-card-title">Laissez un commentaire</h3>
+                        </div>
+                        <div class="recipe-card-body">
+                            <form id="commentForm" class="comment-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Votre Nom *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required 
+                                            placeholder="Ex: Marie Dupont">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="subject" class="form-label">Sujet *</label>
+                                        <input type="text" class="form-control" id="subject" name="subject" required 
+                                            placeholder="Ex: Ma meilleure glace !">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="comment" class="form-label">Votre Commentaire *</label>
+                                    <textarea class="form-control" id="comment" name="comment" rows="5" required 
+                                            placeholder="Partagez votre expérience avec cette recette..."></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-gold btn-lg px-5">
+                                        ✨ Envoyer le commentaire
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 		<div class="gototop js-top">
 			<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 		</div>
 	</div>
 
-
 	<!-- jQuery -->
 	<script src="js/vendors/jquery.min.js"></script>
-	<!-- jQuery Easing -->
 	<script src="js/vendors/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/vendors/bootstrap.min.js"></script>
-	<!-- Waypoints -->
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/vendors/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/vendors/jquery.stellar.min.js"></script>
-	<!-- Flexslider -->
 	<script src="js/vendors/jquery.flexslider-min.js"></script>
-	<!-- Main -->
+	<!-- Core -->
 	<script src="js/core/main.js"></script>
-	<!-- Recipe script -->
-	<script src="js/recipe-marmiton.js"></script>
+	<script src="js/core/navigation.js"></script>
+	<!-- Animations -->
+	<script src="js/animations/header-animations.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('toggleReviews');
-            const reviewsContainer = document.getElementById('reviewsContainer');
-            const printBtn = document.getElementById('printBtn');
-            const reviewForm = document.getElementById('reviewForm');
-
-            if (toggleBtn && reviewsContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    const isHidden = reviewsContainer.style.display === 'none' || reviewsContainer.style.display === '';
-                    reviewsContainer.style.display = isHidden ? 'grid' : 'none';
-                    toggleBtn.textContent = isHidden ? 'Masquer les avis' : 'Afficher les avis';
-                });
-            }
-
-            if (printBtn) {
-                printBtn.addEventListener('click', () => window.print());
-            }
-
-            if (reviewForm) {
-                reviewForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    const name = document.getElementById('reviewName').value.trim();
-                    const rating = document.getElementById('reviewRating').value;
-                    const text = document.getElementById('reviewText').value.trim();
-
-                    if (!name || !rating || !text) return;
-
-                    const newReview = document.createElement('div');
-                    newReview.className = 'review';
-                    newReview.innerHTML = `
-                        <div class="review-header">
-                            <strong>${name}</strong>
-                            <span class="review-date">À l'instant</span>
-                        </div>
-                        <div class="review-stars">
-                            <span style="color:#f5c518;">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
-                        </div>
-                        <p class="review-text">${text}</p>
-                    `;
-
-                    reviewsContainer.prepend(newReview);
-                    reviewForm.reset();
-                    reviewsContainer.style.display = 'grid';
-                    toggleBtn.textContent = 'Masquer les avis';
-                });
-            }
-        });
-    </script>
-    
-    <script>
-        Zoomerang
-      .config({
-        maxHeight: 600,
-        maxWidth: 900,
-        bgColor: '#000',
-        bgOpacity: .85
-      })
-      .listen('[data-trigger="zoomerang"]')
-    </script>
-
+	<script>
+		// Gestion du formulaire de commentaire
+		$(document).ready(function() {
+			$('#commentForm').on('submit', function(e) {
+				e.preventDefault();
+				alert('Merci pour votre commentaire ! Il sera publié après modération.');
+				this.reset();
+			});
+		});
+	</script>
 </body>
+
 </html>
