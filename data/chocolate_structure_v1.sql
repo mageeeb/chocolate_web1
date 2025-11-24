@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `chocolate`.`images` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `name_UNIQUE` ON `chocolate`.`images` (`name` ASC) VISIBLE;
+CREATE UNIQUE INDEX `name_UNIQUE` ON `chocolate`.`images` (`name` ASC);
 
 
 -- -----------------------------------------------------
@@ -58,11 +58,11 @@ AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE UNIQUE INDEX `UNIQ_1483A5E9E7927C74` ON `chocolate`.`users` (`email` ASC) VISIBLE;
+CREATE UNIQUE INDEX `UNIQ_1483A5E9E7927C74` ON `chocolate`.`users` (`email` ASC) ;
 
-CREATE UNIQUE INDEX `login_UNIQUE` ON `chocolate`.`users` (`login` ASC) VISIBLE;
+CREATE UNIQUE INDEX `login_UNIQUE` ON `chocolate`.`users` (`login` ASC) ;
 
-CREATE INDEX `fk_users_images2_idx` ON `chocolate`.`users` (`images_id` ASC) VISIBLE;
+CREATE INDEX `fk_users_images2_idx` ON `chocolate`.`users` (`images_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -92,11 +92,11 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE INDEX `IDX_DA88B137A76ED395` ON `chocolate`.`recipe` (`user_id` ASC) VISIBLE;
+CREATE INDEX `IDX_DA88B137A76ED395` ON `chocolate`.`recipe` (`user_id` ASC) ;
 
-CREATE UNIQUE INDEX `slug_UNIQUE` ON `chocolate`.`recipe` (`slug` ASC) VISIBLE;
+CREATE UNIQUE INDEX `slug_UNIQUE` ON `chocolate`.`recipe` (`slug` ASC) ;
 
-CREATE INDEX `fk_recipe_images1_idx` ON `chocolate`.`recipe` (`images_id` ASC) VISIBLE;
+CREATE INDEX `fk_recipe_images1_idx` ON `chocolate`.`recipe` (`images_id` ASC);
 
 
 -- -----------------------------------------------------
@@ -122,9 +122,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE INDEX `IDX_5F9E962A9D86650F` ON `chocolate`.`comments` (`user_id` ASC) VISIBLE;
+CREATE INDEX `IDX_5F9E962A9D86650F` ON `chocolate`.`comments` (`user_id` ASC) ;
 
-CREATE INDEX `IDX_5F9E962A59D8A214` ON `chocolate`.`comments` (`recipe_id` ASC) VISIBLE;
+CREATE INDEX `IDX_5F9E962A59D8A214` ON `chocolate`.`comments` (`recipe_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -141,7 +141,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE UNIQUE INDEX `slug_UNIQUE` ON `chocolate`.`recipe_ingredients` (`slug` ASC) VISIBLE;
+CREATE UNIQUE INDEX `slug_UNIQUE` ON `chocolate`.`recipe_ingredients` (`slug` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -168,9 +168,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE INDEX `IDX_34220A7259D8A214` ON `chocolate`.`steps` (`recipe_id` ASC) VISIBLE;
+CREATE INDEX `IDX_34220A7259D8A214` ON `chocolate`.`steps` (`recipe_id` ASC) ;
 
-CREATE INDEX `fk_steps_images1_idx` ON `chocolate`.`steps` (`images_id` ASC) VISIBLE;
+CREATE INDEX `fk_steps_images1_idx` ON `chocolate`.`steps` (`images_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -196,9 +196,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-CREATE INDEX `fk_recipe_ingredients_has_recipe_recipe1_idx` ON `chocolate`.`recipe_ingredients_has_recipe` (`recipe_id` ASC) VISIBLE;
+CREATE INDEX `fk_recipe_ingredients_has_recipe_recipe1_idx` ON `chocolate`.`recipe_ingredients_has_recipe` (`recipe_id` ASC);
 
-CREATE INDEX `fk_recipe_ingredients_has_recipe_recipe_ingredients1_idx` ON `chocolate`.`recipe_ingredients_has_recipe` (`recipe_ingredients_id` ASC) VISIBLE;
+CREATE INDEX `fk_recipe_ingredients_has_recipe_recipe_ingredients1_idx` ON `chocolate`.`recipe_ingredients_has_recipe` (`recipe_ingredients_id` ASC) ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

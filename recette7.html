@@ -3,425 +3,765 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cookies 3D Deluxe — Recette Animée</title>
+	<title>Cookies Maison — Recette du Chocolat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Recette de cookies maison avec animations 3D interactives" />
-	
+	<meta name="description" content="Recette délicieuse de cookies maison au chocolat. Facile, rapide et gourmand !" />
+	<meta name="author" content="Cokolada" />
+
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Marck+Script&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-	
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
+		rel="stylesheet">
 
-	<style>
-		/* Variables CSS */
-		:root {
-			--primary-color: #8B4513;
-			--secondary-color: #D2691E;
-			--accent-color: #FFD700;
-			--text-dark: #2C1810;
-			--text-light: #5D4037;
-			--bg-light: #FFF8F0;
-		}
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts -->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Recipe style -->
+	<link rel="stylesheet" href="css/recette.css">
 
-		/* Reset et base */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+	  <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-		body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			background: linear-gradient(135deg, var(--bg-light) 0%, #FFFAF0 100%);
-			color: var(--text-dark);
-			overflow-x: hidden;
-		}
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
 
-		/* Animation 3D Container */
-		.recipe-3d-container {
-			perspective: 1000px;
-			height: 60vh;
-			position: relative;
-			background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-			overflow: hidden;
-		}
+    <style>
+        :root {
+            --bg: #0b0b12;
+            --card: #141424;
+            --card-soft: rgba(255, 255, 255, 0.04);
+            --accent: #ffb347;
+            --accent-strong: #ff7043;
+            --text: #f5f6fb;
+            --muted: #a5acc7;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(15, 17, 34, 0.65);
+            --shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+        }
 
-		.recipe-3d-scene {
-			width: 100%;
-			height: 100%;
-			position: relative;
-			transform-style: preserve-3d;
-			animation: rotateScene 20s infinite linear;
-		}
+        body {
+            background: radial-gradient(circle at top, rgba(255, 176, 71, 0.15), transparent 55%), var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', 'Cormorant Garamond', serif;
+        }
 
-		.recipe-3d-element {
-			position: absolute;
-			background-size: cover;
-			border-radius: 15px;
-			box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-			transition: transform 0.5s ease;
-		}
+        .modern-recipe {
+            padding-top: 8.5rem;
+        }
 
-		.recipe-3d-element:hover {
-			transform: translateZ(50px) scale(1.1);
-		}
+        .hero-wrapper {
+            padding: 2.5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-		.cookie-3d-1 {
-			width: 200px;
-			height: 200px;
-			background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3');
-			transform: translate3d(-300px, -50px, 100px) rotateY(45deg);
-		}
+        .hero-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 176, 71, 0.12), transparent 40%);
+            pointer-events: none;
+        }
 
-		.cookie-3d-2 {
-			width: 180px;
-			height: 180px;
-			background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3');
-			transform: translate3d(300px, 100px, 200px) rotateY(-45deg);
-		}
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit);
+            gap: 2rem;
+            background: var(--glass);
+            border-radius: 28px;
+            padding: 3rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+        }
 
-		.cookie-3d-3 {
-			width: 160px;
-			height: 160px;
-			background-image: url('https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3');
-			transform: translate3d(0px, -100px, 300px) rotateY(0deg);
-		}
+        .hero-grid h1 {
+            font-size: clamp(2.4rem, 4vw, 3.3rem);
+            margin-bottom: 1rem;
+            color: #fff;
+        }
 
-		.chocolate-chip {
-			position: absolute;
-			width: 20px;
-			height: 20px;
-			background: var(--text-dark);
-			border-radius: 50%;
-			animation: floatChip 3s infinite ease-in-out;
-		}
+        .hero-grid p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
 
-		.chip-1 { top: 20%; left: 30%; animation-delay: 0s; }
-		.chip-2 { top: 60%; left: 70%; animation-delay: 0.5s; }
-		.chip-3 { top: 40%; left: 50%; animation-delay: 1s; }
-		.chip-4 { top: 80%; left: 20%; animation-delay: 1.5s; }
+        .badge-modern {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 176, 71, 0.15);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            font-size: .75rem;
+            margin-bottom: 1.2rem;
+        }
 
-		/* Animations */
-		@keyframes rotateScene {
-			0% { transform: rotateY(0deg); }
-			100% { transform: rotateY(360deg); }
-		}
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
 
-		@keyframes floatChip {
-			0%, 100% { transform: translateY(0px) translateZ(0px); }
-			50% { transform: translateY(-20px) translateZ(30px); }
-		}
+        .metric-card {
+            padding: 1.1rem;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.15);
+        }
 
-		/* Header moderne */
-		.recipe-modern-header {
-			text-align: center;
-			padding: 4rem 2rem;
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(10px);
-			position: relative;
-		}
+        .metric-card span {
+            display: block;
+            font-size: .8rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
 
-		.recipe-title-3d {
-			font-family: 'Cinzel', serif;
-			font-size: 4rem;
-			color: white;
-			text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-			margin-bottom: 1rem;
-			animation: titleGlow 2s ease-in-out infinite alternate;
-		}
+        .metric-card strong {
+            font-size: 1.5rem;
+            color: #fff;
+        }
 
-		@keyframes titleGlow {
-			from { text-shadow: 3px 3px 10px rgba(0,0,0,0.5); }
-			to { text-shadow: 3px 3px 20px var(--accent-color); }
-		}
+        .hero-visual {
+            position: relative;
+            border-radius: 24px;
+            padding: 2.5rem;
+            background: linear-gradient(140deg, rgba(255, 176, 71, 0.18), rgba(255, 112, 67, 0.35));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-		/* Conteneur principal */
-		.recipe-modern-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 2rem;
-		}
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("images/backgrounds/texture-bruit-2x.png");
+            opacity: 0.06;
+            mix-blend-mode: screen;
+        }
 
-		/* Cartes 3D interactives */
-		.recipe-card-3d {
-			background: white;
-			border-radius: 20px;
-			padding: 2rem;
-			margin: 2rem 0;
-			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-			transform-style: preserve-3d;
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-			position: relative;
-			overflow: hidden;
-		}
+        .hero-visual .floating-card {
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 22px;
+            background: rgba(5, 6, 12, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+            animation: float 6s ease-in-out infinite;
+            backdrop-filter: blur(6px);
+        }
 
-		.recipe-card-3d:hover {
-			transform: translateY(-10px) rotateX(5deg);
-			box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-		}
+        @keyframes float {
+            0% { transform: translateY(-6px) rotate(-1deg); }
+            50% { transform: translateY(6px) rotate(1deg); }
+            100% { transform: translateY(-6px) rotate(-1deg); }
+        }
 
-		.recipe-card-3d::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 4px;
-			background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-		}
+        .hero-visual .floating-card img {
+            width: 100px;
+            height: 100px;
+        }
 
-		/* Grille d'ingrédients animée */
-		.ingredients-grid-3d {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-			gap: 1.5rem;
-			margin-top: 2rem;
-		}
+        .hero-visual h3 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
 
-		.ingredient-item-3d {
-			background: var(--bg-light);
-			padding: 1.5rem;
-			border-radius: 15px;
-			text-align: center;
-			transform-style: preserve-3d;
-			transition: all 0.3s ease;
-			position: relative;
-		}
+        .sections-shell {
+            padding: 1rem 0 3rem;
+        }
 
-		.ingredient-item-3d:hover {
-			transform: translateY(-5px) rotateY(10deg);
-			box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
-		}
+        .panel-modern {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
 
-		.ingredient-icon {
-			font-size: 2.5rem;
-			color: var(--primary-color);
-			margin-bottom: 1rem;
-		}
+        .panel-modern h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
 
-		/* Étapes de préparation */
-		.steps-container-3d {
-			counter-reset: step-counter;
-		}
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
 
-		.step-item-3d {
-			display: flex;
-			align-items: flex-start;
-			margin-bottom: 2rem;
-			padding: 1.5rem;
-			background: white;
-			border-radius: 15px;
-			box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-			transform-style: preserve-3d;
-			transition: transform 0.3s ease;
-		}
+        .ingredient-column h3 {
+            text-transform: uppercase;
+            font-size: .9rem;
+            letter-spacing: .2em;
+            color: var(--muted);
+            margin-bottom: .6rem;
+        }
 
-		.step-item-3d:hover {
-			transform: translateX(10px) rotateY(5deg);
-		}
+        .ingredient-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .65rem;
+        }
 
-		.step-number-3d {
-			font-size: 2rem;
-			font-weight: bold;
-			color: var(--primary-color);
-			margin-right: 1.5rem;
-			min-width: 60px;
-			height: 60px;
-			background: var(--accent-color);
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			transform: translateZ(20px);
-		}
+        .ingredient-column li {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: .75rem 1rem;
+            border-radius: 16px;
+            background: var(--card-soft);
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
 
-		/* Responsive */
-		@media (max-width: 768px) {
-			.recipe-title-3d {
-				font-size: 2.5rem;
-			}
-			
-			.recipe-3d-container {
-				height: 40vh;
-			}
-			
-			.ingredients-grid-3d {
-				grid-template-columns: 1fr;
-			}
-		}
-	</style>
+        .steps-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .step-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.2rem;
+            align-items: flex-start;
+            padding: 1.2rem 1.4rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(255, 176, 71, 0.12);
+        }
+
+        .step-item h3 {
+            color: #fff;
+            margin: 0 0 .4rem;
+            font-size: 1.1rem;
+        }
+
+        .step-item p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-card {
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .timeline-card strong {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--accent-strong);
+        }
+
+        .reviews-section, .review-form {
+            background: rgba(5, 6, 12, 0.45);
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+        }
+
+        .reviews-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-toggle-reviews, .btn-submit, .btn-print {
+            border: none;
+            border-radius: 999px;
+            padding: .85rem 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            color: #0b0b12;
+            box-shadow: 0 10px 30px rgba(255, 112, 67, 0.35);
+        }
+
+        .reviews-container {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .review {
+            padding: 1.5rem;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .comment-form-wrapper {
+            margin-top: 2rem;
+        }
+
+        .comment-form .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .comment-form .form-control,
+        .comment-form textarea,
+        .comment-form select {
+            width: 100%;
+            padding: .85rem 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .recipe-actions {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                padding: 2rem;
+            }
+
+            .panel-modern {
+                padding: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
+
+
+
 <body>
-	<!-- Section 3D Animée -->
-	<div class="recipe-3d-container">
-		<div class="recipe-3d-scene">
-			<div class="recipe-3d-element cookie-3d-1"></div>
-			<div class="recipe-3d-element cookie-3d-2"></div>
-			<div class="recipe-3d-element cookie-3d-3"></div>
-			<div class="chocolate-chip chip-1"></div>
-			<div class="chocolate-chip chip-2"></div>
-			<div class="chocolate-chip chip-3"></div>
-			<div class="chocolate-chip chip-4"></div>
+<div id="page">
+	<!-- NAV : réutilisée de index.html -->
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row logoContainer">
+					<a href="index.html" class="logo">
+						<img class="logo" src="images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
+					</a>
+					<div class="col-xs-12 text-center menu-1 menu-wrap">
+						<ul class="titre-chocolat">
+							<li class="active"><a href="index.html">Home</a></li>
+							<li class="has-dropdown">
+								<a href="#">Recettes</a>
+								<ul class="dropdown">
+										<li><a href="recette1.html">Cupavci</a></li>
+										<li><a href="recette2.html">Recette Agim</a></li>
+										<li><a href="recette3.html">Recette Agim</a></li>
+										<li><a href="recette4.html">Recette #4</a></li>
+										<li><a href="recette5.html">Recette Chair</a></li>
+										<li><a href="recette6.html">Cupavci#2</a></li>
+										<li><a href="recette7.html">Recette #7</a></li>
+										<li><a href="recette8.html">Recette #8</a></li>
+										<li><a href="recette9.html">Recette #9</a></li>
+										<li><a href="recette05.html">Recette #10</a></li>
+									</ul>
+							</li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<main role="main" class="modern-recipe">
+        <section class="hero-wrapper">
+            <div class="container hero-grid">
+                <div>
+                    <span class="badge-modern"><i class="fa-solid fa-cookie-bite"></i> Signature chocolat</span>
+                    <h1>Cookies Maison au Chocolat</h1>
+                    <p>Une pâte généreuse, un cœur fondant et des éclats de chocolat noir pour un cookie parfaitement doré. Cette version maison mise sur l'équilibre entre croustillant extérieur et moelleux intérieur.</p>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span>Préparation</span>
+                            <strong>20 min</strong>
+                        </div>
+                        <div class="metric-card">
+                            <span>Cuisson</span>
+                            <strong>12 min</strong>
+                        </div>
+                        <div class="metric-card">
+                            <span>Repos</span>
+                            <strong>15 min</strong>
+                        </div>
+                        <div class="metric-card">
+                            <span>Portions</span>
+                            <strong>24 pcs</strong>
+                        </div>
+                    </div>
+
+                    <div class="recipe-info">
+                        <div class="rating">
+                      
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <img src="images/recipes/gateau-chocolat-fondant.jpg" alt="loader chocolat" />
+                        <h3>Moment gourmand</h3>
+                        <p>Faites fondre le chocolat pour révéler toute l’intensité du cacao.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sections-shell">
+            <div class="container">
+                <article class="panel-modern">
+                    <h2>Ingrédients essentiels</h2>
+                    <div class="ingredients-grid">
+                        <div class="ingredient-column">
+                            <h3>Base pâte</h3>
+                            <ul>
+                                <li><span>200 g</span><span>Beurre mou</span></li>
+                                <li><span>150 g</span><span>Sucre blanc</span></li>
+                                <li><span>100 g</span><span>Sucre roux</span></li>
+                                <li><span>2</span><span>Œufs</span></li>
+                                <li><span>2 c.à.c</span><span>Extrait de vanille</span></li>
+                            </ul>
+                        </div>
+                        <div class="ingredient-column">
+                            <h3>Poudres</h3>
+                            <ul>
+                                <li><span>280 g</span><span>Farine</span></li>
+                                <li><span>1 c.à.c</span><span>Bicarbonate</span></li>
+                                <li><span>1 pincée</span><span>Sel</span></li>
+                                <li><span>300 g</span><span>Pépites chocolat noir</span></li>
+                            </ul>
+                        </div>
+                        <div class="ingredient-column">
+                            <h3>Finitions</h3>
+                            <ul>
+                                <li><span>50 g</span><span>Noisettes torréfiées</span></li>
+                                <li><span>1 c.à.s</span><span>Cacao non sucré</span></li>
+                                <li><span>1</span><span>Sachet sucre vanillé</span></li>
+                                <li><span>QS</span><span>Fleur de sel</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel-modern">
+                    <h2>Étapes clés</h2>
+                    <div class="steps-flow">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h3>Aérer le mélange</h3>
+                                <p>Crémez le beurre avec les sucres jusqu’à obtenir une texture claire et mousseuse. Ajoutez les œufs un à un puis la vanille.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h3>Incorporer les poudres</h3>
+                                <p>Tamisez farine, bicarbonate, cacao et sel. Incorporez délicatement au mélange pour conserver la légèreté.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h3>Ajouter les inclusions</h3>
+                                <p>Ajoutez pépites et noisettes torréfiées. Filmez la pâte et laissez reposer 15 minutes au frais pour fixer les arômes.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h3>Cuisson précise</h3>
+                                <p>Formez des boules de 45 g, aplatissez légèrement et enfournez 12 minutes à 180 °C. Laissez figer sur grille.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-card">
+                            <strong>+ Fleur de sel</strong>
+                            <p>Une pincée après cuisson relève les notes chocolatées.</p>
+                        </div>
+                        <div class="timeline-card">
+                            <strong>Repos pâte</strong>
+                            <p>Facultatif mais idéal pour un cookie encore plus gourmand.</p>
+                        </div>
+                        <div class="timeline-card">
+                            <strong>Astuce four</strong>
+                            <p>Cuire sur deux plaques superposées évite que le dessous ne brûle.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="panel-modern reviews-section">
+                    <div class="reviews-header">
+                        <h2 class="section-title"><i class="icon-bubbles4"></i> Avis des utilisateurs</h2>
+                        <button id="toggleReviews" class="btn-toggle-reviews">Afficher les avis</button>
+                    </div>
+
+                    <div id="reviewsContainer" class="reviews-container" style="display: none;">
+                        <div class="review">
+                            <div class="review-header">
+                                <strong>Marie L.</strong>
+                                <span class="review-date">Il y a 5 jours</span>
+                            </div>
+                            <div class="review-stars">
+                                <span style="color:#f5c518;">★★★★★</span>
+                            </div>
+                            <p class="review-text">Recette fantastique ! J'ai fait ces cookies hier et toute ma famille en a adoré. Moelleux et gourmands, exactement comme je l'imaginais. Je les refais ce week-end !</p>
+                        </div>
+
+                        <div class="review">
+                            <div class="review-header">
+                                <strong>Jean P.</strong>
+                                <span class="review-date">Il y a 2 semaines</span>
+                            </div>
+                            <div class="review-stars">
+                                <span style="color:#f5c518;">★★★★☆</span>
+                            </div>
+                            <p class="review-text">Bons cookies, j'ai juste ajouté un peu plus de chocolat à mon goût. Le temps de cuisson était parfait tel qu'indiqué. Merci pour cette recette !</p>
+                        </div>
+
+                        <div class="review">
+                            <div class="review-header">
+                                <strong>Sophie D.</strong>
+                                <span class="review-date">Il y a 1 mois</span>
+                            </div>
+                            <div class="review-stars">
+                                <span style="color:#f5c518;">★★★★★</span>
+                            </div>
+                            <p class="review-text">C'est devenue ma recette de cookies préférée ! Facile, rapide, et délicieuse. Je recommande vivement. Parfait pour les goûters en famille.</p>
+                        </div>
+                    </div>
+
+                    <div class="comment-form-wrapper">
+                        <h3>Laissez votre avis</h3>
+                        <form id="reviewForm" class="comment-form review-form">
+                            <div class="form-group">
+                                <label for="reviewName">Votre nom *</label>
+                                <input type="text" id="reviewName" class="form-control" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewRating">Note *</label>
+                                <select id="reviewRating" class="form-control" required>
+                                    <option value="">Sélectionnez une note</option>
+                                    <option value="5">★★★★★ Excellent</option>
+                                    <option value="4">★★★★☆ Bon</option>
+                                    <option value="3">★★★☆☆ Correct</option>
+                                    <option value="2">★★☆☆☆ À améliorer</option>
+                                    <option value="1">★☆☆☆☆ Mauvais</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewText">Votre avis *</label>
+                                <textarea id="reviewText" class="form-control" rows="4" placeholder="Partagez votre expérience..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Publier mon avis</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="panel-modern recipe-actions">
+                    <button id="printBtn" class="btn-print">
+                        <i class="icon-print"></i> Imprimer la recette
+                    </button>
+                </section>
+            </div>
+        </section>
+	</main>
+
+		    	<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
+				   <img src="images/logos/logo-chocolat-deluxe.png" alt="Image de tablette de chocolat">
+				<div class="container">
+					<div class="row row-pb-md">
+						<div class="col-md-4 fh5co-widget">
+							<h4>Chocolada</h4>
+							<p>Le chocolat artisanal sublime les sens. Chaque bouchée révèle un monde de saveurs. Créé
+								avec passion, il incarne l’élégance, la douceur et l’authenticité.</p>
+						</div>
+						<div class="col-md-2 col-md-push-1 fh5co-widget">
+							<h4>Liens</h4>
+							<ul class="fh5co-footer-links">
+								<li><a href="#">Home</a></li>
+								<li><a href="about.html">About</a></li>
+								<li><a href="about.html">Contact</a></li>
+							</ul>
+						</div>
+
+						<div class="col-md-2 col-md-push-1 fh5co-widget">
+							<h4>Categories</h4>
+							<ul class="fh5co-footer-links">
+								<li><a href="#">Chocolat blanc</a></li>
+								<li><a href="#">Chocolat noir</a></li>
+								<li><a href="#">Chocolat au lait</a></li>
+								<li><a href="#">Chocolat ruby</a></li>
+								<li><a href="#">Chocolat aromatisé</a></li>
+							</ul>
+						</div>
+
+						<div class="col-md-4 col-md-push-1 fh5co-widget">
+							<h4>Contact Information</h4>
+							<ul class="fh5co-footer-links">
+								<li>87-89 Avenue du Parc, <br> 1060 St-Gilles</li>
+								<li><a href="tel://025382083">02/538 20 83</a></li>
+								<li><a href="mailto:info@cf2m.com">info@cf2m.com</a></li>
+								<li><a href="https://www.cf2m.be" target="_blank">www.cf2m.be</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<div class="row copyright">
+						<div class="col-md-12 text-center">
+
+							<li class="fh5co-social-icons">
+								© 2025 Agim, Nordin, Soulaiman, Vahag, Omer, Massine. Tous droits
+							</li>
+						</div>
+					</div>
+
+				</div>
+			</footer>
+    </div>
+
+
+  </div>
+		<div class="gototop js-top">
+			<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 		</div>
 	</div>
 
-	<!-- Header Moderne -->
-	<header class="recipe-modern-header">
-		<h1 class="recipe-title-3d">Cookies 3D Deluxe</h1>
-		<p style="color: white; font-size: 1.2rem; font-family: 'Marck Script', cursive;">
-			Une expérience culinaire en 3 dimensions
-		</p>
-	</header>
 
-	<!-- Conteneur Principal -->
-	<div class="recipe-modern-container">
-		<!-- Carte Informations -->
-		<div class="recipe-card-3d">
-			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
-				<i class="fas fa-info-circle"></i> Informations Recette
-			</h2>
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
-				<div style="text-align: center;">
-					<i class="fas fa-clock" style="color: var(--secondary-color); font-size: 2rem;"></i>
-					<h3>Préparation</h3>
-					<p>20 minutes</p>
-				</div>
-				<div style="text-align: center;">
-					<i class="fas fa-fire" style="color: var(--secondary-color); font-size: 2rem;"></i>
-					<h3>Cuisson</h3>
-					<p>12 minutes</p>
-				</div>
-				<div style="text-align: center;">
-					<i class="fas fa-users" style="color: var(--secondary-color); font-size: 2rem;"></i>
-					<h3>Portions</h3>
-					<p>24 cookies</p>
-				</div>
-				<div style="text-align: center;">
-					<i class="fas fa-star" style="color: var(--secondary-color); font-size: 2rem;"></i>
-					<h3>Difficulté</h3>
-					<p>Facile</p>
-				</div>
-			</div>
-		</div>
+	<!-- jQuery -->
+	<script src="js/vendors/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/vendors/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/vendors/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/vendors/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/vendors/jquery.stellar.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/vendors/jquery.flexslider-min.js"></script>
+	<!-- Main -->
+	<script src="js/core/main.js"></script>
+	<!-- Recipe script -->
+	<script src="js/recipe-marmiton.js"></script>
 
-		<!-- Carte Ingrédients -->
-		<div class="recipe-card-3d">
-			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
-				<i class="fas fa-shopping-basket"></i> Ingrédients
-			</h2>
-			<div class="ingredients-grid-3d">
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🥖</div>
-					<h4>Farine</h4>
-					<p>280g</p>
-				</div>
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🧈</div>
-					<h4>Beurre</h4>
-					<p>200g</p>
-				</div>
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🍫</div>
-					<h4>Chocolat</h4>
-					<p>300g</p>
-				</div>
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🥚</div>
-					<h4>Œufs</h4>
-					<p>2 unités</p>
-				</div>
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🍚</div>
-					<h4>Sucres</h4>
-					<p>250g</p>
-				</div>
-				<div class="ingredient-item-3d">
-					<div class="ingredient-icon">🌿</div>
-					<h4>Vanille</h4>
-					<p>2 c.à.c</p>
-				</div>
-			</div>
-		</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('toggleReviews');
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            const printBtn = document.getElementById('printBtn');
+            const reviewForm = document.getElementById('reviewForm');
 
-		<!-- Carte Préparation -->
-		<div class="recipe-card-3d">
-			<h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
-				<i class="fas fa-utensils"></i> Préparation
-			</h2>
-			<div class="steps-container-3d">
-				<div class="step-item-3d">
-					<div class="step-number-3d">1</div>
-					<div>
-						<h3>Mélanger les bases</h3>
-						<p>Dans un grand bol, mélangez le beurre mou avec les sucres jusqu'à obtenir une texture crémeuse et aérée.</p>
-					</div>
-				</div>
-				<div class="step-item-3d">
-					<div class="step-number-3d">2</div>
-					<div>
-						<h3>Ajouter les œufs</h3>
-						<p>Incorporez les œufs un à un, puis ajoutez l'extrait de vanille. Mélangez jusqu'à homogénéité.</p>
-					</div>
-				</div>
-				<div class="step-item-3d">
-					<div class="step-number-3d">3</div>
-					<div>
-						<h3>Poudres sèches</h3>
-						<p>Tamisez la farine avec le bicarbonate et le sel. Incorporez progressivement au mélange humide.</p>
-					</div>
-				</div>
-				<div class="step-item-3d">
-					<div class="step-number-3d">4</div>
-					<div>
-						<h3>Finaliser la pâte</h3>
-						<p>Ajoutez les pépites de chocolat et mélangez délicatement. Réfrigérez 30 minutes avant cuisson.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            if (toggleBtn && reviewsContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    const isHidden = reviewsContainer.style.display === 'none' || reviewsContainer.style.display === '';
+                    reviewsContainer.style.display = isHidden ? 'grid' : 'none';
+                    toggleBtn.textContent = isHidden ? 'Masquer les avis' : 'Afficher les avis';
+                });
+            }
 
-	<script>
-		// Animation interactive
-		document.addEventListener('mousemove', (e) => {
-			const scene = document.querySelector('.recipe-3d-scene');
-			const x = (e.clientX / window.innerWidth - 0.5) * 20;
-			const y = (e.clientY / window.innerHeight - 0.5) * 20;
-			
-			scene.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-		});
+            if (printBtn) {
+                printBtn.addEventListener('click', () => window.print());
+            }
 
-		// Effet de parallaxe
-		window.addEventListener('scroll', () => {
-			const scrolled = window.pageYOffset;
-			const parallax = document.querySelector('.recipe-3d-container');
-			parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-		});
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const name = document.getElementById('reviewName').value.trim();
+                    const rating = document.getElementById('reviewRating').value;
+                    const text = document.getElementById('reviewText').value.trim();
 
-		// Animation des cartes au scroll
-		const observerOptions = {
-			threshold: 0.1,
-			rootMargin: '0px 0px -50px 0px'
-		};
+                    if (!name || !rating || !text) return;
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.style.opacity = '1';
-					entry.target.style.transform = 'translateY(0)';
-				}
-			});
-		}, observerOptions);
+                    const newReview = document.createElement('div');
+                    newReview.className = 'review';
+                    newReview.innerHTML = `
+                        <div class="review-header">
+                            <strong>${name}</strong>
+                            <span class="review-date">À l'instant</span>
+                        </div>
+                        <div class="review-stars">
+                            <span style="color:#f5c518;">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
+                        </div>
+                        <p class="review-text">${text}</p>
+                    `;
 
-		// Observer tous les éléments à animer
-		document.querySelectorAll('.recipe-card-3d, .ingredient-item-3d, .step-item-3d').forEach(el => {
-			el.style.opacity = '0';
-			el.style.transform = 'translateY(30px)';
-			el.style.transition = 'all 0.6s ease';
-			observer.observe(el);
-		});
-	</script>
+                    reviewsContainer.prepend(newReview);
+                    reviewForm.reset();
+                    reviewsContainer.style.display = 'grid';
+                    toggleBtn.textContent = 'Masquer les avis';
+                });
+            }
+        });
+    </script>
+    
+    <script>
+        Zoomerang
+      .config({
+        maxHeight: 600,
+        maxWidth: 900,
+        bgColor: '#000',
+        bgOpacity: .85
+      })
+      .listen('[data-trigger="zoomerang"]')
+    </script>
+
 </body>
 </html>
