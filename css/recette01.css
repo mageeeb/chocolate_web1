@@ -6,6 +6,10 @@
   background-color: var(--background);
   font-family: "Inter", sans-serif;
 }
+li .ingredient-bullet,
+.spanLi {
+  color: #777777 !important;
+}
 
 .hero-section {
   margin-bottom: 2rem;

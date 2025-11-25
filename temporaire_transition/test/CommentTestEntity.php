@@ -8,10 +8,10 @@ spl_autoload_register(function ($class) {
 
 use model\mapping\CommentMapping;
 
-$testComment = new CommentMapping([
+$testComment = new CommentMapping(datas: [
     ]);
 
-$testComment1 = new CommentMapping([
+$testComment1 = new CommentMapping(datas: [
     'id' => 1,
     'content' => 'This is a test comment.',
     'created_at' => new DateTimeImmutable('2024-06-01 12:00:00'),

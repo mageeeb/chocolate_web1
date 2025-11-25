@@ -1,0 +1,648 @@
+/* Ancient Recipe Book - Papyrus Style */
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap');
+
+:root {
+  --papyrus-bg: #f4e8d0;
+  --papyrus-dark: #d4c4a8;
+  --papyrus-text: #3d2817;
+  --ancient-gold: #b8860b;
+  --ancient-brown: #5c4033;
+  --ancient-red: #8b4513;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+.book-page {
+
+    background-image: url("/images/backgrounds/download2.jpeg");
+}
+
+body.ancient-recipe {
+  background: #8b8372;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/papyrus.png'),
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-size: 100% 100%, 200% 200%;
+  background-position: center, center;
+  background-blend-mode: multiply, overlay;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--papyrus-text);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Opened Book Content */
+.recipe-book-content {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 120px auto 0;
+  padding: 60px 40px;
+  opacity: 1;
+}
+
+.book-page {
+  background: #f4e8d0;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/papyrus.png'),
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-size: 100% 100%, 200% 200%;
+  background-position: center, center;
+  background-blend-mode: multiply, overlay;
+  padding: 60px 80px;
+  margin: 40px 0;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 100px rgba(139, 69, 19, 0.15),
+    inset 0 0 200px rgba(212, 196, 168, 0.1);
+  border: 3px solid var(--papyrus-dark);
+  border-left: 10px solid var(--ancient-gold);
+  position: relative;
+  transform: perspective(1000px) rotateY(-1deg);
+  transition: transform 0.3s ease;
+  background-color: #f4e8d0;
+}
+
+.book-page:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.book-page:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(to right, var(--ancient-gold), transparent);
+  opacity: 0.3;
+}
+
+/* Ancient Recipe Header */
+.ancient-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 3px double var(--ancient-brown);
+  position: relative;
+}
+
+.ancient-header:after {
+  content: '❋';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: var(--ancient-gold);
+  background: var(--papyrus-bg);
+  padding: 0 20px;
+}
+
+.ancient-title {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 48px;
+  color: var(--ancient-brown);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 4px;
+}
+
+.ancient-subtitle {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 20px;
+  color: var(--ancient-red);
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.ancient-date {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 16px;
+  color: var(--ancient-brown);
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+/* Ancient Charcoal Drawing Image */
+.ancient-image-container {
+  margin: 50px 0;
+  text-align: center;
+  padding: 30px;
+  background: rgba(212, 196, 168, 0.1);
+  border: 3px double var(--ancient-brown);
+  position: relative;
+}
+
+.ancient-charcoal-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  filter: 
+    grayscale(100%) 
+    contrast(1.3) 
+    brightness(0.9)
+    sepia(20%);
+  mix-blend-mode: multiply;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    inset 0 0 50px rgba(139, 69, 19, 0.1);
+  border: 2px solid var(--ancient-brown);
+  background: var(--papyrus-bg);
+  padding: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ancient-charcoal-image:hover {
+  filter: 
+    grayscale(100%) 
+    contrast(1.4) 
+    brightness(0.85)
+    sepia(25%);
+  transform: scale(1.02);
+}
+
+.ancient-charcoal-image:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.03) 2px,
+      rgba(139, 69, 19, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+.ancient-image-caption {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 14px;
+  color: var(--ancient-red);
+  font-style: italic;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Ingredients Section */
+.ancient-section {
+  margin: 50px 0;
+  position: relative;
+}
+
+.ancient-section-title {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 32px;
+  color: var(--ancient-brown);
+  margin-bottom: 30px;
+  padding-left: 20px;
+  border-left: 6px solid var(--ancient-gold);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.ancient-ingredients {
+  list-style: none;
+  padding: 0;
+}
+
+.ancient-ingredients li {
+  padding: 15px 0;
+  padding-left: 40px;
+  position: relative;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--papyrus-text);
+  border-bottom: 1px dotted var(--papyrus-dark);
+}
+
+.ancient-ingredients li:before {
+  content: '⚜';
+  position: absolute;
+  left: 0;
+  color: var(--ancient-gold);
+  font-size: 20px;
+}
+
+.ancient-ingredients li:last-child {
+  border-bottom: none;
+}
+
+/* Description */
+.ancient-description {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--papyrus-text);
+  text-align: justify;
+  margin: 40px 0;
+  padding: 30px;
+  background: #f4e8d0;
+  background-image: url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  border: 2px solid var(--papyrus-dark);
+  border-left: 8px solid var(--ancient-gold);
+  font-style: italic;
+  box-shadow: 
+    inset 0 0 50px rgba(139, 69, 19, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Steps Section */
+.ancient-steps {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.ancient-step {
+  counter-increment: step-counter;
+  margin: 40px 0;
+  padding: 30px;
+  padding-left: 100px;
+  position: relative;
+  background: rgba(212, 196, 168, 0.15);
+  border: 1px solid var(--papyrus-dark);
+  border-left: 6px solid var(--ancient-gold);
+  transition: all 0.3s ease;
+}
+
+.ancient-step:hover {
+  background: rgba(212, 196, 168, 0.25);
+  transform: translateX(10px);
+}
+
+.ancient-step:before {
+  content: counter(step-counter, upper-roman);
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 36px;
+  color: var(--ancient-gold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.step-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+  color: var(--ancient-brown);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.step-description {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--papyrus-text);
+}
+
+/* Decorative Elements */
+.ancient-divider {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 24px;
+  color: var(--ancient-gold);
+  letter-spacing: 10px;
+}
+
+/* Comments Section - Ancient Style */
+.ancient-comment-form {
+  margin: 40px 0;
+  padding: 40px;
+  background: #f4e8d0;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  border: 3px solid var(--papyrus-dark);
+  border-left: 8px solid var(--ancient-gold);
+  box-shadow: 
+    inset 0 0 50px rgba(139, 69, 19, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ancient-form-group {
+  margin-bottom: 30px;
+}
+
+.ancient-form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 20px;
+  color: var(--ancient-brown);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ancient-form-control {
+  width: 100%;
+  padding: 15px;
+  background: #f4e8d0;
+  background-image: url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  border: 2px solid var(--papyrus-dark);
+  border-radius: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--papyrus-text);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ancient-form-control:focus {
+  outline: none;
+  border-color: var(--ancient-gold);
+  background: #f9f0e0;
+  box-shadow: 
+    inset 0 0 15px rgba(184, 134, 11, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ancient-form-control::placeholder {
+  color: var(--papyrus-dark);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+textarea.ancient-form-control {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.ancient-btn {
+  background: var(--ancient-brown);
+  color: var(--ancient-gold);
+  border: 3px solid var(--ancient-gold);
+  padding: 15px 40px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ancient-btn:hover {
+  background: var(--ancient-gold);
+  color: var(--ancient-brown);
+  border-color: var(--ancient-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ancient-comments-list {
+  margin-top: 50px;
+}
+
+.ancient-comment {
+  margin: 40px 0;
+  padding: 35px;
+  background: #f4e8d0;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  border: 3px solid var(--papyrus-dark);
+  border-left: 8px solid var(--ancient-gold);
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 50px rgba(139, 69, 19, 0.08);
+}
+
+.ancient-comment:hover {
+  background: #f9f0e0;
+  transform: translateX(5px);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 0 50px rgba(139, 69, 19, 0.12);
+}
+
+.ancient-comment:before {
+  content: '❋';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  color: var(--ancient-gold);
+  opacity: 0.5;
+}
+
+.ancient-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px dotted var(--papyrus-dark);
+}
+
+.ancient-comment-author {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 22px;
+  color: var(--ancient-brown);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ancient-comment-date {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 16px;
+  color: var(--ancient-red);
+  font-style: italic;
+}
+
+.ancient-comment-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+  color: var(--ancient-brown);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.ancient-comment-text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--papyrus-text);
+  text-align: justify;
+}
+
+/* Similar Recipes Section - Ancient Style */
+.ancient-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.ancient-recipe-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.ancient-recipe-card:hover {
+  transform: translateY(-8px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.ancient-recipe-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border: 3px solid var(--ancient-brown);
+  border-left: 8px solid var(--ancient-gold);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 50px rgba(139, 69, 19, 0.1);
+  background: #f4e8d0;
+  background-image: url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+}
+
+.ancient-recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: 
+    grayscale(40%) 
+    contrast(1.2) 
+    brightness(0.95)
+    sepia(15%);
+  transition: all 0.4s ease;
+  mix-blend-mode: multiply;
+}
+
+.ancient-recipe-card:hover .ancient-recipe-image {
+  filter: 
+    grayscale(30%) 
+    contrast(1.3) 
+    brightness(1.0)
+    sepia(20%);
+  transform: scale(1.05);
+}
+
+.ancient-recipe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(60, 40, 23, 0.1) 0%,
+    rgba(60, 40, 23, 0.3) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ancient-recipe-card:hover .ancient-recipe-overlay {
+  opacity: 1;
+}
+
+.ancient-recipe-icon {
+  font-size: 48px;
+  color: var(--ancient-gold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.ancient-recipe-card:hover .ancient-recipe-icon {
+  transform: scale(1);
+}
+
+.ancient-recipe-content {
+  padding: 25px;
+  background: #f4e8d0;
+  background-image: url('https://www.transparenttextures.com/patterns/papyrus.png');
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  border: 2px solid var(--papyrus-dark);
+  border-top: none;
+  border-left: 8px solid var(--ancient-gold);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ancient-recipe-title {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 24px;
+  color: var(--ancient-brown);
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ancient-recipe-subtitle {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 16px;
+  color: var(--ancient-red);
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-page {
+    padding: 40px 30px;
+  }
+  
+  .ancient-title {
+    font-size: 32px;
+  }
+  
+  .ancient-step {
+    padding-left: 70px;
+  }
+  
+  .ancient-step:before {
+    font-size: 28px;
+    left: 15px;
+  }
+
+  .ancient-comment-form {
+    padding: 30px 20px;
+  }
+
+  .ancient-comment {
+    padding: 25px 20px;
+  }
+
+  .ancient-comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ancient-recipes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ancient-recipe-image-wrapper {
+    height: 200px;
+  }
+}
+
