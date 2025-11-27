@@ -132,6 +132,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80px;
 }
 
 /* =======================================================
@@ -166,6 +167,7 @@ body {
 
 a {
   color: white;
+  text-decoration: none;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -241,6 +243,8 @@ figure {
   z-index: 1001;
   top: 0;
   padding: 14px 0;
+  min-height: 80px;
+  box-sizing: border-box;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -309,6 +313,9 @@ figure {
 .fh5co-nav ul li a {
   padding: 30px 15px;
   color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  line-height: 1.2;
+  display: inline-block;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -410,14 +417,13 @@ figure {
 }
 .fh5co-nav ul li.active > a:after {
   position: absolute;
-  bottom: 25px;
-  left: 0;
-  right: 0;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   content: '';
   width: 60px;
   height: 2px;
   background: linear-gradient(to right, #d6b98c, #3e1f0d, #d6b98c);
-  margin: 0 auto;
 }
 
 .fh5co-nav ul.dropdown li a {
@@ -3983,13 +3989,15 @@ body.recipe-page .recipe-header-section {
 }
 
 /* Soulignement stylé uniquement pour les liens du premier niveau */
-.fh5co-nav > ul > li.active > a {
+.fh5co-nav > ul > li.active > a,
+.fh5co-nav ul li.active > a {
   position: relative; /* nécessaire pour ancrer le :after */
 }
 
-.fh5co-nav > ul > li.active > a::after {
+.fh5co-nav > ul > li.active > a::after,
+.fh5co-nav ul li.active > a::after {
   position: absolute;
-  bottom: -4px; /* plus proche du texte, évite les chevauchements */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   content: '';
@@ -4001,6 +4009,22 @@ body.recipe-page .recipe-header-section {
 /* Désactiver tout pseudo-élément sur les liens du dropdown */
 .fh5co-nav .dropdown a::after {
   content: none !important;
+}
+
+/* Surcharger les styles Bootstrap 5 pour la navbar */
+.fh5co-nav * {
+  box-sizing: border-box;
+}
+
+.fh5co-nav .row {
+  margin: 0;
+  min-height: 80px;
+  align-items: center;
+}
+
+.fh5co-nav .container {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .stars span {
