@@ -3,6 +3,7 @@
 namespace model\mapping;
 
 use model\AbstractMapping;
+use Exception;
 
 class StepsMapping extends AbstractMapping
 {
@@ -41,12 +42,18 @@ class StepsMapping extends AbstractMapping
     // --- SETTERS ---
     public function setId(?int $id): self
     {
+        if ($id !== null && $id < 0) {
+            throw new Exception('ID must be positive');
+        }
         $this->id = $id;
         return $this;
     }
 
     public function setPosition(?int $position): self
     {
+        if ($position !== null && $position < 0) {
+            throw new Exception('Position must be positive');
+        }
         $this->position = $position;
         return $this;
     }
@@ -59,12 +66,18 @@ class StepsMapping extends AbstractMapping
 
     public function setRecipeId(?int $recipe_id): self
     {
+        if ($recipe_id !== null && $recipe_id < 0) {
+            throw new Exception('Recipe ID must be positive');
+        }
         $this->recipe_id = $recipe_id;
         return $this;
     }
 
     public function setImagesId(?int $images_id): self
     {
+        if ($images_id !== null && $images_id < 0) {
+            throw new Exception('Images ID must be positive');
+        }
         $this->images_id = $images_id;
         return $this;
     }
