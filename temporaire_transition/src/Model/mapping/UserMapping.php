@@ -79,30 +79,50 @@ class UserMapping extends AbstractMapping
     // --- SETTERS ---
     public function setId(?int $id): self
     {
+        if ($id !== null && $id < 0) {
+            throw new Exception('ID must be positive');
+        }
         $this->id = $id;
         return $this;
     }
 
     public function setName(?string $name): self
     {
+        if ($name !== null && strlen($name) > 255) {
+            throw new Exception('Name cannot exceed 255 characters');
+        }
         $this->name = $name;
         return $this;
     }
 
     public function setLogin(?string $login): self
     {
+        if ($login !== null && strlen($login) > 80) {
+            throw new Exception('Login cannot exceed 80 characters');
+        }
         $this->login = $login;
         return $this;
     }
 
     public function setEmail(?string $email): self
     {
+        if ($email !== null) {
+            if (strlen($email) > 255) {
+                throw new Exception('Email cannot exceed 255 characters');
+            }
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception('Invalid email format');
+            }
+        }
         $this->email = $email;
         return $this;
     }
 
     public function setPassword(?string $password): self
     {
+        if ($password !== null && strlen($password) > 255) {
+            throw new Exception('Password cannot exceed 255 characters');
+        }
         $this->password = $password;
         return $this;
     }
@@ -115,30 +135,45 @@ class UserMapping extends AbstractMapping
 
     public function setRole(?int $role): self
     {
+        if ($role !== null && ($role < 0 || $role > 255)) {
+            throw new Exception('Role must be between 0 and 255');
+        }
         $this->role = $role;
         return $this;
     }
 
     public function setEmailToken(?string $email_token): self
     {
+        if ($email_token !== null && strlen($email_token) > 255) {
+            throw new Exception('Email token cannot exceed 255 characters');
+        }
         $this->email_token = $email_token;
         return $this;
     }
 
     public function setPwdToken(?string $pwd_token): self
     {
+        if ($pwd_token !== null && strlen($pwd_token) > 255) {
+            throw new Exception('Password token cannot exceed 255 characters');
+        }
         $this->pwd_token = $pwd_token;
         return $this;
     }
 
     public function setIsVerified(?int $is_verified): self
     {
+        if ($is_verified !== null && ($is_verified < 0 || $is_verified > 1)) {
+            throw new Exception('is_verified must be 0 or 1');
+        }
         $this->is_verified = $is_verified;
         return $this;
     }
 
     public function setImagesId(?int $images_id): self
     {
+        if ($images_id !== null && $images_id < 0) {
+            throw new Exception('Images ID must be positive');
+        }
         $this->images_id = $images_id;
         return $this;
     }

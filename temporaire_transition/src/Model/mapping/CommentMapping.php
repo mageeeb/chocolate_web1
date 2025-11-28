@@ -23,6 +23,9 @@ class CommentMapping extends AbstractMapping
 
     public function setId(?int $id): self
     {
+        if ($id !== null && $id < 0) {
+            throw new Exception('ID must be positive');
+        }
         $this->id = $id;
         return $this;
     }
@@ -34,6 +37,9 @@ class CommentMapping extends AbstractMapping
 
     public function setContent(?string $content): self
     {
+        if ($content !== null && strlen($content) > 600) {
+            throw new Exception('Content cannot exceed 600 characters');
+        }
         $this->content = $content;
         return $this;
     }
@@ -56,6 +62,9 @@ class CommentMapping extends AbstractMapping
 
     public function setIsAccepted(?int $is_accepted): self
     {
+        if ($is_accepted !== null && ($is_accepted < 0 || $is_accepted > 1)) {
+            throw new Exception("La valeur ne peut qu'une valeur entre 0 et 1");
+        }
         $this->is_accepted = $is_accepted;
         return $this;
     }
