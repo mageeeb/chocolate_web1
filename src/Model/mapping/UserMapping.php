@@ -169,12 +169,5 @@ class UserMapping extends AbstractMapping
         return $this;
     }
 
-    public function setImagesId(?int $images_id): self
-    {
-        if ($images_id !== null && $images_id < 0) {
-            throw new Exception('Images ID must be positive');
-        }
-        $this->images_id = $images_id;
-        return $this;
-    }
+
 }

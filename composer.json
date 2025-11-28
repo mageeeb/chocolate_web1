@@ -1,0 +1,17 @@
+{
+    "name": "utilisateur/chocolate_web1",
+    "autoload": {
+        "psr-4": {
+            "Utilisateur\\ChocolateWeb1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Agim",
+            "email": "agim.coroli8016@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}
