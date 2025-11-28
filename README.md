@@ -1,0 +1,1 @@
+inscirption fonctionne  MAIS role emailToker is_verified image_id est null -> probleme a reglé
