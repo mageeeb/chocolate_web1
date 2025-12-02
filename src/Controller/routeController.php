@@ -16,12 +16,11 @@ try {
 }
 
 
-
 # Routage principal
-if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-    require_once PATH."/src/Controller/adminController.php";
+if (isset($_SESSION['user']) && $_SESSION['user'] === true) {
+    require_once PATH."/src/Controller/UserController.php";
 } else {
-    require_once PATH."/src/Controller/publicController.php";
+    require_once PATH."/src/Controller/PublicController.php";
 }
 
 $pdo = null;

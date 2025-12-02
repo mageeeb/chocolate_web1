@@ -26,6 +26,13 @@
 								</li>
 								<li><a href="?pg=about">About</a></li>
 								<li><a href="?pg=contact">Contact</a></li>
+<?php if(isset($SESSION['user']) && $SESSION['user'] === true): ?>
+		<li><a href="?pg=deconnexion">Deconnexion</a></li>
+
+	<?php else: ?>
+		<li><a href="?pg=connexion">Connexion</a></li>
+<?php endif; ?>
+
 							</ul>
 						</div>
 					</div>
