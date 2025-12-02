@@ -2,14 +2,20 @@
 
 if (isset($_GET['pg'])) {
     switch ($_GET['pg']) {
-
+            case 'connexion':
+                    require_once PATH. "/src/View/connexion.php";
+                break;
+                            case 'inscription':
+                                
+                    require_once PATH. "/src/View/inscription.php";
+                break;
             case 'about':
                 require_once PATH. "/src/View/about.php";
                 break;
-                case 'contact':
+            case 'contact':
                     require_once PATH. "/src/View/contact.php";
                     break;
-                    case 'recette':
+            case 'recette':
                         if (isset($_GET['recette'])) {
                             switch ($_GET['recette']) {
                                 case '1':
@@ -45,14 +51,14 @@ if (isset($_GET['pg'])) {
                         } else {
                             require_once PATH. "/src/View/construction.php";
                         }
-            break;
+                break;
         
         default:
-                        require_once PATH. "/src/View/error.404.php";
+            require_once PATH. "/src/View/error.404.php";
 
             break;
     }
 } else {
-            require_once PATH. "/src/View/home.php";
+    require_once PATH. "/src/View/home.php";
 
 }

@@ -70,19 +70,19 @@
 
 
       <section class="mainRecette3__comments" style="margin-top:22rem;">
-        <h2>Inscription</h2>
+        <h2>Connexion</h2>
         <form class="mainRecette3__form">
           <label for="name">Nom :</label>
-          <input type="text" id="name" name="name"  />
+          <input type="text" id="name" name="name" required />
 
           <label for="subject">Sujet :</label>
-          <input type="text" id="subject" name="subject"  />
+          <input type="text" id="subject" name="subject" required />
 
           <label for="comment">Commentaire :</label>
-          <input type="text" id="comment" name="comment"  />
+          <input type="text" id="comment" name="comment" required />
 
-          <button name="validation" type="submit">Envoyer</button>
-          <a style="text-align:center; padding:2rem;" href="?pg=connexion">Deja inscrit ? Clique ici</a>
+          <button type="submit">Envoyer</button>
+          <a style="text-align:center; padding:2rem;" href="?pg=inscription">Pas encors inscrit ? Clique ici</a>
         </form>
 
       </section>
