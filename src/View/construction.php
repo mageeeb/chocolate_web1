@@ -13,7 +13,7 @@
 <body class="construct_page">
     <h1>Error 404</h1>
     <img src="images/ui/enConstruction.webp" alt="gif de construction">
-    <a href="index.html">Accueil</a>
+    <a href="./">Accueil</a>
 
     <!-- jQuery -->
     <script src="js/vendors/jquery.min.js"></script>

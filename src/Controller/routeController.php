@@ -19,9 +19,9 @@ try {
 
 # Routage principal
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-    require_once RACINE_PATH."/src/Controller/adminController.php";
+    require_once PATH."/src/Controller/adminController.php";
 } else {
-    require_once RACINE_PATH."/src/Controller/publicController.php";
+    require_once PATH."/src/Controller/publicController.php";
 }
 
 $pdo = null;
