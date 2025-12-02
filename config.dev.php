@@ -9,6 +9,6 @@ const DB_CHARSET = "utf8mb4";
 
 const DB_TYPE = "mysql";
 
-const RACINE_PATH = __DIR__;
+const PATH = __DIR__;
 
-const RACINE_URL = "http://chocolate1/index.html";
+// const RACINE_URL = "http://chocolate1/index.html";

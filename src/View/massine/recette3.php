@@ -68,41 +68,7 @@
 
 <body class="min-vh-100- recipe-page">
 	<div id="page">
-		<nav class="fh5co-nav" role="navigation">
-
-			<div class="top-menu">
-				<div class="container">
-					<div class="row logoContainer">
-						<a href="../../index.html" class="logo">
-							<img class="logo" src="../../images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
-						</a>
-						<div class="col-xs-12 text-center menu-1 menu-wrap">
-							<ul class="titre-chocolat">
-								<li class="active"><a href="../../index.html">Home</a></li>
-								<li class="has-dropdown">
-									<a href="#">Recettes</a>
-									<ul class="dropdown">
-										<li><a href="../omer/recette1.html" title="Cupavci">Recette Omer</a></li>
-										<li><a href="../agim/recette2.html">Recette Agim</a></li>
-										<li><a href="../agim/recette3.html">Recette Agim</a></li>
-										<li><a href="recette4.html">Recette Massine</a></li>
-										<li><a href="../soulaiman/recette5.html">Recette Soulaiman</a></li>
-										<li><a href="../omer/recette6.html">Recette Omer</a></li>
-										<li><a href="../soulaiman/recette7.html">Recette Soulaiman</a></li>
-										<li><a href="recette8.html">Recette Massine</a></li>
-										<li><a href="../../construct.html">Recette Vahag</a></li>
-										<li><a href="../../construct.html">Recette Vahag</a></li>
-									</ul>
-								</li>
-								<li><a href="../../about.html">About</a></li>
-								<li><a href="../../contact.html">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</nav>
+<?php require_once PATH."/src/View/inc/navigation.php"; ?>
 
 		<header class="recipe-header-section">
 			<div class="container">
@@ -357,62 +323,8 @@
 				</div>
 			</div>
 		</div>
-		<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
-			<img src="../../images/logos/logo-chocolat-deluxe.png" alt="Image de tablette de chocolat">
-			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-4 fh5co-widget">
-						<h4>Chocolada</h4>
-						<p>Le chocolat artisanal sublime les sens. Chaque bouchée révèle un monde de saveurs. Créé avec
-							passion, il
-							incarne l’élégance, la douceur et l’authenticité.</p>
-					</div>
-					<div class="col-md-2 col-md-push-1 fh5co-widget">
-						<h4>Liens</h4>
-						<ul class="fh5co-footer-links">
-							<li><a href="../../index.html">Home</a></li>
-							<li><a href="../../about.html">About</a></li>
-							<li><a href="../../about.html">Contact</a></li>
-						</ul>
-					</div>
+<?php require_once PATH."/src/View/inc/footer.php"; ?>
 
-					<div class="col-md-2 col-md-push-1 fh5co-widget">
-						<h4>Categories</h4>
-						<ul class="fh5co-footer-links">
-							<li><a href="../../construct.html">Chocolat blanc</a></li>
-							<li><a href="../../construct.html">Chocolat noir</a></li>
-							<li><a href="../../construct.html">Chocolat au lait</a></li>
-							<li><a href="../../construct.html">Chocolat ruby</a></li>
-							<li><a href="../../construct.html">Chocolat aromatisé</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4 col-md-push-1 fh5co-widget">
-						<h4>Contact Information</h4>
-						<ul class="fh5co-footer-links">
-							<li>87-89 Avenue du Parc, <br> 1060 St-Gilles</li>
-							<li><a href="tel://025382083">02/538 20 83</a></li>
-							<li><a href="mailto:info@cf2m.com">info@cf2m.com</a></li>
-							<li><a href="https://www.cf2m.be" target="_blank">www.cf2m.be</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-				<div class="row copyright">
-					<div class="col-md-12 text-center">
-
-						<li class="fh5co-social-icons">
-							© 2025 <a href="https://github.com/agim-coroli" target="_blank">Agim</a>, <a
-								href="https://github.com/SoulaimanDev" target="_blank">Soulaiman</a>, <a
-								href="https://github.com/OkiSenpai" target="_blank">Omer</a>, <a
-								href="https://github.com/Massine2k1" target="_blank">Massine</a>. Tous droits réservés
-						</li>
-					</div>
-				</div>
-
-			</div>
-		</footer>
 
 	</div>
 

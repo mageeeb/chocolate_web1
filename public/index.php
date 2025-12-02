@@ -18,12 +18,12 @@ if(file_exists("../config.prod.php")){
 
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
-    require RACINE_PATH . '/src/' . $class . '.php';
+    require PATH . '/src/' . $class . '.php';
 
 
 });
 
-require_once RACINE_PATH."/src/Controller/routeController.php";
+require_once PATH."/src/Controller/routeController.php";
 
 
 
