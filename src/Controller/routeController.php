@@ -15,12 +15,7 @@ try {
     die('Erreur de connexion : ' . $e->getMessage());
 }
 
-# Gestion de la déconnexion
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header('Location: ./');
-    exit();
-}
+
 
 # Routage principal
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
