@@ -24,7 +24,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link rel="icon" href="images/logos/noisette.png" type="image/png">
+	<link rel="icon" href="<?= BASE_URL ?>/images/logos/noisette.png" type="image/png">
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
 		rel="stylesheet">
@@ -35,17 +35,17 @@
 		rel="stylesheet">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/custom.css">
 
 	<!-- Modernizr JS -->
 
@@ -81,12 +81,12 @@
 
 
 			<video autoplay muted playsinline id="chocoVideo" class="mainHome__header__video">
-				<source src="images/backgrounds/video-chocolat-noisette.mp4" preload="none" loading="lazy" autoplay
+				<source src="<?= BASE_URL ?>/images/backgrounds/video-chocolat-noisette.mp4" preload="none" loading="lazy" autoplay
 					muted type="video/mp4" />
 			</video>
 
 			<div id="gifWrapper" class="mainHome__header__gif-wrapper">
-				<img src="images/backgrounds/fond-table-chocolats.jpg" id="chocoGif" class="mainHome__header__gif" />
+				<img src="<?= BASE_URL ?>/images/backgrounds/fond-table-chocolats.jpg" id="chocoGif" class="mainHome__header__gif" />
 			</div>
 			<!-- <img src="images/logotastyBlanco.png" alt="Image du logo"> -->
 			<h1 id="chocoTitle" class="mainHome__header__title">Découvrez l'univers du chocolat</h1>
@@ -218,7 +218,7 @@
 						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="images/recipes/pile-pancakes-fruits.jpg"
+									<img src="<?= BASE_URL ?>/images/recipes/pile-pancakes-fruits.jpg"
 										alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
@@ -236,7 +236,7 @@
 						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="images/recipes/dessert-creme-fruits.jpg"
+									<img src="<?= BASE_URL ?>/images/recipes/dessert-creme-fruits.jpg"
 										alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
@@ -254,7 +254,7 @@
 						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="images/recipes/pancake-fruits.jpg" alt="Chocolat noir belge artisanal"
+									<img src="<?= BASE_URL ?>/images/recipes/pancake-fruits.jpg" alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
 								<div class="choco-content mainHome__menu__item__card__content">
@@ -271,7 +271,7 @@
 						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="images/recipes/tarte-framboise.jpg" alt="Chocolat noir belge artisanal"
+									<img src="<?= BASE_URL ?>/images/recipes/tarte-framboise.jpg" alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
 								<div class="choco-content mainHome__menu__item__card__content">
@@ -341,7 +341,7 @@
 							<!-- Image principale à droite -->
 							<div class="col-md-6 col-sm-12">
 								<div class="slider-image-wrapper">
-									<img src="images/ui/loader-chargement.gif" alt="Chocolat Noir Belge"
+									<img src="<?= BASE_URL ?>/images/ui/loader-chargement.gif" alt="Chocolat Noir Belge"
 										class="img-responsive" />
 								</div>
 							</div>

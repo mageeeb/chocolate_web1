@@ -46,16 +46,16 @@
     rel="stylesheet" />
 
   <!-- Animate.css -->
-  <link rel="stylesheet" href="../../css/animate.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css" />
   <!-- Icomoon Icon Fonts-->
-  <link rel="stylesheet" href="../../css/icomoon.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css" />
   <!-- Bootstrap  -->
-  <link rel="stylesheet" href="../../css/bootstrap.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css" />
   <!-- Flexslider  -->
-  <link rel="stylesheet" href="../../css/flexslider.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css" />
 
   <!-- Theme style  -->
-  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css" />
 
   <!-- Modernizr JS -->
 

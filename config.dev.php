@@ -11,4 +11,4 @@ const DB_TYPE = "mysql";
 
 const PATH = __DIR__;
 
-// const RACINE_URL = "http://chocolate1/index.html";
+// const RACINE_URL = "http://chocolate1/public/index.html";
