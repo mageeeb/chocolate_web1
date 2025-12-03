@@ -37,7 +37,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link rel="icon" href="images/logos/noisette.png" type="image/png">
+	<link rel="icon" href="<?= BASE_URL ?>/images/logos/noisette.png" type="image/png">
 
 	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
@@ -47,17 +47,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
 
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
 
 	<!-- Modernizr JS -->
 
