@@ -4,7 +4,7 @@
 				<div class="container">
 					<div class="row logoContainer">
 						<a href="index.html" class="logo">
-							<img class="logo" src="images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
+							<img class="logo" src="<?php CHEMIN ?>images/logos/logo-cokolada-gold.png" alt="Tasty Logo">
 						</a>
 						<div class="col-xs-12 text-center menu-1 menu-wrap">
 							<ul class="titre-chocolat">

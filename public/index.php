@@ -21,8 +21,8 @@ $baseDir = rtrim(str_replace('\\', '/', dirname($scriptName)), '/');
 if ($baseDir === '.') {
     $baseDir = '';
 }
-if (!defined('BASE_URL')) {
-    define('BASE_URL', $baseDir);
+if (!defined('PATH')) {
+    define('PATH', $baseDir);
 }
 
 spl_autoload_register(function ($class) {
@@ -31,6 +31,7 @@ spl_autoload_register(function ($class) {
 
 
 });
+
 require_once PATH."/src/Controller/routeController.php";
 
 

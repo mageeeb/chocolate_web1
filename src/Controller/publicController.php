@@ -15,6 +15,9 @@ if (isset($_GET['pg'])) {
             case 'contact':
                     require_once PATH. "/src/View/contact.php";
                     break;
+            case 'construct':
+                    require_once PATH. "/src/View/construction.php";
+                    break;
             case 'recette':
                         if (isset($_GET['recette'])) {
                             switch ($_GET['recette']) {
@@ -48,9 +51,7 @@ if (isset($_GET['pg'])) {
 
                                     break;
                             }
-                        } else {
-                            require_once PATH. "/src/View/construction.php";
-                        }
+                        } 
                 break;
         
         default:

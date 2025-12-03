@@ -43,25 +43,25 @@
 	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
 		rel="stylesheet">
-	<link rel="icon" href="../../images/logos/noisette.png" type="image/png">
+	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="../../js/vendors/modernizr-2.6.2.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="../../js/respond.min.js"></script>
+	<script src="<?php CHEMIN ?>js/respond.min.js"></script>
 	<![endif]-->
 
 </head>
@@ -81,7 +81,7 @@
 					</div>
 					<div class="col-md-6 col-sm-6 recipe-header-item slide-from-right">
 						<div class="recipe-header-image">
-							<img src="../../images/recipes/tiramisu-chocolat-transparent.png" alt="tiramisu"
+							<img src="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" alt="tiramisu"
 								class="img-responsive" />
 						</div>
 					</div>
@@ -127,7 +127,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
 						<div class="ingredient-card">
 							<div class="ingredient-img-wrap">
-								<img src="../../images/recipes/gateau-chocolat-fondant.jpg" alt="Chocolat noir 70%"
+								<img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg" alt="Chocolat noir 70%"
 									class="img-responsive">
 							</div>
 							<h4>Chocolat Noir 70%</h4>
@@ -137,7 +137,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
 						<div class="ingredient-card">
 							<div class="ingredient-img-wrap">
-								<img src="../../images/recipes/dessert-creme-fruits.jpg" alt="Mascarpone"
+								<img src="<?php CHEMIN ?>images/recipes/dessert-creme-fruits.jpg" alt="Mascarpone"
 									class="img-responsive">
 							</div>
 							<h4>Mascarpone</h4>
@@ -147,7 +147,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
 						<div class="ingredient-card">
 							<div class="ingredient-img-wrap">
-								<img src="../../images/backgrounds/fond-table-chocolats.jpg" alt="Café espresso"
+								<img src="<?php CHEMIN ?>images/backgrounds/fond-table-chocolats.jpg" alt="Café espresso"
 									class="img-responsive">
 							</div>
 							<h4>Café Espresso</h4>
@@ -157,7 +157,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
 						<div class="ingredient-card">
 							<div class="ingredient-img-wrap">
-								<img src="../../images/recipes/brownie-chocolat-sucre-glace.jpg"
+								<img src="<?php CHEMIN ?>images/recipes/brownie-chocolat-sucre-glace.jpg"
 									alt="Biscuits savoiardi" class="img-responsive">
 							</div>
 							<h4>Biscuits Savoiardi</h4>
@@ -334,17 +334,17 @@
 
 	<!-- jQuery -->
 	<!-- Vendors -->
-	<script src="../../js/vendors/jquery.min.js"></script>
-	<script src="../../js/vendors/jquery.easing.1.3.js"></script>
-	<script src="../../js/vendors/bootstrap.min.js"></script>
-	<script src="../../js/vendors/jquery.waypoints.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-	<script src="../../js/vendors/jquery.flexslider-min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
 	<!-- Core -->
-	<script src="../../js/core/main.js"></script>
-	<script src="../../js/core/navigation.js"></script>
+	<script src="<?php CHEMIN ?>js/core/main.js"></script>
+	<script src="<?php CHEMIN ?>js/core/navigation.js"></script>
 	<!-- Animations -->
-	<script src="../../js/animations/header-animations.js"></script>
+	<script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
 
 </body>
 

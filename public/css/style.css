@@ -4235,10 +4235,10 @@ body.recipe-page .recipe-header-section {
 
 @keyframes disappearClip {
   from {
-    clip-path: inset(0 0 0 0);
+    clip-PATH: inset(0 0 0 0);
   }
   to {
-    clip-path: inset(0 100% 0 0);
+    clip-PATH: inset(0 100% 0 0);
     display: none;
   }
 }
@@ -4250,10 +4250,10 @@ body.recipe-page .recipe-header-section {
 
 @keyframes disappearClip2 {
   from {
-    clip-path: inset(0 0 0 0);
+    clip-PATH: inset(0 0 0 0);
   }
   to {
-    clip-path: inset(0 0 0 100%);
+    clip-PATH: inset(0 0 0 100%);
     display: none;
   }
 }

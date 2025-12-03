@@ -12,12 +12,12 @@
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="Glace au Chocolat Intense" />
-    <meta property="og:image" content="images/glace-chocolat-finie.jpg" />
+    <meta property="og:image" content="<?php CHEMIN ?>images/glace-chocolat-finie.jpg" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Tasty" />
     <meta property="og:description" content="Découvrez notre recette de glace au chocolat intense et crémeuse" />
     <meta name="twitter:title" content="Glace au Chocolat Intense" />
-    <meta name="twitter:image" content="images/glace-chocolat-finie.jpg" />
+    <meta name="twitter:image" content="<?php CHEMIN ?>images/glace-chocolat-finie.jpg" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="summary" />
 
@@ -28,21 +28,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="<?= BASE_URL ?>/images/logos/noisette.png" type="image/png">
+    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
     <!-- Flexslider  -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
     <!-- Theme style  -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
 
     <!-- Modernizr JS -->
-    <script src="../../js/vendors/modernizr-2.6.2.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
 </head>
 
 <body class="min-vh-100 recipe-page">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6 recipe-header-item slide-from-right">
                         <div class="recipe-header-image">
-                            <img src="../../images/chocolate-ice-cream.jpg" alt="tiramisu" class="img-responsive" />
+                            <img src="<?php CHEMIN ?>images/chocolate-ice-cream.jpg" alt="tiramisu" class="img-responsive" />
                         </div>
                     </div>
                 </div>
@@ -83,12 +83,12 @@
                             </p>
                             <div class="row mt-4">
                                 <div class="col-md-6">
-                                    <img src="../../images/ingredients_glace.png"
+                                    <img src="<?php CHEMIN ?>images/ingredients_glace.png"
                                         alt="Ingrédients pour la glace au chocolat" class="recipe-image">
                                     <p class="image-caption">Ingrédients sélectionnés</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="../../images/chocolate-ice-cream.jpg" alt="Glace au chocolat finie"
+                                    <img src="<?php CHEMIN ?>images/chocolate-ice-cream.jpg" alt="Glace au chocolat finie"
                                         class="recipe-image">
                                     <p class="image-caption">Œuvre finale</p>
                                 </div>
@@ -233,16 +233,16 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../../js/vendors/jquery.min.js"></script>
-    <script src="../../js/vendors/jquery.easing.1.3.js"></script>
-    <script src="../../js/vendors/bootstrap.min.js"></script>
-    <script src="../../js/vendors/jquery.waypoints.min.js"></script>
-    <script src="../../js/vendors/jquery.flexslider-min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
     <!-- Core -->
-    <script src="../../js/core/main.js"></script>
-    <script src="../../js/core/navigation.js"></script>
+    <script src="<?php CHEMIN ?>js/core/main.js"></script>
+    <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
     <!-- Animations -->
-    <script src="../../js/animations/header-animations.js"></script>
+    <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
 
     <script>
         // Gestion du formulaire de commentaire
