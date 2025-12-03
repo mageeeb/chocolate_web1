@@ -17,27 +17,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="<?= BASE_URL ?>/images/logos/noisette.png" type="image/png">
+    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
     <!-- Animate.css -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
     <!-- Icomoon Icon Fonts -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
     <!-- Flexslider -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
     <!-- Recipe style -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/recette.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/recette.css">
 
     <!-- Icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Modernizr JS -->
-    <script src="<?= BASE_URL ?>/js/modernizr-2.6.2.min.js"></script>
+    <script src="<?php CHEMIN ?>js/modernizr-2.6.2.min.js"></script>
     <!-- Recette7 CSS -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/recette7.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/recette7.css">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
 
                         <div class="hero-visual">
                             <div class="floating-card">
-                                <img src="../../images/recipes/cookies_3.jpg" alt="loader chocolat" />
+                                <img src="<?php CHEMIN ?>images/recipes/cookies_3.jpg" alt="loader chocolat" />
                                 <div class="image-overlay">
                                 </div>
                             </div>
@@ -273,24 +273,24 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../../js/vendors/jquery.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
     <!-- jQuery Easing -->
-    <script src="../../js/vendors/jquery.easing.1.3.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
     <!-- Bootstrap -->
-    <script src="../../js/vendors/bootstrap.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
     <!-- Waypoints -->
-    <script src="../../js/vendors/jquery.waypoints.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
     <!-- Stellar Parallax -->
-    <script src="../../js/vendors/jquery.stellar.min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.stellar.min.js"></script>
     <!-- Flexslider -->
-    <script src="../../js/vendors/jquery.flexslider-min.js"></script>
+    <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
     <!-- Main -->
-    <script src="../../js/core/main.js"></script>
-    <script src="../../js/core/navigation.js"></script>
+    <script src="<?php CHEMIN ?>js/core/main.js"></script>
+    <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
     <!-- Recipe script -->
-    <script src="../../js/recipe-marmiton.js"></script>
+    <script src="<?php CHEMIN ?>js/recipe-marmiton.js"></script>
     <!-- Recette7 JS -->
-    <script src="../../js/recette7.js"></script>
+    <script src="<?php CHEMIN ?>js/recette7.js"></script>
 
 </body>
 

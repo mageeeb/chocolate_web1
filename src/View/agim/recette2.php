@@ -35,7 +35,7 @@
   <meta name="twitter:image" content="" />
   <meta name="twitter:url" content="" />
   <meta name="twitter:card" content="" />
-    <link rel="icon" href="../../images/logos/noisette.png" type="image/png">
+    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
     rel="stylesheet" />
@@ -46,28 +46,28 @@
     rel="stylesheet" />
 
   <!-- Animate.css -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css" />
   <!-- Icomoon Icon Fonts-->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css" />
   <!-- Bootstrap  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css" />
   <!-- Flexslider  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
   <!-- Theme style  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css" />
 
   <!-- Modernizr JS -->
 
   <!-- FOR IE9 below -->
   <!--[if lt IE 9]>
-      <script src="../../js/respond.min.js"></script>
+      <script src="<?php CHEMIN ?>js/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
   <div class="fh5co-loader">
-    <img src="../../images/ui/loader-chargement.gif" alt="loader chocolat" />
+    <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
   </div>
 
   <div id="page">
@@ -77,7 +77,7 @@
 
       <header>
         <div class="mainRecette3__image-wrapper">
-          <img src="../../images/recipes/brownie-chocolat-sucre-glace.jpg" alt="Onigiri japonais"
+          <img src="<?php CHEMIN ?>images/recipes/brownie-chocolat-sucre-glace.jpg" alt="Onigiri japonais"
             class="mainRecette3__main-image" />
         </div>
         <div class="mainRecette3__div">
@@ -105,14 +105,14 @@
           </ul>
         </div>
         <div class="mainRecette3__ingredients__image">
-          <img src="../../images/workshop/atelier-chocolat-preparation.jpg" alt="Ingrédients onigiri" />
+          <img src="<?php CHEMIN ?>images/workshop/atelier-chocolat-preparation.jpg" alt="Ingrédients onigiri" />
         </div>
       </section>
 
 
       <section class="mainRecette3__preparation">
         <div class="mainRecette3__preparation__image">
-          <img src="../../images/recipes/brownie-chocolat-noix-coco.jpg" alt="Préparation du fondant au chocolat">
+          <img src="<?php CHEMIN ?>images/recipes/brownie-chocolat-noix-coco.jpg" alt="Préparation du fondant au chocolat">
         </div>
         <div class="mainRecette3__preparation__tasks">
 
@@ -185,20 +185,20 @@
 
   <!-- jQuery -->
   <!-- Vendors -->
-  <script src="../../js/vendors/jquery.min.js"></script>
-  <script src="../../js/vendors/jquery.easing.1.3.js"></script>
-  <script src="../../js/vendors/bootstrap.min.js"></script>
-  <script src="../../js/vendors/jquery.waypoints.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-  <script src="../../js/vendors/jquery.flexslider-min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
   <!-- Core -->
-  <script src="../../js/core/main.js"></script>
-  <script src="../../js/core/navigation.js"></script>
+  <script src="<?php CHEMIN ?>js/core/main.js"></script>
+  <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
   <!-- Animations -->
-  <script src="../../js/animations/header-animations.js"></script>
-  <script src="../../js/animations/page-animations.js"></script>
+  <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+  <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
   <!-- Recipes -->
-  <script src="../../js/recipes/recipe-checkbox.js"></script>
+  <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 
 </body>
 

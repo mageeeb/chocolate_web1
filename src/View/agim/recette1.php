@@ -43,31 +43,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
     rel="stylesheet" />
-  <link rel="icon" href="../../images/logos/noisette.png" type="image/png">
+  <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
   <!-- Animate.css -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css" />
   <!-- Icomoon Icon Fonts-->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css" />
   <!-- Bootstrap  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css" />
   <!-- Flexslider  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
   <!-- Theme style  -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css" />
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css" />
 
   <!-- Modernizr JS -->
 
   <!-- FOR IE9 below -->
   <!--[if lt IE 9]>
-      <script src="../../js/respond.min.js"></script>
+      <script src="<?php CHEMIN ?>js/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
   <div class="fh5co-loader">
-    <img src="../../images/ui/loader-chargement.gif" alt="loader chocolat" />
+    <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
   </div>
 
   <div id="page">
@@ -85,7 +85,7 @@
 
         <div class="card shadow mx-auto mainRecette2__card">
           <div class="d-block text-center mainRecette2__card__image-wrapper">
-            <img src="../../images/recipes/gateau-chocolat-fondant.jpg"
+            <img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg"
               class="card-img-top d-block mx-auto mainRecette2__card__main-image" alt="Mousse au chocolat">
           </div>
 
@@ -118,14 +118,14 @@
                 chocolat.</li>
               <li class="list-group-item mainRecette2__card__preparation-list__item">Laisse reposer 3 heures au
                 réfrigérateur.</li>
-              <img src="../../images/recipes/recette_steps.jpg" alt="image d'étape a suivre">
+              <img src="<?php CHEMIN ?>images/recipes/recette_steps.jpg" alt="image d'étape a suivre">
             </ol>
 
           </div>
           <h2 class="text-center mainRecette2__card__similary-title">Recette similaire</h2>
 
           <div class="text-center mainRecette2__card__preparation-image-wrapper">
-            <img src="../../images/recipes/mousse-chocolat-fraises.jpg"
+            <img src="<?php CHEMIN ?>images/recipes/mousse-chocolat-fraises.jpg"
               class="card-img-top d-block mx-auto mainRecette2__card__preparation-image" alt="Mousse au chocolat">
             <div class="mainRecette2__card__similary-recipe">
               <h3>Mousse au chocolat Grand'ma</h3>
@@ -194,20 +194,20 @@
 
   <!-- jQuery -->
   <!-- Vendors -->
-  <script src="../../js/vendors/jquery.min.js"></script>
-  <script src="../../js/vendors/jquery.easing.1.3.js"></script>
-  <script src="../../js/vendors/bootstrap.min.js"></script>
-  <script src="../../js/vendors/jquery.waypoints.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-  <script src="../../js/vendors/jquery.flexslider-min.js"></script>
+  <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
   <!-- Core -->
-  <script src="../../js/core/main.js"></script>
-  <script src="../../js/core/navigation.js"></script>
+  <script src="<?php CHEMIN ?>js/core/main.js"></script>
+  <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
   <!-- Animations -->
-  <script src="../../js/animations/header-animations.js"></script>
+  <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
   <!-- Recipes -->
-  <script src="../../js/recipes/recipe-steps.js"></script>
-  <script src="../../js/recipes/recipe-checkbox.js"></script>
+  <script src="<?php CHEMIN ?>js/recipes/recipe-steps.js"></script>
+  <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 
 
 </body>

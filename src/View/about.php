@@ -24,7 +24,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link rel="icon" href="images/logos/noisette.png" type="image/png">
+	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
 		rel="stylesheet">
@@ -35,20 +35,20 @@
 		rel="stylesheet">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
 
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
+	<script src="<?php CHEMIN ?>js/respond.min.js"></script>
 	<![endif]-->
 
 </head>
@@ -56,7 +56,7 @@
 <body>
 
 	<div class="fh5co-loader">
-		<img src="images/ui/loader-chargement.gif" alt="loader chocolat" />
+		<img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
 	</div>
 
 	<div id="page">
@@ -68,7 +68,7 @@
 			data-stellar-background-ratio="0.5">
 
 			<div id="gifWrapper" class="mainAbout__header__gif-wrapper">
-				<img src="images/workshop/atelier-chocolat-preparation.jpg" id="chocoGif"
+				<img src="<?php CHEMIN ?>images/workshop/atelier-chocolat-preparation.jpg" id="chocoGif"
 					class="mainAbout__header__gif" />
 			</div>
 			<h1 id="chocoTitle" class="chocotitleAbout mainAbout__header__title">A propos de nous</h1>
@@ -95,22 +95,22 @@
 			</p>
 			<ul id="features__list" class="features__list mainAbout__features__list">
 				<li class="feature__card mainAbout__features__list__item">
-					<img src="images/workshop/atelier-ingredients.jpg" alt="Ingrédients"
+					<img src="<?php CHEMIN ?>images/workshop/atelier-ingredients.jpg" alt="Ingrédients"
 						class="feature__icon mainAbout__features__list__item__icon">
 					<p class="mainAbout__features__list__item__text">Une liste claire et complète des ingrédients</p>
 				</li>
 				<li class="feature__card mainAbout__features__list__item">
-					<img src="images/workshop/atelier-temps-cuisson.jpg" alt="Temps de cuisson"
+					<img src="<?php CHEMIN ?>images/workshop/atelier-temps-cuisson.jpg" alt="Temps de cuisson"
 						class="feature__icon mainAbout__features__list__item__icon">
 					<p class="mainAbout__features__list__item__text">Des temps de préparation et de cuisson précis</p>
 				</li>
 				<li class="feature__card mainAbout__features__list__item">
-					<img src="images/workshop/atelier-etapes.png" alt="Étapes"
+					<img src="<?php CHEMIN ?>images/workshop/atelier-etapes.png" alt="Étapes"
 						class="feature__icon mainAbout__features__list__item__icon">
 					<p class="mainAbout__features__list__item__text">Des étapes expliquées simplement, pas à pas</p>
 				</li>
 				<li class="feature__card mainAbout__features__list__item">
-					<img src="images/workshop/atelier-resultat-final.jpg" alt="Photos"
+					<img src="<?php CHEMIN ?>images/workshop/atelier-resultat-final.jpg" alt="Photos"
 						class="feature__icon mainAbout__features__list__item__icon">
 					<p class="mainAbout__features__list__item__text">Des photos avant et après pour t'aider à visualiser
 						le résultat</p>
@@ -142,18 +142,18 @@
 
 	<!-- jQuery -->
 	<!-- Vendors -->
-	<script src="js/vendors/jquery.min.js"></script>
-	<script src="js/vendors/jquery.easing.1.3.js"></script>
-	<script src="js/vendors/bootstrap.min.js"></script>
-	<script src="js/vendors/jquery.waypoints.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-	<script src="js/vendors/jquery.flexslider-min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
 	<!-- Core -->
-	<script src="js/core/main.js"></script>
-	<script src="js/core/navigation.js"></script>
+	<script src="<?php CHEMIN ?>js/core/main.js"></script>
+	<script src="<?php CHEMIN ?>js/core/navigation.js"></script>
 	<!-- Animations -->
-	<script src="js/animations/header-animations.js"></script>
-	<script src="js/animations/page-animations.js"></script>
+	<script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+	<script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
 
 
 </body>

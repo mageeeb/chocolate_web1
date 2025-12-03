@@ -24,7 +24,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link rel="icon" href="<?= BASE_URL ?>/images/logos/noisette.png" type="image/png">
+	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
 		rel="stylesheet">
@@ -35,23 +35,23 @@
 		rel="stylesheet">
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/animate.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/icomoon.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/flexslider.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
-	<link rel="stylesheet" href="<?= BASE_URL ?>/css/custom.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/custom.css">
 
 	<!-- Modernizr JS -->
 
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
+	<script src="<?php CHEMIN ?>js/respond.min.js"></script>
 	<![endif]-->
 
 
@@ -68,7 +68,7 @@
 
 		</div>
 		<div class="homeLoadPage__rond">
-			<img src="images/ui/loader-chargement.gif" alt="image de loader" class="homeLoadPage__rond__gifload">
+			<img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="image de loader" class="homeLoadPage__rond__gifload">
 		</div>
 	</div>
 
@@ -81,12 +81,12 @@
 
 
 			<video autoplay muted playsinline id="chocoVideo" class="mainHome__header__video">
-				<source src="<?= BASE_URL ?>/images/backgrounds/video-chocolat-noisette.mp4" preload="none" loading="lazy" autoplay
+				<source src="<?php CHEMIN ?>images/backgrounds/video-chocolat-noisette.mp4" preload="none" loading="lazy" autoplay
 					muted type="video/mp4" />
 			</video>
 
 			<div id="gifWrapper" class="mainHome__header__gif-wrapper">
-				<img src="<?= BASE_URL ?>/images/backgrounds/fond-table-chocolats.jpg" id="chocoGif" class="mainHome__header__gif" />
+				<img src="<?php CHEMIN ?>images/backgrounds/fond-table-chocolats.jpg" id="chocoGif" class="mainHome__header__gif" />
 			</div>
 			<!-- <img src="images/logotastyBlanco.png" alt="Image du logo"> -->
 			<h1 id="chocoTitle" class="mainHome__header__title">Découvrez l'univers du chocolat</h1>
@@ -192,7 +192,7 @@
 
 					<div class="col-md-6 animate-box img-to-responsive animate-box mainHome__testimony__image-wrapper"
 						data-animate-effect="fadeInLeft">
-						<img src="images/recipes/gateau-chocolat-fondant.jpg" alt="" class="mainHome__testimony__image">
+						<img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg" alt="" class="mainHome__testimony__image">
 					</div>
 					<div class="col-md-6 animate-box mainHome__testimony__content" data-animate-effect="fadeInRight">
 						<blockquote class="mainHome__testimony__quote">
@@ -218,7 +218,7 @@
 						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?= BASE_URL ?>/images/recipes/pile-pancakes-fruits.jpg"
+									<img src="<?php CHEMIN ?>images/recipes/pile-pancakes-fruits.jpg"
 										alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
@@ -236,7 +236,7 @@
 						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?= BASE_URL ?>/images/recipes/dessert-creme-fruits.jpg"
+									<img src="<?php CHEMIN ?>images/recipes/dessert-creme-fruits.jpg"
 										alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
@@ -254,7 +254,7 @@
 						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?= BASE_URL ?>/images/recipes/pancake-fruits.jpg" alt="Chocolat noir belge artisanal"
+									<img src="<?php CHEMIN ?>images/recipes/pancake-fruits.jpg" alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
 								<div class="choco-content mainHome__menu__item__card__content">
@@ -271,7 +271,7 @@
 						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
 							<div class="choco-card animate-fade-in mainHome__menu__item__card">
 								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?= BASE_URL ?>/images/recipes/tarte-framboise.jpg" alt="Chocolat noir belge artisanal"
+									<img src="<?php CHEMIN ?>images/recipes/tarte-framboise.jpg" alt="Chocolat noir belge artisanal"
 										class="img-responsive mainHome__menu__item__card__image">
 								</div>
 								<div class="choco-content mainHome__menu__item__card__content">
@@ -341,7 +341,7 @@
 							<!-- Image principale à droite -->
 							<div class="col-md-6 col-sm-12">
 								<div class="slider-image-wrapper">
-									<img src="<?= BASE_URL ?>/images/ui/loader-chargement.gif" alt="Chocolat Noir Belge"
+									<img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="Chocolat Noir Belge"
 										class="img-responsive" />
 								</div>
 							</div>
@@ -870,19 +870,19 @@
 
 	<!-- jQuery -->
 	<!-- Vendors -->
-	<script src="js/vendors/jquery.min.js"></script>
-	<script src="js/vendors/jquery.easing.1.3.js"></script>
-	<script src="js/vendors/bootstrap.min.js"></script>
-	<script src="js/vendors/jquery.waypoints.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-	<script src="js/vendors/jquery.flexslider-min.js"></script>
+	<script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
 	<!-- Core -->
-	<script src="js/core/main.js"></script>
-	<script src="js/core/navigation.js"></script>
+	<script src="<?php CHEMIN ?>js/core/main.js"></script>
+	<script src="<?php CHEMIN ?>js/core/navigation.js"></script>
 	<!-- Animations -->
-	<script src="js/animations/header-animations.js"></script>
+	<script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-	<script src="js/animations/homePageAnim.js"></script>
+	<script src="<?php CHEMIN ?>js/animations/homePageAnim.js"></script>
 	<script>
 		VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
 			max: 25,
