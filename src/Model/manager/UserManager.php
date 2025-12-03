@@ -96,15 +96,21 @@ class UserManager implements ManagerInterface
     // Insertion d'un nouvel utilisateur
     public function insertUser(UserMapping $user): bool
     {
-        $sql = "INSERT INTO `users` (name, login, email, password, role, is_verified, images_id) 
-                VALUES (:name, :login, :email, :password, :role, :is_verified, :images_id)";
+        $sql = "INSERT INTO `users` (name, login, email, password, role, email_token, is_verified, images_id) 
+                VALUES (:name, :login, :email, :password, :role, :email_token, :is_verified, :images_id)";
         $prepare = $this->db->prepare($sql);
+
+
+            $emailToken = bin2hex(random_bytes(32));
+            $user->setEmailToken($emailToken);
+        
         try {
             $prepare->bindValue(':name', $user->getName());
             $prepare->bindValue(':login', $user->getLogin());
             $prepare->bindValue(':email', $user->getEmail());
             $prepare->bindValue(':password', $user->getPassword());
             $prepare->bindValue(':role', $user->getRole(), PDO::PARAM_INT);
+            $prepare->bindValue(':email_token', $user->getEmailToken());
             $prepare->bindValue(':is_verified', $user->getIsVerified(), PDO::PARAM_INT);
             $prepare->bindValue(':images_id', $user->getImagesId(), PDO::PARAM_INT);
             $prepare->execute();
@@ -122,7 +128,11 @@ class UserManager implements ManagerInterface
                 `password` = :password, `role` = :role, `is_verified` = :is_verified, 
                 `images_id` = :images_id WHERE `id` = :id";
         $prepare = $this->db->prepare($sql);
+
+        
+
         try {
+
             $prepare->bindValue(':id', $user->getId(), PDO::PARAM_INT);
             $prepare->bindValue(':name', $user->getName());
             $prepare->bindValue(':login', $user->getLogin());
@@ -151,5 +161,26 @@ class UserManager implements ManagerInterface
             echo "Erreur lors de la suppression de l'utilisateur : " . $e->getMessage();
             return false;
         }
+    }
+
+    public function findByToken(string $token): ?UserMapping
+    {
+        $sql = "SELECT * FROM users WHERE email_token = :token LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+        $data = $stmt->fetch();
+        return $data ? new UserMapping($data) : null;
+    }
+
+    public function confirmEmail(UserMapping $user): bool
+    {
+        $sql = "UPDATE users 
+            SET is_verified = 1, 
+                email_token = NULL 
+            WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $user->getId(), \PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }

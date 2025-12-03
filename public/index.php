@@ -25,12 +25,17 @@ if (!defined('PATH')) {
     define('PATH', $baseDir);
 }
 
+
+
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
     require PATH . '/src/' . $class . '.php';
 
 
 });
+
+
+
 
 require_once PATH."/src/Controller/routeController.php";
 

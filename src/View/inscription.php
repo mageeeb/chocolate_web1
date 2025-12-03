@@ -71,17 +71,24 @@
 
       <section class="mainRecette3__comments" style="margin-top:22rem;">
         <h2>Inscription</h2>
-        <form class="mainRecette3__form">
+        <form class="mainRecette3__form" method="post">
           <label for="name">Nom :</label>
-          <input type="text" id="name" name="name"  />
+          <input type="text" name="name"  />
 
-          <label for="subject">Sujet :</label>
-          <input type="text" id="subject" name="subject"  />
+          <label for="login">Login :</label>
+          <input type="text" name="login"  />
 
-          <label for="comment">Commentaire :</label>
-          <input type="text" id="comment" name="comment"  />
+          <label for="email">Email :</label>
+          <input type="email" name="email"  />
 
-          <button name="validation" type="submit">Envoyer</button>
+          <label for="password">Password :</label>
+          <input type="password" name="password"  />
+
+          <label for="password_confirm">Confirm Password :</label>
+          <input type="password" name="password_confirm"  />
+
+          <input style="margin-top:3rem;" name="validation" type="submit" value="Inscription" />
+
           <a style="text-align:center; padding:2rem;" href="?pg=connexion">Deja inscrit ? Clique ici</a>
         </form>
 
