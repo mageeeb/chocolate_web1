@@ -16,6 +16,58 @@ class UserManager implements ManagerInterface
         $this->db = $connect;
     }
 
+    public function connect(UserMapping $user): bool {
+        $sql = "SELECT * FROM `users` WHERE login = ?";
+        $prepare = $this->db->prepare($sql);
+        
+
+        try {
+            $prepare->execute([
+                $user->getLogin(),
+
+            ]);
+
+
+            $result = $prepare->fetch();
+            if(password_verify($user->getPassword(), $result['password'])){
+                unset($result['password']); 
+                $_SESSION = $result;
+            return true;
+            }    
+
+            $prepare->closeCursor();
+            return false;
+
+        } catch (Exception $e) {
+            echo "Erreur lors de la connexion de l'utilisateur : " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function disconnect(): bool
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            $_SESSION = [];
+            session_destroy();
+
+            if (ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(
+                    session_name(),
+                    '',
+                    time() - 42000,
+                    $params["path"],
+                    $params["domain"],
+                    $params["secure"],
+                    $params["httponly"]
+                );
+            }
+            return true;
+        }
+        return false;
+    }
+
+
     // Récupération de tous les utilisateurs
     public function getAllUsers(): array
     {
@@ -82,7 +134,7 @@ class UserManager implements ManagerInterface
         $prepare = $this->db->prepare($sql);
         try {
             $prepare->execute([$email]);
-            $result = $prepare->fetch(PDO::FETCH_ASSOC);
+            $result = $prepare->fetch();
             $prepare->closeCursor();
 
             return $result ? new UserMapping($result) : null;
@@ -94,32 +146,35 @@ class UserManager implements ManagerInterface
     }
 
     // Insertion d'un nouvel utilisateur
-    public function insertUser(UserMapping $user): bool
-    {
-        $sql = "INSERT INTO `users` (name, login, email, password, role, email_token, is_verified, images_id) 
-                VALUES (:name, :login, :email, :password, :role, :email_token, :is_verified, :images_id)";
-        $prepare = $this->db->prepare($sql);
+public function insertUser(UserMapping $user): bool
+{
+    $sql = "INSERT INTO `users` 
+            (name, login, email, password, role, email_token, is_verified, images_id) 
+            VALUES (:name, :login, :email, :password, :role, :email_token, :is_verified, :images_id)";
+    $prepare = $this->db->prepare($sql);
 
+    $emailToken = bin2hex(random_bytes(32));
+    $user->setEmailToken($emailToken);
 
-            $emailToken = bin2hex(random_bytes(32));
-            $user->setEmailToken($emailToken);
-        
-        try {
-            $prepare->bindValue(':name', $user->getName());
-            $prepare->bindValue(':login', $user->getLogin());
-            $prepare->bindValue(':email', $user->getEmail());
-            $prepare->bindValue(':password', $user->getPassword());
-            $prepare->bindValue(':role', $user->getRole(), PDO::PARAM_INT);
-            $prepare->bindValue(':email_token', $user->getEmailToken());
-            $prepare->bindValue(':is_verified', $user->getIsVerified(), PDO::PARAM_INT);
-            $prepare->bindValue(':images_id', $user->getImagesId(), PDO::PARAM_INT);
-            $prepare->execute();
-            return true;
-        } catch (Exception $e) {
-            echo "Erreur lors de l'insertion de l'utilisateur : " . $e->getMessage();
-            return false;
-        }
+    $hashPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
+
+    try {
+        $prepare->execute([
+            ':name'        => $user->getName(),
+            ':login'       => $user->getLogin(),
+            ':email'       => $user->getEmail(),
+            ':password'    => $hashPassword,
+            ':role'        => $user->getRole(),
+            ':email_token' => $user->getEmailToken(),
+            ':is_verified' => $user->getIsVerified(),
+            ':images_id'   => $user->getImagesId(),
+        ]);
+        return true;
+    } catch (Exception $e) {
+        echo "Erreur lors de l'insertion de l'utilisateur : " . $e->getMessage();
+        return false;
     }
+}
 
     // Mise à jour d'un utilisateur
     public function updateUser(UserMapping $user): bool
@@ -172,6 +227,15 @@ class UserManager implements ManagerInterface
         $data = $stmt->fetch();
         return $data ? new UserMapping($data) : null;
     }
+    public function findByPasswordToken(string $token): ?UserMapping
+    {
+        $sql = "SELECT * FROM users WHERE pwd_token = :token LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+        $data = $stmt->fetch();
+        return $data ? new UserMapping($data) : null;
+    }
 
     public function confirmEmail(UserMapping $user): bool
     {
@@ -183,4 +247,42 @@ class UserManager implements ManagerInterface
         $stmt->bindValue(':id', $user->getId(), \PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function generatePasswordToken(UserMapping $user): bool
+    {
+        $sql = "UPDATE users SET pwd_token = ? WHERE id = ?";
+
+        $prepare = $this->db->prepare($sql);
+
+        $passwordToken = bin2hex(random_bytes(32));
+        $user->setPwdToken($passwordToken);
+
+        try {
+            $prepare->execute([
+                $user->getPwdToken(),
+                $user->getId()
+        ]);
+        return true;
+        } catch (Exception $e) {
+           echo "Erreur lors du changement du mot de passe : " . $e->getMessage();
+        }
+    }
+
+        public function updatePassword(UserMapping $user): bool
+    {
+        $sql = "UPDATE users SET pwd_token = null, password = ? WHERE id = ?";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute([
+                $user->getPassword(),
+                $user->getId()
+        ]);
+        return true;
+        } catch (Exception $e) {
+           echo "Erreur lors du changement du mot de passe : " . $e->getMessage();
+        }
+    }
+
 }

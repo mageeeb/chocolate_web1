@@ -68,27 +68,22 @@
 <body>
 <?php require_once PATH."/src/View/inc/navigation.php"; ?>
 
+<?php if (isset($erreur)):?>
+<?= $erreur; ?>
+<?php endif ?>
+
+
 
       <section class="mainRecette3__comments" style="margin-top:22rem;">
-        <h2>Connexion</h2>
+        <h2>Mot de passe oublié</h2>
         <form class="mainRecette3__form" method="post">
-          <label for="login">Login :</label>
-          <input type="text" name="login"  />
+          <label for="newPassword">Nouveau mot de passe :</label>
+          <input type="password" name="newPassword"  />
 
-          <label for="password">Mot de passe :</label>
-          <input type="password" name="password"  />
+          <label for="newPasswordConfirm">Confirmer le nouveau mot de passe :</label>
+          <input type="password" name="newPasswordConfirm"  />
 
-
-          <input type="submit" name="validation" value="Connexion"/>
-          <a style="text-align:center; padding:2rem;" href="?pg=inscription">Pas encors inscrit ? Clique ici</a>
-          <a style="text-align:center;" href="?pg=connexion&forgotPassword">Mot de passe oublié</a>
-                    <?php if (isset($erreur)):?>
-            <?= $erreur; ?>
-            <?php endif ?>
-
-            <?php if(isset($success)): ?>
-                <?= $success; ?>
-            <?php endif ?>
+          <input type="submit" name="validation" value="Valider"/>
         </form>
 
       </section>

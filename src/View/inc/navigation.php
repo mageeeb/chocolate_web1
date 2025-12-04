@@ -18,15 +18,15 @@
 											<li><a href="?pg=recette&recette=4">Recette Massine</a></li>
 											<li><a href="?pg=recette&recette=5">Recette Soulaiman</a></li>
 											<li><a href="?pg=recette&recette=6">Recette Soulaiman</a></li>
-											<li><a href="?pg=recette"  title="Cupavci">Recette Omer</a></li>
-											<li><a href="?pg=recette">Recette Omer</a></li>
-											<li><a href="?pg=recette">Recette Vahag</a></li>
-											<li><a href="?pg=recette">Recette Vahag</a></li>
+											<li><a href="?pg=recette&recette=7">Recette Omer</a></li>
+											<li><a href="?pg=recette&recette=8">Recette Omer</a></li>
+											<li><a href="?pg=recette&recette=9">Recette Vahag</a></li>
+											<li><a href="?pg=recette&recette=10">Recette Vahag</a></li>
 									</ul>
 								</li>
 								<li><a href="?pg=about">About</a></li>
 								<li><a href="?pg=contact">Contact</a></li>
-<?php if(isset($SESSION['user']) && $SESSION['user'] === true): ?>
+<?php if(isset($_SESSION['is_verified']) && $_SESSION['is_verified'] === 1): ?>
 		<li><a href="?pg=deconnexion">Deconnexion</a></li>
 
 	<?php else: ?>
