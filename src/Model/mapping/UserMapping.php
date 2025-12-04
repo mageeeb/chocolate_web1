@@ -135,7 +135,7 @@ class UserMapping extends AbstractMapping
             throw new Exception("Le mot de passe doit contenir au moins 8 caractères.");
         }
 
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
         return $this;
     }
 

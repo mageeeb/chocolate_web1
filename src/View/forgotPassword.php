@@ -70,19 +70,13 @@
 
 
       <section class="mainRecette3__comments" style="margin-top:22rem;">
-        <h2>Connexion</h2>
+        <h2>Mot de passe oublié</h2>
         <form class="mainRecette3__form" method="post">
-          <label for="login">Login :</label>
-          <input type="text" name="login"  />
+          <label for="email">Email :</label>
+          <input type="text" name="email"  />
 
-          <label for="password">Mot de passe :</label>
-          <input type="password" name="password"  />
-
-
-          <input type="submit" name="validation" value="Connexion"/>
-          <a style="text-align:center; padding:2rem;" href="?pg=inscription">Pas encors inscrit ? Clique ici</a>
-          <a style="text-align:center;" href="?pg=connexion&forgotPassword">Mot de passe oublié</a>
-                    <?php if (isset($erreur)):?>
+          <input type="submit" name="validation" value="Valider"/>
+          <?php if (isset($erreur)):?>
             <?= $erreur; ?>
             <?php endif ?>
 
@@ -90,6 +84,7 @@
                 <?= $success; ?>
             <?php endif ?>
         </form>
+
 
       </section>
     </div>

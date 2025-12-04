@@ -22,10 +22,9 @@ $dotenv->load();
 
 
 # Routage principal
-if (isset($_SESSION['user']) && $_SESSION['user'] === true) {
+if (isset($_SESSION['is_verified']) && $_SESSION['is_verified'] === 1) {
     require_once PATH."/src/Controller/UserController.php";
 } else {
     require_once PATH."/src/Controller/PublicController.php";
 }
-
 $pdo = null;

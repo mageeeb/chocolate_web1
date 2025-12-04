@@ -55,14 +55,14 @@ class MailManager
             $mail->Port       = $_ENV['SMTP_PORT'];
 
             $mail->setFrom($_ENV['SMTP_USER'], 'No reply');
-            $mail->addAddress($user->getEmail(), $user->getFullName());
+            $mail->addAddress($user->getEmail(), $user->getName());
 
             $mail->isHTML(true);
             $mail->Subject = 'Réinitialisation de mot de passe';
 
-            $mail->Body    = "Bonjour {$user->getFullName()},<br>
+            $mail->Body    = "Bonjour {$user->getName()},<br>
                           Clique sur ce lien pour réinitialiser ton mot de passe : 
-                          <a href='http://rentcar/?pg=reset_password_form&token={$user->getPasswordToken()}'>Réinitialiser mon mot de passe</a>";
+                          <a href='http://chocolatweb1/?pg=passwordResetForm&token={$user->getPwdToken()}'>Réinitialiser mon mot de passe</a>";
 
             return $mail->send();
         } catch (\Throwable $e) {
