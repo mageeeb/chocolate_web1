@@ -15,6 +15,11 @@ try {
     die('Erreur de connexion : ' . $e->getMessage());
 }
 
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
+
 
 # Routage principal
 if (isset($_SESSION['user']) && $_SESSION['user'] === true) {

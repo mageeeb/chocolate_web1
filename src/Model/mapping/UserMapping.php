@@ -17,7 +17,7 @@ class UserMapping extends AbstractMapping
     protected ?int $role = null;
     protected ?string $email_token = null;
     protected ?string $pwd_token = null;
-    protected ?int $is_verified = null;
+    protected ?int $is_verified = 0;
     protected ?int $images_id = null;
 
     // --- GETTERS ---
@@ -120,10 +120,22 @@ class UserMapping extends AbstractMapping
 
     public function setPassword(?string $password): self
     {
-        if ($password !== null && strlen($password) > 255) {
-            throw new Exception('Password cannot exceed 255 characters');
+        if ($password === null || $password === '') {
+            return $this;
         }
-        $this->password = $password;
+
+        $password = trim($password);
+
+        if (strpos($password, '$2y$') === 0) {
+            $this->password = $password;
+            return $this;
+        }
+
+        if (strlen($password) < 8) {
+            throw new Exception("Le mot de passe doit contenir au moins 8 caractères.");
+        }
+
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
         return $this;
     }
 
@@ -142,7 +154,7 @@ class UserMapping extends AbstractMapping
         return $this;
     }
 
-    public function setEmailToken(?string $email_token): self
+    public function setEmailToken(?string $email_token ): self
     {
         if ($email_token !== null && strlen($email_token) > 255) {
             throw new Exception('Email token cannot exceed 255 characters');
