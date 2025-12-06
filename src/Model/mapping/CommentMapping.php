@@ -2,7 +2,6 @@
 
 namespace model\mapping;
 
-use DateTimeImmutable;
 use model\AbstractMapping;
 use Exception;
 
@@ -13,8 +12,22 @@ class CommentMapping extends AbstractMapping
 
     protected ?int $id = null;
     protected ?string $content = null;
-    protected ?DateTimeImmutable $created_at = null;
+    protected ?string $created_at = null;
     protected ?int $is_accepted = null;
+    protected ?int $recipe_id = null;
+    protected ?string $rating = null;
+
+        public function getRating(): ?int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?int $rating): self
+    {
+
+        $this->rating = $rating;
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -27,6 +40,20 @@ class CommentMapping extends AbstractMapping
             throw new Exception('ID must be positive');
         }
         $this->id = $id;
+        return $this;
+    }
+
+    public function getRecipeId(): ?int
+    {
+        return $this->recipe_id;
+    }
+
+    public function setRecipeId(?int $id): self
+    {
+        if ($id !== null && $id < 0) {
+            throw new Exception('ID must be positive');
+        }
+        $this->recipe_id = $id;
         return $this;
     }
 
@@ -44,12 +71,12 @@ class CommentMapping extends AbstractMapping
         return $this;
     }
 
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $created_at): self
+    public function setCreatedAt(?string $created_at): self
     {
         $this->created_at = $created_at;
         return $this;
@@ -68,5 +95,4 @@ class CommentMapping extends AbstractMapping
         $this->is_accepted = $is_accepted;
         return $this;
     }
-
 }

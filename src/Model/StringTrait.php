@@ -96,4 +96,9 @@ trait StringTrait{
         $cutText .= '...';
         return $cutText;
     }
+
+
+
+
+
 }

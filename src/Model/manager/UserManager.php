@@ -273,10 +273,11 @@ public function insertUser(UserMapping $user): bool
         $sql = "UPDATE users SET pwd_token = null, password = ? WHERE id = ?";
 
         $prepare = $this->db->prepare($sql);
+        $hashPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
 
         try {
             $prepare->execute([
-                $user->getPassword(),
+                $hashPassword,
                 $user->getId()
         ]);
         return true;

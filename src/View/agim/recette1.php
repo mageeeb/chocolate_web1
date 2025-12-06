@@ -71,7 +71,7 @@
   </div>
 
   <div id="page">
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+    <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 
 
     <div class="mainRecette2">
@@ -144,70 +144,149 @@
               <h3
                 class="text-center mb-4 mainRecette2__comments__card__title mainRecette2__comments__card__title--gold">
                 Laissez un commentaire</h3>
-              <form class="mainRecette2__comments__card__form">
+              <form class="mainRecette2__comments__card__form" method="post">
 
-                <div class="mb-3 mainRecette2__comments__card__form__group">
-                  <label class="form-label mainRecette2__comments__card__form__label">Nom</label>
-                  <input type="text" class="form-control mainRecette2__comments__card__form__input"
-                    placeholder="Votre nom">
+                <style>
+                  .star-rating {
+                    direction: rtl;
+                    /* permet de remplir de droite à gauche */
+                    display: inline-flex;
+                  }
+
+                  .star-rating input {
+                    display: none;
+                  }
+
+                  .star-rating label {
+                    font-size: 2rem;
+                    color: #ccc;
+                    cursor: pointer;
+                  }
+
+                  .star-rating input:checked~label {
+                    color: gold;
+                  }
+
+                  .star-rating label:hover,
+                  .star-rating label:hover~label {
+                    color: gold;
+                  }
+                </style>
+
+                <div class="mb-3">
+                  <label for="rating" class="form-label">Votre note :</label>
+                  <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="5 étoiles">★</label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="4 étoiles">★</label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="3 étoiles">★</label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="2 étoiles">★</label>
+
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="1 étoile">★</label>
+                  </div>
                 </div>
 
                 <div class="mb-3 mainRecette2__comments__card__form__group">
-                  <label class="form-label mainRecette2__comments__card__form__label">Sujet</label>
-                  <input type="text" class="form-control mainRecette2__comments__card__form__input"
-                    placeholder="Sujet du commentaire">
-                </div>
-
-                <div class="mb-3 mainRecette2__comments__card__form__group">
-                  <label class="form-label mainRecette2__comments__card__form__label">Commentaire</label>
-                  <textarea class="form-control mainRecette2__comments__card__form__textarea" rows="4"
+                  <label for="content" class="form-label mainRecette2__comments__card__form__label">Commentaire</label>
+                  <textarea class="form-control mainRecette2__comments__card__form__textarea" name="content" rows="4"
                     placeholder="Votre message"></textarea>
                 </div>
 
                 <div
                   class="text-center mainRecette2__comments__card__form__submit-wrapper mainRecette2__comments__card__form__submit-wrapper--spacing">
-                  <button type="submit"
-                    class="btn btn-primary btn-lg mainRecette2__comments__card__form__submit">Envoyer</button>
+                  <input type="submit"
+                    class="btn btn-primary btn-lg mainRecette2__comments__card__form__submit" name="validation"></input>
                 </div>
 
               </form>
+
             </div>
           </div>
+          <div class="mainRecette2__comments__list mt-4">
+            <?php foreach ($readComment as $comment): ?>
+              <?php if ($_SESSION['id'] === $comment['user']->getId()): ?>
+                <!-- Commentaire de l'utilisateur connecté (aligné à droite) -->
+                <div class="card shadow mb-3 mainRecette2__comments__card mainRecette2__comments__card--styled" style="border:1px solid blue !important;">
+                  <div class="card-body mainRecette2__comments__card__body text-end">
+                    <h5 class="card-title mainRecette2__comments__card__title--gold">
+                      <?= htmlspecialchars($comment['user']->getName()); ?>
+                    </h5>
+                    <p class="card-text mainRecette2__comments__card__text">
+                      <?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?>
+                    </p>
+
+
+
+                    <?php
+                    for ($i = 0; $i < $comment['comment']->getRating(); $i++):
+                    ?>
+                      <div class="star-rating" style="color: gold;">★</div>
+
+                      <?php
+                    endfor;
+                      ?>
+
+
+
+                      </div>
+                  </div>
+                <?php else: ?>
+                  <!-- Commentaire des autres utilisateurs (aligné à gauche) -->
+                  <div class="card shadow mb-3 mainRecette2__comments__card mainRecette2__comments__card--styled bg-danger" style="border:1px solid red !important;">
+                    <div class="card-body mainRecette2__comments__card__body text-start">
+                      <h5 class="card-title mainRecette2__comments__card__title--gold">
+                        <?= htmlspecialchars($comment['user']->getName()); ?>
+                      </h5>
+                      <p class="card-text mainRecette2__comments__card__text">
+                        <?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?>
+                      </p>
+
+
+                    </div>
+                  </div>
+                <?php endif ?>
+              <?php endforeach; ?>
+
+
+
+                </div>
+<?= var_dump($readRatting); ?>
+<?= var_dump($readTop3Ratting); ?>
+
+
+          </div>
+
+          <?php require_once PATH . "/src/View/inc/footer.php"; ?>
+
         </div>
 
+        <div class="gototop js-top">
+          <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+        </div>
 
-      </div>
+        <!-- jQuery -->
+        <!-- Vendors -->
+        <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+        <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+        <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+        <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
 
-      <!-- recette2 -->
-
-
-
-    </div>
-
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
-
-  </div>
-
-  <div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-  </div>
-
-  <!-- jQuery -->
-  <!-- Vendors -->
-  <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
-  <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
-  <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
-  <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
-
-  <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
-  <!-- Core -->
-  <script src="<?php CHEMIN ?>js/core/main.js"></script>
-  <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
-  <!-- Animations -->
-  <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
-  <!-- Recipes -->
-  <script src="<?php CHEMIN ?>js/recipes/recipe-steps.js"></script>
-  <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
+        <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
+        <!-- Core -->
+        <script src="<?php CHEMIN ?>js/core/main.js"></script>
+        <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
+        <!-- Animations -->
+        <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+        <!-- Recipes -->
+        <script src="<?php CHEMIN ?>js/recipes/recipe-steps.js"></script>
+        <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 
 
 </body>

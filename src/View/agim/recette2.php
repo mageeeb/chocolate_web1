@@ -154,22 +154,81 @@
       </section>
 
 
-      <section class="mainRecette3__comments">
-        <h2>Laissez un commentaire</h2>
-        <form class="mainRecette3__form">
-          <label for="name">Nom :</label>
-          <input type="text" id="name" name="name" required />
+        <div class="d-flex justify-content-center mainRecette2__comments mainRecette2__comments--spacing">
+          <div class="card shadow mainRecette2__comments__card mainRecette2__comments__card--styled">
+            <div class="card-body mainRecette2__comments__card__body">
+              <h3
+                class="text-center mb-4 mainRecette2__comments__card__title mainRecette2__comments__card__title--gold">
+                Laissez un commentaire</h3>
+              <form class="mainRecette2__comments__card__form" method="post">
 
-          <label for="subject">Sujet :</label>
-          <input type="text" id="subject" name="subject" required />
+                <style>
+                  .star-rating {
+                    direction: rtl;
+                    /* permet de remplir de droite à gauche */
+                    display: inline-flex;
+                  }
 
-          <label for="comment">Commentaire :</label>
-          <input type="text" id="comment" name="comment" required />
+                  .star-rating input {
+                    display: none;
+                  }
 
-          <button type="submit">Envoyer</button>
-        </form>
-      </section>
+                  .star-rating label {
+                    font-size: 2rem;
+                    color: #ccc;
+                    cursor: pointer;
+                  }
+
+                  .star-rating input:checked~label {
+                    color: gold;
+                  }
+
+                  .star-rating label:hover,
+                  .star-rating label:hover~label {
+                    color: gold;
+                  }
+                </style>
+
+                <div class="mb-3">
+                  <label for="rating" class="form-label">Votre note :</label>
+                  <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="5 étoiles">★</label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="4 étoiles">★</label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="3 étoiles">★</label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="2 étoiles">★</label>
+
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="1 étoile">★</label>
+                  </div>
+                </div>
+
+                <div class="mb-3 mainRecette2__comments__card__form__group">
+                  <label for="content" class="form-label mainRecette2__comments__card__form__label">Commentaire</label>
+                  <textarea class="form-control mainRecette2__comments__card__form__textarea" name="content" rows="4"
+                    placeholder="Votre message"></textarea>
+                </div>
+
+                <div
+                  class="text-center mainRecette2__comments__card__form__submit-wrapper mainRecette2__comments__card__form__submit-wrapper--spacing">
+                  <input type="submit"
+                    class="btn btn-primary btn-lg mainRecette2__comments__card__form__submit" name="validation"></input>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
     </div>
+
+<?= var_dump($readRatting); ?>
+<?= var_dump($readTop3Ratting); ?>
 
 
 <?php require_once PATH."/src/View/inc/footer.php"; ?>

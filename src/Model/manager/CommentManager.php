@@ -41,7 +41,6 @@ class CommentManager implements ManagerInterface
                 $comments[] = $comment;
             }
             return $comments;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des commentaires : " . $e->getMessage();
             return [];
@@ -67,61 +66,62 @@ class CommentManager implements ManagerInterface
     // récupération de tous les commentaires acceptés pour une recette via son id
     public function getAllCommentsByRecipeId(int $recipeId): array
     {
-        $sql = "SELECT c.*, u.id, u.name, u.login 
+        $sql = "SELECT *
                 FROM `comments` c
-                INNER JOIN `users` u ON c.user_id = u.id
-                WHERE c.recipe_id = ? AND c.is_accepted = 1
-                ORDER BY c.created_at ASC";
+                INNER JOIN `users` u ON c.`user_id` = u.`id`
+                WHERE c.`recipe_id` = ?
+                ORDER BY c.`created_at` ASC";
+
         $prepare = $this->db->prepare($sql);
+
         try {
             $prepare->execute([$recipeId]);
-            // récupération des résultats et transformation en tableau associatif
-            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $result = $prepare->fetchAll();
             $prepare->closeCursor();
 
-            // création d'un tableau de commentaires
-            $comments = [];
-            // pour chaque ligne de résultat
+            // Initialiser le tableau principal
+            $commentsData = [];
+
+            // Pour chaque ligne de résultat
             foreach ($result as $row) {
-                // on utilise les setters de sécurisation pour
-                // Comment et User en instanciant les classes correspondantes
                 $comment = new CommentMapping($row);
                 $user = new UserMapping($row);
-                // on ajoute le commentaire au tableau
-                $comments[] = $comment;
-            }
-            // on retourne le tableau contenant
-            // les commentaires
-            return $comments;
 
+                // Ajouter un sous-tableau avec clés distinctes
+                $commentsData[] = [
+                    'comment' => $comment,  // Clé pour le commentaire
+                    'user' => $user        // Clé pour l'utilisateur
+                ];
+            }
+
+            return $commentsData;
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération des commentaires : " . $e->getMessage();
+            error_log("Erreur: " . $e->getMessage());
             return [];
         }
     }
-
     // insertion d'un commentaire
     public function insertComment(CommentMapping $comment): bool
     {
         // si l'utilisateur n'est pas connecté
-        if(!isset($_SESSION['user_id']))
+        if (!isset($_SESSION['is_verified']))
             throw new Exception("Vous devez être connecté pour poster un commentaire");
 
-        $isAccepted = 0; // par défaut en attente de validation
+        //$isAccepted = 0; // par défaut en attente de validation
 
-        // si l'utilisateur est Admin, on peut publier directement
-        if(isset($_SESSION['role']) && $_SESSION['role'] == 1)
-            $isAccepted = 1; // publié directement
+        // // si l'utilisateur est Admin, on peut publier directement
+        // if(isset($_SESSION['role']) && $_SESSION['role'] == 1)
+        //     $isAccepted = 1; // publié directement
 
         // préparation de la requête
-        $sql = "INSERT INTO `comments` (content, recipe_id, user_id, is_accepted) 
-                VALUES (:content, :recipe_id, :user_id, :is_accepted)";
+        $sql = "INSERT INTO `comments` (content, recipe_id, user_id, rating)
+                VALUES (:content, :recipe_id,:user_id, :rating)";
         $prepare = $this->db->prepare($sql);
         try {
             $prepare->bindValue(':content', $comment->getContent());
-            $prepare->bindValue(':recipe_id', $comment->getId(), PDO::PARAM_INT);
-            $prepare->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-            $prepare->bindValue(':is_accepted', $isAccepted, PDO::PARAM_INT);
+            $prepare->bindValue(':recipe_id', $comment->getRecipeId(), PDO::PARAM_INT);
+            $prepare->bindValue(':user_id', $_SESSION['id'], PDO::PARAM_INT);
+            $prepare->bindValue(':rating', $comment->getRating());
             $prepare->execute();
             return true;
         } catch (Exception $e) {
@@ -129,7 +129,6 @@ class CommentManager implements ManagerInterface
             return false;
         }
     }
-
     // Récupération d'un commentaire par ID
     public function getCommentById(int $commentId): ?CommentMapping
     {
@@ -141,7 +140,6 @@ class CommentManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new CommentMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération du commentaire : " . $e->getMessage();
             return null;
@@ -176,6 +174,58 @@ class CommentManager implements ManagerInterface
         } catch (Exception $e) {
             echo "Erreur lors de la suppression du commentaire : " . $e->getMessage();
             return false;
+        }
+    }
+
+    public function getRatingByRecipe(int $recipeId): ?float
+    {
+        $sql = "SELECT AVG(rating) AS avg_rating
+            FROM comments
+            WHERE recipe_id = ?";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute([$recipeId]);
+            $result = $prepare->fetch(PDO::FETCH_ASSOC);
+            $prepare->closeCursor();
+
+            if ($result && $result['avg_rating'] !== null) {
+                return (int)$result['avg_rating'];
+            }
+            return null;
+        } catch (Exception $e) {
+            echo "Erreur lors de la récupération de la moyenne : " . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function getTop3Ratings(): array
+    {
+        $sql = "SELECT recipe_id, FLOOR(AVG(CAST(rating AS UNSIGNED))) AS avg_rating
+            FROM comments
+            GROUP BY recipe_id
+            ORDER BY avg_rating DESC
+            LIMIT 3";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $prepare->closeCursor();
+
+            $ratings = [];
+            foreach ($result as $row) {
+                $ratings[] = [
+                    'recipe_id' => (int)$row['recipe_id'],
+                    'avg_rating' => (int)$row['avg_rating'] 
+                ];
+            }
+            return $ratings;
+        } catch (Exception $e) {
+            echo "Erreur lors de la récupération des meilleurs scores : " . $e->getMessage();
+            return [];
         }
     }
 }
