@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 04 déc. 2025 à 15:34
+-- Généré le : sam. 06 déc. 2025 à 00:13
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -25,106 +25,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `agenda`
---
-
-DROP TABLE IF EXISTS `agenda`;
-CREATE TABLE IF NOT EXISTS `agenda` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `horaire` time NOT NULL,
-  `date_reservation` date NOT NULL,
-  `is_reserved` tinyint(1) DEFAULT '0',
-  `user_id` int UNSIGNED DEFAULT NULL,
-  `vehicule_id` int UNSIGNED DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `vehicule_id` (`vehicule_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `agenda`
---
-
-INSERT INTO `agenda` (`id`, `horaire`, `date_reservation`, `is_reserved`, `user_id`, `vehicule_id`) VALUES
-(1, '09:00:00', '2025-12-02', 0, NULL, NULL),
-(2, '09:30:00', '2025-12-02', 0, NULL, NULL),
-(3, '10:00:00', '2025-12-02', 0, NULL, NULL),
-(4, '10:30:00', '2025-12-02', 0, NULL, NULL),
-(5, '11:00:00', '2025-12-02', 0, NULL, NULL),
-(6, '11:30:00', '2025-12-02', 0, NULL, NULL),
-(7, '12:00:00', '2025-12-02', 0, NULL, NULL),
-(8, '12:30:00', '2025-12-02', 0, NULL, NULL),
-(9, '13:00:00', '2025-12-02', 0, NULL, NULL),
-(10, '13:30:00', '2025-12-02', 0, NULL, NULL),
-(11, '14:00:00', '2025-12-02', 0, NULL, NULL),
-(12, '14:30:00', '2025-12-02', 0, NULL, NULL),
-(13, '15:00:00', '2025-12-02', 0, NULL, NULL),
-(14, '15:30:00', '2025-12-02', 0, NULL, NULL),
-(15, '16:00:00', '2025-12-02', 0, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `catalogue`
---
-
-DROP TABLE IF EXISTS `catalogue`;
-CREATE TABLE IF NOT EXISTS `catalogue` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `marque` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` enum('Camionette','Voiture') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `annee` date NOT NULL,
-  `prix` int UNSIGNED NOT NULL,
-  `caution` int UNSIGNED NOT NULL,
-  `volume` decimal(5,2) NOT NULL,
-  `dimension` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `charge_utile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `navigateur_gps` enum('Inclus','Non-inclus') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `puissance` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `transmission` enum('Electrique','Manuel','Automatique') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `air_co` enum('Oui','Non') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carburant` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombre_siege` int UNSIGNED NOT NULL,
-  `classe_environnementale` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `km_inclus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `catalogue`
---
-
-INSERT INTO `catalogue` (`id`, `marque`, `slug`, `image`, `description`, `type`, `annee`, `prix`, `caution`, `volume`, `dimension`, `charge_utile`, `navigateur_gps`, `puissance`, `transmission`, `air_co`, `carburant`, `nombre_siege`, `classe_environnementale`, `km_inclus`) VALUES
-(1, 'Peugeot 208', 'peugeot-208', 'peugeot-208.webp', 'Citadine compacte idéale pour la ville', 'Voiture', '2019-01-01', 45, 500, 0.30, '3.97m x 1.74m x 1.46m', 'N/A', 'Inclus', '74 kW', 'Manuel', 'Oui', 'Essence', 5, 'Euro 6d', '200 km/jour'),
-(2, 'Renault Clio', 'renault-clio', 'renault-clio.webp', 'Polyvalente et économique', 'Voiture', '2019-01-01', 40, 450, 0.28, '4.05m x 1.73m x 1.45m', 'N/A', 'Non-inclus', '66 kW', 'Manuel', 'Oui', 'Diesel', 5, 'Euro 6c', '200 km/jour'),
-(3, 'Volkswagen Golf', 'volkswagen-golf', 'volkswagen-golf.webp', 'Berline compacte confortable', 'Voiture', '2020-01-01', 55, 600, 0.38, '4.26m x 1.79m x 1.45m', 'N/A', 'Inclus', '85 kW', 'Automatique', 'Oui', 'Essence', 5, 'Euro 6d', '250 km/jour'),
-(4, 'Toyota Corolla', 'toyota-corolla', 'toyota-corolla.webp', 'Fiable et économique', 'Voiture', '2018-01-01', 50, 550, 0.37, '4.37m x 1.79m x 1.46m', 'N/A', 'Inclus', '81 kW', 'Automatique', 'Oui', 'Hybride', 5, 'Euro 6b', '250 km/jour'),
-(5, 'BMW Série 3', 'bmw-serie-3', 'bmw-serie-3.webp', 'Berline premium pour longs trajets', 'Voiture', '2019-01-01', 85, 1000, 0.48, '4.70m x 1.82m x 1.44m', 'N/A', 'Inclus', '110 kW', 'Automatique', 'Oui', 'Diesel', 5, 'Euro 6d', '300 km/jour'),
-(6, 'Renault Master', 'renault-master', 'renault-master.webp', 'Camionnette utilitaire grand volume', 'Camionette', '2019-01-01', 95, 1200, 12.00, '6.20m x 2.07m x 2.50m', '1500 kg', 'Inclus', '96 kW', 'Manuel', 'Oui', 'Diesel', 3, 'Euro 6c', '200 km/jour'),
-(7, 'Mercedes Sprinter', 'mercedes-sprinter', 'mercedes-sprinter.webp', 'Camionnette robuste et fiable', 'Camionette', '2018-01-01', 100, 1300, 14.00, '6.90m x 2.10m x 2.60m', '1700 kg', 'Inclus', '103 kW', 'Manuel', 'Oui', 'Diesel', 3, 'Euro 6d', '200 km/jour'),
-(8, 'Ford Transit', 'ford-transit', 'ford-transit.webp', 'Camionnette polyvalente pour transport', 'Camionette', '2019-01-01', 90, 1100, 11.00, '5.98m x 2.05m x 2.50m', '1400 kg', 'Non-inclus', '92 kW', 'Manuel', 'Oui', 'Diesel', 3, 'Euro 6c', '200 km/jour'),
-(9, 'Citroën Jumper', 'citroen-jumper', 'citroen-jumper.webp', 'Camionnette pratique pour déménagements', 'Camionette', '2019-01-01', 95, 1150, 13.00, '6.00m x 2.05m x 2.52m', '1600 kg', 'Inclus', '99 kW', 'Manuel', 'Oui', 'Diesel', 3, 'Euro 6d', '200 km/jour'),
-(10, 'Iveco Daily', 'iveco-daily', 'iveco-daily.webp', 'Camionnette utilitaire haute capacité', 'Camionette', '2019-01-01', 110, 1400, 15.00, '7.00m x 2.10m x 2.70m', '1800 kg', 'Inclus', '110 kW', 'Automatique', 'Oui', 'Diesel', 3, 'Euro 6d', '200 km/jour');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `comments`
 --
 
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `content` varchar(600) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(600) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '(DC2Type:datetime_immutable)',
   `is_accepted` tinyint UNSIGNED DEFAULT '0',
   `recipe_id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
+  `rating` tinyint UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_5F9E962A59D8A214` (`recipe_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `IDX_5F9E962A59D8A214` (`recipe_id`),
+  KEY `user_id` (`user_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `created_at`, `is_accepted`, `recipe_id`, `user_id`, `rating`) VALUES
+(49, 'aaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:11', 0, 1, 46, 4),
+(50, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:20', 0, 1, 46, 3),
+(51, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:25', 0, 1, 46, 2),
+(52, 'aaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:30', 0, 1, 46, 5),
+(53, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:35', 0, 1, 46, 2),
+(54, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-12-06 01:07:40', 0, 1, 46, 5),
+(55, 'dazzzzzzzzzzzzzzzzzzzzzzz', '2025-12-06 01:07:44', 0, 1, 46, NULL),
+(56, 'dazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '2025-12-06 01:07:49', 0, 1, 46, NULL),
+(57, 'dazdazdazdazdaz', '2025-12-06 01:11:29', 0, 2, 46, 5);
 
 -- --------------------------------------------------------
 
@@ -184,8 +115,8 @@ INSERT INTO `recipe` (`id`, `title`, `slug`, `description`, `prep_time`, `create
 DROP TABLE IF EXISTS `recipe_ingredients`;
 CREATE TABLE IF NOT EXISTS `recipe_ingredients` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` varchar(104) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(104) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_UNIQUE` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -283,7 +214,7 @@ DROP TABLE IF EXISTS `steps`;
 CREATE TABLE IF NOT EXISTS `steps` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `position` int UNSIGNED NOT NULL,
-  `instruction` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instruction` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `recipe_id` int UNSIGNED NOT NULL,
   `images_id` int UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -345,28 +276,30 @@ INSERT INTO `steps` (`id`, `position`, `instruction`, `recipe_id`, `images_id`) 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `login` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `login` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `registered_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '(DC2Type:datetime_immutable)',
   `role` tinyint UNSIGNED DEFAULT '0',
-  `email_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pwd_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `email_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pwd_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
   `is_verified` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `images_id` int UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_1483A5E9E7927C74` (`email`),
   UNIQUE KEY `login_UNIQUE` (`login`),
   KEY `fk_users_images2_idx` (`images_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `login`, `email`, `password`, `registered_at`, `role`, `email_token`, `pwd_token`, `is_verified`, `images_id`) VALUES
-(41, 'Agim Coroli', 'agim', 'Agim.coroli8016@gmail.com', '$2y$10$Kb0Rcc9j7ZGpShs1TXCCJeNZgrkovDsZ8msKGiz7joUPzT7DZcizC', '2025-12-04 14:56:32', NULL, NULL, NULL, 1, NULL);
+(46, 'Agim', 'abc', 'Agim.coroli8016@gmail.com', '$2y$10$BMpX6fYzlzm1vyaB6N55weS54TZh3/ZTEgqFegT5m6V1M6Pv9WNwu', '2025-12-05 21:36:09', NULL, NULL, NULL, 1, NULL),
+(47, 'Souli', 'souli', 'Agim.coroli.pro@gmail.com', '$2y$10$oN1udN8C6dVfehyyWQzrCenkru4sg06OKqB7oMX1DtD2.3TyKZY76', '2025-12-05 22:35:33', NULL, NULL, NULL, 1, NULL),
+(48, 'Agim', 'dazdazdaz', 'dazdadz@dazdhazd.com', '$2y$10$US18QdFyorDayjV8HB2mG.xZD18ywgSup.O.i2HXTID766Xb4OKv2', '2025-12-05 23:22:53', NULL, 'db0a80c8d2fd79c7b6e957d0e8db58eaffc5e9553a8ebd950173936f64565078', NULL, 0, NULL);
 
 --
 -- Contraintes pour les tables déchargées
@@ -376,6 +309,7 @@ INSERT INTO `users` (`id`, `name`, `login`, `email`, `password`, `registered_at`
 -- Contraintes pour la table `comments`
 --
 ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `FK_5F9E962A59D8A214` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`);
 
 --

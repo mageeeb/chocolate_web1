@@ -11,19 +11,19 @@
 		content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
+	<!--
+    //////////////////////////////////////////////////////
+ 
+    FREE HTML5 TEMPLATE
+    DESIGNED & DEVELOPED by FreeHTML5.co
+       
+    Website:        http://freehtml5.co/
+    Email:          info@freehtml5.co
+    Twitter:        http://twitter.com/fh5co
+    Facebook:       https://www.facebook.com/fh5co
+ 
+    //////////////////////////////////////////////////////
+     -->
 
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
@@ -41,8 +41,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap%22
+        rel=" stylesheet">
 	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
 	<!-- Animate.css -->
@@ -61,14 +61,14 @@
 	<script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="<?php CHEMIN ?>js/respond.min.js"></script>
-	<![endif]-->
+    <script src="<?php CHEMIN ?>js/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body class="min-vh-100- recipe-page">
 	<div id="page">
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+		<?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 
 		<header class="recipe-header-section">
 			<div class="container">
@@ -289,41 +289,41 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInUp">
 						<div class="comment-form-wrapper">
-							<form id="recipeCommentForm" class="recipe-comment-form">
+							<form method="post">
 								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="userName" class="form-label">Votre nom *</label>
-											<input type="text" id="userName" class="form-control recipe-input"
-												placeholder="Ex: Marie Dupont" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="userSubject" class="form-label">Sujet *</label>
-											<input type="text" id="userSubject" class="form-control recipe-input"
-												placeholder="Ex: Recette délicieuse !" required>
-										</div>
-									</div>
 								</div>
 								<div class="form-group">
 									<label for="userComment" class="form-label">Votre commentaire *</label>
-									<textarea id="userComment" class="form-control recipe-textarea" rows="6"
+									<textarea class="form-control recipe-textarea" rows="6"
 										placeholder="Partagez votre expérience, vos astuces, vos modifications..."
-										required></textarea>
+										required name="content"></textarea>
 								</div>
 								<div class="form-group text-center">
-									<button type="submit" class="btn btn-primary recipe-submit-btn">
-										<i class="icon-paper-plane"></i> Publier mon commentaire
-									</button>
+									<input type="submit" class="btn btn-primary recipe-submit-btn" value="Envoyer un com" name="validation">
 								</div>
+								<?php if (isset($erreur) && !empty($erreur)): ?>
+									<div class="alert alert-danger" role="alert">
+										<?= $erreur ?>
+									</div>
+								<?php endif; ?>
+								<?php
+								if (isset($readComment)):
+									var_dump($readComment);
+									foreach ($readComment as $value):
+								?>
+										<div class="text-danger"><?= $value['content']->getContent() ?></div>
+										<div class="text-danger"><?= $value['user']->getName() ?></div>
+								<?php
+									endforeach;
+								endif;
+								?>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
+		<?php require_once PATH . "/src/View/inc/footer.php"; ?>
 
 
 	</div>
