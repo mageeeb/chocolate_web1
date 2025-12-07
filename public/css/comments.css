@@ -1,0 +1,137 @@
+/* CSS uniquement pour recette3.php et recette4.php */
+
+/* Section d'affichage des commentaires */
+.comments-display-section {
+    margin-top: 3rem;
+}
+
+.comments-list-title {
+    font-family: 'Cinzel', serif;
+    color: #8B4513;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Carte de commentaire */
+.comment-card-recipe {
+    background: #FFF8F0;
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-card-recipe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.15);
+}
+
+/* Header du commentaire */
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment-author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    color: #8B4513;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-author-name {
+    font-family: 'Cinzel', serif;
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: #999;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Corps du commentaire */
+.comment-body {
+    padding: 0.5rem 0;
+}
+
+.comment-rating {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.comment-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #3e1f0d !important;
+    margin: 0;
+}
+
+/* Message aucun commentaire */
+.no-comments-message {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #999;
+    padding: 3rem 0;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .comment-card-recipe {
+        padding: 1rem;
+    }
+
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .comment-author-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .comment-author-name {
+        font-size: 1rem;
+    }
+
+    .comment-date {
+        font-size: 2rem;
+    }
+
+    .comment-text {
+        font-size: 1rem;
+    }
+
+    .comments-list-title {
+        font-size: 1.5rem;
+    }
+}

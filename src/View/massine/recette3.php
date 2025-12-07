@@ -41,7 +41,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap%22
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
         rel=" stylesheet">
 	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
@@ -56,6 +56,7 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/comments.css">
 
 	<!-- Modernizr JS -->
 	<script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
@@ -290,6 +291,51 @@
 					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInUp">
 						<div class="comment-form-wrapper">
 							<form method="post">
+								<style>
+								.star-rating {
+									direction: rtl;
+									/* permet de remplir de droite à gauche */
+									display: inline-flex;
+								}
+
+								.star-rating input {
+									display: none;
+								}
+
+								.star-rating label {
+									font-size: 3rem;
+									color: #ccc;
+									cursor: pointer;
+								}
+
+								.star-rating input:checked~label {
+									color: gold;
+								}
+
+								.star-rating label:hover,
+								.star-rating label:hover~label {
+									color: gold;
+								}
+								</style>
+							    <div class="mb-3">
+								<label for="rating" class="form-label">Votre note :</label>
+								<div class="star-rating">
+									<input type="radio" id="star5" name="rating" value="5" />
+									<label for="star5" title="5 étoiles">★</label>
+
+									<input type="radio" id="star4" name="rating" value="4" />
+									<label for="star4" title="4 étoiles">★</label>
+
+									<input type="radio" id="star3" name="rating" value="3" />
+									<label for="star3" title="3 étoiles">★</label>
+
+									<input type="radio" id="star2" name="rating" value="2" />
+									<label for="star2" title="2 étoiles">★</label>
+
+									<input type="radio" id="star1" name="rating" value="1" />
+									<label for="star1" title="1 étoile">★</label>
+								</div>
+								</div>
 								<div class="row">
 								</div>
 								<div class="form-group">
@@ -301,24 +347,47 @@
 								<div class="form-group text-center">
 									<input type="submit" class="btn btn-primary recipe-submit-btn" value="Envoyer un com" name="validation">
 								</div>
-								<?php if (isset($erreur) && !empty($erreur)): ?>
-									<div class="alert alert-danger" role="alert">
-										<?= $erreur ?>
-									</div>
-								<?php endif; ?>
-								<?php
-								if (isset($readComment)):
-									var_dump($readComment);
-									foreach ($readComment as $value):
-								?>
-										<div class="text-danger"><?= $value['content']->getContent() ?></div>
-										<div class="text-danger"><?= $value['user']->getName() ?></div>
-								<?php
-									endforeach;
-								endif;
-								?>
+							</div>
 							</form>
-						</div>
+							<?php if (isset($erreur) && !empty($erreur)): ?>
+								<div class="alert alert-danger" role="alert">
+									<?= $erreur ?>
+								</div>
+								<?php endif; ?>
+								
+								<div class="comments-display-section">
+									<?php if (isset($readComment) && !empty($readComment)): ?>
+										<h3 class="comments-list-title">💬 Commentaires de nos lecteurs</h3>
+										<?php foreach ($readComment as $value): ?>
+											<div class="comment-card-recipe">
+												<div class="comment-header">
+													<div class="comment-author">
+														<div class="comment-author-avatar">
+															<?= strtoupper(substr($value['user']->getName(), 0, 1)) ?>
+														</div>
+														<h4 class="comment-author-name"><?= htmlspecialchars($value['user']->getName()) ?></h4>
+													</div>
+													<span class="comment-date"><?= $value['comment']->getCreatedAt() ?></span>
+												</div>
+												<div class="comment-body">
+													<p class="comment-text"><?= $value['comment']->getContent()?></p>
+												</div>
+												<div>
+												<?php
+												for ($i = 0; $i < $value['comment']->getRating(); $i++):
+												?>
+												<span class="star-rating" style="color: gold;">★</span>
+
+												<?php
+												endfor;
+												?>
+												</div>
+											</div>
+										<?php endforeach; ?>
+									<?php else: ?>
+										<p class="no-comments-message">Aucun commentaire pour le moment. Soyez le premier à partager votre avis !</p>
+									<?php endif; ?>
+								</div>
 					</div>
 				</div>
 			</div>

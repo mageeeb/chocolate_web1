@@ -2467,8 +2467,7 @@ li {
 
 .meta-item {
   font-family: 'Amatic SC', cursive;
-  font-size: 1.6rem;
-  color: var(--chocolate-brown);
+  font-size: 2rem;
   background: rgba(201, 168, 106, 0.1);
   padding: 12px 25px;
   border-radius: 25px;
@@ -3179,6 +3178,10 @@ textarea {
 .comment-text-section {
   flex: 1;
   margin-right: 15px;
+}
+
+.comment-text{
+  color:#2c1b18 ;
 }
 
 .comment-photo {
@@ -3892,10 +3895,10 @@ body.recipe-page .recipe-header-section {
   }
 }
 
-/* recette2 */
+/* recette2
 .form-label {
   color: white;
-}
+} */
 
 /* Tous les éléments non cochés pulsants */
 .list-group-numbered .list-group-item {
@@ -4546,7 +4549,7 @@ body.recipe-page .recipe-header-section {
     border-left: 4px solid #D4AF37;
     border-radius: 0 8px 8px 0;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     transition: all 0.3s ease;
 }
 
@@ -4563,14 +4566,14 @@ body.recipe-page .recipe-header-section {
 
 .preparation-steps li {
     position: relative;
-    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    padding: 1.5rem 1.5rem 1.5rem 5rem;
     margin-bottom: 1.5rem;
     background: white;
     color: #3e1f0d;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     line-height: 1.6;
 }
 
@@ -4621,7 +4624,7 @@ body.recipe-page .recipe-header-section {
     padding: 0.8rem 1.2rem;
     border-radius: 25px;
     font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     border: 1px solid #D4AF37;
     width: 100%;

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
     <!-- Theme style  -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/comments.css">
 
     <!-- Modernizr JS -->
     <script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
@@ -195,31 +196,92 @@
                             <h3 class="recipe-card-title">Laissez un commentaire</h3>
                         </div>
                         <div class="recipe-card-body">
-                            <form id="commentForm" class="comment-form">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label">Votre Nom *</label>
-                                        <input type="text" class="form-control" id="name" name="name" required
-                                            placeholder="Ex: Marie Dupont">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="subject" class="form-label">Sujet *</label>
-                                        <input type="text" class="form-control" id="subject" name="subject" required
-                                            placeholder="Ex: Ma meilleure glace !">
+                            <style>
+								.star-rating {
+									direction: rtl;
+									/* permet de remplir de droite à gauche */
+									display: inline-flex;
+								}
+
+								.star-rating input {
+									display: none;
+								}
+
+								.star-rating label {
+									font-size: 3rem;
+									color: #ccc;
+									cursor: pointer;
+								}
+
+								.star-rating input:checked~label {
+									color: gold;
+								}
+
+								.star-rating label:hover,
+								.star-rating label:hover~label {
+									color: gold;
+								}
+
+							</style>
+                            <form id="commentForm" class="comment-form" method="post">
+                                <div class="">
+                                    <label for="rating" class="form-label col-3">Votre note :</label>
+                                    <div class="star-rating col-3">
+                                        <input type="radio" id="star5" name="rating" value="5" />
+                                        <label for="star5" title="5 étoiles">★</label>
+
+                                        <input type="radio" id="star4" name="rating" value="4" />
+                                        <label for="star4" title="4 étoiles">★</label>
+
+                                        <input type="radio" id="star3" name="rating" value="3" />
+                                        <label for="star3" title="3 étoiles">★</label>
+
+                                        <input type="radio" id="star2" name="rating" value="2" />
+                                        <label for="star2" title="2 étoiles">★</label>
+
+                                        <input type="radio" id="star1" name="rating" value="1" />
+                                        <label for="star1" title="1 étoile">★</label>
                                     </div>
                                 </div>
                                 <div class="mb-4">
                                     <label for="comment" class="form-label">Votre Commentaire *</label>
-                                    <textarea class="form-control" id="comment" name="comment" rows="5" required
+                                    <textarea class="form-control" id="comment" name="content" rows="5" required
                                         placeholder="Partagez votre expérience avec cette recette..."></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-gold btn-lg px-5">
-                                        ✨ Envoyer le commentaire
-                                    </button>
+                                    <input type="submit" class="btn btn-gold btn-lg px-5" value="✨ Envoyer le commentaire" name="validation">
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="comments-display-section">
+                        <?php if (isset($readComment) && !empty($readComment)): ?>
+                            <?php var_dump($readComment) ?>
+                            <h3 class="comments-list-title">💬 Commentaires de nos lecteurs</h3>
+                            <?php foreach ($readComment as $value): ?>
+                                <div class="comment-card-recipe">
+                                    <div class="comment-header">
+                                        <div class="comment-author">
+                                            <div class="comment-author-avatar">
+                                                <?= strtoupper(substr($value['user']->getName(), 0, 1)) ?>
+                                            </div>
+                                            <h4 class="comment-author-name"><?= htmlspecialchars($value['user']->getName()) ?></h4>
+                                        </div>
+                                        <span class="comment-date"><?= $value['comment']->getCreatedAt() ?></span>
+                                    </div>
+                                    <div class="comment-body">
+                                        <div class="comment-rating">
+                                            <?php for ($i = 0; $i < $value['comment']->getRating(); $i++): ?>
+                                                <span class="star-rating" style="color: gold;">★</span>
+                                            <?php endfor; ?>
+                                        </div>
+                                        <p class="comment-text"><?= nl2br(htmlspecialchars($value['comment']->getContent())) ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="no-comments-message">Aucun commentaire pour le moment. Soyez le premier à partager votre avis !</p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -243,17 +305,6 @@
     <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
     <!-- Animations -->
     <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
-
-    <script>
-        // Gestion du formulaire de commentaire
-        $(document).ready(function () {
-            $('#commentForm').on('submit', function (e) {
-                e.preventDefault();
-                alert('Merci pour votre commentaire ! Il sera publié après modération.');
-                this.reset();
-            });
-        });
-    </script>
 </body>
 
 </html>
