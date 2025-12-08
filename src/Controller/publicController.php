@@ -9,6 +9,7 @@ use model\manager\ContactManager;
 use model\mapping\ContactMapping;
 use Model\manager\RecipeManager;;
 
+require_once PATH . "/src/Model/Utilities.php";
 
 $manageUser = new UserManager($pdo);
 $manageComment = new CommentManager($pdo);
@@ -25,37 +26,61 @@ if (isset($_GET['pg'])) {
 
                 if (isset($_POST['validation']) && !empty($_POST['email'])) {
                     $emailUser = new UserMapping($_POST);
-                    $user = $manageUser->getUserByEmail($emailUser->getEmail());
-                    if (!is_null($user)) {
-                        // inseré le token du mdp
-                        $manageUser->generatePasswordToken($user);
-                        $recupEmail = $manageUser->getUserByEmail($user->getEmail());
-                        if (!is_null($recupEmail)) {
-                            $confirmMail = new MailManager;
-                            $mailSent = $confirmMail->sendResetPasswordEmail($recupEmail);
-                            if ($mailSent) {
-                                $success .= "<p style='color:green;'>Un email de réinitialisation a été envoyé. Vérifiez votre boîte mail.</p>";
-                            } else {
-                                $erreur .= "<p style='color:red;'>Erreur lors de l'envoi de l'email. Veuillez réessayer plus tard.</p>";
-                            }
-                        } else {
-                            $erreur .= "<p style='color:red;'>Erreur lors de la récupération de votre compte. Veuillez réessayer.</p>";
+                    if (!$emailUser->isValid()) {
+                        foreach ($emailUser->getErrors() as $error) {
+                            $erreur .= "<p style='color:red;'>" . htmlspecialchars($error) . "</p>";
                         }
                     } else {
-                        $erreur .= "<p style='color:red;'>Cette adresse email n'existe pas dans notre base de données.</p>";
+                        $user = $manageUser->getUserByEmail($emailUser->getEmail());
+                        if (!is_null($user)) {
+                            // inseré le token du mdp
+                            $manageUser->generatePasswordToken($user);
+                            $recupEmail = $manageUser->getUserByEmail($user->getEmail());
+                            if (!is_null($recupEmail)) {
+                                $confirmMail = new MailManager;
+                                $mailSent = $confirmMail->sendResetPasswordEmail($recupEmail);
+                                if ($mailSent) {
+                                    $success .= "<p style='color:green;'>Un email de réinitialisation a été envoyé. Vérifiez votre boîte mail.</p>";
+                                } else {
+                                    $erreur .= "<p style='color:red;'>Erreur lors de l'envoi de l'email. Veuillez réessayer plus tard.</p>";
+                                }
+                            } else {
+                                $erreur .= "<p style='color:red;'>Erreur lors de la récupération de votre compte. Veuillez réessayer.</p>";
+                            }
+                        } else {
+                            $erreur .= "<p style='color:red;'>Cette adresse email n'existe pas dans notre base de données.</p>";
+                        }
                     }
                 }
                 require_once PATH . "/src/View/forgotPassword.php";
             } else {
+                // Récupérer le message de redirection s'il existe
+                if (isset($_SESSION['redirect_message'])) {
+                    $erreur .= $_SESSION['redirect_message'];
+                    unset($_SESSION['redirect_message']);
+                }
                 if (isset($_POST['validation'])) {
                     if (!empty($_POST['login']) && !empty($_POST['password'])) {
                         $user = new UserMapping($_POST);
-                        $result = $manageUser->connect($user);
-                        if ($result === true) {
-                            header('Location:./');
-                            exit();
+                        if (!$user->isValid()) {
+                            foreach ($user->getErrors() as $error) {
+                                $erreur .= "<p style='color:red;'>" . htmlspecialchars($error) . "</p>";
+                            }
                         } else {
-                            $erreur .= "<p style='color:red;'>Identifiants incorrects. Vérifiez votre login et votre mot de passe.</p>";
+                            $result = $manageUser->connect($user);
+                            if ($result === true) {
+                                // Vérifier s'il y a une redirection en attente
+                                if (isset($_SESSION['redirect_after_login'])) {
+                                    $redirectUrl = $_SESSION['redirect_after_login'];
+                                    unset($_SESSION['redirect_after_login']);
+                                    header("Location: {$redirectUrl}");
+                                    exit();
+                                }
+                                header('Location:./');
+                                exit();
+                            } else {
+                                $erreur .= "<p style='color:red;'>Identifiants incorrects. Vérifiez votre login et votre mot de passe.</p>";
+                            }
                         }
                     } else {
                         $erreur .= "<p style='color:red;'>Veuillez remplir tous les champs.</p>";
@@ -136,13 +161,22 @@ if (isset($_GET['pg'])) {
             }
             break;
         case 'inscription':
+            // Récupérer le message de redirection s'il existe
+            if (isset($_SESSION['redirect_message'])) {
+                $erreur .= $_SESSION['redirect_message'];
+                unset($_SESSION['redirect_message']);
+            }
             if (isset($_POST['validation'])) {
                 if ($_POST['password'] !== $_POST['password_confirm']) {
                     $erreur .= "<p style='color:red;'>Les mots de passe doivent être identiques.</p>";
                 } else {
                     if (!empty($_POST['name']) && !empty($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-                        try {
-                            $newUser = new UserMapping($_POST);
+                        $newUser = new UserMapping($_POST);
+                        if (!$newUser->isValid()) {
+                            foreach ($newUser->getErrors() as $error) {
+                                $erreur .= "<p style='color:red;'>" . htmlspecialchars($error) . "</p>";
+                            }
+                        } else {
                             if ($manageUser->insertUser($newUser)) {
                                 $confirmMail = new MailManager;
                                 $mailSent = $confirmMail->sendConfirmationEmail($newUser);
@@ -163,10 +197,8 @@ if (isset($_GET['pg'])) {
                                     </script>";
                                 }
                             } else {
-                                $erreur .= "<p style='color:red;'>L'inscription a échoué. Ce login ou cet email est peut-être déjà utilisé.</p>";
+                                $erreur .= "<p style='color:red;'>L'inscription a échoué.</p>";
                             }
-                        } catch (Exception $e) {
-                            $erreur .= "<p style='color:red;'>Erreur lors de l'inscription. Veuillez vérifier vos informations et réessayer.</p>";
                         }
                     } else {
                         $erreur .= "<p style='color:red;'>Veuillez remplir tous les champs.</p>";
@@ -214,6 +246,9 @@ if (isset($_GET['pg'])) {
             if (isset($_GET['recette'])) {
                 $recetteId = $_GET['recette'];
                 $recette = $manageRecipe->getRecipeById((int)$recetteId);
+                $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                $readRatting = $manageComment->getRatingByRecipe($_GET['recette']);
+                $readTop3Ratting = $manageComment->getTop3Ratings($_GET['recette']);
 
                 switch ($_GET['recette']) {
                     case '1':
@@ -271,29 +306,11 @@ if (isset($_GET['pg'])) {
             break;
     }
 } else {
+    $commentsData = $manageComment->getBestRateComment();
+    $chunks = array_chunk($commentsData, 3);
+
     $top3 = $manageComment->getTop3RatedRecipes();
 
-    // Récupération des commentaires avec utilisateurs et recettes
-    $commentsData = $manageComment->getCommentsWithUsersAndRecipes(10);
-
-    // Création des chunks pour le carousel desktop (3 commentaires par slide)
-    $chunks = [];
-    if (!empty($commentsData)) {
-        for ($i = 0; $i < count($commentsData); $i += 3) {
-            $chunks[] = array_slice($commentsData, $i, 3);
-        }
-    }
-
-    // Initialisation des variables si vides pour éviter les erreurs dans la vue
-    if (empty($top3)) {
-        $top3 = [];
-    }
-    if (empty($commentsData)) {
-        $commentsData = [];
-    }
-    if (empty($chunks)) {
-        $chunks = [];
-    }
 
     require_once PATH . "/src/View/home.php";
 }

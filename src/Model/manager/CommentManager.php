@@ -49,8 +49,7 @@ class CommentManager implements ManagerInterface
 
     public function getAllCommentsByRecipeId(int $recipeId): array
     {
-        $sql = "SELECT c.id, c.content, c.created_at, c.is_accepted, c.recipe_id, c.user_id, c.rating,
-                       u.id as user_id, u.name as user_name 
+        $sql = "SELECT c.*, u.id as user_id, u.name as user_name 
                 FROM comments c 
                 INNER JOIN users u ON c.user_id = u.id 
                 WHERE c.recipe_id = ? 

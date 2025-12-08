@@ -4,7 +4,7 @@ namespace model\service;
 
 use model\mapping\UserMapping;
 use model\mapping\ContactMapping;
-use PHPMailer\PHPMailer\PHPMailer;;
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 

@@ -256,7 +256,7 @@
                                 </button>
                             </div>
 
-                            <div id="reviewsContainer" class="reviews-container-modern" style="display: none;">
+                            <div id="reviewsContainer" class="reviews-container-modern" style="display: grid;">
                                 <div class="row">
                                     <?php if (isset($readComment) && !empty($readComment)): ?>
                                         <?php foreach ($readComment as $comment): ?>
@@ -299,6 +299,12 @@
                                     <?php if (isset($success) && !empty($success)): ?>
                                         <div class="message-success" style="color: #51cf66; background-color: rgba(81, 207, 102, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #51cf66;">
                                             <?= $success; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    
+                                    <?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
+                                        <div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
+                                            <p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
                                         </div>
                                     <?php endif; ?>
                                     

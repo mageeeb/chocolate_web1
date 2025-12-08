@@ -111,7 +111,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
 						<div class="ingredient-card-modern">
 							<div class="ingredient-img-wrap-modern">
-								<img src="<?php CHEMIN ?>images/recipes/cacke-chocolat-coulant.jpg" alt="Chocolat noir 70%"
+								<img style="border:none;" src="<?php CHEMIN ?>images/recipes/ChocolatNoir.jpg" alt="Chocolat noir 70%"
 									class="img-responsive">
 							</div>
 							<h4 class="ingredient-card-title-modern">Chocolat Noir 70%</h4>
@@ -121,7 +121,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
 						<div class="ingredient-card-modern">
 							<div class="ingredient-img-wrap-modern">
-								<img src="<?php CHEMIN ?>images/recipes/dessert-creme-fruits.jpg" alt="Mascarpone"
+								<img style="border:none;" src="<?php CHEMIN ?>images/recipes/mascarpone.jpg" alt="Mascarpone"
 									class="img-responsive">
 							</div>
 							<h4 class="ingredient-card-title-modern">Mascarpone</h4>
@@ -131,7 +131,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
 						<div class="ingredient-card-modern">
 							<div class="ingredient-img-wrap-modern">
-								<img src="<?php CHEMIN ?>images/backgrounds/fond-table-chocolats.jpg" alt="Café espresso"
+								<img style="border:none;" src="<?php CHEMIN ?>images/recipes/espresso.jpeg" alt="Café espresso"
 									class="img-responsive">
 							</div>
 							<h4 class="ingredient-card-title-modern">Café Espresso</h4>
@@ -141,7 +141,7 @@
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
 						<div class="ingredient-card-modern">
 							<div class="ingredient-img-wrap-modern">
-								<img src="<?php CHEMIN ?>images/recipes/cacke-chocolat-coulant.jpg"
+								<img style="border:none;" src="<?php CHEMIN ?>images/recipes/BiscuitsSavoiardi.jpg"
 									alt="Biscuits savoiardi" class="img-responsive">
 							</div>
 							<h4 class="ingredient-card-title-modern">Biscuits Savoiardi</h4>
@@ -312,6 +312,12 @@
 							<?php if (isset($success) && !empty($success)): ?>
 								<div class="message-success" style="color: #51cf66; background-color: rgba(81, 207, 102, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #51cf66;">
 									<?= $success; ?>
+								</div>
+							<?php endif; ?>
+							
+							<?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
+								<div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
+									<p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
 								</div>
 							<?php endif; ?>
 

@@ -163,7 +163,6 @@ if (isset($_GET['pg'])) {
     }
 } else {
     $commentsData = $manageComment->getBestRateComment();
-    // var_dump($commentsData);
     $chunks = array_chunk($commentsData, 3);
 
     $top3 = $manageComment->getTop3RatedRecipes();

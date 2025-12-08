@@ -35,7 +35,7 @@
   <meta name="twitter:image" content="" />
   <meta name="twitter:url" content="" />
   <meta name="twitter:card" content="" />
-    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
+  <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
     rel="stylesheet" />
@@ -68,36 +68,37 @@
 </head>
 
 <body>
-    <div class="fh5co-loader">
-        <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
-    </div>
+  <div class="fh5co-loader">
+    <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
+  </div>
 
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
-
-<?php if (isset($erreur) && !empty($erreur)): ?>
-  <div class="message-error"><?= $erreur; ?></div>
-<?php endif ?>
-
-<?php if(isset($success) && !empty($success)): ?>
-  <div class="message-success"><?= $success; ?></div>
-<?php endif ?>
+  <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 
 
 
-      <section class="mainRecette3__comments" style="margin-top:22rem;">
-        <h2>Mot de passe oublié</h2>
-        <form class="mainRecette3__form" method="post">
-          <label for="newPassword">Nouveau mot de passe :</label>
-          <input type="password" name="newPassword"  />
 
-          <label for="newPasswordConfirm">Confirmer le nouveau mot de passe :</label>
-          <input type="password" name="newPasswordConfirm"  />
+  <section class="mainRecette3__comments" style="margin-top:22rem;">
+    <h2>Mot de passe oublié</h2>
+    <form class="mainRecette3__form" method="post">
+      <label for="newPassword">Nouveau mot de passe :</label>
+      <input type="password" name="newPassword" />
 
-          <input type="submit" name="validation" value="Valider"/>
-        </form>
+      <label for="newPasswordConfirm">Confirmer le nouveau mot de passe :</label>
+      <input type="password" name="newPasswordConfirm" />
 
-      </section>
-    </div>
+      <input type="submit" name="validation" value="Valider" />
+      <?php if (isset($erreur) && !empty($erreur)): ?>
+        <div class="message-error"><?= $erreur; ?></div>
+      <?php endif ?>
+
+      <?php if (isset($success) && !empty($success)): ?>
+        <div class="message-success"><?= $success; ?></div>
+      <?php endif ?>
+
+    </form>
+
+  </section>
+  </div>
 
 
 

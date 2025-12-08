@@ -13,8 +13,7 @@ trait StringTrait
      * @param string $text Le texte à transformer en slug
      * @param bool $prefix Si true, ajoute un préfixe aléatoire pour éviter les doublons
      * @param string $separator Le séparateur à utiliser (par défaut '-')
-     * @return string Le slug généré
-     * @throws Exception Si la transformation échoue
+     * @return string Le slug généré (retourne un slug par défaut si la transformation échoue)
      *
      * Exemple d'utilisation :
      * use model\StringTrait;
@@ -51,9 +50,9 @@ trait StringTrait
         // 6. Mettre toute la chaîne en minuscules
         $text = strtolower($text);
 
-        // 7. si pas de texte valide
+        // 7. si pas de texte valide, retourner un slug par défaut
         if (empty($text)) {
-            throw new Exception("Slugify failed");
+            $text = "slug-" . bin2hex(random_bytes(4));
         }
 
         // 8. Si $prefix est à true,

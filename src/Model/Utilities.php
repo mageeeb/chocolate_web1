@@ -27,13 +27,12 @@ function gestionCommentaire($manageComment, $recetteId, &$erreur, &$success)
             $erreur .= "<p style='color:red;'>Veuillez remplir le formulaire de commentaire.</p>";
         }
     }
-    
+
     // Vérifier s'il y a un message de succès en session (après redirection)
     if (isset($_SESSION['comment_success'])) {
         $success = $_SESSION['comment_success'];
         unset($_SESSION['comment_success']);
     }
-    
+
     return $manageComment->getAllCommentsByRecipeId($recetteId);
 }
-
