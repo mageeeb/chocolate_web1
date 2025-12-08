@@ -21,3 +21,4 @@ if (isset($_GET['action'])) {
     $comments = $manageComment->getAllCommentsByRecipeId(0);
     require_once PATH . "/src/View/admin/list.comment.back.php";
 }
+

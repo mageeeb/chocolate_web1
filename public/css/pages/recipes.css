@@ -467,6 +467,7 @@ body.recipe-page .recipe-header-section {
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
   transition: all 0.3s ease;
+  word-break: break-all;
 }
 
 .recipe-comment-item-modern:hover {

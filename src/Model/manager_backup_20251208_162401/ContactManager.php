@@ -22,6 +22,8 @@ class ContactManager implements ManagerInterface
 
         $prepare = $this->db->prepare($sql);
 
+
+
         try {
             $prepare->execute([
                 ':name'    => $comment->getName(),

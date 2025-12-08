@@ -126,3 +126,4 @@ class CommentMapping extends AbstractMapping
         return $this->rating;
     }
 }
+

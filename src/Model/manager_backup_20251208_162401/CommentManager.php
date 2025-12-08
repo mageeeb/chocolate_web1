@@ -182,4 +182,33 @@ class CommentManager implements ManagerInterface
             return [];
         }
     }
+
+    public function getCommentsWithUsersAndRecipes(int $limit = 10): array
+    {
+        $sql = "SELECT c.*, u.id as user_id, u.name as user_name, r.id as recipe_id, r.title as recipe_title 
+                FROM comments c 
+                INNER JOIN users u ON c.user_id = u.id 
+                INNER JOIN recipe r ON c.recipe_id = r.id 
+                ORDER BY c.created_at DESC 
+                LIMIT ?";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute([$limit]);
+            $results = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $prepare->closeCursor();
+
+            $comments = [];
+            foreach ($results as $row) {
+                $comment = new CommentMapping($row);
+                $user = new UserMapping(['id' => $row['user_id'], 'name' => $row['user_name']]);
+                $recipe = new RecipeMapping(['id' => $row['recipe_id'], 'title' => $row['recipe_title']]);
+                $comments[] = ['comment' => $comment, 'user' => $user, 'recipe' => $recipe];
+            }
+            return $comments;
+        } catch (Exception $e) {
+            return [];
+        }
+    }
 }
