@@ -1,0 +1,47 @@
+/* =======================================================
+ *  CONTACT PAGE - Styles spécifiques à la page Contact
+ *  ======================================================= */
+
+/* Réduction spécifique de l'espacement pour la page contact */
+#fh5co-contact .fh5co-heading {
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-contact .fh5co-heading {
+    margin-bottom: 30px;
+  }
+}
+
+#fh5co-contact .fh5co-heading h2 {
+  font-family: 'Satisfy', cursive;
+  color: #fff;
+}
+
+.mainContact__header--background {
+  background-image: url(../images/backgrounds/fond-table-chocolats.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContact__header {
+  text-align: center;
+}
+
+.contactText {
+  text-align: center !important;
+}
+
+.mainContact__header__title {
+  font-family: 'Satisfy', cursive;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+

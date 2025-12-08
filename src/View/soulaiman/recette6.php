@@ -9,41 +9,40 @@
     <meta name="description" content="Recette délicieuse de cookies maison au chocolat. Facile, rapide et gourmand !" />
     <meta name="author" content="Cokolada" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
-        rel="stylesheet">
     <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
+        rel="stylesheet" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
     <!-- Icomoon Icon Fonts -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/icomoon.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
-    <!-- Flexslider -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
-    <!-- Recipe style -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/recette.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
-    <!-- Icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <!-- Nouvelle architecture modulaire CSS -->
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/recipes.css">
     <!-- Modernizr JS -->
-    <script src="<?php CHEMIN ?>js/modernizr-2.6.2.min.js"></script>
-    <!-- Recette7 CSS -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/recette7.css">
+
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+      <script src="<?php CHEMIN ?>js/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
     <div id="page">
         <!-- NAV : réutilisée de index.html -->
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+        <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
         <main role="main" class="modern-recipe">
             <section class="hero-wrapper">
                 <div class="container hero-grid">
@@ -180,91 +179,112 @@
                         </div>
                     </article>
 
-                    <section class="panel-modern reviews-section">
+                    <!-- Section Avis / Commentaires -->
+                    <section class="recipe-section reviews-section" style="margin-top: 3rem;">
                         <div class="reviews-header">
-                            <h2 class="section-title"><i class="icon-bubbles4"></i> Avis des utilisateurs</h2>
-                            <button id="toggleReviews" class="btn-toggle-reviews">Afficher les avis</button>
+                            <h2 class="section-title">
+
+                                <?php if (!empty($readRatting)): ?>
+
+                                    <span style="color: gold; font-size: 1.2em; margin-left: 10px;">
+                                        <?php for ($i = 0; $i < round($readRatting); $i++): ?>★<?php endfor; ?>
+                                    </span>
+                                    <span style="font-size: 0.9em; color: #666;">(<?= number_format($readRatting, 1) ?>)</span>
+                                <?php endif; ?>
+                            </h2>
+                            <button id="toggleReviews" class="btn-toggle-reviews"><?= isset($readComment) ? count($readComment) : 0 ?> commentaires</button>
                         </div>
 
                         <div id="reviewsContainer" class="reviews-container" style="display: none;">
-                            <div class="review">
-                                <div class="review-header">
-                                    <strong>Marie L.</strong>
-                                    <span class="review-date">Il y a 5 jours</span>
-                                </div>
-                                <div class="review-stars">
-                                    <span style="color:#f5c518;">★★★★★</span>
-                                </div>
-                                <p class="review-text">Recette fantastique ! J'ai fait ces cookies hier et toute ma
-                                    famille en a adoré. Moelleux et gourmands, exactement comme je l'imaginais. Je les
-                                    refais ce week-end !</p>
-                            </div>
-
-                            <div class="review">
-                                <div class="review-header">
-                                    <strong>Jean P.</strong>
-                                    <span class="review-date">Il y a 2 semaines</span>
-                                </div>
-                                <div class="review-stars">
-                                    <span style="color:#f5c518;">★★★★☆</span>
-                                </div>
-                                <p class="review-text">Bons cookies, j'ai juste ajouté un peu plus de chocolat à mon
-                                    goût. Le temps de cuisson était parfait tel qu'indiqué. Merci pour cette recette !
-                                </p>
-                            </div>
-
-                            <div class="review">
-                                <div class="review-header">
-                                    <strong>Sophie D.</strong>
-                                    <span class="review-date">Il y a 1 mois</span>
-                                </div>
-                                <div class="review-stars">
-                                    <span style="color:#f5c518;">★★★★★</span>
-                                </div>
-                                <p class="review-text">C'est devenue ma recette de cookies préférée ! Facile, rapide, et
-                                    délicieuse. Je recommande vivement. Parfait pour les goûters en famille.</p>
+                            <div class="row">
+                                <?php if (isset($readComment) && !empty($readComment)): ?>
+                                    <?php foreach ($readComment as $comment): ?>
+                                        <div class="col-md-6">
+                                            <div class="review">
+                                                <div class="review-header">
+                                                    <strong><?= htmlspecialchars($comment['user']->getName()); ?></strong>
+                                                    <span class="review-date" style="font-size: 0.85em; color: #999;"><?= $comment['comment']->getCreatedAt() ?></span>
+                                                </div>
+                                                <div class="review-stars">
+                                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                        <span style="color: <?= $i <= $comment['comment']->getRating() ? '#f5c518' : '#ccc' ?>;">★</span>
+                                                    <?php endfor; ?>
+                                                </div>
+                                                <p class="review-text"><?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="comment-form-wrapper">
+                        <div class="comment-form-wrapper" style="margin-top: 2rem;">
                             <h3>Laissez votre avis</h3>
-                            <form id="reviewForm" class="comment-form review-form">
-                                <div class="form-group">
-                                    <label for="reviewName">Votre nom *</label>
-                                    <input type="text" id="reviewName" class="form-control" placeholder="Votre nom"
-                                        required>
+                            <form class="modern-contact-form mainContact__section__form" method="post">
+                                <div class="modern-form-container mainContact__section__form__container">
+                                    <style>
+                                        .star-rating {
+                                            direction: rtl;
+                                            display: inline-flex;
+                                        }
+
+                                        .star-rating input {
+                                            display: none;
+                                        }
+
+                                        .star-rating label {
+                                            font-size: 2rem;
+                                            color: #ccc;
+                                            cursor: pointer;
+                                        }
+
+                                        .star-rating input:checked~label {
+                                            color: gold;
+                                        }
+
+                                        .star-rating label:hover,
+                                        .star-rating label:hover~label {
+                                            color: gold;
+                                        }
+                                    </style>
+
+                                    <div class="modern-form-group mainContact__section__form__group">
+
+                                        <div class="star-rating">
+                                            <input type="radio" id="star5" name="rating" value="5" />
+                                            <label for="star5" title="5 étoiles">★</label>
+                                            <input type="radio" id="star4" name="rating" value="4" />
+                                            <label for="star4" title="4 étoiles">★</label>
+                                            <input type="radio" id="star3" name="rating" value="3" />
+                                            <label for="star3" title="3 étoiles">★</label>
+                                            <input type="radio" id="star2" name="rating" value="2" />
+                                            <label for="star2" title="2 étoiles">★</label>
+                                            <input type="radio" id="star1" name="rating" value="1" />
+                                            <label for="star1" title="1 étoile">★</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="modern-form-group mainContact__section__form__group">
+                                        <textarea name="content" class="modern-textarea mainContact__section__form__textarea" rows="6" required></textarea>
+                                        <label class="modern-label mainContact__section__form__label">Votre avis</label>
+                                        <span class="modern-focus-border mainContact__section__form__border"></span>
+                                    </div>
+
+                                    <div class="modern-form-group mainContact__section__form__group">
+                                        <button type="submit" name="validation" class="modern-submit-btn mainContact__section__form__submit">
+                                            <span class="btn-text mainContact__section__form__submit__text">Publier mon avis</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="reviewRating">Note *</label>
-                                    <select id="reviewRating" class="form-control" required>
-                                        <option value="">Sélectionnez une note</option>
-                                        <option value="5">★★★★★ Excellent</option>
-                                        <option value="4">★★★★☆ Bon</option>
-                                        <option value="3">★★★☆☆ Correct</option>
-                                        <option value="2">★★☆☆☆ À améliorer</option>
-                                        <option value="1">★☆☆☆☆ Mauvais</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="reviewText">Votre avis *</label>
-                                    <textarea id="reviewText" class="form-control" rows="4"
-                                        placeholder="Partagez votre expérience..." required></textarea>
-                                </div>
-                                <button type="submit" class="btn-submit">Publier mon avis</button>
                             </form>
                         </div>
                     </section>
 
-                    <section class="panel-modern recipe-actions">
-                        <button id="printBtn" class="btn-print">
-                            <i class="icon-print"></i> Imprimer la recette
-                        </button>
-                    </section>
                 </div>
             </section>
         </main>
 
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
+        <?php require_once PATH . "/src/View/inc/footer.php"; ?>
 
     </div>
 
@@ -273,24 +293,21 @@
     </div>
 
     <!-- jQuery -->
+    <!-- Vendors -->
     <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
-    <!-- jQuery Easing -->
     <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
     <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
-    <!-- Waypoints -->
     <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
-    <!-- Stellar Parallax -->
-    <script src="<?php CHEMIN ?>js/vendors/jquery.stellar.min.js"></script>
-    <!-- Flexslider -->
+
     <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
-    <!-- Main -->
+    <!-- Core -->
     <script src="<?php CHEMIN ?>js/core/main.js"></script>
     <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
-    <!-- Recipe script -->
-    <script src="<?php CHEMIN ?>js/recipe-marmiton.js"></script>
-    <!-- Recette7 JS -->
-    <script src="<?php CHEMIN ?>js/recette7.js"></script>
+    <!-- Animations -->
+    <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+    <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
+    <!-- Recipes -->
+    <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 
 </body>
 

@@ -20,13 +20,11 @@ class RecipeManager implements ManagerInterface
     // Récupération de toutes les recettes
     public function getAllRecipes(): array
     {
-        $sql = "SELECT r.*, u.id, u.name, u.login FROM `recipe` r
-                INNER JOIN `users` u ON r.user_id = u.id
-                ORDER BY r.created_at DESC";
+        $sql = "SELECT * FROM recipe";
         $prepare = $this->db->prepare($sql);
         try {
             $prepare->execute();
-            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $result = $prepare->fetchAll();
             $prepare->closeCursor();
 
             $recipes = [];

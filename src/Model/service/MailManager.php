@@ -3,6 +3,7 @@
 namespace model\service;
 
 use model\mapping\UserMapping;
+use model\mapping\ContactMapping;
 use PHPMailer\PHPMailer\PHPMailer;
 use Exception;
 
@@ -67,6 +68,35 @@ class MailManager
             return $mail->send();
         } catch (\Throwable $e) {
             throw new Exception("Erreur lors de l'envoi du mail : " . $mail->ErrorInfo);
+        }
+    }
+
+
+    public function sendMessageContact(ContactMapping $user): bool
+    {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
+            $mail->Host       = $_ENV['SMTP_HOST'];
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $_ENV['SMTP_USER'];
+            $mail->Password   = $_ENV['SMTP_PASS'];
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = $_ENV['SMTP_PORT'];
+
+            $mail->setFrom($_ENV['SMTP_USER'], 'No reply');
+            $mail->addAddress($user->getEmail(), $user->getName());
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Message de confirmation';
+
+            $mail->Body = "Nous avons bien réçu votre demande. Vous recevrez une réponse sous 24h";
+
+            return $mail->send();
+        } catch (\Throwable $e) {
+            throw new Exception("Erreur lors de l'envoi du message : " . $mail->ErrorInfo);
         }
     }
 }

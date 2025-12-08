@@ -20,15 +20,15 @@
     <meta name="twitter:image" content="<?php CHEMIN ?>images/glace-chocolat-finie.jpg" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
+        rel="stylesheet" />
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css">
@@ -37,18 +37,23 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="<?php CHEMIN ?>css/bootstrap.css">
     <!-- Flexslider  -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
-    <link rel="stylesheet" href="<?php CHEMIN ?>css/comments.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
+    <!-- Nouvelle architecture modulaire CSS -->
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+    <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/recipes.css">
     <!-- Modernizr JS -->
-    <script src="<?php CHEMIN ?>js/vendors/modernizr-2.6.2.min.js"></script>
+
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+      <script src="<?php CHEMIN ?>js/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body class="min-vh-100 recipe-page">
     <div id="page">
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+        <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
         <!-- Contenu principal de la recette -->
         <header class="recipe-header-section">
             <div class="container">
@@ -197,32 +202,31 @@
                         </div>
                         <div class="recipe-card-body">
                             <style>
-								.star-rating {
-									direction: rtl;
-									/* permet de remplir de droite à gauche */
-									display: inline-flex;
-								}
+                                .star-rating {
+                                    direction: rtl;
+                                    /* permet de remplir de droite à gauche */
+                                    display: inline-flex;
+                                }
 
-								.star-rating input {
-									display: none;
-								}
+                                .star-rating input {
+                                    display: none;
+                                }
 
-								.star-rating label {
-									font-size: 3rem;
-									color: #ccc;
-									cursor: pointer;
-								}
+                                .star-rating label {
+                                    font-size: 3rem;
+                                    color: #ccc;
+                                    cursor: pointer;
+                                }
 
-								.star-rating input:checked~label {
-									color: gold;
-								}
+                                .star-rating input:checked~label {
+                                    color: gold;
+                                }
 
-								.star-rating label:hover,
-								.star-rating label:hover~label {
-									color: gold;
-								}
-
-							</style>
+                                .star-rating label:hover,
+                                .star-rating label:hover~label {
+                                    color: gold;
+                                }
+                            </style>
                             <form id="commentForm" class="comment-form" method="post">
                                 <div class="">
                                     <label for="rating" class="form-label col-3">Votre note :</label>
@@ -286,7 +290,7 @@
                 </div>
             </div>
         </div>
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
+        <?php require_once PATH . "/src/View/inc/footer.php"; ?>
 
 
         <div class="gototop js-top">
@@ -295,16 +299,21 @@
     </div>
 
     <!-- jQuery -->
+    <!-- Vendors -->
     <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
     <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
     <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
     <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+
     <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
     <!-- Core -->
     <script src="<?php CHEMIN ?>js/core/main.js"></script>
     <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
     <!-- Animations -->
     <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+    <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
+    <!-- Recipes -->
+    <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 </body>
 
 </html>

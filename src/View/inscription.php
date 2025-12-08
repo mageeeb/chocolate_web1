@@ -54,8 +54,10 @@
   <!-- Flexslider  -->
   <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
-  <!-- Theme style  -->
-  <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css" />
+  <!-- Nouvelle architecture modulaire CSS -->
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/auth.css">
 
   <!-- Modernizr JS -->
 
@@ -66,11 +68,21 @@
 </head>
 
 <body>
+    <div class="fh5co-loader">
+        <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
+    </div>
+
 <?php require_once PATH."/src/View/inc/navigation.php"; ?>
 
 
       <section class="mainRecette3__comments" style="margin-top:22rem;">
         <h2>Inscription</h2>
+        <?php if (isset($_SESSION['message']) && !empty($_SESSION['message'])): ?>
+          <div class="message-error" style="color: #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #d4af37;">
+            <?= htmlspecialchars($_SESSION['message']); ?>
+            <?php unset($_SESSION['message']); ?>
+          </div>
+        <?php endif ?>
         <form class="mainRecette3__form" method="post">
           <label for="name">Nom :</label>
           <input type="text" name="name"  />
@@ -87,9 +99,17 @@
           <label for="password_confirm">Confirm Password :</label>
           <input type="password" name="password_confirm"  />
 
+          <?php if (isset($erreur) && !empty($erreur)): ?>
+            <div class="message-error"><?= $erreur; ?></div>
+          <?php endif ?>
+
+          <?php if(isset($success) && !empty($success)): ?>
+            <div class="message-success"><?= $success; ?></div>
+          <?php endif ?>
+
           <input style="margin-top:3rem;" name="validation" type="submit" value="Inscription" />
 
-          <a style="text-align:center; padding:2rem;" href="?pg=connexion">Deja inscrit ? Clique ici</a>
+          <a style="text-align:center; padding:2rem;" href="?pg=connexion">Déjà inscrit ? Clique ici</a>
         </form>
 
       </section>

@@ -1,0 +1,301 @@
+/**
+ * BASE.CSS
+ * =======================================================
+ * Fichier de base : variables CSS, reset, typographie, layout global
+ * Fusionne les styles de base de style.css
+ * =======================================================
+ */
+
+/* =======================================================
+ *  VARIABLES CSS - Design tokens réutilisables
+ *  ======================================================= */
+:root {
+  /* Couleurs principales */
+  --chocolate-brown: #4e342e;
+  --creamy-beige: #d7ccc8;
+  --golden-cocoa: #c9a86a;
+  --gold: #ffcc66;
+  --background-texture: #000 url(../images/backgrounds/texture-bruit.png) repeat;
+
+  /* Couleurs supplémentaires (depuis design-system.css et autres) */
+  --chocolate-dark: hsl(25, 47%, 30%);
+  --chocolate-medium: hsl(28, 40%, 50%);
+  --chocolate-light: hsl(28, 35%, 75%);
+  --cream: hsl(32, 45%, 96%);
+  --warm-white: hsl(30, 50%, 98%);
+
+  /* Système d'espacement - Desktop (≥992px) */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-2xl: 4rem; /* 64px */
+  --spacing-3xl: 6rem; /* 96px */
+
+  /* Espacement des sections */
+  --section-padding-y: var(--spacing-3xl);
+  --section-padding-y-mobile: var(--spacing-xl);
+
+  /* Espacement des containers */
+  --container-padding-x: var(--spacing-lg);
+  --container-padding-x-mobile: var(--spacing-md);
+
+  /* Espacement entre éléments */
+  --element-gap: var(--spacing-lg);
+  --element-gap-mobile: var(--spacing-md);
+
+  /* Espacement des cards */
+  --card-padding: var(--spacing-lg);
+  --card-padding-mobile: var(--spacing-md);
+  --card-gap: var(--spacing-lg);
+  --card-gap-mobile: var(--spacing-md);
+
+  /* Transitions & Shadows (depuis design-system.css) */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-soft: 0 4px 20px rgba(111, 78, 55, 0.15);
+  --shadow-hover: 0 8px 30px rgba(111, 78, 55, 0.25);
+}
+
+/* =======================================================
+ *  FONTS - Définition des polices personnalisées
+ *  ======================================================= */
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon/icomoon.eot?srf3rx');
+  src: url('../fonts/icomoon/icomoon.eot?srf3rx#iefix')
+      format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?srf3rx') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?srf3rx') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?srf3rx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* =======================================================
+ *  RESET & BASE STYLES
+ *  ======================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  background: var(--background-texture);
+  margin: 0;
+  padding: 0;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    background: var(--background-texture);
+  }
+}
+
+/* =======================================================
+ *  TYPOGRAPHY
+ *  ======================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure {
+  color: #000;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+@media screen and (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figure {
+    margin: 0 0 var(--spacing-md) 0;
+  }
+}
+
+p {
+  margin-bottom: var(--spacing-xl);
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  p {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+a {
+  color: rgba(255, 217, 0, 0.479);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: gold;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Selection */
+::-webkit-selection {
+  color: #fff;
+  background: #ea272d;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #ea272d;
+}
+
+::selection {
+  color: #fff;
+  background: #ea272d;
+}
+
+/* =======================================================
+ *  LAYOUT - Conteneurs et structure globale
+ *  ======================================================= */
+#page {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.offcanvas #page {
+  overflow: hidden;
+  position: absolute;
+}
+
+.offcanvas #page:after {
+  transition: 2s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.7);
+  content: '';
+}
+
+.container {
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: var(--container-padding-x-mobile);
+    padding-right: var(--container-padding-x-mobile);
+  }
+}
+
+.row {
+  margin-left: calc(-1 * var(--container-padding-x) / 2);
+  margin-right: calc(-1 * var(--container-padding-x) / 2);
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    margin-left: calc(-1 * var(--container-padding-x-mobile) / 2);
+    margin-right: calc(-1 * var(--container-padding-x-mobile) / 2);
+  }
+}
+
+.container,
+.row,
+.display-t,
+.display-tc {
+  position: relative;
+  z-index: 2;
+}
+
+/* =======================================================
+ *  SECTIONS - Espacement cohérent pour toutes les sections
+ *  ======================================================= */
+.fh5co-section {
+  padding-top: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .fh5co-section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fh5co-section {
+    padding: var(--section-padding-y-mobile) 0;
+  }
+}
+
+.fh5co-section p {
+  color: rgba(255, 255, 255, 72%);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+}
+
+/* =======================================================
+ *  LOADER
+ *  ======================================================= */
+.fh5co-loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fh5co-loader img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* =======================================================
+ *  UTILITIES
+ *  ======================================================= */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  border: 5px solid gold;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+li {
+  text-decoration: none;
+}
+
+/* Responsive utilities */
+@media screen and (max-width: 480px) {
+  .col-xxs-12 {
+    float: none;
+    width: 100%;
+  }
+}

@@ -35,6 +35,7 @@
   <meta name="twitter:image" content="" />
   <meta name="twitter:url" content="" />
   <meta name="twitter:card" content="" />
+  <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
     rel="stylesheet" />
@@ -43,7 +44,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Marck+Script&display=swap"
     rel="stylesheet" />
-  <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
   <!-- Animate.css -->
   <link rel="stylesheet" href="<?php CHEMIN ?>css/animate.css" />
@@ -54,8 +54,10 @@
   <!-- Flexslider  -->
   <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
-  <!-- Theme style  -->
-  <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css" />
+  <!-- Nouvelle architecture modulaire CSS -->
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/recipes.css">
 
   <!-- Modernizr JS -->
 
@@ -85,7 +87,7 @@
 
         <div class="card shadow mx-auto mainRecette2__card">
           <div class="d-block text-center mainRecette2__card__image-wrapper">
-            <img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg"
+            <img src="<?php CHEMIN ?>images/recipes/fondant_au_chocolat.jpg"
               class="card-img-top d-block mx-auto mainRecette2__card__main-image" alt="Mousse au chocolat">
           </div>
 
@@ -229,64 +231,61 @@
                     ?>
                       <div class="star-rating" style="color: gold;">★</div>
 
-                      <?php
+                    <?php
                     endfor;
-                      ?>
+                    ?>
 
 
 
-                      </div>
                   </div>
-                <?php else: ?>
-                  <!-- Commentaire des autres utilisateurs (aligné à gauche) -->
-                  <div class="card shadow mb-3 mainRecette2__comments__card mainRecette2__comments__card--styled bg-danger" style="border:1px solid red !important;">
-                    <div class="card-body mainRecette2__comments__card__body text-start">
-                      <h5 class="card-title mainRecette2__comments__card__title--gold">
-                        <?= htmlspecialchars($comment['user']->getName()); ?>
-                      </h5>
-                      <p class="card-text mainRecette2__comments__card__text">
-                        <?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?>
-                      </p>
-
-
-                    </div>
-                  </div>
-                <?php endif ?>
-              <?php endforeach; ?>
-
-
-
                 </div>
-<?= var_dump($readRatting); ?>
-<?= var_dump($readTop3Ratting); ?>
+              <?php else: ?>
+                <!-- Commentaire des autres utilisateurs (aligné à gauche) -->
+                <div class="card shadow mb-3 mainRecette2__comments__card mainRecette2__comments__card--styled bg-danger" style="border:1px solid red !important;">
+                  <div class="card-body mainRecette2__comments__card__body text-start">
+                    <h5 class="card-title mainRecette2__comments__card__title--gold">
+                      <?= htmlspecialchars($comment['user']->getName()); ?>
+                    </h5>
+                    <p class="card-text mainRecette2__comments__card__text">
+                      <?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?>
+                    </p>
+
+
+                  </div>
+                </div>
+              <?php endif ?>
+            <?php endforeach; ?>
+
 
 
           </div>
 
-          <?php require_once PATH . "/src/View/inc/footer.php"; ?>
-
         </div>
 
-        <div class="gototop js-top">
-          <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-        </div>
+        
+      </div>
+      <?php require_once PATH . "/src/View/inc/footer.php"; ?>
 
-        <!-- jQuery -->
-        <!-- Vendors -->
-        <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
-        <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
-        <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
-        <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+      <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+      </div>
 
-        <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
-        <!-- Core -->
-        <script src="<?php CHEMIN ?>js/core/main.js"></script>
-        <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
-        <!-- Animations -->
-        <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
-        <!-- Recipes -->
-        <script src="<?php CHEMIN ?>js/recipes/recipe-steps.js"></script>
-        <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
+      <!-- jQuery -->
+      <!-- Vendors -->
+      <script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+      <script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+      <script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+      <script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+
+      <script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
+      <!-- Core -->
+      <script src="<?php CHEMIN ?>js/core/main.js"></script>
+      <script src="<?php CHEMIN ?>js/core/navigation.js"></script>
+      <!-- Animations -->
+      <script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+      <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
+      <!-- Recipes -->
+      <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
 
 
 </body>

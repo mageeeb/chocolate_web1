@@ -1,5 +1,6 @@
 
 <?php
+
 use model\mapping\CommentMapping;
 
 function gestionCommentaire($manageComment, $recetteId, &$erreur)

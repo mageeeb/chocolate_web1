@@ -54,8 +54,10 @@
   <!-- Flexslider  -->
   <link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css" />
 
-  <!-- Theme style  -->
-  <link rel="stylesheet" href="<?php CHEMIN ?>css/style.css" />
+  <!-- Nouvelle architecture modulaire CSS -->
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+  <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/auth.css">
 
   <!-- Modernizr JS -->
 
@@ -66,6 +68,10 @@
 </head>
 
 <body>
+    <div class="fh5co-loader">
+        <img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="loader chocolat" />
+    </div>
+
 <?php require_once PATH."/src/View/inc/navigation.php"; ?>
 
 
@@ -76,13 +82,13 @@
           <input type="text" name="email"  />
 
           <input type="submit" name="validation" value="Valider"/>
-          <?php if (isset($erreur)):?>
-            <?= $erreur; ?>
-            <?php endif ?>
+          <?php if (isset($erreur) && !empty($erreur)): ?>
+            <div class="message-error"><?= $erreur; ?></div>
+          <?php endif ?>
 
-            <?php if(isset($success)): ?>
-                <?= $success; ?>
-            <?php endif ?>
+          <?php if(isset($success) && !empty($success)): ?>
+            <div class="message-success"><?= $success; ?></div>
+          <?php endif ?>
         </form>
 
 

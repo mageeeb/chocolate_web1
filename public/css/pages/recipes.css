@@ -1,0 +1,480 @@
+/* =======================================================
+ *  RECIPES PAGES - Styles communs à toutes les pages de recettes
+ *  ======================================================= */
+
+/* =======================================================
+ *  ESPACEMENT SPÉCIFIQUE AUX PAGES RECETTES
+ *  ======================================================= */
+body.recipe-page .fh5co-section {
+  padding: var(--section-padding-y) 0;
+}
+
+body.recipe-page .recipe-header-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Responsive : espacement réduit sur mobile */
+@media screen and (max-width: 768px) {
+  body.recipe-page .fh5co-section {
+    padding: var(--section-padding-y-mobile) 0;
+  }
+
+  body.recipe-page .recipe-header-section {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* =======================================================
+ *  RECETTE1 - Styles pour la page recette1
+ *  ======================================================= */
+.ingredient-bullet {
+  font-size: 6px;
+}
+
+.recipe-card-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* =======================================================
+ *  RECETTE2 - Styles pour la page recette2
+ *  ======================================================= */
+.mainRecette2__container--spacing {
+  margin-top: 25rem;
+}
+
+.mainRecette2__card__preparation-list--spacing img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mainRecette2__card__ingredients-title--styled,
+.mainRecette2__card__preparation-title--styled,
+.mainRecette2__card__similary-title {
+  color: gold;
+  margin: 10rem 0;
+  font-size: 3rem;
+}
+
+.mainRecette2__card__ingredients-list--spacing,
+.mainRecette2__card__preparation-list--spacing {
+  margin: 10rem 0;
+}
+
+.mainRecette2__comments--spacing {
+  margin: 10rem 0;
+}
+
+.mainRecette2__comments__card--styled {
+  max-width: 600px;
+  width: 100%;
+  border: 2px solid rgba(255, 217, 0, 0.292);
+  padding: 5rem 3rem;
+  border-radius: 15px;
+  background-color: black;
+  margin: auto;
+}
+
+.mainRecette2__comments__card__title--gold {
+  color: gold;
+}
+
+.mainRecette2__comments__card__form__submit-wrapper--spacing {
+  margin-top: 3rem;
+}
+
+.mainRecette2__comments--spacing {
+  margin: 10rem 0;
+}
+
+.mainRecette2__comments__card--styled {
+  max-width: 600px;
+  width: 100%;
+  border: 2px solid rgba(255, 217, 0, 0.292);
+  padding: 5rem 3rem;
+  border-radius: 15px;
+  background-color: black;
+  margin: auto;
+}
+
+.mainRecette2__comments__card__title--gold {
+  color: gold;
+}
+
+.mainRecette2__comments__card__form__submit-wrapper--spacing {
+  margin-top: 3rem;
+}
+
+.mainRecette2__card__preparation-image-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainRecette2__card__similary-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  padding: 7rem 5rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.mainRecette2__card__similary-recipe > * {
+  color: white;
+  font-size: clamp(20%, 20vw, 100%);
+}
+
+.mainRecette2__card__similary-recipe h3 {
+  color: gold;
+}
+
+.mainRecette2__card__similary-recipe h4 {
+  color: var(--golden-cocoa);
+}
+
+.mainRecette2__card__similary-recipe a {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: bolder;
+  transition: 0.3s ease;
+}
+
+.mainRecette2__card__similary-recipe a:hover {
+  color: white;
+  background-color: var(--golden-cocoa);
+  font-weight: bolder;
+}
+
+@media (max-width: 769px) {
+  .mainRecette2__card__preparation-image-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mainRecette2__card__similary-recipe {
+    width: 80%;
+  }
+  .card-img-top {
+    width: 80%;
+  }
+}
+
+.card-img-top {
+  width: clamp(200px, 50%, 600px);
+  height: auto;
+  object-fit: cover;
+}
+
+/* =======================================================
+ *  RECETTE3 - Styles pour la page recette3
+ *  ======================================================= */
+.mainRecette3 {
+  width: min(92%, 1200px);
+  margin: auto;
+  margin-top: 25vh;
+  padding: clamp(1.5rem, 2.5vw, 3rem);
+  font-family: system-ui, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+/* TITRES */
+.mainRecette3 h1,
+.mainRecette3 h2 {
+  color: #d4af37;
+}
+
+.mainRecette3 h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+}
+
+.mainRecette3 h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+/* TEXTES */
+.mainRecette3 p,
+.mainRecette3 li,
+.mainRecette3 label {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  line-height: 1.75;
+  color: #f3f3f3;
+}
+
+/* HEADER */
+.mainRecette3 header {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+
+.mainRecette3__image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #222;
+}
+
+.mainRecette3__main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* INGREDIENTS */
+.mainRecette3__ingredients {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin: 10vh 0;
+}
+
+.mainRecette3__ingredients__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #222;
+}
+
+.mainRecette3__ingredients__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainRecette3__ingredients__desc {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.mainRecette3__ingredients__desc > ul > li {
+  font-size: 2rem;
+}
+
+.mainRecette3__ingredients__desc ul {
+  padding-left: clamp(1rem, 2vw, 2rem);
+}
+
+/* PREPARATION */
+.mainRecette3__preparation {
+  margin: 10vh 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.mainRecette3__preparation__desc {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.mainRecette3__preparation__desc ol {
+  padding-left: clamp(1rem, 2vw, 2rem);
+}
+
+.mainRecette3__preparation__image {
+  width: 90%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #222;
+}
+
+.mainRecette3__preparation__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainRecette3__preparation__tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.checkboxTask > span {
+  font-size: 1.2rem;
+  text-align: end;
+}
+
+.checkboxTask > input {
+  transform: scale(1.5);
+}
+
+.mainRecette3__div > p {
+  font-size: 1.5rem;
+}
+
+/* FORMULAIRE */
+.mainRecette3__form {
+  background: #272727;
+  padding: clamp(1.8rem, 2.5vw, 3rem);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+  max-width: 500px;
+  margin: auto;
+}
+
+.mainRecette3__form label {
+  font-weight: 600;
+  color: #d4af37;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+.mainRecette3__form input {
+  padding: clamp(0.8rem, 1.2vw, 1.2rem);
+  border-radius: 8px;
+  border: 1px solid #555;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: #fff;
+  background: #000;
+}
+
+.mainRecette3__form button {
+  padding: clamp(0.9rem, 1.3vw, 1.3rem);
+  background: #d4af37;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 600;
+}
+
+.mainRecette3__form button:hover {
+  background: #b8902a;
+}
+
+/* COMMENTS */
+.mainRecette3__comments,
+.mainRecette3__comments,
+.mainRecette3__image-wrapper {
+  margin: 10vh 0;
+}
+
+.mainRecette3__comments > h2 {
+  text-align: center;
+}
+
+.mainRecette3__comments > h2 {
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .mainRecette3 header,
+  .mainRecette3__ingredients {
+    grid-template-columns: 1fr;
+  }
+  .mainRecette3__preparation {
+    grid-template-columns: 1fr;
+  }
+
+  .mainRecette3__preparation__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .mainRecette3__image-wrapper,
+  .mainRecette3__ingredients__image {
+    aspect-ratio: 16 / 10;
+  }
+  .mainRecette3__ingredients__desc {
+    margin: 0;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .mainRecette3__preparation__tasks {
+    margin-top: 5rem;
+  }
+  #fh5co-footer > img {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .fh5co-widget {
+    text-align: center !important;
+  }
+}
+
+/* =======================================================
+ *  RECETTE4 - Styles pour la page recette4
+ *  ======================================================= */
+.recette4__section--gradient-light {
+  background: linear-gradient(
+    135deg,
+    rgba(78, 52, 46, 0.03),
+    rgba(201, 168, 106, 0.03)
+  );
+}
+
+.recette4__section--gradient-medium {
+  background: linear-gradient(
+    135deg,
+    rgba(78, 52, 46, 0.05),
+    rgba(201, 168, 106, 0.05)
+  );
+}
+
+/* =======================================================
+ *  LIST GROUP - Styles pour les listes de tâches
+ *  ======================================================= */
+.list-group-numbered .list-group-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.list-group-numbered .list-group-item:hover {
+  background-color: #ffd70033;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.list-group-numbered .list-group-item:not(.done) {
+  animation: pulse 2s infinite;
+}
+
+/* =======================================================
+ *  STARS - Styles pour les étoiles de notation
+ *  ======================================================= */
+.stars span {
+  color: #f5c518 !important;
+  font-size: 18px !important;
+  margin: 0 4px !important;
+}
+
+.stars {
+  text-align: center !important;
+  line-height: 1 !important;
+}
+

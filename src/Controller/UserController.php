@@ -1,15 +1,25 @@
 <?php
 
+use Model\service\MailManager;
 use Model\manager\UserManager;
 use Model\mapping\UserMapping;
-use Model\service\MailManager;
+
+use Model\manager\RecipeManager;
+use Model\mapping\RecipeMapping;
+
 use model\manager\CommentManager;
 use model\mapping\CommentMapping;
+use model\manager\ContactManager;
+use model\mapping\ContactMapping;
 
-require_once PATH. "/src/Model/Utilities.php";
+
+
+require_once PATH . "/src/Model/Utilities.php";
 
 $manageUser = new UserManager($pdo);
 $manageComment = new CommentManager($pdo);
+$manageRecipe = new RecipeManager($pdo);
+$manageContact = new ContactManager($pdo);
 
 $erreur = "";
 $success = "";
@@ -23,10 +33,32 @@ if (isset($_GET['pg'])) {
             require_once PATH . "/src/View/about.php";
             break;
         case 'contact':
+            if (isset($_POST['validation'])) {
+                if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+                    $contact = new ContactMapping($_POST);
+                    if ($contact->isValid()) {
+                        $result = $manageContact->insertComment($contact);
+                        if ($result === true) {
+                            $confirmMail = new MailManager;
+                            $confirmMail->sendMessageContact($contact);
+                            $success .= "<p style='color:green;'>Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>";
+                        } else {
+                            $erreur .= $result;
+                        }
+                    } else {
+                        $errors = $contact->getErrors();
+                        foreach ($errors as $error) {
+                            $erreur .= "<p style='color:red;'>" . $error . "</p>";
+                        }
+                    }
+                } else {
+                    $erreur .= "<p style='color:red;'>Veuillez remplir tous les champs.</p>";
+                }
+            }
             require_once PATH . "/src/View/contact.php";
             break;
         case 'construction':
-            require_once PATH . "/src/View/constructionion.php";
+            require_once PATH . "/src/View/construction.php";
             break;
         case 'recette':
             if (isset($_GET['recette'])) {
@@ -35,6 +67,8 @@ if (isset($_GET['pg'])) {
                 $readComment = gestionCommentaire($manageComment, $recetteId, $erreur);
                 $readRatting = $manageComment->getRatingByRecipe($_GET['recette']);
                 $readTop3Ratting = $manageComment->getTop3Ratings($_GET['recette']);
+
+
                 switch ($recetteId) {
                     case '1':
                         require_once PATH . "/src/View/agim/recette1.php";
@@ -65,6 +99,31 @@ if (isset($_GET['pg'])) {
                         break;
                 }
             }
+
+            $slugs = $manageRecipe->getAllRecipes();
+
+
+            if (isset($_GET['slug'])) {
+
+                $files = [
+                    'agim',
+                    'massine',
+                    'soulaiman'
+                ];
+
+                foreach ($slugs as $value) {
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 1 || $value->getId() === 2)) {
+                        require_once PATH . "/src/View/" . $files[0] . "/recette" . $value->getId() . ".php";
+                    }
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 3 || $value->getId() === 4)) {
+                        require_once PATH . "/src/View/" . $files[1] . "/recette" . $value->getId() . ".php";
+                    }
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 5 || $value->getId() === 6)) {
+                        require_once PATH . "/src/View/" . $files[2] . "/recette" . $value->getId() . ".php";
+                    }
+                }
+            }
+
             break;
 
 
@@ -79,5 +138,10 @@ if (isset($_GET['pg'])) {
             break;
     }
 } else {
+    $commentsData = $manageComment->getBestRateComment();
+    // var_dump($commentsData);
+    $chunks = array_chunk($commentsData, 3);
+
+    $top3 = $manageComment->getTop3Ratings();
     require_once PATH . "/src/View/home.php";
 }

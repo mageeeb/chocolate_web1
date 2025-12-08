@@ -25,13 +25,20 @@ if (!defined('PATH')) {
     define('PATH', $baseDir);
 }
 
-
+// Définition de CHEMIN basée sur PATH (pour les assets)
+if (!defined('CHEMIN')) {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $chemin = $protocol . $host . $baseDir . '/';
+    define('CHEMIN', $chemin);
+}
 
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
-    require PATH . '/src/' . $class . '.php';
-
-
+    $file = __DIR__ . '/../src/' . $class . '.php';
+    if (file_exists($file)) {
+        require $file;
+    }
 });
 
 

@@ -3,8 +3,15 @@
 use Model\manager\UserManager;
 use Model\mapping\UserMapping;
 use Model\service\MailManager;
+use model\manager\CommentManager;
+use model\mapping\CommentMapping;
+use model\manager\ContactManager;
+use model\mapping\ContactMapping;
+
 
 $manageUser = new UserManager($pdo);
+$manageComment = new CommentManager($pdo);
+$manageContact = new ContactManager($pdo);
 
 $erreur = "";
 $success = "";
@@ -119,10 +126,32 @@ if (isset($_GET['pg'])) {
             require_once PATH . "/src/View/about.php";
             break;
         case 'contact':
+            if (isset($_POST['validation'])) {
+                if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+                    $contact = new ContactMapping($_POST);
+                    if ($contact->isValid()) {
+                        $result = $manageContact->insertComment($contact);
+                        if ($result === true) {
+                            $confirmMail = new MailManager;
+                            $confirmMail->sendMessageContact($contact);
+                            $success .= "<p style='color:green;'>Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>";
+                        } else {
+                            $erreur .= $result;
+                        }
+                    } else {
+                        $errors = $contact->getErrors();
+                        foreach ($errors as $error) {
+                            $erreur .= "<p style='color:red;'>" . $error . "</p>";
+                        }
+                    }
+                } else {
+                    $erreur .= "<p style='color:red;'>Veuillez remplir tous les champs.</p>";
+                }
+            }
             require_once PATH . "/src/View/contact.php";
             break;
         case 'construction':
-            require_once PATH . "/src/View/constructionion.php";
+            require_once PATH . "/src/View/construction.php";
             break;
         case 'recette':
             if (isset($_GET['recette'])) {
@@ -182,5 +211,29 @@ if (isset($_GET['pg'])) {
             break;
     }
 } else {
+    $top3 = $manageComment->getTop3Ratings();
+
+    // Récupération des commentaires avec utilisateurs et recettes
+    $commentsData = $manageComment->getCommentsWithUsersAndRecipes(10);
+
+    // Création des chunks pour le carousel desktop (3 commentaires par slide)
+    $chunks = [];
+    if (!empty($commentsData)) {
+        for ($i = 0; $i < count($commentsData); $i += 3) {
+            $chunks[] = array_slice($commentsData, $i, 3);
+        }
+    }
+
+    // Initialisation des variables si vides pour éviter les erreurs dans la vue
+    if (empty($top3)) {
+        $top3 = [];
+    }
+    if (empty($commentsData)) {
+        $commentsData = [];
+    }
+    if (empty($chunks)) {
+        $chunks = [];
+    }
+
     require_once PATH . "/src/View/home.php";
 }
