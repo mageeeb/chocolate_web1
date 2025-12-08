@@ -2,12 +2,12 @@
 
 namespace model\manager;
 
+use Exception;
 use model\ManagerInterface;
 use model\mapping\CommentMapping;
 use model\mapping\UserMapping;
 use model\mapping\RecipeMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class CommentManager implements ManagerInterface
 {
@@ -49,7 +49,8 @@ class CommentManager implements ManagerInterface
 
     public function getAllCommentsByRecipeId(int $recipeId): array
     {
-        $sql = "SELECT c.*, u.id as user_id, u.name as user_name 
+        $sql = "SELECT c.id, c.content, c.created_at, c.is_accepted, c.recipe_id, c.user_id, c.rating,
+                       u.id as user_id, u.name as user_name 
                 FROM comments c 
                 INNER JOIN users u ON c.user_id = u.id 
                 WHERE c.recipe_id = ? 
@@ -93,43 +94,61 @@ class CommentManager implements ManagerInterface
         }
     }
 
-    public function getTop3Ratings(?int $recipeId = null): array
+    public function getTop3Ratings(): array
     {
-        if ($recipeId !== null) {
-            $sql = "SELECT c.*, u.name as user_name, r.title as recipe_title 
-                    FROM comments c 
-                    INNER JOIN users u ON c.user_id = u.id 
-                    INNER JOIN recipe r ON c.recipe_id = r.id 
-                    WHERE c.recipe_id = ? AND c.rating IS NOT NULL 
-                    ORDER BY c.rating DESC, c.created_at DESC 
-                    LIMIT 3";
-            $params = [$recipeId];
-        } else {
-            $sql = "SELECT c.*, u.name as user_name, r.title as recipe_title 
-                    FROM comments c 
-                    INNER JOIN users u ON c.user_id = u.id 
-                    INNER JOIN recipe r ON c.recipe_id = r.id 
-                    WHERE c.rating IS NOT NULL 
-                    ORDER BY c.rating DESC, c.created_at DESC 
-                    LIMIT 3";
-            $params = [];
-        }
+        $sql = "SELECT c.*, u.name AS user_name, r.title AS recipe_title
+            FROM comments c
+            INNER JOIN users u ON c.user_id = u.id
+            INNER JOIN recipe r ON c.recipe_id = r.id
+            WHERE c.rating IS NOT NULL
+            ORDER BY c.rating DESC, c.created_at DESC
+            LIMIT 4";
 
         $prepare = $this->db->prepare($sql);
 
         try {
-            $prepare->execute($params);
+            $prepare->execute();
             $results = $prepare->fetchAll(PDO::FETCH_ASSOC);
             $prepare->closeCursor();
 
             $comments = [];
             foreach ($results as $row) {
                 $comment = new CommentMapping($row);
-                $user = new UserMapping(['id' => $row['user_id'], 'name' => $row['user_name']]);
-                $recipe = new RecipeMapping(['id' => $row['recipe_id'], 'title' => $row['recipe_title']]);
+                $user    = new UserMapping(['id' => $row['user_id'], 'name' => $row['user_name']]);
+                $recipe  = new RecipeMapping(['id' => $row['recipe_id'], 'title' => $row['recipe_title']]);
                 $comments[] = ['comment' => $comment, 'user' => $user, 'recipe' => $recipe];
             }
             return $comments;
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+
+    /**
+     * Récupère les 3 recettes avec les meilleures notes moyennes
+     * Retourne un tableau de recettes avec leurs informations et leur note moyenne
+     */
+    public function getTop3RatedRecipes(): array
+    {
+        $sql = "SELECT r.id, r.title, r.slug, r.image_url, r.description, r.prep_time, r.created_at,
+                       COALESCE(AVG(c.rating), 0) as avg_rating,
+                       COUNT(c.id) as comment_count
+                FROM recipe r
+                LEFT JOIN comments c ON r.id = c.recipe_id AND c.rating IS NOT NULL
+                GROUP BY r.id, r.title, r.slug, r.image_url, r.description, r.prep_time, r.created_at
+                HAVING avg_rating > 0
+                ORDER BY avg_rating DESC, comment_count DESC
+                LIMIT 4";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute();
+            $results = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $prepare->closeCursor();
+
+            return $results;
         } catch (Exception $e) {
             return [];
         }

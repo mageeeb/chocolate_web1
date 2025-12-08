@@ -2,8 +2,8 @@
 
 namespace model\mapping;
 
-use model\AbstractMapping;
 use Exception;
+use model\AbstractMapping;;
 
 class UserMapping extends AbstractMapping
 {
@@ -153,7 +153,7 @@ class UserMapping extends AbstractMapping
         return $this;
     }
 
-    public function setEmailToken(?string $email_token ): self
+    public function setEmailToken(?string $email_token): self
     {
         if ($email_token !== null && strlen($email_token) > 255) {
             throw new Exception('Email token cannot exceed 255 characters');
@@ -179,6 +179,4 @@ class UserMapping extends AbstractMapping
         $this->is_verified = $is_verified;
         return $this;
     }
-
-
 }

@@ -4,8 +4,7 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\RecipeIngredientsMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class RecipeIngredientsManager implements ManagerInterface
 {
@@ -32,7 +31,6 @@ class RecipeIngredientsManager implements ManagerInterface
                 $ingredients[] = $ingredient;
             }
             return $ingredients;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des ingrédients : " . $e->getMessage();
             return [];
@@ -50,7 +48,6 @@ class RecipeIngredientsManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new RecipeIngredientsMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération de l'ingrédient : " . $e->getMessage();
             return null;
@@ -68,7 +65,6 @@ class RecipeIngredientsManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new RecipeIngredientsMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération de l'ingrédient : " . $e->getMessage();
             return null;
@@ -94,7 +90,6 @@ class RecipeIngredientsManager implements ManagerInterface
                 $ingredients[] = $ingredient;
             }
             return $ingredients;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des ingrédients : " . $e->getMessage();
             return [];

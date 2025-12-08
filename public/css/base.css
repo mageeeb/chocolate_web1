@@ -10,19 +10,40 @@
  *  VARIABLES CSS - Design tokens réutilisables
  *  ======================================================= */
 :root {
-  /* Couleurs principales */
+  /* =======================================================
+   *  PALETTE DE COULEURS - Charte graphique harmonieuse
+   *  ======================================================= */
+  
+  /* Chocolat - Tons foncés */
   --chocolate-brown: #4e342e;
-  --creamy-beige: #d7ccc8;
+  --chocolate-dark: #3e2723;
+  --chocolate-medium: #5d4037;
+  --chocolate-light: #8d6e63;
+  
+  /* Or - Accents premium */
+  --gold: #ffd700;
+  --gold-primary: #ffd700;
+  --gold-secondary: #ffcc66;
+  --gold-light: #ffe066;
   --golden-cocoa: #c9a86a;
-  --gold: #ffcc66;
-  --background-texture: #000 url(../images/backgrounds/texture-bruit.png) repeat;
-
-  /* Couleurs supplémentaires (depuis design-system.css et autres) */
-  --chocolate-dark: hsl(25, 47%, 30%);
-  --chocolate-medium: hsl(28, 40%, 50%);
-  --chocolate-light: hsl(28, 35%, 75%);
+  
+  /* Crème - Tons neutres */
+  --creamy-beige: #d7ccc8;
+  --cream-primary: #f5f5dc;
+  --cream-secondary: #d7ccc8;
+  --cream-dark: #bcaaa4;
   --cream: hsl(32, 45%, 96%);
   --warm-white: hsl(30, 50%, 98%);
+  
+  /* Neutres */
+  --white: #ffffff;
+  --black: #000000;
+  --gray-light: rgba(255, 255, 255, 0.8);
+  --gray-medium: rgba(255, 255, 255, 0.6);
+  --gray-dark: rgba(0, 0, 0, 0.7);
+  
+  /* Background */
+  --background-texture: #000 url(../images/backgrounds/texture-bruit.png) repeat;
 
   /* Système d'espacement - Desktop (≥992px) */
   --spacing-xs: 0.5rem; /* 8px */
@@ -271,7 +292,7 @@ a:focus {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 /* =======================================================

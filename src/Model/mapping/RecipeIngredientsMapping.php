@@ -2,8 +2,7 @@
 
 namespace model\mapping;
 
-use model\AbstractMapping;
-use Exception;
+use model\AbstractMapping;;
 
 class RecipeIngredientsMapping extends AbstractMapping
 {

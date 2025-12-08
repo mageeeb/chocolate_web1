@@ -2,8 +2,7 @@
 
 namespace model\mapping;
 
-use model\AbstractMapping;
-use Exception;
+use model\AbstractMapping;;
 
 class ContactMapping extends AbstractMapping
 {
@@ -68,7 +67,16 @@ class ContactMapping extends AbstractMapping
     }
 
     // Getters classiques...
-    public function getName(): ?string { return $this->name; }
-    public function getEmail(): ?string { return $this->email; }
-    public function getMessage(): ?string { return $this->message; }
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
 }

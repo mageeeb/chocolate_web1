@@ -2,8 +2,7 @@
 
 namespace model\mapping;
 
-use model\AbstractMapping;
-use Exception;
+use model\AbstractMapping;;
 
 class RecipeMapping extends AbstractMapping
 {
@@ -15,6 +14,7 @@ class RecipeMapping extends AbstractMapping
     protected ?string $created_at = null;
     protected ?int $user_id = null;
     protected ?int $images_id = null;
+    protected ?string $image_url = null;
 
     // --- GETTERS ---
     public function getId(): ?int
@@ -55,6 +55,11 @@ class RecipeMapping extends AbstractMapping
     public function getImagesId(): ?int
     {
         return $this->images_id;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->image_url;
     }
 
     // --- SETTERS ---
@@ -124,6 +129,12 @@ class RecipeMapping extends AbstractMapping
             throw new Exception('Images ID must be positive');
         }
         $this->images_id = $images_id;
+        return $this;
+    }
+
+    public function setImageUrl(?string $image_url): self
+    {
+        $this->image_url = $image_url;
         return $this;
     }
 }

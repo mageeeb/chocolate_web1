@@ -1,40 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tasty &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
+	<title>Cokolada - Tiramisu au Chocolat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-	<meta name="keywords"
-		content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="freehtml5.co" />
-
-	<!--
-    //////////////////////////////////////////////////////
- 
-    FREE HTML5 TEMPLATE
-    DESIGNED & DEVELOPED by FreeHTML5.co
-       
-    Website:        http://freehtml5.co/
-    Email:          info@freehtml5.co
-    Twitter:        http://twitter.com/fh5co
-    Facebook:       https://www.facebook.com/fh5co
- 
-    //////////////////////////////////////////////////////
-     -->
+	<meta name="description" content="Recette de tiramisu au chocolat - Cokolada" />
+	<meta name="keywords" content="tiramisu, chocolat, recette, dessert, italien" />
+	<meta name="author" content="Cokolada" />
 
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
+	<meta property="og:title" content="Tiramisu au Chocolat - Cokolada" />
+	<meta property="og:image" content="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" />
 	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
+	<meta property="og:site_name" content="Cokolada" />
+	<meta property="og:description" content="Découvrez notre recette de tiramisu au chocolat" />
+	<meta name="twitter:title" content="Tiramisu au Chocolat - Cokolada" />
+	<meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" />
 	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
@@ -59,8 +44,6 @@
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/pages/recipes.css">
 
-	<!-- Modernizr JS -->
-
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
       <script src="<?php CHEMIN ?>js/respond.min.js"></script>
@@ -68,23 +51,27 @@
 
 </head>
 
-<body class="min-vh-100- recipe-page">
+<body class="recipe-page">
 	<div id="page">
 		<?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 
-		<header class="recipe-header-section">
-			<div class="container">
-				<div class="row recipe-header-row mt-5">
-					<div class="col-md-6 col-sm-6 recipe-header-item slide-from-left">
-						<div class="recipe-header-title">
-							<h1 class="recipe-main-title">Tiramisu au Chocolat</h1>
-							<p class="recipe-subtitle-text">La dolce vita rencontre la passion du cacao</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 recipe-header-item slide-from-right">
-						<div class="recipe-header-image">
-							<img src="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" alt="tiramisu"
-								class="img-responsive" />
+		<!-- Hero Section -->
+		<header class="recipe-hero-section">
+			<div class="recipe-hero-image-wrapper">
+				<img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'tiramisu-chocolat-transparent.png') : 'tiramisu-chocolat-transparent.png') ?>" alt="Tiramisu au chocolat" class="recipe-hero-image">
+				<div class="recipe-hero-overlay"></div>
+			</div>
+			<div class="recipe-hero-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center">
+							<h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Tiramisu au Chocolat</h1>
+							<p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">La dolce vita rencontre la passion du cacao</p>
+							<div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
+								<span class="recipe-meta-item"><i class="icon-clock"></i> 30 min + 4h repos</span>
+								<span class="recipe-meta-item"><i class="icon-users"></i> 6 personnes</span>
+								<span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -96,8 +83,8 @@
 			<div class="container">
 				<div class="row animate-box" data-animate-effect="fadeInUp">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="recipe-section-title">Un dessert qui raconte une histoire</h2>
-						<p class="recipe-intro-text">
+						<h2 class="recipe-section-title-modern">Un dessert qui raconte une histoire</h2>
+						<p class="recipe-intro-text-modern">
 							Ce tiramisu au chocolat est né de ma passion pour les saveurs italiennes et mon amour du
 							chocolat.
 							Inspiré des recettes traditionnelles de Milan, j'y ai ajouté une touche personnelle avec un
@@ -106,64 +93,59 @@
 							où la douceur du mascarpone rencontre la puissance du chocolat 70%. Parfait pour terminer
 							un repas en beauté ou impressionner vos invités !
 						</p>
-						<div class="recipe-meta-info">
-							<span class="meta-item"><i class="icon-clock"></i> 30 min + 4h repos</span>
-							<span class="meta-item"><i class="icon-users"></i> 6 personnes</span>
-							<span class="meta-item"><i class="icon-bar-chart"></i> Facile</span>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Section Images des Ingrédients -->
-		<div class="fh5co-section recette4__section--gradient-light">
+		<div class="fh5co-section recipe-ingredients-showcase">
 			<div class="container">
 				<div class="row animate-box" data-animate-effect="fadeInUp">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="recipe-section-title">Les ingrédients stars</h2>
-						<p class="recipe-subtitle-desc">Des produits de qualité pour un résultat exceptionnel</p>
+						<h2 class="recipe-section-title-modern">Les ingrédients stars</h2>
+						<p class="recipe-subtitle-desc-modern">Des produits de qualité pour un résultat exceptionnel</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-						<div class="ingredient-card">
-							<div class="ingredient-img-wrap">
-								<img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg" alt="Chocolat noir 70%"
+						<div class="ingredient-card-modern">
+							<div class="ingredient-img-wrap-modern">
+								<img src="<?php CHEMIN ?>images/recipes/cacke-chocolat-coulant.jpg" alt="Chocolat noir 70%"
 									class="img-responsive">
 							</div>
-							<h4>Chocolat Noir 70%</h4>
-							<p>Le cœur intense de notre tiramisu</p>
+							<h4 class="ingredient-card-title-modern">Chocolat Noir 70%</h4>
+							<p class="ingredient-card-desc-modern">Le cœur intense de notre tiramisu</p>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-						<div class="ingredient-card">
-							<div class="ingredient-img-wrap">
+						<div class="ingredient-card-modern">
+							<div class="ingredient-img-wrap-modern">
 								<img src="<?php CHEMIN ?>images/recipes/dessert-creme-fruits.jpg" alt="Mascarpone"
 									class="img-responsive">
 							</div>
-							<h4>Mascarpone</h4>
-							<p>Onctuosité et douceur italienne</p>
+							<h4 class="ingredient-card-title-modern">Mascarpone</h4>
+							<p class="ingredient-card-desc-modern">Onctuosité et douceur italienne</p>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-						<div class="ingredient-card">
-							<div class="ingredient-img-wrap">
+						<div class="ingredient-card-modern">
+							<div class="ingredient-img-wrap-modern">
 								<img src="<?php CHEMIN ?>images/backgrounds/fond-table-chocolats.jpg" alt="Café espresso"
 									class="img-responsive">
 							</div>
-							<h4>Café Espresso</h4>
-							<p>L'âme du tiramisu authentique</p>
+							<h4 class="ingredient-card-title-modern">Café Espresso</h4>
+							<p class="ingredient-card-desc-modern">L'âme du tiramisu authentique</p>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-						<div class="ingredient-card">
-							<div class="ingredient-img-wrap">
-								<img src="<?php CHEMIN ?>images/recipes/brownie-chocolat-sucre-glace.jpg"
+						<div class="ingredient-card-modern">
+							<div class="ingredient-img-wrap-modern">
+								<img src="<?php CHEMIN ?>images/recipes/cacke-chocolat-coulant.jpg"
 									alt="Biscuits savoiardi" class="img-responsive">
 							</div>
-							<h4>Biscuits Savoiardi</h4>
-							<p>La base croustillante et légère</p>
+							<h4 class="ingredient-card-title-modern">Biscuits Savoiardi</h4>
+							<p class="ingredient-card-desc-modern">La base croustillante et légère</p>
 						</div>
 					</div>
 				</div>
@@ -171,36 +153,63 @@
 		</div>
 
 		<!-- Section Ingrédients & Préparation -->
-		<div class="fh5co-section">
+		<div class="fh5co-section recipe-main-section">
 			<div class="container">
 				<div class="row">
 					<!-- Liste des Ingrédients -->
 					<div class="col-md-5 animate-box" data-animate-effect="fadeInLeft">
-						<div class="recipe-ingredients-box">
-							<h3 class="ingredients-title"><i class="icon-list"></i> Liste des Ingrédients</h3>
+						<div class="recipe-sidebar-card">
+							<h3 class="recipe-sidebar-title"><i class="icon-list"></i> Liste des Ingrédients</h3>
 
-							<div class="ingredient-category-block">
-								<h4 class="category-name">🍫 Pour la crème au chocolat</h4>
-								<ul class="ingredients-list">
-									<li><span class="qty">500g</span> Mascarpone</li>
-									<li><span class="qty">200g</span> Chocolat noir 70%</li>
-									<li><span class="qty">4</span> Œufs (séparés)</li>
-									<li><span class="qty">80g</span> Sucre en poudre</li>
-									<li><span class="qty">2 c.à.s</span> Cacao non sucré</li>
+							<div class="ingredient-category-block-modern">
+								<h4 class="category-name-modern">🍫 Pour la crème au chocolat</h4>
+								<ul class="recipe-ingredients-list-modern">
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🥛</span>
+										<span class="ingredient-text"><span class="qty">500g</span> Mascarpone</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🍫</span>
+										<span class="ingredient-text"><span class="qty">200g</span> Chocolat noir 70%</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🥚</span>
+										<span class="ingredient-text"><span class="qty">4</span> Œufs (séparés)</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🍬</span>
+										<span class="ingredient-text"><span class="qty">80g</span> Sucre en poudre</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">☕</span>
+										<span class="ingredient-text"><span class="qty">2 c.à.s</span> Cacao non sucré</span>
+									</li>
 								</ul>
 							</div>
 
-							<div class="ingredient-category-block">
-								<h4 class="category-name">☕ Pour l'assemblage</h4>
-								<ul class="ingredients-list">
-									<li><span class="qty">300ml</span> Café espresso fort (froid)</li>
-									<li><span class="qty">3 c.à.s</span> Amaretto (optionnel)</li>
-									<li><span class="qty">400g</span> Biscuits savoiardi</li>
-									<li><span class="qty">50g</span> Chocolat noir (décoration)</li>
+							<div class="ingredient-category-block-modern">
+								<h4 class="category-name-modern">☕ Pour l'assemblage</h4>
+								<ul class="recipe-ingredients-list-modern">
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">☕</span>
+										<span class="ingredient-text"><span class="qty">300ml</span> Café espresso fort (froid)</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🍷</span>
+										<span class="ingredient-text"><span class="qty">3 c.à.s</span> Amaretto (optionnel)</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🍪</span>
+										<span class="ingredient-text"><span class="qty">400g</span> Biscuits savoiardi</span>
+									</li>
+									<li class="recipe-ingredient-modern">
+										<span class="ingredient-icon">🍫</span>
+										<span class="ingredient-text"><span class="qty">50g</span> Chocolat noir (décoration)</span>
+									</li>
 								</ul>
 							</div>
 
-							<div class="chef-note">
+							<div class="chef-note-modern">
 								<strong>💡 Astuce :</strong> Utilisez des œufs très frais et du mascarpone de qualité
 								pour un résultat optimal !
 							</div>
@@ -209,63 +218,63 @@
 
 					<!-- Méthode de Préparation -->
 					<div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
-						<div class="recipe-preparation-box">
-							<h3 class="preparation-title"><i class="icon-settings"></i> Méthode de Préparation</h3>
+						<div class="recipe-content-card">
+							<h3 class="recipe-content-title"><i class="icon-settings"></i> Méthode de Préparation</h3>
 
-							<div class="preparation-steps">
-								<div class="prep-step">
-									<div class="step-num">1</div>
-									<div class="step-details">
-										<h5>Préparer le chocolat</h5>
+							<div class="recipe-steps-modern">
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">1</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Préparer le chocolat</h5>
 										<p>Faites fondre le chocolat noir au bain-marie. Remuez jusqu'à ce qu'il soit
 											complètement lisse, puis laissez-le tiédir légèrement avant de l'incorporer.
 										</p>
 									</div>
 								</div>
 
-								<div class="prep-step">
-									<div class="step-num">2</div>
-									<div class="step-details">
-										<h5>Blanchir les jaunes d'œufs</h5>
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">2</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Blanchir les jaunes d'œufs</h5>
 										<p>Battez les jaunes avec 60g de sucre jusqu'à ce que le mélange blanchisse et
 											devienne mousseux. Incorporez le mascarpone, puis ajoutez le chocolat fondu
 											tiède.</p>
 									</div>
 								</div>
 
-								<div class="prep-step">
-									<div class="step-num">3</div>
-									<div class="step-details">
-										<h5>Monter les blancs en neige</h5>
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">3</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Monter les blancs en neige</h5>
 										<p>Dans un récipient propre, montez les blancs d'œufs en neige ferme avec le
 											reste du sucre. Incorporez-les délicatement à la préparation chocolat en
 											soulevant la masse.</p>
 									</div>
 								</div>
 
-								<div class="prep-step">
-									<div class="step-num">4</div>
-									<div class="step-details">
-										<h5>Tremper les biscuits</h5>
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">4</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Tremper les biscuits</h5>
 										<p>Mélangez le café refroidi avec l'Amaretto. Trempez rapidement chaque biscuit
 											savoiardi (1-2 secondes) pour qu'ils ne se désagrègent pas.</p>
 									</div>
 								</div>
 
-								<div class="prep-step">
-									<div class="step-num">5</div>
-									<div class="step-details">
-										<h5>Assembler le tiramisu</h5>
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">5</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Assembler le tiramisu</h5>
 										<p>Dans un plat rectangulaire, alternez couches de biscuits imbibés et crème au
 											chocolat. Commencez par les biscuits, terminez par la crème. Lissez bien la
 											surface.</p>
 									</div>
 								</div>
 
-								<div class="prep-step">
-									<div class="step-num">6</div>
-									<div class="step-details">
-										<h5>Repos et décoration</h5>
+								<div class="recipe-step-modern">
+									<div class="step-number-modern">6</div>
+									<div class="step-content-modern">
+										<h5 class="step-title-modern">Repos et décoration</h5>
 										<p>Réfrigérez minimum 4 heures (idéalement une nuit). Avant de servir,
 											saupoudrez de cacao et râpez du chocolat noir par-dessus. Buon appetito !
 										</p>
@@ -279,24 +288,39 @@
 		</div>
 
 		<!-- Section Commentaires -->
-		<div class="fh5co-section recette4__section--gradient-medium">
+		<div class="fh5co-section recipe-comments-section-modern">
 			<div class="container">
 				<div class="row animate-box" data-animate-effect="fadeInUp">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="recipe-section-title">Partagez votre expérience</h2>
-						<p class="recipe-subtitle-desc">Vos avis et astuces nous inspirent pour de nouvelles créations
-						</p>
+						<h2 class="recipe-section-title-modern">Partagez votre expérience</h2>
+						<p class="recipe-subtitle-desc-modern">Vos avis et astuces nous inspirent pour de nouvelles créations</p>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row animate-box fadeInUp animated-fast">
 					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInUp">
-						<div class="comment-form-wrapper">
-							<form method="post">
+						<div class="recipe-comments-card-modern">
+							<h3 class="recipe-comments-title-modern text-center">
+								<i class="icon-bubble"></i> Laissez un commentaire
+							</h3>
+
+							<?php if (isset($erreur) && !empty($erreur)): ?>
+								<div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
+									<?= $erreur; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if (isset($success) && !empty($success)): ?>
+								<div class="message-success" style="color: #51cf66; background-color: rgba(81, 207, 102, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #51cf66;">
+									<?= $success; ?>
+								</div>
+							<?php endif; ?>
+
+							<form class="recipe-comment-form-modern" method="post">
 								<style>
 									.star-rating {
 										direction: rtl;
-										/* permet de remplir de droite à gauche */
 										display: inline-flex;
+										gap: 0.5rem;
 									}
 
 									.star-rating input {
@@ -304,97 +328,94 @@
 									}
 
 									.star-rating label {
-										font-size: 3rem;
-										color: #ccc;
+										font-size: 2.5rem;
+										color: rgba(255, 255, 255, 0.3);
 										cursor: pointer;
+										transition: all 0.3s ease;
 									}
 
 									.star-rating input:checked~label {
-										color: gold;
+										color: var(--gold);
 									}
 
 									.star-rating label:hover,
 									.star-rating label:hover~label {
-										color: gold;
+										color: var(--gold);
+										transform: scale(1.1);
 									}
 								</style>
-								<div class="mb-3">
-									<label for="rating" class="form-label">Votre note :</label>
+								<div class="form-group-modern">
+									<label for="rating" class="form-label-modern">Votre note :</label>
 									<div class="star-rating">
 										<input type="radio" id="star5" name="rating" value="5" />
 										<label for="star5" title="5 étoiles">★</label>
-
 										<input type="radio" id="star4" name="rating" value="4" />
 										<label for="star4" title="4 étoiles">★</label>
-
 										<input type="radio" id="star3" name="rating" value="3" />
 										<label for="star3" title="3 étoiles">★</label>
-
 										<input type="radio" id="star2" name="rating" value="2" />
 										<label for="star2" title="2 étoiles">★</label>
-
 										<input type="radio" id="star1" name="rating" value="1" />
 										<label for="star1" title="1 étoile">★</label>
 									</div>
 								</div>
-								<div class="row">
-								</div>
-								<div class="form-group">
-									<label for="userComment" class="form-label">Votre commentaire *</label>
-									<textarea class="form-control recipe-textarea" rows="6"
+								<div class="form-group-modern">
+									<label for="userComment" class="form-label-modern">Votre commentaire *</label>
+									<textarea class="form-control-modern" id="userComment" name="content" rows="6"
 										placeholder="Partagez votre expérience, vos astuces, vos modifications..."
-										required name="content"></textarea>
+										required></textarea>
 								</div>
-								<div class="form-group text-center">
-									<input type="submit" class="btn btn-primary recipe-submit-btn" value="Envoyer un com" name="validation">
+								<div class="form-group-modern text-center">
+									<input type="submit" class="btn btn-primary recipe-submit-btn-modern" value="Envoyer un commentaire" name="validation">
 								</div>
-						</div>
-						</form>
-						<?php if (isset($erreur) && !empty($erreur)): ?>
-							<div class="alert alert-danger" role="alert">
-								<?= $erreur ?>
-							</div>
-						<?php endif; ?>
+							</form>
 
-						<div class="comments-display-section">
-							<?php if (isset($readComment) && !empty($readComment)): ?>
-								<h3 class="comments-list-title">💬 Commentaires de nos lecteurs</h3>
-								<?php foreach ($readComment as $value): ?>
-									<div class="comment-card-recipe">
-										<div class="comment-header">
-											<div class="comment-author">
-												<div class="comment-author-avatar">
-													<?= strtoupper(substr($value['user']->getName(), 0, 1)) ?>
-												</div>
-												<h4 class="comment-author-name"><?= htmlspecialchars($value['user']->getName()) ?></h4>
-											</div>
-											<span class="comment-date"><?= $value['comment']->getCreatedAt() ?></span>
-										</div>
-										<div class="comment-body">
-											<p class="comment-text"><?= $value['comment']->getContent() ?></p>
-										</div>
-										<div>
-											<?php
-											for ($i = 0; $i < $value['comment']->getRating(); $i++):
-											?>
-												<span class="star-rating" style="color: gold;">★</span>
-
-											<?php
-											endfor;
-											?>
-										</div>
-									</div>
-								<?php endforeach; ?>
-							<?php else: ?>
-								<p class="no-comments-message">Aucun commentaire pour le moment. Soyez le premier à partager votre avis !</p>
+							<?php if (isset($erreur) && !empty($erreur)): ?>
+								<div class="alert alert-danger recipe-alert-modern" role="alert">
+									<?= $erreur ?>
+								</div>
 							<?php endif; ?>
+
+							<!-- Liste des commentaires -->
+							<div class="recipe-comments-list-modern">
+								<?php if (isset($readComment) && !empty($readComment)): ?>
+									<h3 class="comments-list-title-modern">💬 Commentaires de nos lecteurs</h3>
+									<?php foreach ($readComment as $value): ?>
+										<div class="recipe-comment-item-modern animate-box" data-animate-effect="fadeInUp">
+											<div class="comment-avatar-modern">
+												<?= strtoupper(substr($value['user']->getName(), 0, 1)) ?>
+											</div>
+											<div class="comment-content-wrapper-modern">
+												<div class="comment-header-modern">
+													<h5 class="comment-author-modern"><?= htmlspecialchars($value['user']->getName()) ?></h5>
+													<span class="comment-date-modern"><?= $value['comment']->getCreatedAt() ?></span>
+												</div>
+												<p class="comment-text-modern"><?= nl2br(htmlspecialchars($value['comment']->getContent())) ?></p>
+												<div class="comment-rating-modern">
+													<?php
+													$rating = (int)($value['comment']->getRating() ?? 0);
+													for ($i = 0; $i < $rating; $i++):
+													?>
+														<span style="color: var(--gold); font-size: 1.2rem;">★</span>
+													<?php
+													endfor;
+													?>
+												</div>
+											</div>
+										</div>
+									<?php endforeach; ?>
+								<?php else: ?>
+									<div class="recipe-no-comments-modern text-center">
+										<p>Aucun commentaire pour le moment. Soyez le premier à partager votre avis !</p>
+									</div>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php require_once PATH . "/src/View/inc/footer.php"; ?>
-
 
 	</div>
 

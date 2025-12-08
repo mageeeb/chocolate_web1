@@ -4,8 +4,7 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\ContactMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class ContactManager implements ManagerInterface
 {
@@ -23,7 +22,7 @@ class ContactManager implements ManagerInterface
 
         $prepare = $this->db->prepare($sql);
 
-        
+
 
         try {
             $prepare->execute([

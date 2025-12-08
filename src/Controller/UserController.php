@@ -39,9 +39,17 @@ if (isset($_GET['pg'])) {
                     if ($contact->isValid()) {
                         $result = $manageContact->insertComment($contact);
                         if ($result === true) {
-                            $confirmMail = new MailManager;
-                            $confirmMail->sendMessageContact($contact);
-                            $success .= "<p style='color:green;'>Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>";
+                            try {
+                                $confirmMail = new MailManager;
+                                $mailSent = $confirmMail->sendMessageContact($contact);
+                                if ($mailSent) {
+                                    $success .= "<p style='color:green;'>Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>";
+                                } else {
+                                    $success .= "<p style='color:green;'>Votre message a été enregistré avec succès. Un problème est survenu lors de l'envoi de l'email de confirmation.</p>";
+                                }
+                            } catch (Exception $e) {
+                                $success .= "<p style='color:green;'>Votre message a été enregistré avec succès. Un problème est survenu lors de l'envoi de l'email de confirmation.</p>";
+                            }
                         } else {
                             $erreur .= $result;
                         }
@@ -63,8 +71,9 @@ if (isset($_GET['pg'])) {
         case 'recette':
             if (isset($_GET['recette'])) {
                 $recetteId = $_GET['recette'];
+                $recette = $manageRecipe->getRecipeById((int)$recetteId);
 
-                $readComment = gestionCommentaire($manageComment, $recetteId, $erreur);
+                $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
                 $readRatting = $manageComment->getRatingByRecipe($_GET['recette']);
                 $readTop3Ratting = $manageComment->getTop3Ratings($_GET['recette']);
 
@@ -113,13 +122,28 @@ if (isset($_GET['pg'])) {
 
                 foreach ($slugs as $value) {
                     if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 1 || $value->getId() === 2)) {
-                        require_once PATH . "/src/View/" . $files[0] . "/recette" . $value->getId() . ".php";
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[0] . "/recette" . $recetteId . ".php";
                     }
                     if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 3 || $value->getId() === 4)) {
-                        require_once PATH . "/src/View/" . $files[1] . "/recette" . $value->getId() . ".php";
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[1] . "/recette" . $recetteId . ".php";
                     }
                     if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 5 || $value->getId() === 6)) {
-                        require_once PATH . "/src/View/" . $files[2] . "/recette" . $value->getId() . ".php";
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[2] . "/recette" . $recetteId . ".php";
                     }
                 }
             }
@@ -142,6 +166,6 @@ if (isset($_GET['pg'])) {
     // var_dump($commentsData);
     $chunks = array_chunk($commentsData, 3);
 
-    $top3 = $manageComment->getTop3Ratings();
+    $top3 = $manageComment->getTop3RatedRecipes();
     require_once PATH . "/src/View/home.php";
 }

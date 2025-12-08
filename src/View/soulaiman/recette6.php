@@ -4,11 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cookies Maison — Recette du Chocolat</title>
+    <title>Cokolada - Cookies Maison au Chocolat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Recette délicieuse de cookies maison au chocolat. Facile, rapide et gourmand !" />
     <meta name="author" content="Cokolada" />
 
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="Cookies Maison au Chocolat - Cokolada" />
+    <meta property="og:image" content="<?php CHEMIN ?>images/recipes/cookies_3.jpg" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="Cokolada" />
+    <meta property="og:description" content="Découvrez notre recette de cookies maison au chocolat" />
+    <meta name="twitter:title" content="Cookies Maison au Chocolat - Cokolada" />
+    <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/cookies_3.jpg" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
@@ -31,7 +41,6 @@
     <link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
     <link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
     <link rel="stylesheet" href="<?php CHEMIN ?>css/pages/recipes.css">
-    <!-- Modernizr JS -->
 
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
@@ -39,249 +48,323 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="recipe-page">
     <div id="page">
-        <!-- NAV : réutilisée de index.html -->
         <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
-        <main role="main" class="modern-recipe">
-            <section class="hero-wrapper">
-                <div class="container hero-grid">
-                    <div>
-                        <span class="badge-modern"><i class="fa-solid fa-cookie-bite"></i> Signature chocolat</span>
-                        <h1>Cookies Maison au Chocolat</h1>
-                        <p>Une pâte généreuse, un cœur fondant et des éclats de chocolat noir pour un cookie
-                            parfaitement doré. Cette version maison mise sur l'équilibre entre croustillant extérieur et
-                            moelleux intérieur.</p>
-
-                        <div class="hero-visual">
-                            <div class="floating-card">
-                                <img src="<?php CHEMIN ?>images/recipes/cookies_3.jpg" alt="loader chocolat" />
-                                <div class="image-overlay">
+        
+        <main role="main">
+            <!-- Hero Section -->
+            <header class="recipe-hero-section">
+                <div class="recipe-hero-image-wrapper">
+                    <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'cookies_3.jpg') : 'cookies_3.jpg') ?>" alt="Cookies maison au chocolat" class="recipe-hero-image">
+                    <div class="recipe-hero-overlay"></div>
+                </div>
+                <div class="recipe-hero-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center">
+                                <span class="badge-modern-recipe animate-box" data-animate-effect="fadeInUp">
+                                    <i class="icon-heart"></i> Signature chocolat
+                                </span>
+                                <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Cookies Maison au Chocolat</h1>
+                                <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
+                                    Une pâte généreuse, un cœur fondant et des éclats de chocolat noir pour un cookie
+                                    parfaitement doré. Cette version maison mise sur l'équilibre entre croustillant extérieur et
+                                    moelleux intérieur.
+                                </p>
+                                <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="600">
+                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 20 min préparation</span>
+                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 12 min cuisson</span>
+                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 15 min repos</span>
+                                    <span class="recipe-meta-item"><i class="icon-users"></i> 24 portions</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <span>Préparation</span>
-                                <strong>20 min</strong>
-                            </div>
-                            <div class="metric-card">
-                                <span>Cuisson</span>
-                                <strong>12 min</strong>
-                            </div>
-                            <div class="metric-card">
-                                <span>Repos</span>
-                                <strong>15 min</strong>
-                            </div>
-                            <div class="metric-card">
-                                <span>Portions</span>
-                                <strong>24 pcs</strong>
-                            </div>
-                        </div>
-
-                        <div class="recipe-info">
-                            <div class="rating">
-
-                            </div>
-                        </div>
-
-
                     </div>
-            </section>
+                </div>
+            </header>
 
-            <section class="sections-shell">
+            <!-- Section principale -->
+            <div class="fh5co-section recipe-main-section">
                 <div class="container">
-                    <article class="panel-modern">
-                        <h2>Ingrédients essentiels</h2>
-                        <div class="ingredients-grid">
-                            <div class="ingredient-column">
-                                <h3>Base pâte</h3>
-                                <ul>
-                                    <li><span>200 g</span><span>Beurre mou</span></li>
-                                    <li><span>150 g</span><span>Sucre blanc</span></li>
-                                    <li><span>100 g</span><span>Sucre roux</span></li>
-                                    <li><span>2</span><span>Œufs</span></li>
-                                    <li><span>2 c.à.c</span><span>Extrait de vanille</span></li>
-                                </ul>
-                            </div>
-                            <div class="ingredient-column">
-                                <h3>Poudres</h3>
-                                <ul>
-                                    <li><span>280 g</span><span>Farine</span></li>
-                                    <li><span>1 c.à.c</span><span>Bicarbonate</span></li>
-                                    <li><span>1 pincée</span><span>Sel</span></li>
-                                    <li><span>300 g</span><span>Pépites chocolat noir</span></li>
-                                </ul>
-                            </div>
-                            <div class="ingredient-column">
-                                <h3>Finitions</h3>
-                                <ul>
-                                    <li><span>50 g</span><span>Noisettes torréfiées</span></li>
-                                    <li><span>1 c.à.s</span><span>Cacao non sucré</span></li>
-                                    <li><span>1</span><span>Sachet sucre vanillé</span></li>
-                                    <li><span>QS</span><span>Fleur de sel</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="panel-modern">
-                        <h2>Étapes clés</h2>
-                        <div class="steps-flow">
-                            <div class="step-item">
-                                <div class="step-number">1</div>
-                                <div>
-                                    <h3>Aérer le mélange</h3>
-                                    <p>Crémez le beurre avec les sucres jusqu'à obtenir une texture claire et mousseuse.
-                                        Ajoutez les œufs un à un puis la vanille.</p>
+                    <!-- Ingrédients -->
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <div class="recipe-content-card animate-box" data-animate-effect="fadeInUp">
+                                <h2 class="recipe-content-title">
+                                    <i class="icon-list"></i> Ingrédients essentiels
+                                </h2>
+                                
+                                <div class="ingredients-grid-modern">
+                                    <div class="ingredient-column-modern">
+                                        <h3 class="ingredient-column-title">🥖 Base pâte</h3>
+                                        <ul class="recipe-ingredients-list-modern">
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🧈</span>
+                                                <span class="ingredient-text"><span class="qty">200 g</span> Beurre mou</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🍬</span>
+                                                <span class="ingredient-text"><span class="qty">150 g</span> Sucre blanc</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🍬</span>
+                                                <span class="ingredient-text"><span class="qty">100 g</span> Sucre roux</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🥚</span>
+                                                <span class="ingredient-text"><span class="qty">2</span> Œufs</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🌿</span>
+                                                <span class="ingredient-text"><span class="qty">2 c.à.c</span> Extrait de vanille</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="ingredient-column-modern">
+                                        <h3 class="ingredient-column-title">🌾 Poudres</h3>
+                                        <ul class="recipe-ingredients-list-modern">
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🌾</span>
+                                                <span class="ingredient-text"><span class="qty">280 g</span> Farine</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">⚗️</span>
+                                                <span class="ingredient-text"><span class="qty">1 c.à.c</span> Bicarbonate</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🧂</span>
+                                                <span class="ingredient-text"><span class="qty">1 pincée</span> Sel</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🍫</span>
+                                                <span class="ingredient-text"><span class="qty">300 g</span> Pépites chocolat noir</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="ingredient-column-modern">
+                                        <h3 class="ingredient-column-title">✨ Finitions</h3>
+                                        <ul class="recipe-ingredients-list-modern">
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🥜</span>
+                                                <span class="ingredient-text"><span class="qty">50 g</span> Noisettes torréfiées</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">☕</span>
+                                                <span class="ingredient-text"><span class="qty">1 c.à.s</span> Cacao non sucré</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🌿</span>
+                                                <span class="ingredient-text"><span class="qty">1</span> Sachet sucre vanillé</span>
+                                            </li>
+                                            <li class="recipe-ingredient-modern">
+                                                <span class="ingredient-icon">🧂</span>
+                                                <span class="ingredient-text"><span class="qty">QS</span> Fleur de sel</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="step-item">
-                                <div class="step-number">2</div>
-                                <div>
-                                    <h3>Incorporer les poudres</h3>
-                                    <p>Tamisez farine, bicarbonate, cacao et sel. Incorporez délicatement au mélange
-                                        pour conserver la légèreté.</p>
+                        </div>
+                    </div>
+
+                    <!-- Étapes de préparation -->
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <div class="recipe-content-card animate-box" data-animate-effect="fadeInUp">
+                                <h2 class="recipe-content-title">
+                                    <i class="icon-settings"></i> Étapes clés
+                                </h2>
+                                
+                                <div class="recipe-steps-modern">
+                                    <div class="recipe-step-modern">
+                                        <div class="step-number-modern">1</div>
+                                        <div class="step-content-modern">
+                                            <h5 class="step-title-modern">Aérer le mélange</h5>
+                                            <p>Crémez le beurre avec les sucres jusqu'à obtenir une texture claire et mousseuse.
+                                                Ajoutez les œufs un à un puis la vanille.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-step-modern">
+                                        <div class="step-number-modern">2</div>
+                                        <div class="step-content-modern">
+                                            <h5 class="step-title-modern">Incorporer les poudres</h5>
+                                            <p>Tamisez farine, bicarbonate, cacao et sel. Incorporez délicatement au mélange
+                                                pour conserver la légèreté.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-step-modern">
+                                        <div class="step-number-modern">3</div>
+                                        <div class="step-content-modern">
+                                            <h5 class="step-title-modern">Ajouter les inclusions</h5>
+                                            <p>Ajoutez pépites et noisettes torréfiées. Filmez la pâte et laissez reposer 15
+                                                minutes au frais pour fixer les arômes.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-step-modern">
+                                        <div class="step-number-modern">4</div>
+                                        <div class="step-content-modern">
+                                            <h5 class="step-title-modern">Cuisson précise</h5>
+                                            <p>Formez des boules de 45 g, aplatissez légèrement et enfournez 12 minutes à
+                                                180 °C. Laissez figer sur grille.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="step-item">
-                                <div class="step-number">3</div>
-                                <div>
-                                    <h3>Ajouter les inclusions</h3>
-                                    <p>Ajoutez pépites et noisettes torréfiées. Filmez la pâte et laissez reposer 15
-                                        minutes au frais pour fixer les arômes.</p>
-                                </div>
-                            </div>
-                            <div class="step-item">
-                                <div class="step-number">4</div>
-                                <div>
-                                    <h3>Cuisson précise</h3>
-                                    <p>Formez des boules de 45 g, aplatissez légèrement et enfournez 12 minutes à
-                                        180 °C. Laissez figer sur grille.</p>
+
+                                <!-- Timeline des astuces -->
+                                <div class="timeline-modern">
+                                    <div class="timeline-card-modern">
+                                        <strong>+ Fleur de sel</strong>
+                                        <p>Une pincée après cuisson relève les notes chocolatées.</p>
+                                    </div>
+                                    <div class="timeline-card-modern">
+                                        <strong>Repos pâte</strong>
+                                        <p>Facultatif mais idéal pour un cookie encore plus gourmand.</p>
+                                    </div>
+                                    <div class="timeline-card-modern">
+                                        <strong>Astuce four</strong>
+                                        <p>Cuire sur deux plaques superposées évite que le dessous ne brûle.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="timeline">
-                            <div class="timeline-card">
-                                <strong>+ Fleur de sel</strong>
-                                <p>Une pincée après cuisson relève les notes chocolatées.</p>
+            <!-- Section Commentaires -->
+            <div class="fh5co-section recipe-comments-section-modern">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="reviews-header-modern animate-box" data-animate-effect="fadeInUp">
+                                <h2 class="recipe-section-title-modern">
+                                    <?php if (!empty($readRatting)): ?>
+                                        <span style="color: var(--gold); font-size: 1.2em; margin-left: 10px;">
+                                            <?php for ($i = 0; $i < round($readRatting); $i++): ?>★<?php endfor; ?>
+                                        </span>
+                                        <span style="font-size: 1.2em; color: rgba(255, 255, 255, 0.6);">(<?= number_format($readRatting, 1) ?>)</span>
+                                    <?php endif; ?>
+                                </h2>
+                                <button id="toggleReviews" class="btn-toggle-reviews-modern">
+                                    <?= isset($readComment) ? count($readComment) : 0 ?> commentaires
+                                </button>
                             </div>
-                            <div class="timeline-card">
-                                <strong>Repos pâte</strong>
-                                <p>Facultatif mais idéal pour un cookie encore plus gourmand.</p>
-                            </div>
-                            <div class="timeline-card">
-                                <strong>Astuce four</strong>
-                                <p>Cuire sur deux plaques superposées évite que le dessous ne brûle.</p>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Section Avis / Commentaires -->
-                    <section class="recipe-section reviews-section" style="margin-top: 3rem;">
-                        <div class="reviews-header">
-                            <h2 class="section-title">
-
-                                <?php if (!empty($readRatting)): ?>
-
-                                    <span style="color: gold; font-size: 1.2em; margin-left: 10px;">
-                                        <?php for ($i = 0; $i < round($readRatting); $i++): ?>★<?php endfor; ?>
-                                    </span>
-                                    <span style="font-size: 0.9em; color: #666;">(<?= number_format($readRatting, 1) ?>)</span>
-                                <?php endif; ?>
-                            </h2>
-                            <button id="toggleReviews" class="btn-toggle-reviews"><?= isset($readComment) ? count($readComment) : 0 ?> commentaires</button>
-                        </div>
-
-                        <div id="reviewsContainer" class="reviews-container" style="display: none;">
-                            <div class="row">
-                                <?php if (isset($readComment) && !empty($readComment)): ?>
-                                    <?php foreach ($readComment as $comment): ?>
-                                        <div class="col-md-6">
-                                            <div class="review">
-                                                <div class="review-header">
-                                                    <strong><?= htmlspecialchars($comment['user']->getName()); ?></strong>
-                                                    <span class="review-date" style="font-size: 0.85em; color: #999;"><?= $comment['comment']->getCreatedAt() ?></span>
+                            <div id="reviewsContainer" class="reviews-container-modern" style="display: none;">
+                                <div class="row">
+                                    <?php if (isset($readComment) && !empty($readComment)): ?>
+                                        <?php foreach ($readComment as $comment): ?>
+                                            <div class="col-md-6 animate-box" data-animate-effect="fadeInUp">
+                                                <div class="review-modern">
+                                                    <div class="review-header-modern">
+                                                        <div class="comment-avatar-modern">
+                                                            <?= strtoupper(substr($comment['user']->getName(), 0, 1)) ?>
+                                                        </div>
+                                                        <div>
+                                                            <strong class="review-author-modern"><?= htmlspecialchars($comment['user']->getName()); ?></strong>
+                                                            <span class="review-date-modern"><?= $comment['comment']->getCreatedAt() ?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-stars-modern">
+                                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                            <span style="color: <?= $i <= ($comment['comment']->getRating() ?? 0) ? 'var(--gold)' : 'rgba(255, 255, 255, 0.3)' ?>;">★</span>
+                                                        <?php endfor; ?>
+                                                    </div>
+                                                    <p class="review-text-modern"><?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?></p>
                                                 </div>
-                                                <div class="review-stars">
-                                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                                        <span style="color: <?= $i <= $comment['comment']->getRating() ? '#f5c518' : '#ccc' ?>;">★</span>
-                                                    <?php endfor; ?>
-                                                </div>
-                                                <p class="review-text"><?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?></p>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+                            <div class="comment-form-wrapper-modern mt-4">
+                                <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
+                                    <h3 class="recipe-comments-title-modern text-center">
+                                        <i class="icon-bubble"></i> Laissez votre avis
+                                    </h3>
+                                    
+                                    <?php if (isset($erreur) && !empty($erreur)): ?>
+                                        <div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
+                                            <?= $erreur; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (isset($success) && !empty($success)): ?>
+                                        <div class="message-success" style="color: #51cf66; background-color: rgba(81, 207, 102, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #51cf66;">
+                                            <?= $success; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    
+                                    <form class="recipe-comment-form-modern" method="post">
+                                        <style>
+                                            .star-rating {
+                                                direction: rtl;
+                                                display: inline-flex;
+                                                gap: 0.5rem;
+                                            }
+
+                                            .star-rating input {
+                                                display: none;
+                                            }
+
+                                            .star-rating label {
+                                                font-size: 2.5rem;
+                                                color: rgba(255, 255, 255, 0.3);
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                            }
+
+                                            .star-rating input:checked~label {
+                                                color: var(--gold);
+                                            }
+
+                                            .star-rating label:hover,
+                                            .star-rating label:hover~label {
+                                                color: var(--gold);
+                                                transform: scale(1.1);
+                                            }
+                                        </style>
+
+                                        <div class="form-group-modern">
+                                            <label for="rating" class="form-label-modern">Votre note :</label>
+                                            <div class="star-rating">
+                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                <label for="star5" title="5 étoiles">★</label>
+                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                <label for="star4" title="4 étoiles">★</label>
+                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                <label for="star3" title="3 étoiles">★</label>
+                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                <label for="star2" title="2 étoiles">★</label>
+                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                <label for="star1" title="1 étoile">★</label>
                                             </div>
                                         </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+
+                                        <div class="form-group-modern">
+                                            <textarea name="content" class="form-control-modern" rows="6" required placeholder="Partagez votre expérience avec cette recette..."></textarea>
+                                            <label class="form-label-modern">Votre avis</label>
+                                        </div>
+
+                                        <div class="form-group-modern text-center">
+                                            <button type="submit" name="validation" class="btn btn-primary recipe-submit-btn-modern">
+                                                Publier mon avis
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="comment-form-wrapper" style="margin-top: 2rem;">
-                            <h3>Laissez votre avis</h3>
-                            <form class="modern-contact-form mainContact__section__form" method="post">
-                                <div class="modern-form-container mainContact__section__form__container">
-                                    <style>
-                                        .star-rating {
-                                            direction: rtl;
-                                            display: inline-flex;
-                                        }
-
-                                        .star-rating input {
-                                            display: none;
-                                        }
-
-                                        .star-rating label {
-                                            font-size: 2rem;
-                                            color: #ccc;
-                                            cursor: pointer;
-                                        }
-
-                                        .star-rating input:checked~label {
-                                            color: gold;
-                                        }
-
-                                        .star-rating label:hover,
-                                        .star-rating label:hover~label {
-                                            color: gold;
-                                        }
-                                    </style>
-
-                                    <div class="modern-form-group mainContact__section__form__group">
-
-                                        <div class="star-rating">
-                                            <input type="radio" id="star5" name="rating" value="5" />
-                                            <label for="star5" title="5 étoiles">★</label>
-                                            <input type="radio" id="star4" name="rating" value="4" />
-                                            <label for="star4" title="4 étoiles">★</label>
-                                            <input type="radio" id="star3" name="rating" value="3" />
-                                            <label for="star3" title="3 étoiles">★</label>
-                                            <input type="radio" id="star2" name="rating" value="2" />
-                                            <label for="star2" title="2 étoiles">★</label>
-                                            <input type="radio" id="star1" name="rating" value="1" />
-                                            <label for="star1" title="1 étoile">★</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="modern-form-group mainContact__section__form__group">
-                                        <textarea name="content" class="modern-textarea mainContact__section__form__textarea" rows="6" required></textarea>
-                                        <label class="modern-label mainContact__section__form__label">Votre avis</label>
-                                        <span class="modern-focus-border mainContact__section__form__border"></span>
-                                    </div>
-
-                                    <div class="modern-form-group mainContact__section__form__group">
-                                        <button type="submit" name="validation" class="modern-submit-btn mainContact__section__form__submit">
-                                            <span class="btn-text mainContact__section__form__submit__text">Publier mon avis</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-
+                    </div>
                 </div>
-            </section>
+            </div>
         </main>
 
         <?php require_once PATH . "/src/View/inc/footer.php"; ?>
@@ -308,6 +391,16 @@
     <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
     <!-- Recipes -->
     <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
+    
+    <script>
+        // Toggle des commentaires
+        document.getElementById('toggleReviews')?.addEventListener('click', function() {
+            const container = document.getElementById('reviewsContainer');
+            if (container) {
+                container.style.display = container.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+    </script>
 
 </body>
 

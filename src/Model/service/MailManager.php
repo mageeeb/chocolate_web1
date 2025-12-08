@@ -4,8 +4,7 @@ namespace model\service;
 
 use model\mapping\UserMapping;
 use model\mapping\ContactMapping;
-use PHPMailer\PHPMailer\PHPMailer;
-use Exception;
+use PHPMailer\PHPMailer\PHPMailer;;
 
 
 
@@ -37,7 +36,8 @@ class MailManager
 
             return $mail->send();
         } catch (\Throwable $e) {
-            throw new Exception("Erreur lors de l'envoi du mail : " . $mail->ErrorInfo);
+            // Ne pas révéler les détails de l'erreur - retourne false
+            return false;
         }
     }
 
@@ -67,7 +67,8 @@ class MailManager
 
             return $mail->send();
         } catch (\Throwable $e) {
-            throw new Exception("Erreur lors de l'envoi du mail : " . $mail->ErrorInfo);
+            // Ne pas révéler les détails de l'erreur - retourne false
+            return false;
         }
     }
 
@@ -96,7 +97,8 @@ class MailManager
 
             return $mail->send();
         } catch (\Throwable $e) {
-            throw new Exception("Erreur lors de l'envoi du message : " . $mail->ErrorInfo);
+            // Ne pas révéler les détails de l'erreur - retourne false
+            return false;
         }
     }
 }

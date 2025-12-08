@@ -4,8 +4,7 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\UserMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class UserManager implements ManagerInterface
 {
