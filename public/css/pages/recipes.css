@@ -61,7 +61,11 @@ body.recipe-page .recipe-header-section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  );
   z-index: 2;
 }
 
@@ -74,7 +78,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-hero-title {
   font-family: 'Satisfy', cursive;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 6vw, 8rem);
   color: var(--gold);
   margin-bottom: var(--spacing-md);
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
@@ -83,7 +87,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-hero-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
   color: rgba(255, 255, 255, 0.95);
   font-style: italic;
   margin-bottom: var(--spacing-xl);
@@ -139,7 +143,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-sidebar-title {
   font-family: 'Satisfy', cursive;
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
   color: var(--gold);
   margin-bottom: var(--spacing-lg);
   text-align: center;
@@ -175,15 +179,20 @@ body.recipe-page .recipe-header-section {
   border-left-color: var(--gold-secondary);
 }
 
-.ingredient-icon {
-  font-size: 1.8rem;
-  width: 40px;
+.message-info {
+  color: #ffa726;
+  background-color: rgba(255, 167, 38, 0.1);
+
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ffa726;
   text-align: center;
 }
 
 .ingredient-text {
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-size: clamp(1.15rem, 1.6vw, 2rem);
   font-family: 'Cormorant Garamond', serif;
   line-height: 1.7;
 }
@@ -200,7 +209,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-content-title {
   font-family: 'Satisfy', cursive;
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
   color: var(--gold);
   margin-bottom: var(--spacing-xl);
   text-align: center;
@@ -255,7 +264,7 @@ body.recipe-page .recipe-header-section {
 
 .step-content-modern p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.8rem);
   line-height: 1.8;
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
@@ -322,7 +331,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-similar-subtitle-modern {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
   color: var(--golden-cocoa);
   margin-bottom: var(--spacing-md);
   font-style: italic;
@@ -343,7 +352,7 @@ body.recipe-page .recipe-header-section {
   padding: var(--spacing-md) var(--spacing-2xl);
   border-radius: 30px;
   font-weight: 600;
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: clamp(1rem, 1.3vw, 1.8rem);
   transition: all 0.3s ease;
   align-self: flex-start;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
@@ -373,7 +382,7 @@ body.recipe-page .recipe-header-section {
 
 .recipe-comments-title-modern {
   font-family: 'Satisfy', cursive;
-  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   color: var(--gold);
   margin-bottom: var(--spacing-xl);
   padding-bottom: var(--spacing-md);
@@ -396,7 +405,7 @@ body.recipe-page .recipe-header-section {
   display: block;
   color: var(--gold);
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.5vw, 2.2rem);
   margin-bottom: var(--spacing-sm);
   font-weight: 600;
 }
@@ -409,7 +418,7 @@ body.recipe-page .recipe-header-section {
   border-radius: 10px;
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.15rem, 1.5vw, 1.3rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.8rem);
   resize: vertical;
   transition: all 0.3s ease;
 }
@@ -432,7 +441,7 @@ body.recipe-page .recipe-header-section {
   padding: var(--spacing-md) var(--spacing-2xl);
   border-radius: 30px;
   font-weight: 600;
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: clamp(1rem, 1.3vw, 2rem);
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
@@ -497,7 +506,7 @@ body.recipe-page .recipe-header-section {
 .comment-author-modern {
   color: var(--gold);
   font-family: 'Satisfy', cursive;
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
   margin: 0;
 }
 
@@ -568,13 +577,15 @@ body.recipe-page .recipe-header-section {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.recipe-checkbox-task input[type="checkbox"]:checked + .recipe-checkbox-label {
+.recipe-checkbox-task input[type='checkbox']:checked + .recipe-checkbox-label {
   text-decoration: line-through;
   opacity: 0.6;
   color: var(--gold-secondary);
 }
 
-.recipe-checkbox-task input[type="checkbox"]:checked ~ .recipe-checkbox-label::before {
+.recipe-checkbox-task
+  input[type='checkbox']:checked
+  ~ .recipe-checkbox-label::before {
   content: '✓';
   color: var(--gold);
 }
@@ -592,7 +603,7 @@ body.recipe-page .recipe-header-section {
 .recipe-checkbox-label {
   flex: 1;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.8rem);
   line-height: 1.8;
   font-family: 'Cormorant Garamond', serif;
   transition: all 0.3s ease;
@@ -668,13 +679,13 @@ body.recipe-page .recipe-header-section {
 .ingredient-card-title-modern {
   color: var(--gold);
   font-family: 'Satisfy', cursive;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-size: clamp(1.3rem, 2vw, 2.5rem);
   margin-bottom: var(--spacing-sm);
 }
 
 .ingredient-card-desc-modern {
   color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.5vw, 1rem);
   line-height: 1.6;
   font-family: 'Cormorant Garamond', serif;
   flex-grow: 1;
@@ -687,7 +698,7 @@ body.recipe-page .recipe-header-section {
 
 .category-name-modern {
   color: var(--golden-cocoa);
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.9rem);
   margin-bottom: var(--spacing-md);
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
@@ -701,22 +712,7 @@ body.recipe-page .recipe-header-section {
   margin-right: var(--spacing-xs);
 }
 
-/* Note du chef */
-.chef-note-modern {
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background: rgba(255, 215, 0, 0.1);
-  border-left: 3px solid var(--gold);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1.15rem, 1.5vw, 1.3rem);
-  line-height: 1.7;
-  font-family: 'Cormorant Garamond', serif;
-}
 
-.chef-note-modern strong {
-  color: var(--gold);
-}
 
 /* Titre des étapes */
 .step-title-modern {
@@ -738,7 +734,7 @@ body.recipe-page .recipe-header-section {
 
 .comment-date-modern {
   color: rgba(255, 255, 255, 0.6);
-  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.85rem, 1.1vw, 5rem);
   font-style: italic;
 }
 
@@ -751,13 +747,6 @@ body.recipe-page .recipe-header-section {
   padding: var(--spacing-md);
 }
 
-/* Badges d'information */
-.recipe-info-badges {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
 .info-badge-modern {
   display: block;
   padding: var(--spacing-md);
@@ -765,7 +754,7 @@ body.recipe-page .recipe-header-section {
   border: 1px solid rgba(255, 215, 0, 0.3);
   border-radius: 10px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: clamp(1rem, 1.3vw, 1.6rem);
   text-align: center;
   transition: all 0.3s ease;
   font-family: 'Cormorant Garamond', serif;
@@ -821,11 +810,6 @@ body.recipe-page .recipe-header-section {
   transform: scale(1.05);
   border-color: rgba(255, 215, 0, 0.5);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-}
-
-/* Métadonnées */
-.recipe-metadata-modern {
-  margin-bottom: var(--spacing-2xl);
 }
 
 .metadata-grid {
@@ -888,7 +872,7 @@ body.recipe-page .recipe-header-section {
   padding: var(--spacing-md) var(--spacing-xl);
   border-radius: 30px;
   font-weight: 600;
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: clamp(1rem, 1.3vw, 2rem);
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
@@ -932,14 +916,14 @@ body.recipe-page .recipe-header-section {
   display: block;
   color: var(--gold);
   font-family: 'Satisfy', cursive;
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.7rem);
   margin-bottom: var(--spacing-xs);
 }
 
 .review-date-modern {
   display: block;
   color: rgba(255, 255, 255, 0.6);
-  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.85rem, 1.1vw, 2rem);
   font-style: italic;
 }
 
@@ -1036,47 +1020,7 @@ body.recipe-page .recipe-header-section {
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* Timeline moderne */
-.timeline-modern {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
 
-.timeline-card-modern {
-  background: rgba(255, 215, 0, 0.08);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-left: 4px solid var(--gold);
-  border-radius: 8px;
-  padding: var(--spacing-md);
-  transition: all 0.3s ease;
-}
-
-.timeline-card-modern:hover {
-  background: rgba(255, 215, 0, 0.12);
-  transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-card-modern strong {
-  display: block;
-  color: var(--gold);
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  margin-bottom: var(--spacing-xs);
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-}
-
-.timeline-card-modern p {
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
-  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-  line-height: 1.6;
-  font-family: 'Cormorant Garamond', serif;
-}
 
 @media screen and (max-width: 768px) {
   .recipe-gallery-img {
@@ -1100,9 +1044,6 @@ body.recipe-page .recipe-header-section {
     grid-template-columns: 1fr;
   }
 
-  .timeline-modern {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1449,7 +1390,7 @@ body.recipe-page .recipe-header-section {
 .mainRecette3__form label {
   font-weight: 600;
   color: #d4af37;
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
 }
 
 .mainRecette3__form input {
@@ -2324,17 +2265,16 @@ body.recipe-page .recipe-header-section {
   .hero-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .ingredients-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .metadata-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-

@@ -2,6 +2,7 @@
 
 namespace model\manager;
 
+use Exception;
 use model\ManagerInterface;
 use model\mapping\RecipeMapping;
 use model\mapping\UserMapping;
@@ -154,6 +155,32 @@ class RecipeManager implements ManagerInterface
         } catch (Exception $e) {
             // Erreur silencieuse - retourne false
             return false;
+        }
+    }
+
+
+    public function getRecipeByPrepTime(): array
+    {
+        $sql = "SELECT *
+            FROM recipe
+            ORDER BY prep_time ASC
+            LIMIT 4";
+
+        $prepare = $this->db->prepare($sql);
+
+        try {
+            $prepare->execute();
+            $results = $prepare->fetchAll();
+            $prepare->closeCursor();
+
+            $comments = [];
+            foreach ($results as $row) {
+                $recipe  = new RecipeMapping($row);
+                $comments[] = $recipe;
+            }
+            return $comments;
+        } catch (Exception $e) {
+            return [];
         }
     }
 }

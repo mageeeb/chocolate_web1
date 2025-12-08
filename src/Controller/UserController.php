@@ -164,7 +164,7 @@ if (isset($_GET['pg'])) {
 } else {
     $commentsData = $manageComment->getBestRateComment();
     $chunks = array_chunk($commentsData, 3);
-
+    $bestPrepTime = $manageRecipe->getRecipeByPrepTime();
     $top3 = $manageComment->getTop3RatedRecipes();
     require_once PATH . "/src/View/home.php";
 }

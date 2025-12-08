@@ -12,12 +12,11 @@
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="Glace au Chocolat Intense - Cokolada" />
-    <meta property="og:image" content="<?php CHEMIN ?>images/recipes/chocolate-ice-cream.jpg" />
+
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Cokolada" />
     <meta property="og:description" content="Découvrez notre recette de glace au chocolat intense et crémeuse" />
     <meta name="twitter:title" content="Glace au Chocolat Intense - Cokolada" />
-    <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/chocolate-ice-cream.jpg" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -57,7 +56,7 @@
         <!-- Hero Section -->
         <header class="recipe-hero-section">
             <div class="recipe-hero-image-wrapper">
-                <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'chocolate-ice-cream.jpg') : 'chocolate-ice-cream.jpg') ?>" alt="Glace au chocolat intense" class="recipe-hero-image">
+                <img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Glace au chocolat intense" class="recipe-hero-image">
                 <div class="recipe-hero-overlay"></div>
             </div>
             <div class="recipe-hero-content">
@@ -66,12 +65,7 @@
                         <div class="col-md-8 col-md-offset-2 text-center">
                             <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Glace au chocolat intense</h1>
                             <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Un délice glacé pour les amateurs de chocolat</p>
-                            <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
-                                <span class="recipe-meta-item"><i class="icon-clock"></i> 30 min préparation</span>
-                                <span class="recipe-meta-item"><i class="icon-clock"></i> 4h repos</span>
-                                <span class="recipe-meta-item"><i class="icon-users"></i> 6 portions</span>
-                                <span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -85,7 +79,7 @@
                     <div class="col-lg-8 animate-box" data-animate-effect="fadeInLeft">
                         <div class="recipe-content-card">
                             <h2 class="recipe-content-title">
-                                <i class="icon-bubble"></i> Description
+                                Description
                             </h2>
                             <p class="recipe-intro-text-modern">
                                 Cette glace au chocolat est un véritable délice pour les papilles. Préparée avec du
@@ -117,10 +111,10 @@
                                 <i class="icon-info"></i> Informations
                             </h2>
                             <div class="recipe-info-badges">
-                                <div class="info-badge-modern">⏱️ 30 min préparation</div>
-                                <div class="info-badge-modern">❄️ 4 heures repos</div>
-                                <div class="info-badge-modern">👨‍👩‍👧‍👦 6 portions</div>
-                                <div class="info-badge-modern">⭐ Facile</div>
+                                <div class="info-badge-modern">30 min préparation</div>
+                                <div class="info-badge-modern">4 heures repos</div>
+                                <div class="info-badge-modern">6 portions</div>
+                                <div class="info-badge-modern">Facile</div>
                             </div>
                         </div>
                     </div>
@@ -132,35 +126,28 @@
                     <div class="col-lg-4 mb-4 animate-box" data-animate-effect="fadeInLeft">
                         <div class="recipe-sidebar-card">
                             <h2 class="recipe-sidebar-title">
-                                <i class="icon-list"></i> Ingrédients
+                                Ingrédients
                             </h2>
                             <ul class="recipe-ingredients-list-modern">
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🥛</span>
                                     <span class="ingredient-text">500 ml de crème liquide entière</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🍫</span>
                                     <span class="ingredient-text">200 g de chocolat noir 70%</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🥚</span>
                                     <span class="ingredient-text">4 jaunes d'œufs</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🍬</span>
                                     <span class="ingredient-text">100 g de sucre en poudre</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🌿</span>
                                     <span class="ingredient-text">1 gousse de vanille</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🧂</span>
                                     <span class="ingredient-text">1 pincée de sel</span>
                                 </li>
                                 <li class="recipe-ingredient-modern">
-                                    <span class="ingredient-icon">🥜</span>
                                     <span class="ingredient-text">50 g de noisettes concassées</span>
                                 </li>
                             </ul>
@@ -250,9 +237,9 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
                             <h3 class="recipe-comments-title-modern text-center">
-                                <i class="icon-bubble"></i> Laissez un commentaire
+                                Laissez un commentaire
                             </h3>
-                            
+
                             <?php if (isset($erreur) && !empty($erreur)): ?>
                                 <div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
                                     <?= $erreur; ?>
@@ -264,13 +251,13 @@
                                     <?= $success; ?>
                                 </div>
                             <?php endif; ?>
-                            
+
                             <?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
                                 <div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
                                     <p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
                                 </div>
                             <?php endif; ?>
-                            
+
                             <form class="recipe-comment-form-modern" method="post">
                                 <style>
                                     .star-rating {
@@ -318,13 +305,13 @@
                                 </div>
 
                                 <div class="form-group-modern">
-                                    <label for="comment" class="form-label-modern">Votre Commentaire *</label>
+                                    <label for="comment" class="form-label-modern">Votre Commentaire</label>
                                     <textarea class="form-control-modern" id="comment" name="content" rows="5" required
                                         placeholder="Partagez votre expérience avec cette recette..."></textarea>
                                 </div>
 
                                 <div class="form-group-modern text-center">
-                                    <input type="submit" class="btn btn-primary recipe-submit-btn-modern" value="✨ Envoyer le commentaire" name="validation">
+                                    <input type="submit" class="btn btn-primary recipe-submit-btn-modern" value="Envoyer le commentaire" name="validation">
                                 </div>
                             </form>
                         </div>
@@ -332,7 +319,7 @@
                         <!-- Liste des commentaires -->
                         <div class="recipe-comments-list-modern">
                             <?php if (isset($readComment) && !empty($readComment)): ?>
-                                <h3 class="comments-list-title-modern">💬 Commentaires de nos lecteurs</h3>
+                                <h3 class="comments-list-title-modern">Commentaires de nos lecteurs</h3>
                                 <?php foreach ($readComment as $value): ?>
                                     <div class="recipe-comment-item-modern animate-box" data-animate-effect="fadeInUp">
                                         <div class="comment-avatar-modern">
@@ -344,10 +331,10 @@
                                                 <span class="comment-date-modern"><?= $value['comment']->getCreatedAt() ?></span>
                                             </div>
                                             <div class="comment-rating-modern">
-                                                <?php 
+                                                <?php
                                                 $rating = (int)($value['comment']->getRating() ?? 0);
                                                 for ($i = 0; $i < $rating; $i++): ?>
-                                                    <span style="color: var(--gold); font-size: 1.2rem;">★</span>
+                                                    <span style="color: var(--gold); font-size: 2.5rem;">★</span>
                                                 <?php endfor; ?>
                                             </div>
                                             <p class="comment-text-modern"><?= nl2br(htmlspecialchars($value['comment']->getContent())) ?></p>

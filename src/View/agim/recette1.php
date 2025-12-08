@@ -12,12 +12,10 @@
 
   <!-- Facebook and Twitter integration -->
   <meta property="og:title" content="Mousse au chocolat - Cokolada" />
-  <meta property="og:image" content="<?php CHEMIN ?>images/recipes/fondant_au_chocolat.jpg" />
   <meta property="og:url" content="" />
   <meta property="og:site_name" content="Cokolada" />
   <meta property="og:description" content="Découvrez notre recette de mousse au chocolat" />
   <meta name="twitter:title" content="Mousse au chocolat - Cokolada" />
-  <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/fondant_au_chocolat.jpg" />
   <meta name="twitter:url" content="" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -61,7 +59,7 @@
     <!-- Hero Section - Image principale avec overlay -->
     <header class="recipe-hero-section">
       <div class="recipe-hero-image-wrapper">
-        <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'fondant_au_chocolat.jpg') : 'fondant_au_chocolat.jpg') ?>" alt="Mousse au chocolat" class="recipe-hero-image">
+        <img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Mousse au chocolat" class="recipe-hero-image">
         <div class="recipe-hero-overlay"></div>
       </div>
       <div class="recipe-hero-content">
@@ -70,12 +68,7 @@
             <div class="col-md-8 col-md-offset-2 text-center">
               <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Mousse au chocolat</h1>
               <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Un dessert classique et raffiné, léger et onctueux</p>
-              <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
-                <span class="recipe-meta-item"><i class="icon-clock"></i> 15 min préparation</span>
-                <span class="recipe-meta-item"><i class="icon-clock"></i> 3h repos</span>
-                <span class="recipe-meta-item"><i class="icon-users"></i> 4 personnes</span>
-                <span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
-              </div>
+
             </div>
           </div>
         </div>
@@ -91,23 +84,19 @@
             <div class="recipe-sidebar animate-box" data-animate-effect="fadeInLeft">
               <div class="recipe-sidebar-card">
                 <h2 class="recipe-sidebar-title">
-                  <i class="icon-list"></i> Ingrédients
+                  Ingrédients
                 </h2>
                 <ul class="recipe-ingredients-list-modern">
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🍫</span>
                     <span class="ingredient-text">200 g de chocolat noir</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🥚</span>
                     <span class="ingredient-text">4 œufs</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🍬</span>
                     <span class="ingredient-text">30 g de sucre</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🧂</span>
                     <span class="ingredient-text">1 pincée de sel</span>
                   </li>
                 </ul>
@@ -122,7 +111,7 @@
                 <h2 class="recipe-content-title">
                   <i class="icon-settings"></i> Préparation
                 </h2>
-                
+
                 <div class="recipe-steps-modern">
                   <div class="recipe-step-modern">
                     <div class="step-number-modern">1</div>
@@ -197,7 +186,7 @@
               <h3 class="recipe-similar-title-modern">Mousse au chocolat Grand'ma</h3>
               <h4 class="recipe-similar-subtitle-modern">Découvrez la recette de mamie devenue culte et virale</h4>
               <p class="recipe-similar-description-modern">Mousse au chocolat à base d'orange et d'agrumes, accompagnée de petits beurres pour le côté gourmand, et de fraises pour une touche healthy. Une recette traditionnelle revisitée avec amour.</p>
-              <a href="#" class="btn btn-primary recipe-similar-btn-modern">Découvrez la recette</a>
+              <a href="https://www.marmiton.org/recettes/recette_mousse-au-chocolat-de-maman_87886.aspx" target="_blank" class="btn btn-primary recipe-similar-btn-modern">Découvrez la recette</a>
             </div>
           </div>
         </div>
@@ -211,9 +200,9 @@
           <div class="col-md-8 col-md-offset-2">
             <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
               <h3 class="recipe-comments-title-modern text-center">
-                <i class="icon-bubble"></i> Laissez un commentaire
+                Laissez un commentaire
               </h3>
-              
+
               <?php if (isset($erreur) && !empty($erreur)): ?>
                 <div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
                   <?= $erreur; ?>
@@ -225,13 +214,13 @@
                   <?= $success; ?>
                 </div>
               <?php endif; ?>
-              
+
               <?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
-                <div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
+                <div class="message-info" style="">
                   <p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
                 </div>
               <?php endif; ?>
-              
+
               <form class="recipe-comment-form-modern" method="post">
                 <style>
                   .star-rating {
@@ -292,7 +281,7 @@
             <!-- Liste des commentaires -->
             <div class="recipe-comments-list-modern" style="margin-top: 3rem;">
               <h3 class="recipe-comments-title-modern text-center" style="margin-bottom: 2rem;">
-                <i class="icon-bubble"></i> Commentaires des lecteurs
+                Commentaires des lecteurs
               </h3>
               <?php if (isset($readComment) && !empty($readComment)): ?>
                 <?php foreach ($readComment as $comment): ?>
@@ -308,7 +297,7 @@
                           $rating = (int)($comment['comment']->getRating() ?? 0);
                           for ($i = 0; $i < $rating; $i++):
                           ?>
-                            <span style="color: var(--gold); font-size: 1.2rem;">★</span>
+                            <span style="color: var(--gold); font-size: 2.5rem;">★</span>
                           <?php
                           endfor;
                           ?>

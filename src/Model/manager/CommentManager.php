@@ -161,7 +161,7 @@ class CommentManager implements ManagerInterface
                 INNER JOIN recipe r ON c.recipe_id = r.id 
                 WHERE c.rating IS NOT NULL 
                 ORDER BY c.rating DESC, c.created_at DESC 
-                LIMIT 10";
+                LIMIT 9";
 
         $prepare = $this->db->prepare($sql);
 

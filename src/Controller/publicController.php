@@ -298,6 +298,46 @@ if (isset($_GET['pg'])) {
                         break;
                 }
             }
+            $slugs = $manageRecipe->getAllRecipes();
+
+
+            if (isset($_GET['slug'])) {
+
+                $files = [
+                    'agim',
+                    'massine',
+                    'soulaiman'
+                ];
+
+                foreach ($slugs as $value) {
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 1 || $value->getId() === 2)) {
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[0] . "/recette" . $recetteId . ".php";
+                    }
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 3 || $value->getId() === 4)) {
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[1] . "/recette" . $recetteId . ".php";
+                    }
+                    if ($_GET['slug'] === $value->getSlug() && ($value->getId() === 5 || $value->getId() === 6)) {
+                        $recetteId = $value->getId();
+                        $recette = $manageRecipe->getRecipeById($recetteId);
+                        $readComment = gestionCommentaire($manageComment, $recetteId, $erreur, $success);
+                        $readRatting = $manageComment->getRatingByRecipe($recetteId);
+                        $readTop3Ratting = $manageComment->getTop3Ratings($recetteId);
+                        require_once PATH . "/src/View/" . $files[2] . "/recette" . $recetteId . ".php";
+                    }
+                }
+            }
+
+            break;
             break;
 
         default:
@@ -308,7 +348,7 @@ if (isset($_GET['pg'])) {
 } else {
     $commentsData = $manageComment->getBestRateComment();
     $chunks = array_chunk($commentsData, 3);
-
+    $bestPrepTime = $manageRecipe->getRecipeByPrepTime();
     $top3 = $manageComment->getTop3RatedRecipes();
 
 

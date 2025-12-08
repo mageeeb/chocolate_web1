@@ -267,7 +267,7 @@ a:focus {
 
 .fh5co-section p {
   color: rgba(255, 255, 255, 72%);
-  font-size: 18px;
+  font-size: clamp(1rem, 1.3vw, 1.8rem);
   line-height: 1.5;
   margin-bottom: var(--spacing-md);
 }
@@ -320,3 +320,4 @@ li {
     width: 100%;
   }
 }
+

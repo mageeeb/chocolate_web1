@@ -12,12 +12,10 @@
 
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="Tiramisu au Chocolat - Cokolada" />
-	<meta property="og:image" content="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" />
 	<meta property="og:url" content="" />
 	<meta property="og:site_name" content="Cokolada" />
 	<meta property="og:description" content="Découvrez notre recette de tiramisu au chocolat" />
 	<meta name="twitter:title" content="Tiramisu au Chocolat - Cokolada" />
-	<meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/tiramisu-chocolat-transparent.png" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -58,7 +56,7 @@
 		<!-- Hero Section -->
 		<header class="recipe-hero-section">
 			<div class="recipe-hero-image-wrapper">
-				<img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'tiramisu-chocolat-transparent.png') : 'tiramisu-chocolat-transparent.png') ?>" alt="Tiramisu au chocolat" class="recipe-hero-image">
+				<img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Tiramisu au chocolat" class="recipe-hero-image">
 				<div class="recipe-hero-overlay"></div>
 			</div>
 			<div class="recipe-hero-content">
@@ -67,11 +65,7 @@
 						<div class="col-md-8 col-md-offset-2 text-center">
 							<h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Tiramisu au Chocolat</h1>
 							<p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">La dolce vita rencontre la passion du cacao</p>
-							<div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
-								<span class="recipe-meta-item"><i class="icon-clock"></i> 30 min + 4h repos</span>
-								<span class="recipe-meta-item"><i class="icon-users"></i> 6 personnes</span>
-								<span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
-							</div>
+
 						</div>
 					</div>
 				</div>
@@ -159,60 +153,47 @@
 					<!-- Liste des Ingrédients -->
 					<div class="col-md-5 animate-box" data-animate-effect="fadeInLeft">
 						<div class="recipe-sidebar-card">
-							<h3 class="recipe-sidebar-title"><i class="icon-list"></i> Liste des Ingrédients</h3>
+							<h3 class="recipe-sidebar-title"> Liste des Ingrédients</h3>
 
 							<div class="ingredient-category-block-modern">
-								<h4 class="category-name-modern">🍫 Pour la crème au chocolat</h4>
+								<h4 class="category-name-modern">Pour la crème au chocolat</h4>
 								<ul class="recipe-ingredients-list-modern">
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🥛</span>
 										<span class="ingredient-text"><span class="qty">500g</span> Mascarpone</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🍫</span>
 										<span class="ingredient-text"><span class="qty">200g</span> Chocolat noir 70%</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🥚</span>
 										<span class="ingredient-text"><span class="qty">4</span> Œufs (séparés)</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🍬</span>
 										<span class="ingredient-text"><span class="qty">80g</span> Sucre en poudre</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">☕</span>
 										<span class="ingredient-text"><span class="qty">2 c.à.s</span> Cacao non sucré</span>
 									</li>
 								</ul>
 							</div>
 
 							<div class="ingredient-category-block-modern">
-								<h4 class="category-name-modern">☕ Pour l'assemblage</h4>
+								<h4 class="category-name-modern">Pour l'assemblage</h4>
 								<ul class="recipe-ingredients-list-modern">
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">☕</span>
 										<span class="ingredient-text"><span class="qty">300ml</span> Café espresso fort (froid)</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🍷</span>
 										<span class="ingredient-text"><span class="qty">3 c.à.s</span> Amaretto (optionnel)</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🍪</span>
 										<span class="ingredient-text"><span class="qty">400g</span> Biscuits savoiardi</span>
 									</li>
 									<li class="recipe-ingredient-modern">
-										<span class="ingredient-icon">🍫</span>
 										<span class="ingredient-text"><span class="qty">50g</span> Chocolat noir (décoration)</span>
 									</li>
 								</ul>
 							</div>
 
-							<div class="chef-note-modern">
-								<strong>💡 Astuce :</strong> Utilisez des œufs très frais et du mascarpone de qualité
-								pour un résultat optimal !
-							</div>
 						</div>
 					</div>
 
@@ -300,7 +281,7 @@
 					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInUp">
 						<div class="recipe-comments-card-modern">
 							<h3 class="recipe-comments-title-modern text-center">
-								<i class="icon-bubble"></i> Laissez un commentaire
+								Laissez un commentaire
 							</h3>
 
 							<?php if (isset($erreur) && !empty($erreur)): ?>
@@ -314,7 +295,7 @@
 									<?= $success; ?>
 								</div>
 							<?php endif; ?>
-							
+
 							<?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
 								<div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
 									<p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
@@ -366,7 +347,7 @@
 									</div>
 								</div>
 								<div class="form-group-modern">
-									<label for="userComment" class="form-label-modern">Votre commentaire *</label>
+									<label for="userComment" class="form-label-modern">Votre commentaire</label>
 									<textarea class="form-control-modern" id="userComment" name="content" rows="6"
 										placeholder="Partagez votre expérience, vos astuces, vos modifications..."
 										required></textarea>
@@ -385,7 +366,7 @@
 							<!-- Liste des commentaires -->
 							<div class="recipe-comments-list-modern">
 								<?php if (isset($readComment) && !empty($readComment)): ?>
-									<h3 class="comments-list-title-modern">💬 Commentaires de nos lecteurs</h3>
+									<h3 class="comments-list-title-modern">Commentaires de nos lecteurs</h3>
 									<?php foreach ($readComment as $value): ?>
 										<div class="recipe-comment-item-modern animate-box" data-animate-effect="fadeInUp">
 											<div class="comment-avatar-modern">
@@ -402,7 +383,7 @@
 													$rating = (int)($value['comment']->getRating() ?? 0);
 													for ($i = 0; $i < $rating; $i++):
 													?>
-														<span style="color: var(--gold); font-size: 1.2rem;">★</span>
+														<span style="color: var(--gold); font-size: 2.5rem;">★</span>
 													<?php
 													endfor;
 													?>

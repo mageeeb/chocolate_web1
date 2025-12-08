@@ -86,7 +86,7 @@
 
 
           <input type="submit" name="validation" value="Connexion"/>
-          <a style="text-align:center; padding:2rem;" href="?pg=inscription">Pas encors inscrit ? Clique ici</a>
+          <a href="?pg=inscription">Pas encors inscrit ? Clique ici</a>
           <a style="text-align:center;" href="?pg=connexion&forgotPassword">Mot de passe oublié</a>
           <?php if (isset($erreur) && !empty($erreur)): ?>
             <div class="message-error"><?= $erreur; ?></div>

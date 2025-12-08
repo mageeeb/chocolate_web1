@@ -11,12 +11,10 @@
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="Cookies Maison au Chocolat - Cokolada" />
-    <meta property="og:image" content="<?php CHEMIN ?>images/recipes/cookies_4.jpg" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Cokolada" />
     <meta property="og:description" content="Découvrez notre recette de cookies maison au chocolat" />
     <meta name="twitter:title" content="Cookies Maison au Chocolat - Cokolada" />
-    <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/cookies_4.jpg" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -52,12 +50,12 @@
 <body class="recipe-page">
     <div id="page">
         <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
-        
+
         <main role="main">
             <!-- Hero Section avec galerie -->
             <header class="recipe-hero-section recipe-hero-gallery">
                 <div class="recipe-hero-image-wrapper">
-                    <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'cookies_4.jpg') : 'cookies_4.jpg') ?>" alt="Cookies maison au chocolat" class="recipe-hero-image">
+                    <img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Cookies maison au chocolat" class="recipe-hero-image">
                     <div class="recipe-hero-overlay"></div>
                 </div>
                 <div class="recipe-hero-content">
@@ -66,12 +64,7 @@
                             <div class="col-md-8 col-md-offset-2 text-center">
                                 <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Cookies Maison au Chocolat</h1>
                                 <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Une pâte généreuse, un cœur fondant et des éclats de chocolat noir</p>
-                                <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
-                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 20 min préparation</span>
-                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 12 min cuisson</span>
-                                    <span class="recipe-meta-item"><i class="icon-users"></i> 24 cookies</span>
-                                    <span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -112,28 +105,6 @@
                 <div class="container recipe-container">
                     <article class="recipe-article">
 
-                        <!-- Métadonnées -->
-                        <section class="recipe-metadata-modern animate-box" data-animate-effect="fadeInUp">
-                            <div class="metadata-grid">
-                                <div class="metadata-item">
-                                    <i class="icon-clock"></i>
-                                    <h3>Préparation</h3>
-                                    <p>20 min</p>
-                                </div>
-
-                                <div class="metadata-item">
-                                    <i class="icon-bar-chart"></i>
-                                    <h3>Difficulté</h3>
-                                    <p>Facile</p>
-                                </div>
-
-                                <div class="metadata-item">
-                                    <i class="icon-users"></i>
-                                    <h3>Portions</h3>
-                                    <p>24 cookies</p>
-                                </div>
-                            </div>
-                        </section>
 
                         <div class="row">
                             <!-- Colonne gauche : Ingrédients -->
@@ -141,62 +112,50 @@
                                 <div class="recipe-sidebar animate-box" data-animate-effect="fadeInLeft">
                                     <div class="recipe-sidebar-card">
                                         <h2 class="recipe-sidebar-title">
-                                            <i class="icon-list"></i> Ingrédients
+                                            Ingrédients
                                         </h2>
                                         <p class="recipe-subtitle-desc-modern text-center">Pour environ 24 cookies</p>
 
                                         <div class="ingredient-category-block-modern">
-                                            <h4 class="category-name-modern">🥖 Base de la pâte</h4>
+                                            <h4 class="category-name-modern">Base de la pâte</h4>
                                             <ul class="recipe-ingredients-list-modern">
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🧈</span>
                                                     <span class="ingredient-text"><span class="qty">200g</span> Beurre mou</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🍬</span>
                                                     <span class="ingredient-text"><span class="qty">150g</span> Sucre blanc</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🍬</span>
                                                     <span class="ingredient-text"><span class="qty">100g</span> Sucre roux</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🥚</span>
                                                     <span class="ingredient-text"><span class="qty">2</span> Œufs</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🌿</span>
                                                     <span class="ingredient-text"><span class="qty">2 c.à.c</span> Extrait de vanille</span>
                                                 </li>
                                             </ul>
                                         </div>
 
                                         <div class="ingredient-category-block-modern">
-                                            <h4 class="category-name-modern">🌾 Poudres et saveurs</h4>
+                                            <h4 class="category-name-modern">Poudres et saveurs</h4>
                                             <ul class="recipe-ingredients-list-modern">
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🌾</span>
                                                     <span class="ingredient-text"><span class="qty">280g</span> Farine blanche</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">⚗️</span>
                                                     <span class="ingredient-text"><span class="qty">1 c.à.c</span> Bicarbonate de sodium</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🧂</span>
                                                     <span class="ingredient-text"><span class="qty">1 pincée</span> Sel</span>
                                                 </li>
                                                 <li class="recipe-ingredient-modern">
-                                                    <span class="ingredient-icon">🍫</span>
                                                     <span class="ingredient-text"><span class="qty">300g</span> Pépites de chocolat noir</span>
                                                 </li>
                                             </ul>
                                         </div>
 
-                                        <div class="chef-note-modern">
-                                            <strong>💡 Astuce :</strong> Utilisez du beurre et des œufs à température ambiante
-                                            pour une pâte bien homogène !
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -269,10 +228,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="chef-note-modern">
-                                            <strong>🍪 Conseil :</strong> Ne pas trop cuire ! Les cookies continueront de durcir
-                                            légèrement en refroidissant.
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -328,9 +284,9 @@
                                         <div class="comment-form-wrapper-modern mt-4">
                                             <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
                                                 <h3 class="recipe-comments-title-modern text-center">
-                                                    <i class="icon-bubble"></i> Laissez votre avis
+                                                    Laissez votre avis
                                                 </h3>
-                                                
+
                                                 <?php if (isset($erreur) && !empty($erreur)): ?>
                                                     <div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
                                                         <?= $erreur; ?>
@@ -342,13 +298,13 @@
                                                         <?= $success; ?>
                                                     </div>
                                                 <?php endif; ?>
-                                                
+
                                                 <?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
                                                     <div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
                                                         <p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
                                                     </div>
                                                 <?php endif; ?>
-                                                
+
                                                 <form class="recipe-comment-form-modern" method="post">
                                                     <style>
                                                         .star-rating {
@@ -442,7 +398,7 @@
     <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
     <!-- Recipes -->
     <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
-    
+
     <script>
         // Toggle des commentaires
         document.getElementById('toggleReviews')?.addEventListener('click', function() {
