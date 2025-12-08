@@ -3,7 +3,7 @@
  * Gère : affichage/masquage des avis, impression, soumission du formulaire
  */
 
-(function() {
+(function () {
 	'use strict';
 
 	// ========== AFFICHER/MASQUER LES AVIS ==========
@@ -11,12 +11,12 @@
 	const reviewsContainer = document.getElementById('reviewsContainer');
 
 	if (toggleReviewsBtn && reviewsContainer) {
-		toggleReviewsBtn.addEventListener('click', function(e) {
+		toggleReviewsBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 
 			// Toggle la classe 'show' et l'affichage
 			const isShown = reviewsContainer.style.display !== 'none';
-			
+
 			if (isShown) {
 				// Masquer avec animation
 				reviewsContainer.classList.remove('show');
@@ -41,7 +41,7 @@
 	const printBtn = document.getElementById('printBtn');
 
 	if (printBtn) {
-		printBtn.addEventListener('click', function(e) {
+		printBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			window.print();
 		});
@@ -51,7 +51,7 @@
 	const reviewForm = document.getElementById('reviewForm');
 
 	if (reviewForm) {
-		reviewForm.addEventListener('submit', function(e) {
+		reviewForm.addEventListener('submit', function (e) {
 			e.preventDefault();
 
 			// Récupérer les valeurs

@@ -5,8 +5,7 @@ namespace model\manager;
 use model\ManagerInterface;
 use model\mapping\RecipeMapping;
 use model\mapping\UserMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class RecipeManager implements ManagerInterface
 {
@@ -20,13 +19,11 @@ class RecipeManager implements ManagerInterface
     // Récupération de toutes les recettes
     public function getAllRecipes(): array
     {
-        $sql = "SELECT r.*, u.id, u.name, u.login FROM `recipe` r
-                INNER JOIN `users` u ON r.user_id = u.id
-                ORDER BY r.created_at DESC";
+        $sql = "SELECT * FROM recipe";
         $prepare = $this->db->prepare($sql);
         try {
             $prepare->execute();
-            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            $result = $prepare->fetchAll();
             $prepare->closeCursor();
 
             $recipes = [];
@@ -35,9 +32,8 @@ class RecipeManager implements ManagerInterface
                 $recipes[] = $recipe;
             }
             return $recipes;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération des recettes : " . $e->getMessage();
+            // Erreur silencieuse - retourne un tableau vide
             return [];
         }
     }
@@ -45,8 +41,8 @@ class RecipeManager implements ManagerInterface
     // Récupération d'une recette par ID
     public function getRecipeById(int $recipeId): ?RecipeMapping
     {
-        $sql = "SELECT r.*, u.id, u.name, u.login FROM `recipe` r
-                INNER JOIN `users` u ON r.user_id = u.id
+        $sql = "SELECT r.*, r.image_url, u.id, u.name, u.login FROM `recipe` r
+                LEFT JOIN `users` u ON r.user_id = u.id
                 WHERE r.id = ?";
         $prepare = $this->db->prepare($sql);
         try {
@@ -55,9 +51,8 @@ class RecipeManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new RecipeMapping($result) : null;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération de la recette : " . $e->getMessage();
+            // Erreur silencieuse - retourne null
             return null;
         }
     }
@@ -65,8 +60,8 @@ class RecipeManager implements ManagerInterface
     // Récupération d'une recette par slug
     public function getRecipeBySlug(string $slug): ?RecipeMapping
     {
-        $sql = "SELECT r.*, u.id, u.name, u.login FROM `recipe` r
-                INNER JOIN `users` u ON r.user_id = u.id
+        $sql = "SELECT r.*, r.image_url, u.id, u.name, u.login FROM `recipe` r
+                LEFT JOIN `users` u ON r.user_id = u.id
                 WHERE r.slug = ?";
         $prepare = $this->db->prepare($sql);
         try {
@@ -75,9 +70,8 @@ class RecipeManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new RecipeMapping($result) : null;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération de la recette : " . $e->getMessage();
+            // Erreur silencieuse - retourne null
             return null;
         }
     }
@@ -101,9 +95,8 @@ class RecipeManager implements ManagerInterface
                 $recipes[] = $recipe;
             }
             return $recipes;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération des recettes : " . $e->getMessage();
+            // Erreur silencieuse - retourne un tableau vide
             return [];
         }
     }
@@ -124,7 +117,7 @@ class RecipeManager implements ManagerInterface
             $prepare->execute();
             return true;
         } catch (Exception $e) {
-            echo "Erreur lors de l'insertion de la recette : " . $e->getMessage();
+            // Erreur silencieuse - retourne false
             return false;
         }
     }
@@ -145,7 +138,7 @@ class RecipeManager implements ManagerInterface
             $prepare->execute();
             return true;
         } catch (Exception $e) {
-            echo "Erreur lors de la mise à jour de la recette : " . $e->getMessage();
+            // Erreur silencieuse - retourne false
             return false;
         }
     }
@@ -159,7 +152,7 @@ class RecipeManager implements ManagerInterface
             $prepare->execute([$recipeId]);
             return true;
         } catch (Exception $e) {
-            echo "Erreur lors de la suppression de la recette : " . $e->getMessage();
+            // Erreur silencieuse - retourne false
             return false;
         }
     }

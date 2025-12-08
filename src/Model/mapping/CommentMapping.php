@@ -3,30 +3,92 @@
 namespace model\mapping;
 
 use model\AbstractMapping;
-use Exception;
-
-
 
 class CommentMapping extends AbstractMapping
 {
-
     protected ?int $id = null;
     protected ?string $content = null;
     protected ?string $created_at = null;
-    protected ?int $is_accepted = null;
+    protected ?int $is_accepted = 0;
     protected ?int $recipe_id = null;
-    protected ?string $rating = null;
+    protected ?int $user_id = null;
+    protected ?int $rating = null;
+    protected array $errors = [];
 
-        public function getRating(): ?int
+    public function setId(?int $id): void
     {
-        return $this->rating;
+        if ($id !== null && $id < 0) {
+            $this->errors[] = "L'ID doit être positif.";
+        } else {
+            $this->id = $id;
+        }
     }
 
-    public function setRating(?int $rating): self
+    public function setContent(?string $content): void
     {
+        if ($content !== null) {
+            $content = trim($content);
+            if (strlen($content) < 1) {
+                $this->errors[] = "Le contenu du commentaire ne peut pas être vide.";
+            } elseif (strlen($content) > 600) {
+                $this->errors[] = "Le contenu du commentaire est trop long (max 600 caractères).";
+            } else {
+                $this->content = $content;
+            }
+        } else {
+            $this->errors[] = "Le contenu du commentaire est obligatoire.";
+        }
+    }
 
-        $this->rating = $rating;
-        return $this;
+    public function setCreatedAt(?string $created_at): void
+    {
+        $this->created_at = $created_at;
+    }
+
+    public function setIsAccepted(?int $is_accepted): void
+    {
+        if ($is_accepted !== null && ($is_accepted < 0 || $is_accepted > 1)) {
+            $this->errors[] = "La valeur is_accepted doit être 0 ou 1.";
+        } else {
+            $this->is_accepted = $is_accepted ?? 0;
+        }
+    }
+
+    public function setRecipeId(?int $recipe_id): void
+    {
+        if ($recipe_id !== null && $recipe_id < 0) {
+            $this->errors[] = "L'ID de la recette doit être positif.";
+        } else {
+            $this->recipe_id = $recipe_id;
+        }
+    }
+
+    public function setUserId(?int $user_id): void
+    {
+        if ($user_id !== null && $user_id < 0) {
+            $this->errors[] = "L'ID de l'utilisateur doit être positif.";
+        } else {
+            $this->user_id = $user_id;
+        }
+    }
+
+    public function setRating(?int $rating): void
+    {
+        if ($rating !== null && ($rating < 1 || $rating > 5)) {
+            $this->errors[] = "La note doit être entre 1 et 5.";
+        } else {
+            $this->rating = $rating;
+        }
+    }
+
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+    public function isValid(): bool
+    {
+        return empty($this->errors);
     }
 
     public function getId(): ?int
@@ -34,41 +96,9 @@ class CommentMapping extends AbstractMapping
         return $this->id;
     }
 
-    public function setId(?int $id): self
-    {
-        if ($id !== null && $id < 0) {
-            throw new Exception('ID must be positive');
-        }
-        $this->id = $id;
-        return $this;
-    }
-
-    public function getRecipeId(): ?int
-    {
-        return $this->recipe_id;
-    }
-
-    public function setRecipeId(?int $id): self
-    {
-        if ($id !== null && $id < 0) {
-            throw new Exception('ID must be positive');
-        }
-        $this->recipe_id = $id;
-        return $this;
-    }
-
     public function getContent(): ?string
     {
         return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        if ($content !== null && strlen($content) > 600) {
-            throw new Exception('Content cannot exceed 600 characters');
-        }
-        $this->content = $content;
-        return $this;
     }
 
     public function getCreatedAt(): ?string
@@ -76,23 +106,23 @@ class CommentMapping extends AbstractMapping
         return $this->created_at;
     }
 
-    public function setCreatedAt(?string $created_at): self
-    {
-        $this->created_at = $created_at;
-        return $this;
-    }
-
     public function getIsAccepted(): ?int
     {
         return $this->is_accepted;
     }
 
-    public function setIsAccepted(?int $is_accepted): self
+    public function getRecipeId(): ?int
     {
-        if ($is_accepted !== null && ($is_accepted < 0 || $is_accepted > 1)) {
-            throw new Exception("La valeur ne peut qu'une valeur entre 0 et 1");
-        }
-        $this->is_accepted = $is_accepted;
-        return $this;
+        return $this->recipe_id;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function getRating(): ?int
+    {
+        return $this->rating;
     }
 }

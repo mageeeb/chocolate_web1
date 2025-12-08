@@ -66,6 +66,8 @@ html[xmlns] .flexslider .slides {
 * html .flexslider .slides {
   height: 1%;
 }
+
+
 .no-js .flexslider .slides > li:first-child {
   display: block;
 }

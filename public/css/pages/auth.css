@@ -1,0 +1,152 @@
+/* =======================================================
+ *  AUTH PAGES - Styles pour les pages de connexion et inscription
+ *  ======================================================= */
+
+/* Container principal pour les formulaires d'authentification */
+.mainRecette3__comments {
+  max-width: 600px;
+  margin: 15rem auto 5rem;
+  padding: 3rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  .mainRecette3__comments {
+    margin: 10rem auto 3rem;
+    padding: 2rem;
+  }
+}
+
+.mainRecette3__comments h2 {
+  text-align: center;
+  color: #d4af37;
+  font-family: 'Satisfy', cursive;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulaire d'authentification */
+.mainRecette3__form {
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.mainRecette3__form label {
+  font-weight: 600;
+  color: #d4af37;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.mainRecette3__form input[type="text"],
+.mainRecette3__form input[type="email"],
+.mainRecette3__form input[type="password"] {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.mainRecette3__form input[type="text"]:focus,
+.mainRecette3__form input[type="email"]:focus,
+.mainRecette3__form input[type="password"]:focus {
+  border-color: #d4af37;
+  outline: none;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.mainRecette3__form input[type="submit"] {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #d4af37, #b8902a);
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mainRecette3__form input[type="submit"]:hover {
+  background: linear-gradient(135deg, #b8902a, #d4af37);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.mainRecette3__form a {
+  display: block;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.mainRecette3__form a:hover {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+/* Messages d'erreur et de succès */
+.mainRecette3__form .erreur,
+.mainRecette3__form .success {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.mainRecette3__form .erreur {
+  background: rgba(220, 53, 69, 0.2);
+  border: 1px solid rgba(220, 53, 69, 0.5);
+  color: #ff6b6b;
+}
+
+.mainRecette3__form .success {
+  background: rgba(40, 167, 69, 0.2);
+  border: 1px solid rgba(40, 167, 69, 0.5);
+  color: #51cf66;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .mainRecette3__comments {
+    margin: 8rem auto 2rem;
+    padding: 1.5rem;
+  }
+
+  .mainRecette3__form {
+    gap: 1.2rem;
+  }
+}
+
+

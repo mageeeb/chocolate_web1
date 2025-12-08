@@ -2,14 +2,14 @@
 
 namespace model\mapping;
 
-use model\AbstractMapping;
-use Exception;
+use model\AbstractMapping;;
 
 class RecipeIngredientsMapping extends AbstractMapping
 {
     protected ?int $id = null;
     protected ?string $slug = null;
     protected ?string $name = null;
+    protected array $errors = [];
 
     // --- GETTERS ---
     public function getId(): ?int
@@ -31,27 +31,41 @@ class RecipeIngredientsMapping extends AbstractMapping
     public function setId(?int $id): self
     {
         if ($id !== null && $id < 0) {
-            throw new Exception('ID must be positive');
+            $this->errors[] = "L'ID doit être positif.";
+        } else {
+            $this->id = $id;
         }
-        $this->id = $id;
         return $this;
     }
 
     public function setSlug(?string $slug): self
     {
         if ($slug !== null && strlen($slug) > 104) {
-            throw new Exception('Slug cannot exceed 104 characters');
+            $this->errors[] = "Le slug ne peut pas dépasser 104 caractères.";
+        } else {
+            $this->slug = $slug;
         }
-        $this->slug = $slug;
         return $this;
     }
 
     public function setName(?string $name): self
     {
         if ($name !== null && strlen($name) > 100) {
-            throw new Exception('Name cannot exceed 100 characters');
+            $this->errors[] = "Le nom ne peut pas dépasser 100 caractères.";
+        } else {
+            $this->name = $name;
         }
-        $this->name = $name;
         return $this;
+    }
+
+    // --- MÉTHODES DE VALIDATION ---
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+    public function isValid(): bool
+    {
+        return empty($this->errors);
     }
 }

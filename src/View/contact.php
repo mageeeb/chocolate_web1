@@ -56,8 +56,10 @@
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
+	<!-- Nouvelle architecture modulaire CSS -->
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/pages/contact.css">
 
 	<!-- Modernizr JS -->
 
@@ -76,14 +78,14 @@
 
 	<div id="page">
 
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+		<?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 		<header id="fh5co-header" class="fh5co-cover mainContact__header mainContact__header--background" role="banner"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay mainContact__header__overlay"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center contactText">
-								<h1 id="chocoTitle" class="mainContact__header__title">Contact</h1>
+						<h1 id="chocoTitle" class="mainContact__header__title">Contact</h1>
 					</div>
 				</div>
 			</div>
@@ -99,26 +101,17 @@
 							souhaitez des conseils personnalisés pour vos
 							créations chocolatées ? Notre équipe passionnée de chocolat est là pour vous accompagner
 							dans tous vos projets gourmands.</p>
-						<p><a href="mailto:info@yourdomainname.com"
-								class="btn btn-primary btn-outline mainContact__section__link">Contactez-nous</a></p>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<form class="modern-contact-form mainContact__section__form" id="new-contact-form">
+						<form class="modern-contact-form mainContact__section__form" id="new-contact-form" method="post">
 							<div class="modern-form-container mainContact__section__form__container">
 								<div class="modern-form-row mainContact__section__form__row">
 									<div class="modern-form-group mainContact__section__form__group">
-										<input type="text" id="prenom" name="prenom"
-											class="modern-input mainContact__section__form__input" required>
-										<label for="prenom"
-											class="modern-label mainContact__section__form__label">Prénom</label>
-										<span class="modern-focus-border mainContact__section__form__border"></span>
-									</div>
-									<div class="modern-form-group mainContact__section__form__group">
-										<input type="text" id="nom" name="nom"
-											class="modern-input mainContact__section__form__input" required>
+										<input type="text" id="nom" name="name"
+											class="modern-input mainContact__section__form__input" >
 										<label for="nom"
 											class="modern-label mainContact__section__form__label">Nom</label>
 										<span class="modern-focus-border mainContact__section__form__border"></span>
@@ -126,7 +119,7 @@
 								</div>
 								<div class="modern-form-group mainContact__section__form__group">
 									<input type="email" id="email-modern" name="email"
-										class="modern-input mainContact__section__form__input" required>
+										class="modern-input mainContact__section__form__input" >
 									<label for="email-modern"
 										class="modern-label mainContact__section__form__label">Adresse email</label>
 									<span class="modern-focus-border mainContact__section__form__border"></span>
@@ -134,18 +127,26 @@
 								<div class="modern-form-group mainContact__section__form__group">
 									<textarea id="message-modern" name="message"
 										class="modern-textarea mainContact__section__form__textarea" rows="6"
-										required></textarea>
+										></textarea>
 									<label for="message-modern"
 										class="modern-label mainContact__section__form__label">Votre message</label>
 									<span class="modern-focus-border mainContact__section__form__border"></span>
+									<?php if (isset($erreur) && !empty($erreur)): ?>
+										<div class="message-error"><?= $erreur; ?></div>
+									<?php endif ?>
+
+									<?php if (isset($success) && !empty($success)): ?>
+										<div class="message-success"><?= $success; ?></div>
+									<?php endif ?>
 								</div>
 								<div class="modern-form-group mainContact__section__form__group">
-									<button type="submit" class="modern-submit-btn mainContact__section__form__submit">
+									<button type="submit" name="validation" class="modern-submit-btn mainContact__section__form__submit">
 										<span class="btn-text mainContact__section__form__submit__text">Envoyer le
 											message</span>
 									</button>
 								</div>
 							</div>
+
 						</form>
 					</div>
 				</div>
@@ -154,7 +155,7 @@
 		</div>
 
 
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
+		<?php require_once PATH . "/src/View/inc/footer.php"; ?>
 
 	</div>
 

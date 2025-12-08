@@ -4,8 +4,8 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\UserMapping;
-use PDO;
 use Exception;
+use PDO;;
 
 class UserManager implements ManagerInterface
 {
@@ -16,10 +16,11 @@ class UserManager implements ManagerInterface
         $this->db = $connect;
     }
 
-    public function connect(UserMapping $user): bool {
+    public function connect(UserMapping $user): bool
+    {
         $sql = "SELECT * FROM `users` WHERE login = ?";
         $prepare = $this->db->prepare($sql);
-        
+
 
         try {
             $prepare->execute([
@@ -27,19 +28,20 @@ class UserManager implements ManagerInterface
 
             ]);
 
+            if ($prepare->rowCount() > 0) {
+                $result = $prepare->fetch();
+                if ($result && password_verify($user->getPassword(), $result['password'])) {
+                    unset($result['password']);
+                    $_SESSION = $result;
+                    return true;
+                }
+            }
 
-            $result = $prepare->fetch();
-            if(password_verify($user->getPassword(), $result['password'])){
-                unset($result['password']); 
-                $_SESSION = $result;
-            return true;
-            }    
 
             $prepare->closeCursor();
             return false;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la connexion de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return false;
         }
     }
@@ -84,9 +86,8 @@ class UserManager implements ManagerInterface
                 $users[] = $user;
             }
             return $users;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération des utilisateurs : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return [];
         }
     }
@@ -102,9 +103,8 @@ class UserManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new UserMapping($result) : null;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return null;
         }
     }
@@ -120,9 +120,8 @@ class UserManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new UserMapping($result) : null;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return null;
         }
     }
@@ -138,43 +137,42 @@ class UserManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new UserMapping($result) : null;
-
         } catch (Exception $e) {
-            echo "Erreur lors de la récupération de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return null;
         }
     }
 
     // Insertion d'un nouvel utilisateur
-public function insertUser(UserMapping $user): bool
-{
-    $sql = "INSERT INTO `users` 
+    public function insertUser(UserMapping $user): bool
+    {
+        $sql = "INSERT INTO `users` 
             (name, login, email, password, role, email_token, is_verified, images_id) 
             VALUES (:name, :login, :email, :password, :role, :email_token, :is_verified, :images_id)";
-    $prepare = $this->db->prepare($sql);
+        $prepare = $this->db->prepare($sql);
 
-    $emailToken = bin2hex(random_bytes(32));
-    $user->setEmailToken($emailToken);
+        $emailToken = bin2hex(random_bytes(32));
+        $user->setEmailToken($emailToken);
 
-    $hashPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
+        $hashPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
 
-    try {
-        $prepare->execute([
-            ':name'        => $user->getName(),
-            ':login'       => $user->getLogin(),
-            ':email'       => $user->getEmail(),
-            ':password'    => $hashPassword,
-            ':role'        => $user->getRole(),
-            ':email_token' => $user->getEmailToken(),
-            ':is_verified' => $user->getIsVerified(),
-            ':images_id'   => $user->getImagesId(),
-        ]);
-        return true;
-    } catch (Exception $e) {
-        echo "Erreur lors de l'insertion de l'utilisateur : " . $e->getMessage();
-        return false;
+        try {
+            $prepare->execute([
+                ':name'        => $user->getName(),
+                ':login'       => $user->getLogin(),
+                ':email'       => $user->getEmail(),
+                ':password'    => $hashPassword,
+                ':role'        => $user->getRole(),
+                ':email_token' => $user->getEmailToken(),
+                ':is_verified' => $user->getIsVerified(),
+                ':images_id'   => $user->getImagesId(),
+            ]);
+            return true;
+        } catch (Exception $e) {
+            // L'erreur sera gérée par le contrôleur via $erreur
+            return false;
+        }
     }
-}
 
     // Mise à jour d'un utilisateur
     public function updateUser(UserMapping $user): bool
@@ -184,7 +182,7 @@ public function insertUser(UserMapping $user): bool
                 `images_id` = :images_id WHERE `id` = :id";
         $prepare = $this->db->prepare($sql);
 
-        
+
 
         try {
 
@@ -199,7 +197,7 @@ public function insertUser(UserMapping $user): bool
             $prepare->execute();
             return true;
         } catch (Exception $e) {
-            echo "Erreur lors de la mise à jour de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return false;
         }
     }
@@ -213,7 +211,7 @@ public function insertUser(UserMapping $user): bool
             $prepare->execute([$userId]);
             return true;
         } catch (Exception $e) {
-            echo "Erreur lors de la suppression de l'utilisateur : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
             return false;
         }
     }
@@ -261,14 +259,15 @@ public function insertUser(UserMapping $user): bool
             $prepare->execute([
                 $user->getPwdToken(),
                 $user->getId()
-        ]);
-        return true;
+            ]);
+            return true;
         } catch (Exception $e) {
-           echo "Erreur lors du changement du mot de passe : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
+            return false;
         }
     }
 
-        public function updatePassword(UserMapping $user): bool
+    public function updatePassword(UserMapping $user): bool
     {
         $sql = "UPDATE users SET pwd_token = null, password = ? WHERE id = ?";
 
@@ -279,11 +278,11 @@ public function insertUser(UserMapping $user): bool
             $prepare->execute([
                 $hashPassword,
                 $user->getId()
-        ]);
-        return true;
+            ]);
+            return true;
         } catch (Exception $e) {
-           echo "Erreur lors du changement du mot de passe : " . $e->getMessage();
+            // L'erreur sera gérée par le contrôleur via $erreur
+            return false;
         }
     }
-
 }

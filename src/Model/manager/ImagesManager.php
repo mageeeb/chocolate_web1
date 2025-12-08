@@ -4,8 +4,7 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\ImagesMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class ImagesManager implements ManagerInterface
 {
@@ -32,7 +31,6 @@ class ImagesManager implements ManagerInterface
                 $images[] = $image;
             }
             return $images;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des images : " . $e->getMessage();
             return [];
@@ -50,7 +48,6 @@ class ImagesManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new ImagesMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération de l'image : " . $e->getMessage();
             return null;
@@ -68,7 +65,6 @@ class ImagesManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new ImagesMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération de l'image : " . $e->getMessage();
             return null;

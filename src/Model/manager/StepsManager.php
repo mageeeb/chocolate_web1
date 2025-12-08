@@ -4,8 +4,7 @@ namespace model\manager;
 
 use model\ManagerInterface;
 use model\mapping\StepsMapping;
-use PDO;
-use Exception;
+use PDO;;
 
 class StepsManager implements ManagerInterface
 {
@@ -32,7 +31,6 @@ class StepsManager implements ManagerInterface
                 $steps[] = $step;
             }
             return $steps;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des étapes : " . $e->getMessage();
             return [];
@@ -50,7 +48,6 @@ class StepsManager implements ManagerInterface
             $prepare->closeCursor();
 
             return $result ? new StepsMapping($result) : null;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération de l'étape : " . $e->getMessage();
             return null;
@@ -73,7 +70,6 @@ class StepsManager implements ManagerInterface
                 $steps[] = $step;
             }
             return $steps;
-
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des étapes : " . $e->getMessage();
             return [];

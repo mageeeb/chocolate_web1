@@ -43,8 +43,10 @@
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
+	<!-- Nouvelle architecture modulaire CSS -->
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/pages/about.css">
 
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>

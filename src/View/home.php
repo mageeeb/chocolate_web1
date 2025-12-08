@@ -43,9 +43,10 @@
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="<?php CHEMIN ?>css/flexslider.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="<?php CHEMIN ?>css/style.css">
-	<link rel="stylesheet" href="<?php CHEMIN ?>css/custom.css">
+	<!-- Nouvelle architecture modulaire CSS -->
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/base.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/components.css">
+	<link rel="stylesheet" href="<?php CHEMIN ?>css/pages/home.css">
 
 	<!-- Modernizr JS -->
 
@@ -73,8 +74,7 @@
 	</div>
 
 	<div id="page">
-
-<?php require_once PATH."/src/View/inc/navigation.php"; ?>
+		<?php require_once PATH . "/src/View/inc/navigation.php"; ?>
 
 		<header id="fh5co-header" class="fh5co-cover js-fullheight mainHome__header" role="banner"
 			data-stellar-background-ratio="0.5">
@@ -94,95 +94,82 @@
 			<span id="downBtn" class="mainHome__header__down-btn">🔻</span>
 		</header>
 
-
 		<div id="fh5co-blog" class="fh5co-section mainHome__blog">
 			<div class="container">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<h2 class="mainHome__blog__title">Les recettes les plus vues</h2>
-						<p class="mainHome__blog__description">Découvrez nos recettes chocolatées les plus populaires !
-							Ce sont celles que nos visiteurs
-							adorent le plus. Du fondant au chocolat à la mousse légère,
-							ces délices ont conquis le cœur des gourmands. Laissez-vous tenter et essayez-les chez vous
-							!</p>
+						<h2 class="mainHome__blog__title">Les recettes les mieux notées</h2>
+						<p class="mainHome__blog__description">
+							Découvrez nos recettes chocolatées les plus populaires !
+							Ce sont celles que nos visiteurs adorent le plus.
+							Du fondant au chocolat à la mousse légère,
+							ces délices ont conquis le cœur des gourmands. Laissez-vous tenter et essayez-les chez vous !
+						</p>
 					</div>
 				</div>
+
 				<div class="row">
-					<div class="col-md-4">
-						<div class="animate-box mainHome__blog__item">
-							<a href="#"
-								class="mainHome__blog__item__image mainHome__blog__item__image--pile-pancakes"></a>
-							<div class="mainHome__blog__item__content">
-								<span class="mainHome__blog__item__date">🍫 15 février 2025</span>
-								<h3 class="mainHome__blog__item__title"><a href="#">Brownie fondant au chocolat</a></h3>
-								<p class="mainHome__blog__item__text">Laissez-vous séduire par notre dernier
-									chef-d'œuvre chocolaté ! Moelleux à
-									l'intérieur, croustillant à l'extérieur, ce brownie fondant est parfait pour toutes
-									les occasions.
-								</p>
-								<ul class="mainHome__blog__item__rating">
-									<li class="mainHome__blog__item__rating__stars">
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-									</li>
-								</ul>
+					<?php if (!empty($top3)): ?>
+						<?php foreach (array_slice($top3, 0, 3) as $recette): ?>
+							<div class="col-md-4">
+								<div class="animate-box mainHome__blog__item" style="border:  solid gold; padding: 1rem; border-radius: 10px;">
+									<a href="?pg=recette&slug=<?= htmlspecialchars($recette['slug'] ?? '') ?>"
+										class="mainHome__blog__item__image"
+										style="background-image: url('<?php CHEMIN ?>images/recipes/<?= htmlspecialchars($recette['image_url'] ?? 'chocolate-ice-cream.jpg') ?>');"></a>
+
+
+
+									<div class="mainHome__blog__item__content">
+										<span class="mainHome__blog__item__date">
+
+										</span>
+
+										<h3 class="mainHome__blog__item__title">
+											<a>
+												<?= htmlspecialchars($recette['title']) ?>
+											</a>
+											<p style="margin: 1rem;">⏱️ <?= htmlspecialchars($recette['prep_time']) ?></p>
+										</h3>
+
+										<p class="mainHome__blog__item__text">
+											<?= htmlspecialchars($recette['description']) ?>
+										</p>
+
+										<ul class="mainHome__blog__item__rating" style="display: flex; justify-content: space-between; padding: 0;">
+											<li style="list-style-type: none;">
+												<?php
+												$createdAt = $recette['created_at'] ?? null;
+												if ($createdAt && strtotime($createdAt) !== false) {
+													echo htmlspecialchars(date('d/m/Y', strtotime($createdAt)));
+												} else {
+													echo 'Date non disponible';
+												}
+												?>
+
+											</li>
+											<li class="mainHome__blog__item__rating__stars" style="list-style-type: none;">
+
+												<?php
+												$avgRating = isset($recette['avg_rating']) ? (float)$recette['avg_rating'] : 0;
+												$stars = (int)round($avgRating);
+												for ($i = 0; $i < $stars; $i++) echo '<span style="color:gold;">★</span>';
+												for ($i = $stars; $i < 5; $i++) echo '<span style="color: gold;">☆</span>';
+												?>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<div class="col-md-12">
+							<p class="text-center">Aucune recette disponible pour le moment.</p>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="animate-box mainHome__blog__item">
-							<a href="#"
-								class="mainHome__blog__item__image mainHome__blog__item__image--pancake-fruits"></a>
-							<div class="mainHome__blog__item__content">
-								<span class="mainHome__blog__item__date">🍪 28 avril 2025</span>
-								<h3 class="mainHome__blog__item__title"><a href="#">Cookies au chocolat fondant</a></h3>
-								<p class="mainHome__blog__item__text">Des cookies croustillants à l'extérieur et
-									fondants à l'intérieur ! Faciles à
-									préparer, ils sont parfaits pour une pause sucrée ou un goûter maison.
-									Un vrai bonheur pour les amoureux du chocolat.</p>
-								<ul class="mainHome__blog__item__rating">
-									<li class="mainHome__blog__item__rating__stars">
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="animate-box mainHome__blog__item">
-							<a href="#"
-								class="mainHome__blog__item__image mainHome__blog__item__image--dessert-creme"></a>
-							<div class="mainHome__blog__item__content">
-								<span class="mainHome__blog__item__date">🍰 10 mars 2025</span>
-								<h3 class="mainHome__blog__item__title"><a href="#">Mousse au chocolat onctueuse</a>
-								</h3>
-								<p class="mainHome__blog__item__text">Légère, fondante et pleine de saveur, cette mousse
-									au chocolat est un vrai plaisir
-									pour les papilles. Préparée en quelques minutes seulement, elle ravira petits et
-									grands.
-									Un dessert simple.</p>
-								<ul class="mainHome__blog__item__rating">
-									<li class="mainHome__blog__item__rating__stars">
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-										<span>★</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
+
 
 
 		<div id="fh5co-featured-testimony" class="fh5co-section mainHome__testimony">
@@ -192,7 +179,7 @@
 
 					<div class="col-md-6 animate-box img-to-responsive animate-box mainHome__testimony__image-wrapper"
 						data-animate-effect="fadeInLeft">
-						<img src="<?php CHEMIN ?>images/recipes/gateau-chocolat-fondant.jpg" alt="" class="mainHome__testimony__image">
+						<img src="<?php CHEMIN ?>images/recipes/mousse_au_chocolat.jpg" alt="" class="mainHome__testimony__image">
 					</div>
 					<div class="col-md-6 animate-box mainHome__testimony__content" data-animate-effect="fadeInRight">
 						<blockquote class="mainHome__testimony__quote">
@@ -214,683 +201,213 @@
 				<div class="row">
 
 
-					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
-						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
-							<div class="choco-card animate-fade-in mainHome__menu__item__card">
-								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?php CHEMIN ?>images/recipes/pile-pancakes-fruits.jpg"
-										alt="Chocolat noir belge artisanal"
-										class="img-responsive mainHome__menu__item__card__image">
-								</div>
-								<div class="choco-content mainHome__menu__item__card__content">
-									<h3 class="mainHome__menu__item__card__title">Brownie fondant au chocolat</h3>
-									<span class="fh5co-price mainHome__menu__item__card__price">Prêt en 30 min</span>
-									<p class="mainHome__menu__item__card__description">Un brownie au cœur fondant,
-										croustillant sur les bords et riche en goût. Une
-										recette simple et irrésistible pour les amoureux du chocolat.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
-						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
-							<div class="choco-card animate-fade-in mainHome__menu__item__card">
-								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?php CHEMIN ?>images/recipes/dessert-creme-fruits.jpg"
-										alt="Chocolat noir belge artisanal"
-										class="img-responsive mainHome__menu__item__card__image">
-								</div>
-								<div class="choco-content mainHome__menu__item__card__content">
-									<h3 class="mainHome__menu__item__card__title">Mousse au chocolat légère</h3>
-									<span class="fh5co-price mainHome__menu__item__card__price">Prêt en 20 min</span>
-									<p class="mainHome__menu__item__card__description">Une mousse aérienne et onctueuse
-										qui fond en bouche. Parfaite pour terminer un
-										repas sur une note douce et chocolatée.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
-						<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
-							<div class="choco-card animate-fade-in mainHome__menu__item__card">
-								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?php CHEMIN ?>images/recipes/pancake-fruits.jpg" alt="Chocolat noir belge artisanal"
-										class="img-responsive mainHome__menu__item__card__image">
-								</div>
-								<div class="choco-content mainHome__menu__item__card__content">
-									<h3 class="mainHome__menu__item__card__title">Cookies au chocolat fondant</h3>
-									<span class="fh5co-price mainHome__menu__item__card__price">Prêt en 25 min</span>
-									<p class="mainHome__menu__item__card__description">Des cookies croustillants à
-										l'extérieur et moelleux à l'intérieur. Faciles à
-										faire, ils plaisent à tout le monde !</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
-						<div class="fh5co-item margin_top" data-tilt data-tilt-max="25" data-tilt-speed="400">
-							<div class="choco-card animate-fade-in mainHome__menu__item__card">
-								<div class="choco-img mainHome__menu__item__card__image-wrapper">
-									<img src="<?php CHEMIN ?>images/recipes/tarte-framboise.jpg" alt="Chocolat noir belge artisanal"
-										class="img-responsive mainHome__menu__item__card__image">
-								</div>
-								<div class="choco-content mainHome__menu__item__card__content">
-									<h3 class="mainHome__menu__item__card__title">Gâteau moelleux au chocolat belge</h3>
-									<span class="fh5co-price mainHome__menu__item__card__price">Prêt en 40 min</span>
-									<p class="mainHome__menu__item__card__description">Un gâteau fondant, riche et
-										parfumé, inspiré du chocolat noir belge. Idéal pour
-										un dessert gourmand ou un goûter en famille.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div id="fh5co-slider" class="fh5co-section">
-					<div class="container-fluid">
-						<div class="row">
-							<!-- Carousel à gauche -->
-							<div class="col-md-6 col-sm-12">
-								<aside id="fh5co-slider-wrwap">
-									<div class="flexslider">
-										<ul class="slides">
-											<li>
-												<div class="overlay-gradient"></div>
-												<div class="slider-text slider-text-bg">
-													<div class="slider-text-inner">
-														<div class="desc">
-															<h2>Chocolat <em>Noir</em> Belge</h2>
-															<p>Un chocolat noir intense et raffiné...</p>
-															<p><a href="#" class="btn btn-primary btn-outline">Lire la
-																	suite</a></p>
-														</div>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="overlay-gradient"></div>
-												<div class="slider-text slider-text-bg">
-													<div class="slider-text-inner">
-														<div class="desc">
-															<h2>Brownie <em>Fondant</em> au Chocolat</h2>
-															<p>Un brownie moelleux à l'intérieur...</p>
-															<p><a href="#" class="btn btn-primary btn-outline">Lire la
-																	suite</a></p>
-														</div>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="overlay-gradient"></div>
-												<div class="slider-text slider-text-bg">
-													<div class="slider-text-inner">
-														<div class="desc">
-															<h2>Mousse <em>au</em> Chocolat Onctueuse</h2>
-															<p>Une mousse légère et aérienne...</p>
-															<p><a href="#" class="btn btn-primary btn-outline">Lire la
-																	suite</a></p>
-														</div>
-													</div>
-												</div>
-											</li>
-										</ul>
+					<?php foreach ($top3 as $recette): ?>
+						<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
+							<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
+								<div class="choco-card animate-fade-in mainHome__menu__item__card" style="border: solid gold; padding: 1rem; border-radius: 10px;">
+									<div class="choco-img mainHome__menu__item__card__image-wrapper">
+										<img style="border: none; " src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars($recette['image_url']) ?>"
+											class="img-responsive mainHome__menu__item__card__image">
 									</div>
-								</aside>
-							</div>
-
-							<!-- Image principale à droite -->
-							<div class="col-md-6 col-sm-12">
-								<div class="slider-image-wrapper">
-									<img src="<?php CHEMIN ?>images/ui/loader-chargement.gif" alt="Chocolat Noir Belge"
-										class="img-responsive" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div id="fh5co-blog2" class="fh5co-section mainHome__comments">
-					<div class="container">
-						<div class="row animate-box">
-							<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-								<h2 class="mainHome__comments__title">Commentaires</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<!-- Bootstrap 3 Carousel pour commentaires - Desktop -->
-								<div id="commentsCarousel" class="carousel slide hidden-xs" data-ride="carousel"
-									data-interval="4000">
-									<!-- Indicateurs -->
-									<ol class="carousel-indicators">
-										<li data-target="#commentsCarousel" data-slide-to="0" class="active"></li>
-										<li data-target="#commentsCarousel" data-slide-to="1"></li>
-										<li data-target="#commentsCarousel" data-slide-to="2"></li>
-									</ol>
-
-									<!-- Slides du carousel -->
-									<div class="carousel-inner" role="listbox">
-										<!-- Slide 1 - 3 cartes côte à côte -->
-										<div class="item active">
-											<div class="row">
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card mainHome__comments__card">
-														<div class="comment-content mainHome__comments__card__content">
-															<div
-																class="comment-header mainHome__comments__card__header">
-																<div
-																	class="comment-text-section mainHome__comments__card__text-section">
-																	<span
-																		class="comment-date mainHome__comments__card__date">15
-																		Février
-																		2024</span>
-																	<h4 class="mainHome__comments__card__title">
-																		Excellente expérience</h4>
-																</div>
-																<div
-																	class="comment-photo mainHome__comments__card__photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p class="mainHome__comments__card__text">"Le chocolat était
-																absolument délicieux ! La qualité
-																et le goût sont exceptionnels. Je recommande
-																vivement cette chocolaterie."</p>
-															<div
-																class="comment-author mainHome__comments__card__author">
-																— Marie Dubois</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">22 Mars 2024</span>
-																	<h4>Service impeccable</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"L'accueil était chaleureux et le personnel très
-																professionnel. Les chocolats sont un vrai régal pour
-																les papilles."</p>
-															<div class="comment-author">— Pierre Martin</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">5 Avril 2024</span>
-																	<h4>Produits de qualité</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Une découverte fantastique ! Les chocolats sont
-																artisanaux et d'une qualité rare. Un vrai plaisir
-																gustatif."</p>
-															<div class="comment-author">— Sophie Leroy</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 2 - 3 autres cartes -->
-										<div class="item">
-											<div class="row">
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">18 Mai 2024</span>
-																	<h4>Cadeau parfait</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"J'ai offert une boîte de chocolats et ce fut un
-																succès total ! Présentation soignée et goût
-																exceptionnel."</p>
-															<div class="comment-author">— Julie Bernard</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">30 Juin 2024</span>
-																	<h4>Tradition et modernité</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Un parfait mélange entre savoir-faire traditionnel
-																et innovation. Les saveurs sont uniques et
-																mémorables."</p>
-															<div class="comment-author">— Thomas Rousseau</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">12 Juillet
-																		2024</span>
-																	<h4>Moment magique</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Chaque bouchée est un voyage. L'attention aux
-																détails et la passion se ressentent dans chaque
-																création."</p>
-															<div class="comment-author">— Émilie Moreau</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 3 - 3 dernières cartes -->
-										<div class="item">
-											<div class="row">
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">25 Août 2024</span>
-																	<h4>Incontournable</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Impossible de résister ! Ces chocolats sont devenus
-																ma nouvelle addiction. Qualité irréprochable à
-																chaque visite."</p>
-															<div class="comment-author">— Alexandre Petit</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">10 Septembre
-																		2024</span>
-																	<h4>Expérience unique</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Plus qu'une simple dégustation, c'est une véritable
-																expérience sensorielle. Bravo pour ce travail
-																d'orfèvre !"</p>
-															<div class="comment-author">— Camille Durand</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-6 col-xs-12">
-													<div class="comment-card">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">28 Octobre
-																		2024</span>
-																	<h4>Pur délice</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Des créations qui réveillent les sens. Chaque
-																chocolat raconte une histoire et procure un plaisir
-																intense."</p>
-															<div class="comment-author">— Nicolas Girard</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+									<div class="choco-content mainHome__menu__item__card__content">
+										<h3 class="mainHome__menu__item__card__title"><?= htmlspecialchars($recette['title']) ?></h3>
+										<span class="fh5co-price mainHome__menu__item__card__price"><?= htmlspecialchars($recette['prep_time']) ?></span>
+										<p class="mainHome__menu__item__card__description"><?= htmlspecialchars($recette['description']) ?></p>
 									</div>
-
-									<!-- Contrôles gauche et droite -->
-									<a class="left carousel-control" href="#commentsCarousel" role="button"
-										data-slide="prev">
-										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-										<span class="sr-only">Précédent</span>
-									</a>
-									<a class="right carousel-control" href="#commentsCarousel" role="button"
-										data-slide="next">
-										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-										<span class="sr-only">Suivant</span>
-									</a>
-								</div>
-
-								<!-- Bootstrap 3 Carousel pour commentaires - Mobile -->
-								<div id="commentsCarouselMobile" class="carousel slide visible-xs" data-ride="carousel"
-									data-interval="3500">
-									<!-- Indicateurs -->
-									<ol class="carousel-indicators">
-										<li data-target="#commentsCarouselMobile" data-slide-to="0" class="active">
-										</li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="1"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="2"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="3"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="4"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="5"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="6"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="7"></li>
-										<li data-target="#commentsCarouselMobile" data-slide-to="8"></li>
-									</ol>
-
-									<!-- Slides du carousel mobile - une carte par slide -->
-									<div class="carousel-inner" role="listbox">
-										<!-- Slide 1 -->
-										<div class="item active">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">15 Février
-																		2024</span>
-																	<h4>Excellente expérience</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Le chocolat était absolument délicieux ! La qualité
-																et le goût sont exceptionnels. Je recommande
-																vivement cette chocolaterie."</p>
-															<div class="comment-author">— Marie Dubois</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 2 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">22 Mars 2024</span>
-																	<h4>Service impeccable</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"L'accueil était chaleureux et le personnel très
-																professionnel. Les chocolats sont un vrai régal pour
-																les papilles."</p>
-															<div class="comment-author">— Pierre Martin</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 3 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">5 Avril 2024</span>
-																	<h4>Produits de qualité</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Une découverte fantastique ! Les chocolats sont
-																artisanaux et d'une qualité rare. Un vrai plaisir
-																gustatif."</p>
-															<div class="comment-author">— Sophie Leroy</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 4 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">18 Mai 2024</span>
-																	<h4>Cadeau parfait</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"J'ai offert une boîte de chocolats et ce fut un
-																succès total ! Présentation soignée et goût
-																exceptionnel."</p>
-															<div class="comment-author">— Julie Bernard</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 5 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">30 Juin 2024</span>
-																	<h4>Tradition et modernité</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Un parfait mélange entre savoir-faire traditionnel
-																et innovation. Les saveurs sont uniques et
-																mémorables."</p>
-															<div class="comment-author">— Thomas Rousseau</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 6 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">12 Juillet
-																		2024</span>
-																	<h4>Moment magique</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Chaque bouchée est un voyage. L'attention aux
-																détails et la passion se ressentent dans chaque
-																création."</p>
-															<div class="comment-author">— Émilie Moreau</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 7 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">25 Août 2024</span>
-																	<h4>Incontournable</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Impossible de résister ! Ces chocolats sont devenus
-																ma nouvelle addiction. Qualité irréprochable à
-																chaque visite."</p>
-															<div class="comment-author">— Alexandre Petit</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 8 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">10 Septembre
-																		2024</span>
-																	<h4>Expérience unique</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Plus qu'une simple dégustation, c'est une véritable
-																expérience sensorielle. Bravo pour ce travail
-																d'orfèvre !"</p>
-															<div class="comment-author">— Camille Durand</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Slide 9 -->
-										<div class="item">
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="comment-card-mobile">
-														<div class="comment-content">
-															<div class="comment-header">
-																<div class="comment-text-section">
-																	<span class="comment-date">28 Octobre
-																		2024</span>
-																	<h4>Pur délice</h4>
-																</div>
-																<div class="comment-photo">
-																	<!-- Espace pour photo ronde -->
-																</div>
-															</div>
-															<p>"Des créations qui réveillent les sens. Chaque
-																chocolat raconte une histoire et procure un plaisir
-																intense."</p>
-															<div class="comment-author">— Nicolas Girard</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Contrôles gauche et droite pour mobile -->
-									<a class="left carousel-control" href="#commentsCarouselMobile" role="button"
-										data-slide="prev">
-										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-										<span class="sr-only">Précédent</span>
-									</a>
-									<a class="right carousel-control" href="#commentsCarouselMobile" role="button"
-										data-slide="next">
-										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-										<span class="sr-only">Suivant</span>
-									</a>
 								</div>
 							</div>
 						</div>
-					</div>
+					<?php endforeach; ?>
+
 				</div>
-
-
-
 
 			</div>
-
-
 		</div>
 
-<?php require_once PATH."/src/View/inc/footer.php"; ?>
-	</div>
+
+		<div id="fh5co-blog2" class="fh5co-section mainHome__comments">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="mainHome__comments__title">Commentaires</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- Carousel Desktop -->
+						<div id="commentsCarousel" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
+							<!-- Indicateurs -->
+							<ol class="carousel-indicators">
+								<?php foreach ($chunks as $index => $chunk): ?>
+									<li data-target="#commentsCarousel" data-slide-to="<?= $index ?>" class="<?= $index === 0 ? 'active' : '' ?>"></li>
+								<?php endforeach; ?>
+							</ol>
+
+							<!-- Slides -->
+							<div class="carousel-inner" role="listbox">
+								<?php foreach ($chunks as $index => $chunk): ?>
+									<div class="item <?= $index === 0 ? 'active' : '' ?>">
+										<div class="row">
+											<?php foreach ($chunk as $commentData):
+												$comment = $commentData['comment'];
+												$user    = $commentData['user'];
+												$recipe  = $commentData['recipe'];
+											?>
+												<div class="col-md-4 col-sm-6 col-xs-12">
+													<div class="comment-card">
+														<div class="comment-content">
+															<div class="comment-header">
+																<div class="comment-text-section">
+																	<span class="comment-date">
+																		<?= date("d M Y", strtotime($comment->getCreatedAt())) ?>
+																	</span>
+																	<h4><?= htmlspecialchars($recipe->getTitle()) ?></h4>
+																</div>
+																<div class="comment-photo"><!-- photo ronde --></div>
+															</div>
+															<p>"<?= htmlspecialchars($comment->getContent()) ?>"</p>
+															<div class="comment-author">
+																<div>
+																	<?php
+																	$stars = (int)($comment->getRating() ?? 0);
+																	for ($i = 0; $i < $stars; $i++) echo '<span style="color:gold;">★</span>';
+																	for ($i = $stars; $i < 5; $i++) echo '<span style="color: gold;">☆</span>';
+																	?>
+																</div>
+																<div>
+																	- <?= htmlspecialchars($user->getName()) ?>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<?php endforeach; ?>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div>
+
+							<!-- Contrôles -->
+							<a class="left carousel-control" href="#commentsCarousel" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Précédent</span>
+							</a>
+							<a class="right carousel-control" href="#commentsCarousel" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Suivant</span>
+							</a>
+						</div>
 
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
+						<!-- Carousel Mobile -->
+						<div id="commentsCarouselMobile" class="carousel slide visible-xs" data-ride="carousel" data-interval="3500">
+							<!-- Indicateurs -->
+							<ol class="carousel-indicators">
+								<?php foreach ($commentsData as $index => $commentData): ?>
+									<li data-target="#commentsCarouselMobile" data-slide-to="<?= $index ?>" class="<?= $index === 0 ? 'active' : '' ?>"></li>
+								<?php endforeach; ?>
+							</ol>
 
-	<!-- jQuery -->
-	<!-- Vendors -->
-	<script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
-	<script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
-	<script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
-	<script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+							<!-- Slides -->
+							<div class="carousel-inner" role="listbox">
+								<?php foreach ($commentsData as $index => $commentData):
+									$comment = $commentData['comment'];
+									$user    = $commentData['user'];
+									$recipe  = $commentData['recipe'];
+								?>
+									<div class="item <?= $index === 0 ? 'active' : '' ?>">
+										<div class="row">
+											<div class="col-xs-12">
+												<div class="comment-card-mobile">
+													<div class="comment-content">
+														<div class="comment-header">
+															<div class="comment-text-section">
+																<span class="comment-date">
+																	<?= date("d M Y", strtotime($comment->getCreatedAt())) ?>
+																</span>
+																<h4><?= htmlspecialchars($recipe->getTitle()) ?></h4>
+															</div>
+															<div class="comment-photo"><!-- photo ronde --></div>
+														</div>
+														<p>"<?= htmlspecialchars($comment->getContent()) ?>"</p>
+														<div class="comment-author">
+															<div>
+																<?php
+																$stars = (int)($comment->getRating());
+																for ($i = 0; $i < $stars; $i++) echo '<span style="color:gold;">★</span>';
+																for ($i = $stars; $i < 5; $i++) echo '<span style="color: gold;">☆</span>';
+																?>
+															</div>
+															<div>
+																- <?= htmlspecialchars($user->getName()) ?>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 
-	<script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
-	<!-- Core -->
-	<script src="<?php CHEMIN ?>js/core/main.js"></script>
-	<script src="<?php CHEMIN ?>js/core/navigation.js"></script>
-	<!-- Animations -->
-	<script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-	<script src="<?php CHEMIN ?>js/animations/homePageAnim.js"></script>
-	<script>
-		VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-			max: 25,
-			speed: 400,
-			glare: true,
-			"max-glare": 0.3
-		});
-	</script>
+									</div>
+								<?php endforeach; ?>
+							</div>
+
+							<!-- Contrôles -->
+							<a class="left carousel-control" href="#commentsCarouselMobile" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Précédent</span>
+							</a>
+							<a class="right carousel-control" href="#commentsCarouselMobile" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Suivant</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<?php require_once PATH . "/src/View/inc/footer.php"; ?>
+
+
+		<div class="gototop js-top">
+			<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+		</div>
+
+		<!-- jQuery -->
+		<!-- Vendors -->
+		<script src="<?php CHEMIN ?>js/vendors/jquery.min.js"></script>
+		<script src="<?php CHEMIN ?>js/vendors/jquery.easing.1.3.js"></script>
+		<script src="<?php CHEMIN ?>js/vendors/bootstrap.min.js"></script>
+		<script src="<?php CHEMIN ?>js/vendors/jquery.waypoints.min.js"></script>
+
+		<script src="<?php CHEMIN ?>js/vendors/jquery.flexslider-min.js"></script>
+		<!-- Core -->
+		<script src="<?php CHEMIN ?>js/core/main.js"></script>
+		<script src="<?php CHEMIN ?>js/core/navigation.js"></script>
+		<!-- Animations -->
+		<script src="<?php CHEMIN ?>js/animations/header-animations.js"></script>
+		<script src="<?php CHEMIN ?>js/animations/homePageAnim.js"></script>
+		<script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+		<script>
+			VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+				max: 25,
+				speed: 400,
+				glare: true,
+				"max-glare": 0.3
+			});
+
+			// Initialisation du carousel de recettes avec défilement automatique
+			$(document).ready(function() {
+				$('#recipesCarousel').carousel({
+					interval: 4000,
+					wrap: true,
+					pause: false
+				});
+				$('#recipesCarousel').carousel('cycle');
+			});
+		</script>
 
 
 </body>

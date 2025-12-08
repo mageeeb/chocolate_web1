@@ -23,23 +23,12 @@ $dotenv->load();
 
 # Routage principal
 if (isset($_SESSION['is_verified']) && $_SESSION['is_verified'] === 1) {
-    require_once PATH."/src/Controller/UserController.php";
+    require_once __DIR__ . "/UserController.php";
 } else {
-    require_once PATH."/src/Controller/PublicController.php";
+    require_once __DIR__ . "/publicController.php";
 }
 
 
-// Débogage
-echo '<div class="container"><hr><h3>Barre de débogage</h3><hr>';
-echo '<h4>session_id() ou SID</h4>';
-print_r(session_id());
-echo '<h4>$_GET</h4>';
-print_r($_GET);
-echo '<h4>$_SESSION</h4>';
-print_r($_SESSION);
-echo '<h3>$_POST</h3>';
-print_r($_POST);
-echo '</div>';
 
 
 $pdo = null;
