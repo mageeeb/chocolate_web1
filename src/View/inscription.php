@@ -107,9 +107,9 @@
             <div class="message-success"><?= $success; ?></div>
           <?php endif ?>
 
-          <input style="margin-top:3rem;" name="validation" type="submit" value="Inscription" />
+          <input name="validation" type="submit" value="Inscription" />
 
-          <a style="text-align:center; padding:2rem;" href="?pg=connexion">Déjà inscrit ? Clique ici</a>
+          <a href="?pg=connexion">Déjà inscrit ? Clique ici</a>
         </form>
 
       </section>

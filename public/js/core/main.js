@@ -364,7 +364,7 @@
 					$('.recipe-submit-btn').css('background', '');
 					
 					// Message de remerciement
-					alert('Merci ' + userName + ' pour votre commentaire ! 🍫\n\nVotre avis est précieux pour nous et inspire d\'autres passionnés de chocolat.');
+					alert('Merci ' + userName + ' pour votre commentaire ! \n\nVotre avis est précieux pour nous et inspire d\'autres passionnés de chocolat.');
 				}, 2000);
 			}
 		});

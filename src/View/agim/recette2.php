@@ -12,12 +12,12 @@
 
   <!-- Facebook and Twitter integration -->
   <meta property="og:title" content="Fondant au chocolat - Cokolada" />
-  <meta property="og:image" content="<?php CHEMIN ?>images/recipes/fondant_au_chocolat.jpg" />
+
   <meta property="og:url" content="" />
   <meta property="og:site_name" content="Cokolada" />
   <meta property="og:description" content="Découvrez notre recette de fondant au chocolat" />
   <meta name="twitter:title" content="Fondant au chocolat - Cokolada" />
-  <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/fondant_au_chocolat.jpg" />
+
   <meta name="twitter:url" content="" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -61,7 +61,7 @@
     <!-- Hero Section -->
     <header class="recipe-hero-section">
       <div class="recipe-hero-image-wrapper">
-        <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'fondant_au_chocolat.jpg') : 'fondant_au_chocolat.jpg') ?>" alt="Fondant au chocolat" class="recipe-hero-image">
+        <img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Fondant au chocolat" class="recipe-hero-image">
         <div class="recipe-hero-overlay"></div>
       </div>
       <div class="recipe-hero-content">
@@ -70,12 +70,7 @@
             <div class="col-md-8 col-md-offset-2 text-center">
               <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp">Fondant au chocolat</h1>
               <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Dessert fondant et gourmand, croustillant à l'extérieur et fondant à l'intérieur</p>
-              <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
-                <span class="recipe-meta-item"><i class="icon-clock"></i> 15 min préparation</span>
-                <span class="recipe-meta-item"><i class="icon-clock"></i> 12 min cuisson</span>
-                <span class="recipe-meta-item"><i class="icon-users"></i> 4 personnes</span>
-                <span class="recipe-meta-item"><i class="icon-bar-chart"></i> Facile</span>
-              </div>
+
             </div>
           </div>
         </div>
@@ -91,31 +86,25 @@
             <div class="recipe-sidebar animate-box" data-animate-effect="fadeInLeft">
               <div class="recipe-sidebar-card">
                 <h2 class="recipe-sidebar-title">
-                  <i class="icon-list"></i> Ingrédients
+                  Ingrédients
                 </h2>
                 <ul class="recipe-ingredients-list-modern">
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🍫</span>
                     <span class="ingredient-text">200g de chocolat noir pâtissier</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🧈</span>
                     <span class="ingredient-text">100g de beurre</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🥚</span>
                     <span class="ingredient-text">3 œufs</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🍬</span>
                     <span class="ingredient-text">80g de sucre</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🌾</span>
                     <span class="ingredient-text">50g de farine</span>
                   </li>
                   <li class="recipe-ingredient-modern">
-                    <span class="ingredient-icon">🧂</span>
                     <span class="ingredient-text">Une pincée de sel</span>
                   </li>
                 </ul>
@@ -133,7 +122,7 @@
         <div class="row mt-5">
           <div class="col-md-6 col-sm-12 animate-box" data-animate-effect="fadeInLeft">
             <div class="recipe-image-card">
-              <img src="<?php CHEMIN ?>images/recipes/brownie-chocolat-noix-coco.jpg" alt="Préparation du fondant au chocolat" class="recipe-image-modern">
+              <img src="<?php CHEMIN ?>images/recipes/recette_steps.jpg" alt="Préparation du fondant au chocolat" class="recipe-image-modern">
             </div>
           </div>
           <div class="col-md-6 col-sm-12">
@@ -188,7 +177,7 @@
           <div class="col-md-8 col-md-offset-2">
             <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
               <h3 class="recipe-comments-title-modern text-center">
-                <i class="icon-bubble"></i> Laissez un commentaire
+                Laissez un commentaire
               </h3>
 
               <?php if (isset($erreur) && !empty($erreur)): ?>
@@ -269,37 +258,41 @@
             <!-- Liste des commentaires -->
             <div class="recipe-comments-list-modern" style="margin-top: 3rem;">
               <h3 class="recipe-comments-title-modern text-center" style="margin-bottom: 2rem;">
-                <i class="icon-bubble"></i> Commentaires des lecteurs
+                Commentaires des lecteurs
               </h3>
               <?php if (isset($readComment) && !empty($readComment)): ?>
                 <?php foreach ($readComment as $comment): ?>
-                  <div class="recipe-comment-item-modern animate-box" data-animate-effect="fadeInUp">
-                    <div class="comment-avatar-modern">
+                  <div class="comment-card animate-box" data-animate-effect="fadeInUp">
+
+                    <!-- Avatar -->
+                    <div class="comment-avatar">
                       <?= strtoupper(substr($comment['user']->getName(), 0, 1)) ?>
                     </div>
-                    <div class="comment-content-wrapper-modern">
-                      <div class="comment-header-modern">
-                        <h5 class="comment-author-modern"><?= htmlspecialchars($comment['user']->getName()); ?></h5>
-                        <div class="comment-rating-modern">
+
+                    <!-- Contenu -->
+                    <div class="comment-body">
+                      <div class="comment-header">
+                        <h5 class="comment-author"><?= htmlspecialchars($comment['user']->getName()); ?></h5>
+                        <div class="comment-rating">
                           <?php
                           $rating = (int)($comment['comment']->getRating() ?? 0);
                           for ($i = 0; $i < $rating; $i++):
                           ?>
-                            <span style="color: var(--gold); font-size: 1.2rem;">★</span>
-                          <?php
-                          endfor;
-                          ?>
+                            <span class="star">★</span>
+                          <?php endfor; ?>
                         </div>
                       </div>
-                      <p class="comment-text-modern"><?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?></p>
+
+                      <p class="comment-text"><?= nl2br(htmlspecialchars($comment['comment']->getContent())); ?></p>
                     </div>
                   </div>
                 <?php endforeach; ?>
               <?php else: ?>
-                <div class="recipe-no-comments-modern text-center">
+                <div class="no-comments text-center">
                   <p>Aucun commentaire pour le moment. Soyez le premier à partager votre avis !</p>
                 </div>
               <?php endif; ?>
+
             </div>
           </div>
         </div>

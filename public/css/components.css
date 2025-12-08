@@ -689,7 +689,7 @@
 }
 
 .choco-card h3 {
-  font-size: 18px;
+  font-size: 2rem;
   margin: var(--spacing-sm) 0 var(--spacing-xs);
 }
 
@@ -700,8 +700,9 @@
   font-size: 18px;
 }
 
+
 .choco-card p {
-  font-size: 14px;
+  font-size: 1.8rem;
   opacity: 0.9;
 }
 
@@ -802,7 +803,7 @@
 
 .modern-input:valid,
 .modern-textarea:valid {
-  border-color: #4caf50;
+  border-color: gold;
 }
 
 .modern-label {
@@ -998,15 +999,13 @@
   left: 0;
   right: 0;
 
-
   background-image: url('../images/backgrounds/fond-table-chocolats.jpg');
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover; 
-
+  background-size: cover;
 
   background-color: rgba(0, 0, 0, 0.767);
-  background-blend-mode: darken; 
+  background-blend-mode: darken;
 }
 
 @media screen and (max-width: 768px) {
@@ -1425,7 +1424,7 @@
 }
 
 .fh5co-heading h2 {
-  color: #fff;
+  color: gold;
   font-family: 'Satisfy', cursive;
 }
 
@@ -1687,15 +1686,18 @@
 }
 
 .comment-card {
+  height: 250px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  margin: 15px 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 220px;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
 }
 
 .comment-card-mobile {
@@ -1713,7 +1715,7 @@
 
 .comment-card:hover,
 .comment-card-mobile:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -1736,8 +1738,7 @@
 .comment-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  align-items: center;
 }
 
 .comment-text-section {
@@ -1746,7 +1747,9 @@
 }
 
 .comment-text {
-  color: #2c1b18;
+  margin-top: 8px;
+  line-height: 1.5;
+  color: #333;
 }
 
 .comment-photo {
@@ -1796,20 +1799,21 @@
   font-style: italic;
   flex-grow: 1;
   overflow: hidden;
+  word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
+.comment-rating .star {
+  color: var(--gold, #f5c518);
+  font-size: 1.2rem;
+}
+
 .comment-author {
-  color: #d6b98c;
-  font-size: 13px;
+  font-size: 1.1rem;
   font-weight: 600;
-  text-align: right;
-  font-family: 'Cormorant Garamond', serif;
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
+  margin: 0;
 }
 
 #commentsCarousel .carousel-control {
@@ -1905,6 +1909,7 @@
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   font-family: 'Cormorant Garamond', Georgia, serif;
   line-height: 1.6;
+  text-align: center;
   box-shadow: 0 2px 10px rgba(220, 53, 69, 0.2);
 }
 
@@ -1926,6 +1931,7 @@
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   font-family: 'Cormorant Garamond', Georgia, serif;
   line-height: 1.6;
+  text-align: center;
   box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
 }
 

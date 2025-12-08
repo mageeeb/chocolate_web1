@@ -11,12 +11,10 @@
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="Cookies Maison au Chocolat - Cokolada" />
-    <meta property="og:image" content="<?php CHEMIN ?>images/recipes/cookies_3.jpg" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Cokolada" />
     <meta property="og:description" content="Découvrez notre recette de cookies maison au chocolat" />
     <meta name="twitter:title" content="Cookies Maison au Chocolat - Cokolada" />
-    <meta name="twitter:image" content="<?php CHEMIN ?>images/recipes/cookies_3.jpg" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="<?php CHEMIN ?>images/logos/noisette.png" type="image/png">
@@ -51,33 +49,26 @@
 <body class="recipe-page">
     <div id="page">
         <?php require_once PATH . "/src/View/inc/navigation.php"; ?>
-        
+
         <main role="main">
             <!-- Hero Section -->
             <header class="recipe-hero-section">
                 <div class="recipe-hero-image-wrapper">
-                    <img src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars(isset($recette) && $recette ? ($recette->getImageUrl() ?? 'cookies_3.jpg') : 'cookies_3.jpg') ?>" alt="Cookies maison au chocolat" class="recipe-hero-image">
+                    <img src="<?php CHEMIN ?>images/recipes/<?= $recette->getImageUrl() ?>" alt="Cookies maison au chocolat" class="recipe-hero-image">
                     <div class="recipe-hero-overlay"></div>
                 </div>
                 <div class="recipe-hero-content">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center">
-                                <span class="badge-modern-recipe animate-box" data-animate-effect="fadeInUp">
-                                    <i class="icon-heart"></i> Signature chocolat
-                                </span>
+
                                 <h1 class="recipe-hero-title animate-box" data-animate-effect="fadeInUp" data-animate-delay="200">Cookies Maison au Chocolat</h1>
                                 <p class="recipe-hero-subtitle animate-box" data-animate-effect="fadeInUp" data-animate-delay="400">
                                     Une pâte généreuse, un cœur fondant et des éclats de chocolat noir pour un cookie
                                     parfaitement doré. Cette version maison mise sur l'équilibre entre croustillant extérieur et
                                     moelleux intérieur.
                                 </p>
-                                <div class="recipe-hero-meta animate-box" data-animate-effect="fadeInUp" data-animate-delay="600">
-                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 20 min préparation</span>
-                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 12 min cuisson</span>
-                                    <span class="recipe-meta-item"><i class="icon-clock"></i> 15 min repos</span>
-                                    <span class="recipe-meta-item"><i class="icon-users"></i> 24 portions</span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -92,75 +83,62 @@
                         <div class="col-12">
                             <div class="recipe-content-card animate-box" data-animate-effect="fadeInUp">
                                 <h2 class="recipe-content-title">
-                                    <i class="icon-list"></i> Ingrédients essentiels
+                                    Ingrédients essentiels
                                 </h2>
-                                
+
                                 <div class="ingredients-grid-modern">
                                     <div class="ingredient-column-modern">
-                                        <h3 class="ingredient-column-title">🥖 Base pâte</h3>
+                                        <h3 class="ingredient-column-title">Base pâte</h3>
                                         <ul class="recipe-ingredients-list-modern">
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🧈</span>
                                                 <span class="ingredient-text"><span class="qty">200 g</span> Beurre mou</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🍬</span>
                                                 <span class="ingredient-text"><span class="qty">150 g</span> Sucre blanc</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🍬</span>
                                                 <span class="ingredient-text"><span class="qty">100 g</span> Sucre roux</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🥚</span>
                                                 <span class="ingredient-text"><span class="qty">2</span> Œufs</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🌿</span>
                                                 <span class="ingredient-text"><span class="qty">2 c.à.c</span> Extrait de vanille</span>
                                             </li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="ingredient-column-modern">
-                                        <h3 class="ingredient-column-title">🌾 Poudres</h3>
+                                        <h3 class="ingredient-column-title">Poudres</h3>
                                         <ul class="recipe-ingredients-list-modern">
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🌾</span>
                                                 <span class="ingredient-text"><span class="qty">280 g</span> Farine</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">⚗️</span>
                                                 <span class="ingredient-text"><span class="qty">1 c.à.c</span> Bicarbonate</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🧂</span>
                                                 <span class="ingredient-text"><span class="qty">1 pincée</span> Sel</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🍫</span>
                                                 <span class="ingredient-text"><span class="qty">300 g</span> Pépites chocolat noir</span>
                                             </li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="ingredient-column-modern">
-                                        <h3 class="ingredient-column-title">✨ Finitions</h3>
+                                        <h3 class="ingredient-column-title">Finitions</h3>
                                         <ul class="recipe-ingredients-list-modern">
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🥜</span>
                                                 <span class="ingredient-text"><span class="qty">50 g</span> Noisettes torréfiées</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">☕</span>
                                                 <span class="ingredient-text"><span class="qty">1 c.à.s</span> Cacao non sucré</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🌿</span>
                                                 <span class="ingredient-text"><span class="qty">1</span> Sachet sucre vanillé</span>
                                             </li>
                                             <li class="recipe-ingredient-modern">
-                                                <span class="ingredient-icon">🧂</span>
                                                 <span class="ingredient-text"><span class="qty">QS</span> Fleur de sel</span>
                                             </li>
                                         </ul>
@@ -177,7 +155,7 @@
                                 <h2 class="recipe-content-title">
                                     <i class="icon-settings"></i> Étapes clés
                                 </h2>
-                                
+
                                 <div class="recipe-steps-modern">
                                     <div class="recipe-step-modern">
                                         <div class="step-number-modern">1</div>
@@ -216,21 +194,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Timeline des astuces -->
-                                <div class="timeline-modern">
-                                    <div class="timeline-card-modern">
-                                        <strong>+ Fleur de sel</strong>
-                                        <p>Une pincée après cuisson relève les notes chocolatées.</p>
-                                    </div>
-                                    <div class="timeline-card-modern">
-                                        <strong>Repos pâte</strong>
-                                        <p>Facultatif mais idéal pour un cookie encore plus gourmand.</p>
-                                    </div>
-                                    <div class="timeline-card-modern">
-                                        <strong>Astuce four</strong>
-                                        <p>Cuire sur deux plaques superposées évite que le dessous ne brûle.</p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -287,9 +251,9 @@
                             <div class="comment-form-wrapper-modern mt-4">
                                 <div class="recipe-comments-card-modern animate-box" data-animate-effect="fadeInUp">
                                     <h3 class="recipe-comments-title-modern text-center">
-                                        <i class="icon-bubble"></i> Laissez votre avis
+                                        Laissez votre avis
                                     </h3>
-                                    
+
                                     <?php if (isset($erreur) && !empty($erreur)): ?>
                                         <div class="message-error" style="color: #ff6b6b; background-color: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ff6b6b;">
                                             <?= $erreur; ?>
@@ -301,13 +265,13 @@
                                             <?= $success; ?>
                                         </div>
                                     <?php endif; ?>
-                                    
+
                                     <?php if (!isset($_SESSION['is_verified']) || $_SESSION['is_verified'] !== 1): ?>
                                         <div class="message-info" style="color: #ffa726; background-color: rgba(255, 167, 38, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #ffa726; text-align: center;">
                                             <p><i class="icon-info"></i> Vous devez être connecté pour poster un commentaire. <a href="?pg=inscription" style="color: #ffa726; text-decoration: underline;">Inscrivez-vous</a> ou <a href="?pg=connexion" style="color: #ffa726; text-decoration: underline;">connectez-vous</a>.</p>
                                         </div>
                                     <?php endif; ?>
-                                    
+
                                     <form class="recipe-comment-form-modern" method="post">
                                         <style>
                                             .star-rating {
@@ -397,7 +361,7 @@
     <script src="<?php CHEMIN ?>js/animations/page-animations.js"></script>
     <!-- Recipes -->
     <script src="<?php CHEMIN ?>js/recipes/recipe-checkbox.js"></script>
-    
+
     <script>
         // Toggle des commentaires
         document.getElementById('toggleReviews')?.addEventListener('click', function() {

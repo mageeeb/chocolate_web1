@@ -115,7 +115,7 @@
 								<div class="animate-box mainHome__blog__item" style="border:  solid gold; padding: 1rem; border-radius: 10px;">
 									<a href="?pg=recette&slug=<?= htmlspecialchars($recette['slug'] ?? '') ?>"
 										class="mainHome__blog__item__image"
-										style="background-image: url('<?php CHEMIN ?>images/recipes/<?= htmlspecialchars($recette['image_url'] ?? 'chocolate-ice-cream.jpg') ?>');"></a>
+										style="background-image: url('<?php CHEMIN ?>images/recipes/<?= $recette['image_url']  ?>');"></a>
 
 
 
@@ -194,25 +194,32 @@
 			</div>
 		</div>
 
-
+		<div class="row animate-box">
+			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+				<h2 class="mainHome__blog__title">Les recettes les plus rapide</h2>
+				<p class="mainHome__blog__description">
+					Craquez pour nos recettes chocolatées ultra‑rapides ! Elles font fondre de plaisir tous nos visiteurs. En quelques minutes seulement, préparez des douceurs irrésistibles, parfaites pour les gourmands pressés. Pas besoin d’attendre, laissez-vous séduire et régalez-vous dès aujourd’hui !
+				</p>
+			</div>
+		</div>
 
 		<div id="fh5co-featured-menu" class="fh5co-section mainHome__menu">
 			<div class="container">
 				<div class="row">
 
 
-					<?php foreach ($top3 as $recette): ?>
+					<?php foreach ($bestPrepTime as $recette): ?>
 						<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box mainHome__menu__item">
 							<div class="fh5co-item" data-tilt data-tilt-max="25" data-tilt-speed="400">
 								<div class="choco-card animate-fade-in mainHome__menu__item__card" style="border: solid gold; padding: 1rem; border-radius: 10px;">
 									<div class="choco-img mainHome__menu__item__card__image-wrapper">
-										<img style="border: none; " src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars($recette['image_url']) ?>"
+										<img style="border: none; " src="<?php CHEMIN ?>images/recipes/<?= htmlspecialchars($recette->getImageUrl()) ?>"
 											class="img-responsive mainHome__menu__item__card__image">
 									</div>
 									<div class="choco-content mainHome__menu__item__card__content">
-										<h3 class="mainHome__menu__item__card__title"><?= htmlspecialchars($recette['title']) ?></h3>
-										<span class="fh5co-price mainHome__menu__item__card__price"><?= htmlspecialchars($recette['prep_time']) ?></span>
-										<p class="mainHome__menu__item__card__description"><?= htmlspecialchars($recette['description']) ?></p>
+										<h3 class="mainHome__menu__item__card__title"><?= htmlspecialchars($recette->getTitle()) ?></h3>
+										<span class="fh5co-price mainHome__menu__item__card__price"><?= htmlspecialchars($recette->getPrepTime()) ?></span>
+										<p class="mainHome__menu__item__card__description"><?= htmlspecialchars($recette->getDescription()) ?></p>
 									</div>
 								</div>
 							</div>
@@ -274,9 +281,7 @@
 																	for ($i = $stars; $i < 5; $i++) echo '<span style="color: gold;">☆</span>';
 																	?>
 																</div>
-																<div>
-																	- <?= htmlspecialchars($user->getName()) ?>
-																</div>
+
 															</div>
 														</div>
 													</div>
@@ -327,7 +332,7 @@
 																</span>
 																<h4><?= htmlspecialchars($recipe->getTitle()) ?></h4>
 															</div>
-															<div class="comment-photo"><!-- photo ronde --></div>
+															<div class="comment-photo"></div>
 														</div>
 														<p>"<?= htmlspecialchars($comment->getContent()) ?>"</p>
 														<div class="comment-author">
