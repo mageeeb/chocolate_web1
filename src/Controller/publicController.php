@@ -239,7 +239,7 @@ if (isset($_GET['pg'])) {
             }
             require_once PATH . "/src/View/contact.php";
             break;
-        case 'construction':
+        case 'construct':
             require_once PATH . "/src/View/construction.php";
             break;
         case 'recette':
