@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 08 déc. 2025 à 01:35
+-- Généré le : mar. 09 déc. 2025 à 13:04
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -77,9 +77,9 @@ INSERT INTO `comments` (`id`, `content`, `created_at`, `is_accepted`, `recipe_id
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `message` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `message` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(130) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image_url` varchar(155) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(155) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `prep_time` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '(DC2Type:datetime_immutable)',
@@ -138,8 +138,8 @@ CREATE TABLE IF NOT EXISTS `recipe` (
 INSERT INTO `recipe` (`id`, `title`, `slug`, `image_url`, `description`, `prep_time`, `created_at`, `user_id`) VALUES
 (1, 'Mousse au chocolat', 'mousse-au-chocolat', 'mousse_au_chocolat.jpg', 'Délicieuse mousse légère et aérienne au chocolat.', '20 min', '2025-12-04 16:03:55', NULL),
 (2, 'Fondant au chocolat', 'fondant-au-chocolat', 'fondant_au_chocolat.jpg', 'Fondant moelleux au cœur coulant de chocolat.', '30 min', '2025-12-04 16:03:55', NULL),
-(3, 'Tiramissu au chocolat', 'tiramissu-au-chocolat', 'tiramisu-chocolat-transparent.png', 'Version chocolatée du célèbre dessert italien.', '25 min', '2025-12-04 16:03:55', NULL),
-(4, 'Glace au chocolat intense', 'glace-au-chocolat-intense', 'chocolate-ice-cream.jpg', 'Glace crémeuse au goût puissant de chocolat.', '40 min', '2025-12-04 16:03:55', NULL),
+(3, 'Tiramissu au chocolat', 'tiramissu-au-chocolat', 'tiramisu-chocolat.jpg', 'Version chocolatée du célèbre dessert italien.', '25 min', '2025-12-04 16:03:55', NULL),
+(4, 'Glace au chocolat intense', 'glace-au-chocolat-intense', 'glace-au-chocolat.jpg', 'Glace crémeuse au goût puissant de chocolat.', '40 min', '2025-12-04 16:03:55', NULL),
 (5, 'Cookie maison au chocolat', 'cookie-maison-au-chocolat', 'cookies_4.jpg', 'Cookies croustillants avec pépites de chocolat noir.', '15 min', '2025-12-04 16:03:55', NULL),
 (6, 'Cookie au chocolat blanc', 'cookie-au-chocolat-blanc', 'cookies_3.jpg', 'Cookies gourmands aux morceaux de chocolat blanc.', '15 min', '2025-12-04 16:03:55', NULL);
 
